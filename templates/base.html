@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +20,7 @@
             <div class="d-flex flex-wrap align-items-center justify-content-around">
                 <nav class="navbar navbar-expand-xl navbar-dark bg-dark" aria-label="Sixth navbar example">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="#">Cocktail Nerd</a>
+                        <a class="navbar-brand" href="{% url 'home' %}">Cocktail Nerd</a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarsExample06" aria-controls="navbarsExample06" aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -29,7 +30,7 @@
                         <div class="collapse navbar-collapse" id="navbarsExample06">
                             <ul class="navbar-nav me-auto mb-2 mb-xl-0">
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Cocktails</a>
@@ -60,11 +61,13 @@
             </div>
         </div>
     </header>
+    {% block content %}
+    <!-- Content Goes here -->
+    {% endblock content %}
 
 
 
 
-    <h1>Cocktail Nerd</h1>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- JavaScript Bundle with Popper -->
