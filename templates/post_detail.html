@@ -13,7 +13,7 @@
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
+                <img src="" width="100%">
                 {% else %}
                 <img src=" {{ post.featured_image.url }}" width="100%">
                 {% endif %}
@@ -30,6 +30,14 @@
                 <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text ">
                     {{ post.content | safe }}
+                </p>
+                <h2>Ingredients</h2>
+                <p class="card-text ">
+                    {{ post.ingredients | safe }}
+                </p>
+                <h2>Steps</h2>
+                <p class="card-text ">
+                    {{ post.steps | safe }}
                 </p>
                 <div class="row">
 
