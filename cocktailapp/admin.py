@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment
+from .models import Post, Comment, Category
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -12,6 +12,14 @@ class postAdmin(SummernoteModelAdmin):
     search_fields = ['title', 'content']
     summernote_fields = ('content', 'ingredients', 'steps')
 
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    """
+    Add fields for Category in admin panel
+    """
+    list_display = ['title']
+    search_fields = ['title']
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):

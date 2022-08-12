@@ -5,6 +5,7 @@ from .models import Post, Comment
 from .forms import CommentForm
 
 
+
 class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
@@ -65,6 +66,12 @@ class PostDetail(View):
             },
         )
 
+def categories(request):
+    """
+    Renders the categories page
+    """
+    return render(request, 'categories.html')
+
 
 class PostLike(View):
     
@@ -76,3 +83,4 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
