@@ -1,9 +1,38 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import(
+    render, get_object_or_404, reverse)
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from .models import Post, Comment
+from allauth.account.views import LoginView, SignupView 
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from .forms import CommentForm
+from .models import *
 
+from allauth.account.views import SignupView, LogoutView, LoginView
+
+
+class AccountSignupView(SignupView):
+    # Signup View extended
+    # change template's name and path
+    template_name = "account/signup.html"
+
+account_signup_view = AccountSignupView.as_view()
+
+
+class AccountLoginView(LoginView):
+    # Login View extended
+    # change template's name and path
+    template_name = "account/login.html"
+
+account_login_view = AccountLoginView.as_view()
+
+
+class AccountLogoutView(LogoutView):
+    # Logout View extended
+    # change template's name and path
+    template_name = "account/logout.html"
+
+account_logout_view = AccountLogoutView.as_view()
 
 
 class PostList(generic.ListView):
@@ -71,6 +100,16 @@ def categories(request):
     Renders the categories page
     """
     return render(request, 'categories.html')
+
+
+def categories_view(request, cats):
+    """
+    Renders the posts filtered by categories
+    """
+    categories_posts = Post.objects.filter(
+        categories__title__contains=cats, status=1)
+    return render(request, 'categories_posts.html', {
+        'cats': cats.title(), 'categories_posts': categories_posts})
 
 
 class PostLike(View):

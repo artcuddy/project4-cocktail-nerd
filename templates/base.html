@@ -39,10 +39,16 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
                                         aria-expanded="false">By Alcohol</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Vodka</a></li>
-                                        <li><a class="dropdown-item" href="#">Tequila</a></li>
-                                        <li><a class="dropdown-item" href="#">Whiskey</a></li>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="{% url 'categories' %}"
+                                                aria-label="Go to the categories page">Categories</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        {% for category in categories %}
+                                        <li><a class="dropdown-item" href="{% url 'categories_posts' category.title %}"
+                                                aria-label="Go to the each category page">{{ category.title }}</a></li>
+                                        {% endfor%}
                                     </ul>
                                 </li>
                             </ul>
@@ -56,10 +62,17 @@
 
 
                 <div class="text-end">
+                    {% if not user.id %}
                     <a href="{% url 'login' %}"><button type="button"
                             class=" btn btn-outline-light me-2">Login</button></a>
-                    <button type="button" class="btn btn-warning">Sign-up</button>
+                    <a href="{% url 'signup' %}"><button type="button" class="btn btn-warning">Sign-up</button></a>
+                    {% else %}
+                    <a href="{% url 'logout' %}"><button type="button" class="btn btn-warning">Logout</button></a>
+                    {% endif %}
                 </div>
+
+
+
             </div>
         </div>
     </header>
