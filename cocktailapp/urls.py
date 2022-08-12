@@ -12,7 +12,9 @@ urlpatterns = [
     path("account/login/", view=account_login_view, name='login'),
     path("account/signup/", view=account_signup_view, name='signup'),
     path("account/logout/", view=account_logout_view, name='logout'),
-    path('', views.PostList.as_view(), name='home'),
+    path('all_cocktails/', views.PostList.as_view(), name='all_cocktails'),
+    path('all_bar_reviews/', views.BarList.as_view(), name='all_bar_reviews'),
+    path('', views.home, name='home'),
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
     path('like/<slug:slug>', views.PostLike.as_view(), name='post_like'),
 ]

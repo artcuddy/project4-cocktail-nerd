@@ -38,7 +38,7 @@ account_logout_view = AccountLogoutView.as_view()
 class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
-    template_name = "home.html"
+    template_name = "all_cocktails.html"
     paginate_by = 6
 
 
@@ -94,6 +94,20 @@ class PostDetail(View):
                 "liked": liked
             },
         )
+
+class BarList(generic.ListView):
+    model = Post
+    queryset = Post.objects.filter(status=1).order_by("-created_on")
+    template_name = "all_bar_reviews.html"
+    paginate_by = 6
+
+
+def home(request):
+    """
+    Renders the home page
+    """
+    return render(request, 'home.html')
+
 
 def categories(request):
     """
