@@ -24,3 +24,32 @@
         margin-bottom: 16px;
     }
 }
+
+.nerd-page-subheading {
+    font-weight: 200;
+}
+
+.nerd-featured-container {
+    max-width: 1200px;
+}
+
+a {
+    color: #ffc107;
+}
+
+a:hover {
+    color: #000;
+}
+
+.card-cover {
+    background-size: cover;
+    box-shadow: inset 0 0 0 2000px #0000003b !important;
+}
+
+.card-text a {
+    color: none;
+}
+
+.nerd-card-date {
+    margin-right: 8px;
+}

@@ -3,8 +3,6 @@ from django.shortcuts import(
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from allauth.account.views import LoginView, SignupView 
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from .forms import CommentForm
 from .models import *
 
@@ -99,6 +97,12 @@ class BarList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "all_bar_reviews.html"
+    paginate_by = 6
+
+class FeaturedList(generic.ListView):
+    model = Post
+    queryset = Post.objects.filter(status=1).order_by("-created_on").filter(featured=1)
+    template_name = "home.html"
     paginate_by = 6
 
 
