@@ -1,16 +1,26 @@
-.form-control-dark {
-    border-color: var(--bs-gray);
+.nerd-logo {
+    margin-top: -8px;
+    width: 180px;
 }
 
-.form-control-dark:focus {
-    border-color: #fff;
-    box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+.nerd-logo-big {
+    margin-top: -36px;
+    width: 400px;
 }
 
-.text-small {
-    font-size: 85%;
+/* Mobile styling */
+@media (max-width: 532px) {
+    .nerd-logo-big {
+        margin-top: 16px;
+        width: 250px;
+        margin-bottom: 16px;
+    }
 }
 
-.dropdown-toggle {
-    outline: 0;
+@media (min-width:532px) and (max-width: 703px) {
+    .nerd-logo-big {
+        margin-top: 16px;
+        width: 250px;
+        margin-bottom: 16px;
+    }
 }

@@ -6,7 +6,7 @@
     <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
-            <div class="row">
+            <div class="row" data-masonry='{"percentPosition": true }'>
                 {% for post in post_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
@@ -16,7 +16,8 @@
                                 <img class="card-img-top"
                                     src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
                                 {% else %}
-                                <img class="card-img-top" src=" {{ post.featured_image.url }}">
+                                <a href="{% url 'post_detail' post.slug %}" class="image-link">
+                                    <img class="card-img-top" src=" {{ post.featured_image.url }}"></a>
                                 {% endif %}
                                 <div class="image-flash">
                                     <p class="author">Author: {{ post.author }}</p>
