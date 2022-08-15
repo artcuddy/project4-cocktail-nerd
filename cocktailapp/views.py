@@ -1,18 +1,17 @@
-from django.shortcuts import(
-    render, get_object_or_404, reverse)
+from django.shortcuts import (
+     render, get_object_or_404, reverse)
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from allauth.account.views import LoginView, SignupView 
 from .forms import CommentForm
-from .models import *
-
-from allauth.account.views import SignupView, LogoutView, LoginView
+from .models import Post
+from allauth.account.views import LoginView, SignupView, LogoutView
 
 
 class AccountSignupView(SignupView):
     # Signup View extended
     # change template's name and path
     template_name = "account/signup.html"
+
 
 account_signup_view = AccountSignupView.as_view()
 
@@ -22,6 +21,7 @@ class AccountLoginView(LoginView):
     # change template's name and path
     template_name = "account/login.html"
 
+
 account_login_view = AccountLoginView.as_view()
 
 
@@ -30,12 +30,13 @@ class AccountLogoutView(LogoutView):
     # change template's name and path
     template_name = "account/logout.html"
 
+
 account_logout_view = AccountLogoutView.as_view()
 
 
 class PostList(generic.ListView):
     model = Post
-    queryset = Post.objects.filter(status=1).order_by("-created_on")
+    queryset = Post.objects.filter(status=1).order_by("-created_on").exclude(categories=6)
     template_name = "all_cocktails.html"
     paginate_by = 6
 
@@ -95,7 +96,7 @@ class PostDetail(View):
 
 class BarList(generic.ListView):
     model = Post
-    queryset = Post.objects.filter(status=1).order_by("-created_on")
+    queryset = Post.objects.filter(status=1).order_by("-created_on").filter(categories=6)
     template_name = "all_bar_reviews.html"
     paginate_by = 6
 
@@ -104,6 +105,7 @@ class FeaturedList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by("-created_on").filter(featured=1)
     template_name = "home.html"
     paginate_by = 6
+
 
 
 def home(request):
