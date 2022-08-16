@@ -1,3 +1,5 @@
+/* Logo Styling */
+
 .nerd-logo {
     margin-top: -8px;
     width: 180px;
@@ -6,6 +8,17 @@
 .nerd-logo-big {
     margin-top: -36px;
     width: 400px;
+}
+
+/* Navbar Styling */
+.nerd-search {
+    margin-left: 32px;
+}
+
+@media (max-width: 703px) {
+    .nerd-search {
+        margin-left: 0;
+    }
 }
 
 /* Mobile styling */
@@ -25,6 +38,8 @@
     }
 }
 
+/* Subheading Styling */
+
 .nerd-page-subheading {
     font-weight: 200;
 }
@@ -33,23 +48,32 @@
     max-width: 1200px;
 }
 
+
+/* Card Styling Bootstrap */
+
 a {
-    color: #ffc107;
+    text-decoration: none;
 }
 
 a:hover {
-    color: #000;
+    text-decoration: none;
 }
 
 .card-cover {
+    background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: inset 0 0 0 2000px #0000003b !important;
+    box-shadow: inset 0 0 0 2000px #00000054 !important;
 }
 
-.card-text a {
-    color: none;
+.card-cover:hover {
+    opacity: 0.8;
 }
 
-.nerd-card-date {
-    margin-right: 8px;
+/* Hero Background */
+
+.nerd-hero {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    box-shadow: inset 0 0 0 2000px #000000ad !important;
 }

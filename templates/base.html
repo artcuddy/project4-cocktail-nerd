@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel='icon' href='/static/media/favicon.png' type='image/x-icon' sizes="16x16" />
     <title>Cocktail Nerd</title>
 </head>
 
@@ -21,7 +22,6 @@
             <div class="d-flex flex-wrap align-items-center justify-content-around">
                 <nav class="navbar navbar-expand-xl navbar-dark bg-dark" aria-label="Cocktail Nerd Navbar">
                     <div class="container-fluid">
-                        <!-- <a class="navbar-brand" href="{% url 'home' %}">Cocktail Nerd</a> -->
                         <a class="navbar-brand" href="{% url 'home' %}"><img
                                 src="/static/media/cocktail-nerd-logo-white.webp" alt="Cocktail Nerd Logo"
                                 class="nerd-logo"></a>
@@ -56,13 +56,12 @@
                                 </li>
                             </ul>
                             <form role="search">
-                                <input type="search" class="form-control form-control-dark text-bg-dark"
-                                    placeholder="Search..." aria-label="Search">
+                                <input type="search" class="nerd-search form-control form-control-dark
+                                    text-bg-dark" placeholder="Search..." aria-label="Search">
                             </form>
                         </div>
                     </div>
                 </nav>
-
 
                 <div class="text-end">
                     {% if not user.id %}
@@ -73,18 +72,12 @@
                     <a href="{% url 'logout' %}"><button type="button" class="btn btn-warning">Logout</button></a>
                     {% endif %}
                 </div>
-
-
-
             </div>
         </div>
     </header>
     {% block content %}
     <!-- Content Goes here -->
     {% endblock content %}
-
-
-
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
