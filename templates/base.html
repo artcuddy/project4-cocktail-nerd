@@ -13,14 +13,14 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel='icon' href='/static/media/favicon.png' type='image/x-icon' sizes="16x16" />
-    <title>Cocktail Nerd</title>
+    <title>{% block title %}{% endblock %}</title>
 </head>
 
 <body>
     <header class="p-3 text-bg-dark">
         <div class="container-fluid">
             <div class="d-flex flex-wrap align-items-center justify-content-around">
-                <nav class="navbar navbar-expand-xl navbar-dark bg-dark" aria-label="Cocktail Nerd Navbar">
+                <nav class="nerd-navbar navbar navbar-expand-xl navbar-dark bg-dark" aria-label="Cocktail Nerd Navbar">
                     <div class="container-fluid">
                         <a class="navbar-brand" href="{% url 'home' %}"><img
                                 src="/static/media/cocktail-nerd-logo-white.webp" alt="Cocktail Nerd Logo"
@@ -63,7 +63,7 @@
                     </div>
                 </nav>
 
-                <div class="text-end">
+                <div class="nerd-login-buttons-container text-end">
                     {% if not user.id %}
                     <a href="{% url 'login' %}"><button type="button"
                             class=" btn btn-outline-light me-2">Login</button></a>

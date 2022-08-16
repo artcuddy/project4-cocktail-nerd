@@ -19,6 +19,21 @@
     .nerd-search {
         margin-left: 0;
     }
+
+    .nerd-navbar {
+        width: 100%;
+    }
+
+    .nerd-login-buttons-container {
+        margin-top: 1em;
+    }
+}
+
+@media (min-width: 704px) and (max-width: 1200px) {
+
+    .nerd-navbar {
+        width: 500px;
+    }
 }
 
 /* Mobile styling */

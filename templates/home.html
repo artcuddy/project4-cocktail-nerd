@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block title %}Cocktail Nerd{% endblock %}
 {% load static %}
 
 {% block content %}
@@ -17,9 +18,9 @@
                         bar reviews, and more. Find great new drinks to try plus helpful tips and advice.</p>
                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                         <a href="{% url 'all_cocktails' %}"><button type="button"
-                                class="btn btn-outline-light btn-lg px-4 me-sm-3 fw-bold">Cocktails</button></a>
+                                class="btn btn-outline-warning btn-lg px-4 me-sm-3 fw-bold">Cocktails</button></a>
                         <a href="{% url 'all_bar_reviews' %}"><button type="button"
-                                class="btn btn-outline-light btn-lg px-4">Bar Reviews</button></a>
+                                class="btn btn-outline-warning btn-lg px-4">Bar Reviews</button></a>
                     </div>
                 </div>
             </div>
