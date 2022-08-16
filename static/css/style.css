@@ -109,3 +109,27 @@ a:hover {
     font-weight: 300;
     text-transform: uppercase;
 }
+
+.nerd-comments-headline {
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.nerd-comment-username {
+    font-weight: 600;
+}
+
+.nerd-comment-date {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+
+.nerd-comment-display {
+    border: solid #000 3px;
+}
+
+.nerd-comment-submit {
+    margin-top: 1em;
+}
