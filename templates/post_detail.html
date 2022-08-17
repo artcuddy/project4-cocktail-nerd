@@ -17,7 +17,10 @@
                     <!-- Post meta content-->
                     <div class="text-muted fst-italic mb-2">Posted on {{ post.created_on }} by {{ post.author }}</div>
                     <!-- Post categories-->
-                    <a class="badge bg-dark text-decoration-none link-light" href="#!">{{ post.categories }}</a>
+                    {% for category in post.categories.all %}
+                    <a class="nerd-post-cat-tag badge bg-dark text-decoration-none link-light"
+                        href="#!">{{ category }}</a>
+                    {% endfor %}
                 </header>
                 <!-- Preview image figure-->
                 {% if "placeholder" in post.featured_image.url %}
@@ -69,7 +72,7 @@
                     {% endwith %}
                 </div>
             </div>
-            <div class="row">
+            <div class="row nerd-comment-row">
                 <div class="nerd-comment-display col-md-8 card mb-4 mt-3">
                     <div class="card-body">
                         <h3 class="nerd-comments-headline">Comments:</h3>

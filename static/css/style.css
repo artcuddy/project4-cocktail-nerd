@@ -88,7 +88,7 @@ a:hover {
 .card-cover {
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: inset 0 0 0 2000px #000000ad !important;
+    box-shadow: inset 0 0 0 2000px #0000006e !important;
 }
 
 .card-cover:hover {
@@ -110,6 +110,11 @@ a:hover {
     text-transform: uppercase;
 }
 
+.nerd-post-cat-tag {
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
 .nerd-comments-headline {
     font-weight: 300;
     text-transform: uppercase;
@@ -125,11 +130,21 @@ a:hover {
     font-size: 14px;
 }
 
-
 .nerd-comment-display {
     border: solid #000 3px;
 }
 
+.nerd-comment-row {
+    padding: 1em;
+}
+
 .nerd-comment-submit {
     margin-top: 1em;
+}
+
+/* Side Widgets om single post */
+.nerd-side-widget-header {
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 1.2rem;
 }

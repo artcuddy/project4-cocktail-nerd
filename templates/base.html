@@ -48,6 +48,10 @@
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
+                                        {% for category in post.categories.all %}
+                                        <a class="nerd-post-cat-tag badge bg-dark text-decoration-none link-light"
+                                            href="#!">{{ category }}</a>
+                                        {% endfor %}
                                         {% for category in categories %}
                                         <li><a class="dropdown-item" href="{% url 'categories_posts' category.title %}"
                                                 aria-label="Go to the each category page">{{ category.title }}</a></li>

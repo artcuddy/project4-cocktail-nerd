@@ -18,7 +18,6 @@ account_signup_view = AccountSignupView.as_view()
 
 class AccountLoginView(LoginView):
     # Login View extended
-    # change template's name and path
     template_name = "account/login.html"
 
 
@@ -27,7 +26,6 @@ account_login_view = AccountLoginView.as_view()
 
 class AccountLogoutView(LogoutView):
     # Logout View extended
-    # change template's name and path
     template_name = "account/logout.html"
 
 
@@ -94,18 +92,19 @@ class PostDetail(View):
             },
         )
 
+
 class BarList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on").filter(categories=6)
     template_name = "all_bar_reviews.html"
     paginate_by = 6
 
+
 class FeaturedList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on").filter(featured=1)
     template_name = "home.html"
     paginate_by = 6
-
 
 
 def home(request):
