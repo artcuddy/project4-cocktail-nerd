@@ -1,7 +1,18 @@
 /* Default styling */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 p {
     font-size: 18px;
     line-height: 1.8em;
+}
+
+footer {
+    margin-top: auto;
 }
 
 /* Logo Styling */

@@ -72,50 +72,6 @@
                     {% endwith %}
                 </div>
             </div>
-            <div class="row nerd-comment-row">
-                <div class="nerd-comment-display col-md-8 card mb-4 mt-3">
-                    <div class="card-body">
-                        <h3 class="nerd-comments-headline">Comments:</h3>
-                        <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
-                        {% for comment in comments %}
-                        <div class="comments" style="padding: 10px;">
-                            <p class="nerd-comment-username">
-                                <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
-                                <span class="nerd-comment-date text-muted">
-                                    <!-- The comment's created date goes here -->
-                                    {{ comment.created_on }}
-                                </span> {{ comment.name }} wrote:
-                            </p>
-                            <!-- The body of the comment goes before the | -->
-                            {{ comment.body | linebreaks }}
-                        </div>
-                        <!-- Our for loop ends here -->
-                        {% endfor %}
-                    </div>
-                </div>
-                <div class="text-bg-dark col-md-4 card mb-4  mt-3 ">
-                    <div class="card-body">
-                        <!-- For later -->
-                        {% if commented %}
-                        <div class="alert alert-success" role="alert">
-                            Your comment is awaiting approval
-                        </div>
-                        {% else %}
-                        {% if user.is_authenticated %}
-
-                        <h3 class="nerd-comments-headline">Leave a comment:</h3>
-                        <p>Posting as: {{ user.username }}</p>
-                        <form method="post" style="margin-top: 1.3em;">
-                            {{ comment_form | crispy }}
-                            {% csrf_token %}
-                            <button type="submit"
-                                class="nerd-comment-submit btn btn-outline-warning btn-lg">Submit</button>
-                        </form>
-                        {% endif %}
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
         </div>
 
 
@@ -128,16 +84,21 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <ul class="list-unstyled mb-0">
-                                <li><a href="#!">Web Design</a></li>
+                                {% for category in post.categories.all %}
+                                <li></li><a class="nerd-post-cat-tag badge bg-dark text-decoration-none link-light"
+                                    href="#!">{{ category }}</a></li>
+                                {% endfor %}
+                                <!-- <li><a href="#!">Web Design</a></li>
                                 <li><a href="#!">HTML</a></li>
-                                <li><a href="#!">Freebies</a></li>
+                                <li><a href="#!">Freebies</a></li> -->
                             </ul>
                         </div>
                         <div class="col-sm-6">
                             <ul class="list-unstyled mb-0">
-                                <li><a href="#!">JavaScript</a></li>
-                                <li><a href="#!">CSS</a></li>
-                                <li><a href="#!">Tutorials</a></li>
+                                {% for category in post.categories.all %}
+                                <li></li><a class="nerd-post-cat-tag badge bg-dark text-decoration-none link-light"
+                                    href="#!">{{ category }}</a></li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
@@ -146,9 +107,82 @@
             <!-- Side widget-->
             <div class="card mb-4">
                 <div class="nerd-side-widget-header card-header text-bg-dark">You might like these...</div>
-                <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use,
-                    and
-                    feature the Bootstrap 5 card component!</div>
+                {% for post in post_list %}
+                {% if "placeholder" in post.featured_image.url %}
+                <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
+                    style="background-image: url('static/media/placeholder.webp');">
+                    {% else %}
+                    <a href="{% url 'post_detail' post.slug %}" class="image-link">
+                        <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
+                            style="background-image: url('{{ post.featured_image.url }}');">
+
+                            {% endif %}
+                            <div class="d-flex flex-column p-5 pb-3 text-white text-shadow-1">
+                                <h2 class="nerd-card-title pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ post.title }}</h2>
+                                <ul class="d-flex list-unstyled mt-auto">
+
+                                    <li class="d-flex align-items-center">
+                                        <p class="card-text h6">{{ post.created_on}} <i class="far fa-heart"></i>
+                                            {{ post.number_of_likes }}</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </a>
+                    {% if forloop.counter|divisibleby:3 %}
+
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="row nerd-comment-row">
+        <div class="nerd-comment-display col-md-8 card mb-4 mt-3">
+            <div class="card-body">
+                <h3 class="nerd-comments-headline">Comments:</h3>
+                <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
+                {% for comment in comments %}
+                <div class="comments" style="padding: 10px;">
+                    <p class="nerd-comment-username">
+                        <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
+                        <span class="nerd-comment-date text-muted">
+                            <!-- The comment's created date goes here -->
+                            {{ comment.created_on }}
+                        </span> {{ comment.name }} wrote:
+                    </p>
+                    <!-- The body of the comment goes before the | -->
+                    {{ comment.body | linebreaks }}
+                </div>
+                <!-- Our for loop ends here -->
+                {% endfor %}
+            </div>
+        </div>
+        <div class="text-bg-dark col-md-4 card mb-4  mt-3 ">
+            <div class="card-body">
+                <!-- For later -->
+                {% if commented %}
+                <div class="alert alert-success" role="alert">
+                    Your comment is awaiting approval
+                </div>
+                {% else %}
+                {% if user.is_authenticated %}
+
+                <h3 class="nerd-comments-headline">Leave a comment:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form method="post" style="margin-top: 1.3em;">
+                    {{ comment_form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="nerd-comment-submit btn btn-outline-warning btn-lg">Submit</button>
+                </form>
+                {% else %}
+                <h3 class="nerd-comments-headline">Login to comment:</h3>
+                <a href="{% url 'login' %}"><button type="button"
+                        class=" btn btn-outline-warning me-2">Login</button></a>
+                {% endif %}
+                {% endif %}
             </div>
         </div>
     </div>
