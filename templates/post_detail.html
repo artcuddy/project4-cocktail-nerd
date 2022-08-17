@@ -15,12 +15,14 @@
                     <!-- Post title-->
                     <h1 class="nerd-post-title">{{ post.title }}</h1>
                     <!-- Post meta content-->
-                    <div class="text-muted fst-italic mb-2">Posted on {{ post.created_on }} by {{ post.author }}</div>
+                    <div class="text-muted fst-italic mb-2">Posted on
+                        {{ post.created_on }} by {{ post.author }}</div>
                     <!-- Post categories-->
                     {% for category in post.categories.all %}
                     <a class="nerd-post-cat-tag badge bg-dark text-decoration-none link-light"
                         href="#!">{{ category }}</a>
                     {% endfor %}
+                    <hr>
                 </header>
                 <!-- Preview image figure-->
                 {% if "placeholder" in post.featured_image.url %}
@@ -33,50 +35,66 @@
                 <section class="mb-5">
                     <p class="fs-5 mb-4">{{ post.content | safe }}</p>
                 </section>
-                <h2>Ingredients</h2>
-                <p class="card-text ">
-                    {{ post.ingredients | safe }}
-                </p>
-                <h2>Steps</h2>
-                <p class="card-text ">
-                    {{ post.steps | safe }}
-                </p>
-            </article>
-            <div class="row">
 
-                <div class="col-1">
-                    <strong>
-                        {% if user.is_authenticated %}
-                        <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
-                            {% csrf_token %}
-                            {% if liked %}
-                            <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
-                                    class="fas fa-heart"></i></button>
+                <!-- Ingredients widget-->
+                <div class="card mb-4">
+                    <div class="nerd-side-widget-header card-header text-bg-dark">Ingredients</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-10">
+                                {{ post.ingredients | safe }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Steps widget-->
+                <div class="card mb-4">
+                    <div class="nerd-side-widget-header card-header text-bg-dark">Steps</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-10">
+                                {{ post.steps | safe }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- like and comment count widget -->
+                <div class="card mb-4">
+                    <div
+                        class="nerd-side-widget-header card-header text-bg-dark d-flex flex-wrap align-items-center justify-content-around">
+                        <strong>
+                            {% if user.is_authenticated %}
+                            <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+                                {% csrf_token %}
+                                {% if liked %}
+                                Liked <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
+                                        class="fas fa-heart"></i></button>
+                                {% else %}
+                                Liked <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
+                                        class="far fa-heart"></i></button>
+                                {% endif %}
+                            </form>
                             {% else %}
-                            <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
-                                    class="far fa-heart"></i></button>
+                            Liked <span class="text-light"><i class="far fa-heart"></i></span>
                             {% endif %}
-                        </form>
-                        {% else %}
-                        <span class="text-secondary"><i class="far fa-heart"></i></span>
-                        {% endif %}
-                        <!-- The number of likes goes before the closing strong tag -->
-                        <span class="text-secondary">{{ post.number_of_likes }} </span>
-                    </strong>
+                            <!-- The number of likes goes before the closing strong tag -->
+                            <span class="text-light">{{ post.number_of_likes }} </span>
+                        </strong>
+                        {% with comments.count as total_comments %}
+                        <div>Comments
+                            <strong class="text-light"><i class="far fa-comments"></i>
+                                <!-- Our total_comments variable goes before the closing strong tag -->
+                                {{ total_comments }}</strong>
+                            {% endwith %}
+                        </div>
+                    </div>
                 </div>
-                <div class="col-1">
-                    {% with comments.count as total_comments %}
-                    <strong class="text-secondary"><i class="far fa-comments"></i>
-                        <!-- Our total_comments variable goes before the closing strong tag -->
-                        {{ total_comments }}</strong>
-                    {% endwith %}
-                </div>
-            </div>
+            </article>
         </div>
 
 
         <!-- Side widgets-->
-        <div class="col-lg-4">
+        <div class="nerd-sidebar col-lg-4">
             <!-- Categories widget-->
             <div class="card mb-4">
                 <div class="nerd-side-widget-header card-header text-bg-dark">Spirit Categories</div>
@@ -88,9 +106,6 @@
                                 <li></li><a class="nerd-post-cat-tag badge bg-dark text-decoration-none link-light"
                                     href="#!">{{ category }}</a></li>
                                 {% endfor %}
-                                <!-- <li><a href="#!">Web Design</a></li>
-                                <li><a href="#!">HTML</a></li>
-                                <li><a href="#!">Freebies</a></li> -->
                             </ul>
                         </div>
                         <div class="col-sm-6">
@@ -142,7 +157,9 @@
     <div class="row nerd-comment-row">
         <div class="nerd-comment-display col-md-8 card mb-4 mt-3">
             <div class="card-body">
-                <h3 class="nerd-comments-headline">Comments:</h3>
+                <div class="nerd-comments-headline-wrapper">
+                    <h3 class="nerd-comments-headline">Comments:</h3>
+                </div>
                 <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
                 {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">

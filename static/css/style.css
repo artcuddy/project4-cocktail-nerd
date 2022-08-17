@@ -11,6 +11,16 @@ p {
     line-height: 1.8em;
 }
 
+ol {
+    font-size: 18px;
+    line-height: 1.8em;
+}
+
+li {
+    font-size: 18px;
+    line-height: 1.8em;
+}
+
 footer {
     margin-top: auto;
 }
@@ -130,6 +140,15 @@ a:hover {
     font-weight: 300;
     text-transform: uppercase;
     font-size: 1.5rem;
+    color: #ffc107 !important;
+}
+
+.nerd-comments-headline-wrapper {
+    background: #000 !important;
+    padding-left: 1em;
+    padding-top: 0.3em;
+    padding-bottom: 0.1em;
+    border-radius: calc(0.375rem - 1px);
 }
 
 .nerd-comment-username {
@@ -158,4 +177,9 @@ a:hover {
     font-weight: 300;
     text-transform: uppercase;
     font-size: 1.2rem;
+    color: #ffc107 !important;
+}
+
+.nerd-sidebar {
+    margin-top: 8em;
 }
