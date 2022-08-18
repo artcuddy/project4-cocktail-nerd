@@ -29,7 +29,7 @@ class Post(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts"
     )
-    categories = models.ManyToManyField(Category)
+    categories = models.ForeignKey(Category, on_delete=models.PROTECT, default=7)
     featured_image = CloudinaryField("image", default="placeholder")
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)

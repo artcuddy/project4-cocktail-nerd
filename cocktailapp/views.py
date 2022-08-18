@@ -1,9 +1,10 @@
 from django.shortcuts import (
      render, get_object_or_404, reverse)
 from django.views import generic, View
+from django.views.generic import ListView
 from django.http import HttpResponseRedirect
 from .forms import CommentForm
-from .models import Post
+from .models import Post, Category
 from allauth.account.views import LoginView, SignupView, LogoutView
 
 
@@ -114,23 +115,6 @@ def home(request):
     return render(request, 'home.html')
 
 
-def categories(request):
-    """
-    Renders the categories page
-    """
-    return render(request, 'categories.html')
-
-
-def categories_view(request, cats):
-    """
-    Renders the posts filtered by categories
-    """
-    categories_posts = Post.objects.filter(
-        categories__title__contains=cats, status=1)
-    return render(request, 'categories_posts.html', {
-        'cats': cats.title(), 'categories_posts': categories_posts})
-
-
 class PostLike(View):
     
     def post(self, request, slug, *args, **kwargs):
@@ -142,3 +126,14 @@ class PostLike(View):
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+
+class CatListView(ListView):
+    template_name = 'category.html'
+    context_object_name = 'catlist'
+
+    def get_queryset(self):
+        content= {
+            'cat': self.kwargs['category'],
+            'posts': Post.objects.filter(categories__title=self.kwargs['category']).filter(status=1)
+        }
+        return content

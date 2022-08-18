@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}Cocktail Nerd | {{ catlist.cat }} Cocktails {% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <!-- Hero Column -->
+        <div class="bg-dark text-secondary px-4 py-5 text-center">
+            <div class="py-5">
+                <h1 class="display-5 fw-thin text-white"><img src="/static/media/cocktail-nerd-logo-white.webp"
+                        alt="Cocktail Nerd Logo" class="nerd-logo-big">
+                </h1>
+                <div class="col-lg-6 mx-auto">
+                    <p class="fs-5 mb-4 text-light">Cocktail Nerd is your expert guide, featuring hand-selected cocktail
+                        recipes,
+                        bar reviews, and more. Find great new drinks to try plus helpful tips and advice.</p>
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                        <a href="{% url 'all_cocktails' %}"><button type="button"
+                                class="btn btn-outline-warning btn-lg px-4 me-sm-3 fw-bold">Cocktails</button></a>
+                        <a href="{% url 'all_bar_reviews' %}"><button type="button"
+                                class="btn btn-outline-warning btn-lg px-4">Bar Reviews</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Featured Cocktails Column -->
+        <div class="container px-4 py-5 nerd-featured-container" id="custom-cards">
+            <h2 class="pb-2 nerd-page-subheading">{{ catlist.cat }} COCKTAILS</h2>
+
+            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+                {% for post in catlist.posts %}
+                {% if "placeholder" in post.featured_image.url %}
+                <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
+                    style="background-image: url('static/media/placeholder.webp');">
+                    {% else %}
+                    <a href="{% url 'post_detail' post.slug %}" class="image-link">
+                        <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
+                            style="background-image: url('{{ post.featured_image.url }}');">
+
+                            {% endif %}
+                            <div class="d-flex flex-column p-5 pb-3 text-white text-shadow-1">
+                                <h2 class="nerd-card-title pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ post.title }}</h2>
+                                <ul class="d-flex list-unstyled mt-auto">
+
+                                    <li class="d-flex align-items-center">
+                                        <p class="card-text h6">{{ post.created_on}} <i class="far fa-heart"></i>
+                                            {{ post.number_of_likes }}</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </a>
+
+
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
