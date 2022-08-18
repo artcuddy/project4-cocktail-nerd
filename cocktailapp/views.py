@@ -137,3 +137,11 @@ class CatListView(ListView):
             'posts': Post.objects.filter(categories__title=self.kwargs['category']).filter(status=1)
         }
         return content
+
+
+def category_list(request):
+    category_list = Category.objects.exclude(title='default').exclude(title='bar review')
+    context = {
+        'category_list': category_list,
+    }
+    return context
