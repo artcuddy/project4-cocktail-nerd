@@ -108,6 +108,14 @@ class FeaturedList(generic.ListView):
     paginate_by = 6
 
 
+def related_list(request):
+    related_list = Post.objects.filter(status=1).order_by("-created_on").filter(featured=1)
+    context = {
+        'related_list': related_list,
+    }
+    return context
+    
+
 def home(request):
     """
     Renders the home page

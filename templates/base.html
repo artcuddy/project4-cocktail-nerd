@@ -42,7 +42,7 @@
 
                                 <!-- Category Menu -->
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle navbarDropdown" href="#" role="button"
+                                    <a class="nav-link dropdown-toggle navbarDropdown text-light" href="#" role="button"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         by Spirit
                                     </a>
@@ -50,7 +50,7 @@
                                         {% for category in category_list %}
                                         <li>
                                             <a class="dropdown-item"
-                                                href="{% url 'category' category.title %}">{{ category.title }}
+                                                href="{% url 'category' category.title %}">{{ category.title|title }}
                                             </a>
                                         </li>
                                         {% endfor %}

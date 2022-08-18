@@ -184,3 +184,25 @@ a:hover {
 .nerd-sidebar {
     margin-top: 8em;
 }
+
+.nerd-sidebar-card {
+    width: 400px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Mobile styling */
+@media (max-width: 532px) {
+    .nerd-sidebar-card {
+        width: 100%;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+}
+
+/* Alert Warning */
+.nerd-category-alert {
+    text-transform: uppercase;
+}

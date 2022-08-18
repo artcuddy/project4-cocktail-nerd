@@ -18,9 +18,9 @@
                     <div class="text-muted fst-italic mb-2">Posted on
                         {{ post.created_on }} by {{ post.author }}</div>
                     <!-- Post categories-->
-                    {% for post in catlist.posts %}
-                    <a class="nerd-post-cat-tag badge bg-dark text-decoration-none link-light"
-                        href="#!">{{ catlist.cat }}</a>
+                    {% for category in category_list %}
+                    <a class="badge bg-dark text-decoration-none link-light"
+                        href="{% url 'category' category.title %}">{{ category.title|title }}</a>
                     {% endfor %}
                     <hr>
                 </header>
@@ -97,22 +97,14 @@
         <div class="nerd-sidebar col-lg-4">
             <!-- Categories widget-->
             <div class="card mb-4">
-                <div class="nerd-side-widget-header card-header text-bg-dark">Spirit Categories</div>
+                <div class="nerd-side-widget-header card-header text-bg-dark">Cocktails by Spirits</div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-6">
                             <ul class="list-unstyled mb-0">
-                                {% for category in post.categories.all %}
-                                <li></li><a class="nerd-post-cat-tag badge bg-dark text-decoration-none link-light"
-                                    href="#!">{{ category }}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                        <div class="col-sm-6">
-                            <ul class="list-unstyled mb-0">
-                                {% for category in post.categories.all %}
-                                <li></li><a class="nerd-post-cat-tag badge bg-dark text-decoration-none link-light"
-                                    href="#!">{{ category }}</a></li>
+                                {% for category in category_list %}
+                                <a class="nerd-post-cat-tag badge bg-dark text-decoration-none link-light"
+                                    href="{% url 'category' category.title %}">{{ category.title }}</a>
                                 {% endfor %}
                             </ul>
                         </div>
@@ -121,14 +113,14 @@
             </div>
             <!-- Side widget-->
             <div class="card mb-4">
-                <div class="nerd-side-widget-header card-header text-bg-dark">You might like these...</div>
-                {% for post in post_list %}
+                <div class="nerd-side-widget-header card-header text-bg-dark">Featured Cocktails</div>
+                {% for post in related_list %}
                 {% if "placeholder" in post.featured_image.url %}
                 <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
                     style="background-image: url('static/media/placeholder.webp');">
                     {% else %}
                     <a href="{% url 'post_detail' post.slug %}" class="image-link">
-                        <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
+                        <div class="nerd-sidebar-card card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
                             style="background-image: url('{{ post.featured_image.url }}');">
 
                             {% endif %}

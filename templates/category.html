@@ -4,21 +4,17 @@
 <div class="container-fluid">
     <div class="row">
         <!-- Hero Column -->
-        <div class="bg-dark text-secondary px-4 py-5 text-center">
+        <div class="nerd-hero bg-dark text-secondary px-4 py-5 text-center"
+            style="background-image: url('/static/media/headers/cocktails-category-header.webp');">
             <div class="py-5">
+
                 <h1 class="display-5 fw-thin text-white"><img src="/static/media/cocktail-nerd-logo-white.webp"
                         alt="Cocktail Nerd Logo" class="nerd-logo-big">
                 </h1>
                 <div class="col-lg-6 mx-auto">
-                    <p class="fs-5 mb-4 text-light">Cocktail Nerd is your expert guide, featuring hand-selected cocktail
-                        recipes,
-                        bar reviews, and more. Find great new drinks to try plus helpful tips and advice.</p>
-                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                        <a href="{% url 'all_cocktails' %}"><button type="button"
-                                class="btn btn-outline-warning btn-lg px-4 me-sm-3 fw-bold">Cocktails</button></a>
-                        <a href="{% url 'all_bar_reviews' %}"><button type="button"
-                                class="btn btn-outline-warning btn-lg px-4">Bar Reviews</button></a>
-                    </div>
+                    <p class="fs-5 mb-4 text-light nerd-page-subheading">featuring
+                        hand-selected {{ catlist.cat }} cocktail
+                        recipes.</p>
                 </div>
             </div>
         </div>
@@ -49,8 +45,10 @@
                             </div>
                         </div>
                     </a>
-
-
+                    {% empty %}
+                    <div class="nerd-category-alert alert alert-warning" role="alert">
+                        Sorry there are no {{ catlist.cat }} COCKTAILS at the moment!
+                    </div>
                     {% endfor %}
                 </div>
 
