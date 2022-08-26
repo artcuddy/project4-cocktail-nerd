@@ -62,19 +62,20 @@
                                 <input type="search" class="nerd-search form-control form-control-dark
                                     text-bg-dark" placeholder="Search..." aria-label="Search">
                             </form>
+                            <div class="nerd-login-buttons-container">
+                                {% if not user.id %}
+                                <a href="{% url 'login' %}"><button type="button"
+                                        class=" btn btn-outline-light me-2">Login</button></a>
+                                <a href="{% url 'signup' %}"><button type="button"
+                                        class="btn btn-warning">Sign-up</button></a>
+                                {% else %}
+                                <a href="{% url 'logout' %}"><button type="button"
+                                        class="btn btn-warning">Logout</button></a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </nav>
-
-                <div class="nerd-login-buttons-container text-end">
-                    {% if not user.id %}
-                    <a href="{% url 'login' %}"><button type="button"
-                            class=" btn btn-outline-light me-2">Login</button></a>
-                    <a href="{% url 'signup' %}"><button type="button" class="btn btn-warning">Sign-up</button></a>
-                    {% else %}
-                    <a href="{% url 'logout' %}"><button type="button" class="btn btn-warning">Logout</button></a>
-                    {% endif %}
-                </div>
             </div>
         </div>
     </header>
