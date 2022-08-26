@@ -15,7 +15,7 @@ urlpatterns = [
     path('all_cocktails/', views.PostList.as_view(), name='all_cocktails'),
     path('all_bar_reviews/', views.BarList.as_view(), name='all_bar_reviews'),
     path('', views.FeaturedList.as_view(), name='home'),
-    # path('', views.home, name='home'),
+    path('add_post/', views.blog_upload, name='add_post'),
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
     path('like/<slug:slug>', views.PostLike.as_view(), name='post_like'),
 ]

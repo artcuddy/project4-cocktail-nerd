@@ -24,7 +24,7 @@
                 </header>
                 <!-- Preview image figure-->
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="" width="100%">
+                <img src="static/media/placeholder.webp" width="100%">
                 {% else %}
                 <figure class="mb-4"><img class="img-fluid rounded mx-auto d-block" src="{{ post.featured_image.url }}"
                         alt="{{ post.title }}" /></figure>
@@ -33,7 +33,6 @@
                 <section class="mb-5">
                     <p class="fs-5 mb-4">{{ post.content | safe }}</p>
                 </section>
-
                 <!-- Ingredients widget-->
                 <div class="card mb-4">
                     <div class="nerd-side-widget-header card-header text-bg-dark">Ingredients</div>
@@ -95,17 +94,15 @@
         <div class="nerd-sidebar col-lg-4">
             <!-- Categories widget-->
             <div class="card mb-4">
-                <div class="nerd-side-widget-header card-header text-bg-dark">Cocktails by Spirits</div>
+                <div class="nerd-side-widget-header card-header text-bg-dark">Cocktail Categories</div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-sm-6">
-                            <ul class="list-unstyled mb-0">
-                                {% for category in category_list %}
-                                <a class="nerd-post-cat-tag badge bg-dark text-decoration-none link-light"
-                                    href="{% url 'category' category.title %}">{{ category.title }}</a>
-                                {% endfor %}
-                            </ul>
-                        </div>
+                        <ul class="list-unstyled mb-0">
+                            {% for category in category_list %}
+                            <a class="nerd-post-cat-tag badge bg-dark text-decoration-none link-light"
+                                href="{% url 'category' category.title %}">{{ category.title }}</a>
+                            {% endfor %}
+                        </ul>
                     </div>
                 </div>
             </div>

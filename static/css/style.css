@@ -74,15 +74,13 @@ footer {
 /* Mobile styling */
 @media (max-width: 532px) {
     .nerd-logo-big {
-        margin-top: 16px;
         width: 250px;
         margin-bottom: 16px;
     }
 }
 
-@media (min-width:532px) and (max-width: 703px) {
+@media (min-width:300px) and (max-width: 703px) {
     .nerd-logo-big {
-        margin-top: 16px;
         width: 250px;
         margin-bottom: 16px;
     }
@@ -181,6 +179,7 @@ a:hover {
 .nerd-comment-submit {
     margin-top: 1em;
 }
+
 
 /* Side Widgets om single post */
 .nerd-side-widget-header {

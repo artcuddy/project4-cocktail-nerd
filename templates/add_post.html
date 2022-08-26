@@ -1,18 +1,21 @@
 {% extends 'base.html' %}
-{% block title %} New Category {% endblock %}
+{% block title %} New Post {% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-<h1> Add Category </h1>
-<br />
-
-<div class="form-group">
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <br />
-        <button class="btn btn-secondary"> Category </button>
-    </form>
+{% if user.is_staff %}
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5 align-items-center">
+        <h1 class="display-5 fw-bold">Add new post</h1>
+        {% load cloudinary %}
+        <div class="form-floating">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ blog_form.as_p }}
+                <br />
+                <button class="btn btn-primary btn-lg"> Add Post </button>
+            </form>
+        </div>
+    </div>
 </div>
 {% else %}
 You are not allowed here. Please log in.

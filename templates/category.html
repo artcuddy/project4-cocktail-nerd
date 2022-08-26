@@ -18,11 +18,20 @@
                 </div>
             </div>
         </div>
-        <!-- Featured Cocktails Column -->
+        <!-- Display Posts Column -->
         <div class="container px-4 py-5 nerd-featured-container" id="custom-cards">
             <h2 class="pb-2 nerd-page-subheading">{{ catlist.cat }} COCKTAILS</h2>
 
-            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+            <div class="row row-cols-1 row-cols-lg-3 align-items-center g-4 py-4"></div>
+            {% for post in catlist.posts %}
+            {% empty %}
+            <div class="nerd-category-alert alert alert-warning" role="alert">
+                Sorry there are no {{ catlist.cat }} COCKTAILS at the moment!
+            </div>
+            {% endfor %}
+
+
+            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-4">
                 {% for post in catlist.posts %}
                 {% if "placeholder" in post.featured_image.url %}
                 <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
@@ -45,10 +54,6 @@
                             </div>
                         </div>
                     </a>
-                    {% empty %}
-                    <div class="nerd-category-alert alert alert-warning" role="alert">
-                        Sorry there are no {{ catlist.cat }} COCKTAILS at the moment!
-                    </div>
                     {% endfor %}
                 </div>
 
