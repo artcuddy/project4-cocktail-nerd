@@ -93,6 +93,7 @@ footer {
 .nerd-page-subheading {
     font-weight: 300;
     text-transform: uppercase;
+    text-align: center;
 }
 
 .nerd-featured-container {

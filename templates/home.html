@@ -6,18 +6,17 @@
 <div class="container-fluid">
     <div class="row">
         <!-- Hero Column -->
-        <div class="bg-dark text-secondary px-4 py-5 text-center">
-            <div class="py-5">
-                <h1 class="display-5 fw-thin text-white">WELCOME TO <img
-                        src="/static/media/cocktail-nerd-logo-white.webp" alt="Cocktail Nerd Logo"
-                        class="nerd-logo-big">
+        <div class="bg-dark text-secondary px-4 py-4 text-center">
+            <div class="py-4">
+                <h1 class="display-5 fw-thin text-white"> <img src="/static/media/cocktail-nerd-logo-white.webp"
+                        alt="Cocktail Nerd Logo" class="nerd-logo-big">
                 </h1>
                 <div class="col-lg-6 mx-auto">
-                    <p class="nerd-subheading fs-5 mb-4 text-light">Cocktail Nerd is your expert guide, featuring
+                    <p class="nerd-subheading fs-5 mb-4 text-light">Your expert cocktail guide, featuring
                         hand-selected cocktail
                         recipes,
                         bar reviews, and more. Find great new drinks to try plus helpful tips and advice.</p>
-                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <div class="d-sm-flex justify-content-sm-center">
                         <a href="{% url 'all_cocktails' %}"><button type="button"
                                 class="btn btn-outline-warning btn-lg px-4 me-sm-3 ">Cocktails</button></a>
                         <a href="{% url 'all_bar_reviews' %}"><button type="button"
@@ -30,7 +29,7 @@
         <div class="container px-4 py-5 nerd-featured-container" id="custom-cards">
             <h2 class="pb-2 nerd-page-subheading">FEATURED COCKTAILS</h2>
 
-            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-3">
 
                 {% for post in post_list %}
                 {% if "placeholder" in post.featured_image.url %}
