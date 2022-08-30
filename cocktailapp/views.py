@@ -5,7 +5,7 @@ from django.views.generic import ListView
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from .forms import CommentForm, BlogForm
+from .forms import CommentForm, CocktailForm
 from .models import Post, Category
 from allauth.account.views import LoginView, SignupView, LogoutView
 
@@ -169,18 +169,20 @@ class SearchResultsView(ListView):
 
 # Create new post
 @login_required
-def blog_upload(request):
-    blog_form = BlogForm()
+def add_cocktail(request):
+    submitted = False
     if request.method == 'POST':
         # handle the POST request here
-        blog_form = BlogForm(request.POST, request.FILES)
-        if all([blog_form.is_valid()]):
-            blog = blog_form.save(commit=False)
-            blog.author = request.user
-            blog.save()
-            return render(request, 'home.html')
+        form = CocktailForm(request.POST, request.FILES)
+        if all([form.is_valid()]):
+            form = form.save(commit=False)
+            form.author = request.user
+            form.save()
+            return HttpResponseRedirect('/add_post?submitted=True')
     else:
-        context = {
-            'blog_form': blog_form,
-        }
-    return render(request, 'add_post.html', context=context)
+        form = CocktailForm
+        if 'submitted' in request.GET:
+            submitted = True
+
+    return render(
+        request, 'add_post.html', {'form': form, 'submitted': submitted})
