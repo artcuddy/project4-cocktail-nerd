@@ -7,18 +7,41 @@
     <div class="row">
         <!-- Search Cocktails Column -->
         <div class="container px-4 py-5 nerd-featured-container" id="custom-cards">
-            {% if searched %}
-            <h1 class="pb-2 nerd-page-subheading">You Searched For {{ searched }}</h1>
-            {% for post in posts %}
+            <h2 class="pb-2 nerd-page-subheading">Search Results {{ query }}</h2>
 
-            {{ post }}
+            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-3">
 
-            {% endfor %}
-            {% else %}
-            <h1 class="pb-2 nerd-page-subheading">You forgot to search for a Cocktail</h1>
-            {% endif %}
+                {% for post in object_list %}
+                {% if "placeholder" in post.featured_image.url %}
+                <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
+                    style="background-image: url('static/media/placeholder.webp');">
+                    {% else %}
+                    <a href="{% url 'post_detail' post.slug %}" class="image-link">
+                        <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
+                            style="background-image: url('{{ post.featured_image.url }}');">
+
+                            {% endif %}
+                            <div class="d-flex flex-column p-5 pb-3 text-white text-shadow-1">
+                                <h2 class="nerd-card-title pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
+                                    {{ post.title }}</h2>
+                                <ul class="d-flex list-unstyled mt-auto">
+
+                                    <li class="d-flex align-items-center">
+                                        <p class="card-text h6">{{ post.created_on}} <i class="far fa-heart"></i>
+                                            {{ post.number_of_likes }}</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </a>
+                    {% if forloop.counter|divisibleby:3 %}
+
+                    {% endif %}
+                    {% endfor %}
+                </div>
+
+            </div>
         </div>
-
     </div>
 </div>
 </div>

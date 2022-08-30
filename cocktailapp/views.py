@@ -4,6 +4,7 @@ from django.views import generic, View
 from django.views.generic import ListView
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from .forms import CommentForm, BlogForm
 from .models import Post, Category
 from allauth.account.views import LoginView, SignupView, LogoutView
@@ -162,16 +163,16 @@ def category_list(request):
     return context
 
 
-def search_posts(request):
-    if request.method == 'POST':
-        searched = request.POST['searched']
-        posts = Post.objects.filter(title__contains=searched)
+class SearchResultsView(ListView):
+    model = Post
+    template_name = 'search_posts.html'
 
-        return render(
-            request, 'search_posts.html', {
-                'searched': searched, 'posts': posts})
-    else:
-        return render(request, 'search_posts.html')
+    def get_queryset(self):  # new
+        query = self.request.GET.get("searched", default="")
+        object_list = Post.objects.filter(
+            Q(title__icontains=query)
+        )
+        return object_list
 
 
 # Create new post

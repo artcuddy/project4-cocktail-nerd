@@ -58,8 +58,7 @@
                                 </li>
 
                             </ul>
-                            <form role="search" method=POST action="{% url 'search_posts' %}">
-                                {% csrf_token %}
+                            <form role="search" method="get" action="{% url 'search_posts' %}">
                                 <input type=" search" class="nerd-search form-control form-control-dark
                                     text-bg-dark" placeholder="Search Cocktails..." aria-label="Search"
                                     name="searched">
