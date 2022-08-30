@@ -68,9 +68,12 @@
                                         class=" btn btn-outline-light me-2">Login</button></a>
                                 <a href="{% url 'signup' %}"><button type="button"
                                         class="btn btn-warning">Sign-up</button></a>
-                                {% else %}
+                                {% elif user.is_staff %}
                                 <a href="{% url 'add_post' %}"><button type="button" class="btn btn-success">New
                                         Post</button></a>
+                                <a href="{% url 'logout' %}"><button type="button"
+                                        class="btn btn-warning">Logout</button></a>
+                                {% else %}
                                 <a href="{% url 'logout' %}"><button type="button"
                                         class="btn btn-warning">Logout</button></a>
                                 {% endif %}
