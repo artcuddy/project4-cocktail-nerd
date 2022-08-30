@@ -97,14 +97,6 @@ class PostDetail(View):
         )
 
 
-class BarList(generic.ListView):
-    model = Post
-    queryset = Post.objects.filter(
-        status=1).order_by("-created_on").filter(categories=6)
-    template_name = "all_bar_reviews.html"
-    paginate_by = 6
-
-
 class FeaturedList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(
@@ -170,7 +162,7 @@ class SearchResultsView(ListView):
     def get_queryset(self):  # new
         query = self.request.GET.get("searched", default="")
         object_list = Post.objects.filter(
-            Q(title__icontains=query)
+            Q(title__icontains=query) | Q(ingredients__icontains=query)
         )
         return object_list
 

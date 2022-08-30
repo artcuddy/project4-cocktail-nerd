@@ -5,12 +5,32 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
+        <!-- Hero Column -->
+        <div class="nerd-hero bg-dark text-secondary px-4 py-5 text-center"
+            style="background-image: url('/static/media/headers/cocktails-category-header.webp');">
+            <div class="py-5">
+
+                <h1 class="display-5 fw-thin text-white"><img src="/static/media/cocktail-nerd-logo-white.webp"
+                        alt="Cocktail Nerd Logo" class="nerd-logo-big">
+                </h1>
+                <div class="col-lg-6 mx-auto">
+                    <p class="fs-5 mb-4 text-light nerd-page-subheading">featuring
+                        hand-selected {{ catlist.cat }} cocktail
+                        recipes.</p>
+                </div>
+            </div>
+        </div>
         <!-- Search Cocktails Column -->
         <div class="container px-4 py-5 nerd-featured-container" id="custom-cards">
-            <h2 class="pb-2 nerd-page-subheading">Search Results {{ query }}</h2>
+            <h2 class="pb-2 nerd-page-subheading">Search Results....</h2>
+            {% for post in object_list %}
+            {% empty %}
+            <div class="nerd-category-alert alert alert-warning" role="alert">
+                Sorry no Cocktails found!
+            </div>
+            {% endfor %}
 
             <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-3">
-
                 {% for post in object_list %}
                 {% if "placeholder" in post.featured_image.url %}
                 <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
