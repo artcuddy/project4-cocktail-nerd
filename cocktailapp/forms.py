@@ -11,7 +11,8 @@ class CommentForm(forms.ModelForm):
 class CocktailForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('status', 'title', 'categories', 'featured_image', 'content', 'ingredients', 'steps')
+        fields = ('status', 'title', 'categories', 'featured_image', +
+                  'content', 'ingredients', 'steps')
 
         widgets = {
             'status': forms.Select(attrs={'class': 'form-control'}),
