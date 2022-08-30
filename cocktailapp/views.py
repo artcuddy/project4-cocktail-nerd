@@ -36,7 +36,8 @@ account_logout_view = AccountLogoutView.as_view()
 
 class PostList(generic.ListView):
     model = Post
-    queryset = Post.objects.filter(status=1).order_by("-created_on").exclude(categories=6)
+    queryset = Post.objects.filter(
+        status=1).order_by("-created_on").exclude(categories=6)
     template_name = "all_cocktails.html"
     paginate_by = 6
 
@@ -97,25 +98,28 @@ class PostDetail(View):
 
 class BarList(generic.ListView):
     model = Post
-    queryset = Post.objects.filter(status=1).order_by("-created_on").filter(categories=6)
+    queryset = Post.objects.filter(
+        status=1).order_by("-created_on").filter(categories=6)
     template_name = "all_bar_reviews.html"
     paginate_by = 6
 
 
 class FeaturedList(generic.ListView):
     model = Post
-    queryset = Post.objects.filter(status=1).order_by("-created_on").filter(featured=1)
+    queryset = Post.objects.filter(
+        status=1).order_by("-created_on").filter(featured=1)
     template_name = "home.html"
     paginate_by = 6
 
 
 def related_list(request):
-    related_list = Post.objects.filter(status=1).order_by("-created_on").filter(featured=1)
+    related_list = Post.objects.filter(
+        status=1).order_by("-created_on").filter(featured=1)
     context = {
         'related_list': related_list,
     }
     return context
-    
+
 
 def home(request):
     """
@@ -125,7 +129,7 @@ def home(request):
 
 
 class PostLike(View):
-    
+
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
@@ -141,15 +145,17 @@ class CatListView(ListView):
     context_object_name = 'catlist'
 
     def get_queryset(self):
-        content= {
+        content = {
             'cat': self.kwargs['category'],
-            'posts': Post.objects.filter(categories__title=self.kwargs['category']).filter(status=1)
+            'posts': Post.objects.filter(
+                categories__title=self.kwargs['category']).filter(status=1)
         }
         return content
 
 
 def category_list(request):
-    category_list = Category.objects.exclude(title='default').exclude(title='bar review')
+    category_list = Category.objects.exclude(
+        title='default').exclude(title='bar review')
     context = {
         'category_list': category_list,
     }
@@ -161,7 +167,9 @@ def search_posts(request):
         searched = request.POST['searched']
         posts = Post.objects.filter(title__contains=searched)
 
-        return render(request, 'search_posts.html', {'searched': searched, 'posts': posts})
+        return render(
+            request, 'search_posts.html', {
+                'searched': searched, 'posts': posts})
     else:
         return render(request, 'search_posts.html')
 
