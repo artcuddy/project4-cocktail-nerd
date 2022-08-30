@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Cocktail Nerd{% endblock %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <!-- Search Cocktails Column -->
+        <div class="container px-4 py-5 nerd-featured-container" id="custom-cards">
+            {% if searched %}
+            <h1 class="pb-2 nerd-page-subheading">You Searched For {{ searched }}</h1>
+            {% for post in posts %}
+
+            {{ post }}
+
+            {% endfor %}
+            {% else %}
+            <h1 class="pb-2 nerd-page-subheading">You forgot to search for a Cocktail</h1>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}
