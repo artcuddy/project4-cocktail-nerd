@@ -201,6 +201,19 @@ a:hover {
     margin-right: auto;
 }
 
+/* Page navigation styling */
+.page-link {
+    color: #212529;
+    border-radius: 15px;
+    border: 1px solid #212529;
+}
+
+.page-link:hover {
+    color: #212529;
+    background-color: #ffc107;
+    border: 1px solid #212529;
+}
+
 /* Mobile styling */
 @media (max-width: 532px) {
     .nerd-sidebar-card {
