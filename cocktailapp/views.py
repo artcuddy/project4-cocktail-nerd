@@ -1,7 +1,7 @@
 from django.shortcuts import (
      render, get_object_or_404, reverse)
 from django.views import generic, View
-from django.views.generic import ListView
+from django.views.generic import ListView, UpdateView
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
@@ -95,6 +95,13 @@ class PostDetail(View):
                 "liked": liked
             },
         )
+
+
+class UpdatePostView(UpdateView):
+    model = Post
+    form_class = CocktailForm
+    template_name = 'edit_post.html'
+    # fields = '__all__'
 
 
 class FeaturedList(generic.ListView):

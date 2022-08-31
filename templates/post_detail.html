@@ -14,6 +14,10 @@
                 <header class="mb-4">
                     <!-- Post title-->
                     <h1 class="nerd-post-title">{{ post.title }}</h1>
+                    {% if user.is_staff %}
+                    <a href="{% url 'edit_post' post.slug %}"><button type="button"
+                            class="btn btn-success">Edit</button></a>
+                    {% endif %}
                     <!-- Post meta content-->
                     <div class="text-muted fst-italic mb-2">Posted on
                         {{ post.created_on }} by {{ post.author }}</div>
