@@ -78,7 +78,7 @@
                             <span class="text-light">{{ post.number_of_likes }} </span>
                         </strong>
                         {% with comments.count as total_comments %}
-                        <div>Comments
+                        <div><a class="nerd-link" href="#nerd-comments-widget">Comments</a>
                             <strong class="text-light"><i class="far fa-comments"></i>
                                 <!-- Our total_comments variable goes before the closing strong tag -->
                                 {{ total_comments }}</strong>
@@ -140,8 +140,8 @@
         </div>
     </div>
 </div>
-<div class="container mt-5">
-    <div class="row nerd-comment-row">
+<div class="container mt-1">
+    <div id="nerd-comments-widget" class="row nerd-comment-row">
         <div class="nerd-comment-display col-md-8 card mb-4 mt-3">
             <div class="card-body">
                 <div class="nerd-comments-headline-wrapper">

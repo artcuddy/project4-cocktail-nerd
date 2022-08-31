@@ -180,6 +180,10 @@ a:hover {
     margin-top: 1em;
 }
 
+.nerd-link {
+    color: #ffc107 !important;
+}
+
 
 /* Side Widgets om single post */
 .nerd-side-widget-header {
@@ -194,11 +198,18 @@ a:hover {
 }
 
 .nerd-sidebar-card {
-    width: 400px;
+    width: 100%;
     margin-top: 1em;
     margin-bottom: 1em;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Mobile styling */
+@media (max-width: 880px) {
+    .nerd-sidebar {
+        margin-top: 0;
+    }
 }
 
 /* Page navigation styling */
