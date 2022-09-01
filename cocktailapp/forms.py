@@ -1,5 +1,7 @@
 from .models import Comment, Post
 from django import forms
+from django_summernote.widgets import SummernoteWidget
+
 
 
 class CommentForm(forms.ModelForm):
@@ -26,9 +28,9 @@ class CocktailForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'categories': forms.Select(attrs={'class': 'form-control'}),
             'featured_image': forms.FileInput(attrs={'class': 'form-control'}),
-            'content': forms.Textarea(attrs={'class': 'form-control'}),
-            'ingredients': forms.Textarea(attrs={'class': 'form-control'}),
-            'steps': forms.Textarea(attrs={'class': 'form-control'}),
+            'content': SummernoteWidget(attrs={'class': 'form-control'}),
+            'ingredients': SummernoteWidget(attrs={'class': 'form-control'}),
+            'steps': SummernoteWidget(attrs={'class': 'form-control'}),
         }
 
 
@@ -50,7 +52,7 @@ class EditCocktailForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'categories': forms.Select(attrs={'class': 'form-control'}),
             'featured_image': forms.FileInput(attrs={'class': 'form-control'}),
-            'content': forms.Textarea(attrs={'class': 'form-control'}),
-            'ingredients': forms.Textarea(attrs={'class': 'form-control'}),
-            'steps': forms.Textarea(attrs={'class': 'form-control'}),
+            'content': SummernoteWidget(attrs={'class': 'form-control'}),
+            'ingredients': SummernoteWidget(attrs={'class': 'form-control'}),
+            'steps': SummernoteWidget(attrs={'class': 'form-control'}),
         }
