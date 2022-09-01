@@ -103,7 +103,7 @@ class PostDetail(View):
         )
 
 
-# Create new post
+# Update post
 class UpdatePostView(UpdateView):
     model = Post
     form_class = EditCocktailForm
@@ -213,3 +213,7 @@ def add_cocktail(request):
 
     return render(
         request, 'add_post.html', {'form': form, 'submitted': submitted})
+
+
+def page_not_found_view(request, exception):
+    return render(request, '404.html', status=404)

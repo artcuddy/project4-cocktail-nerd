@@ -3,7 +3,6 @@ from django import forms
 from django_summernote.widgets import SummernoteWidget
 
 
-
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
@@ -44,7 +43,7 @@ class EditCocktailForm(forms.ModelForm):
             'featured_image',
             'content',
             'ingredients',
-            'steps'
+            'steps',
             )
 
         widgets = {

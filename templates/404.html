@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Cocktail Nerd | Page Not Found{% endblock %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <!-- Hero Column -->
+        <div class="bg-dark text-secondary px-4 py-4 text-center">
+            <div class="py-4">
+                <h1 class="display-5 fw-thin text-white">Sorry we can't find the page you are looking for.</h1>
+                </h1>
+                <div class="col-lg-6 mx-auto">
+                    <br />
+                    <p class="nerd-subheading fs-4 mb-4 text-light">Check out all our cocktails by clicking on the
+                        button below...</p>
+                    <br />
+                    <div class="d-sm-flex justify-content-sm-center">
+                        <a href="{% url 'all_cocktails' %}"><button type="button"
+                                class="btn btn-outline-warning btn-lg px-4 me-sm-3 ">All Cocktails</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
