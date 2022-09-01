@@ -15,7 +15,7 @@ class Category(models.Model):
     """
     class Meta:
         verbose_name_plural = 'Categories'
-    title = models.CharField(max_length=20, unique=True)
+    title = models.CharField(max_length=14, unique=True)
     category_image = CloudinaryField('image', default='placeholder')
 
     def __str__(self):

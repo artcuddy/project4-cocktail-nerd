@@ -8,20 +8,16 @@
             style="background-image: url('/static/media/headers/cocktails-category-header.webp');">
             <div class="py-5">
 
-                <h1 class="display-5 fw-thin text-white"><img src="/static/media/cocktail-nerd-logo-white.webp"
-                        alt="Cocktail Nerd Logo" class="nerd-logo-big">
-                </h1>
+                <h1 class="nerd-h1 display-5 fw-thin text-white">{{ catlist.cat }} COCKTAILS</h1>
                 <div class="col-lg-6 mx-auto">
                     <p class="fs-4 mb-4 text-light">Featuring
-                        hand-selected {{ catlist.cat }} cocktail
+                        amazing hand-selected {{ catlist.cat }} cocktail
                         recipes.</p>
                 </div>
             </div>
         </div>
         <!-- Display Posts Column -->
-        <div class="container px-4 py-5 nerd-featured-container" id="custom-cards">
-            <h2 class="pb-2 nerd-page-subheading">{{ catlist.cat }} COCKTAILS</h2>
-
+        <div class="container px-4 py-3 nerd-featured-container" id="custom-cards">
             <div class="row row-cols-1 row-cols-lg-3 align-items-center g-4 py-4"></div>
             {% for post in catlist.posts %}
             {% empty %}

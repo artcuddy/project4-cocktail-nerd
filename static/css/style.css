@@ -95,6 +95,12 @@ footer {
     }
 }
 
+/* Main header styling */
+
+.nerd-h1 {
+    text-transform: uppercase;
+}
+
 /* Subheading Styling */
 
 .nerd-page-subheading {
