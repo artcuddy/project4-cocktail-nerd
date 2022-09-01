@@ -4,6 +4,7 @@ from . import views
 from .views import account_login_view, account_signup_view
 from .views import account_logout_view, SearchResultsView
 from .views import UpdatePostView, DeletePostView
+from .views import AddCategoryView, AllCategoriesList
 
 
 urlpatterns = [
@@ -16,6 +17,12 @@ urlpatterns = [
     path('all_cocktails/', views.PostList.as_view(), name='all_cocktails'),
     path('', views.FeaturedList.as_view(), name='home'),
     path('add_post/', views.add_cocktail, name='add_post'),
+    path(
+        'all_categories/',
+        AllCategoriesList.as_view(),
+        name='all_categories'
+        ),
+    path('add_category/', AddCategoryView.as_view(), name='add_category'),
     path(
         'article/edit/<slug:slug>/',
         UpdatePostView.as_view(),

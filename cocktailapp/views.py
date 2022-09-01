@@ -1,11 +1,11 @@
 from django.shortcuts import (
      render, get_object_or_404, reverse)
 from django.views import generic, View
-from django.views.generic import ListView, UpdateView, DeleteView
+from django.views.generic import ListView, UpdateView, DeleteView, CreateView
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from .forms import CommentForm, CocktailForm, EditCocktailForm
+from .forms import CommentForm, CocktailForm
 from .models import Post, Category
 from allauth.account.views import LoginView, SignupView, LogoutView
 from django.urls import reverse_lazy
@@ -106,7 +106,7 @@ class PostDetail(View):
 # Update post
 class UpdatePostView(UpdateView):
     model = Post
-    form_class = EditCocktailForm
+    form_class = CocktailForm
     template_name = 'edit_post.html'
 
 
@@ -173,12 +173,29 @@ class CatListView(ListView):
 
 # Category list
 def category_list(request):
-    category_list = Category.objects.exclude(
-        title='default').exclude(title='bar review')
+    category_list = Category.objects.exclude(title='default')
     context = {
         'category_list': category_list,
     }
     return context
+
+
+# All categories list view
+class AllCategoriesList(generic.ListView):
+    model = Category
+    template_name = "all_categories.html"
+    paginate_by = 12
+
+    def get_queryset(self):
+        category_list = Category.objects.exclude(title='default')
+        return category_list
+
+
+# Add category view
+class AddCategoryView(CreateView):
+    model = Category
+    fields = '__all__'
+    template_name = 'add_category.html'
 
 
 # Search results view

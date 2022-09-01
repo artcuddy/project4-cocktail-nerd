@@ -32,7 +32,7 @@
                 </header>
                 <!-- Preview image figure-->
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="static/media/placeholder.webp" width="100%">
+                <img src="/static/media/placeholder.webp" width="100%">
                 {% else %}
                 <figure class="mb-4"><img class="img-fluid rounded mx-auto d-block" src="{{ post.featured_image.url }}"
                         alt="{{ post.title }}" /></figure>

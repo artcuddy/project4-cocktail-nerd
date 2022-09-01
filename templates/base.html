@@ -34,12 +34,16 @@
                         <div class="collapse navbar-collapse" id="nerd-navbar">
                             <ul class="navbar-nav me-auto mb-2 mb-xl-0">
                                 <li class="nav-item">
-                                    <a class="nav-link text-light" href="{% url 'all_cocktails' %}">All Cocktails</a>
+                                    <a class="nav-link text-light" href="{% url 'all_cocktails' %}">Cocktails</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" href="{% url 'all_categories' %}">Categories</a>
                                 </li>
                                 <!-- Category Menu -->
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle navbarDropdown text-light" href="#" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle navbarDropdown text-light"
+                                        href="{% url 'all_categories' %}" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
                                         by Spirit
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-dark" aria-label="navbarDropdown">
@@ -66,8 +70,10 @@
                                 <a href="{% url 'signup' %}"><button type="button"
                                         class="btn btn-warning">Sign-up</button></a>
                                 {% elif user.is_staff %}
-                                <a href="{% url 'add_post' %}"><button type="button" class="btn btn-success">New
+                                <a href="{% url 'add_post' %}"><button type="button" class="btn btn-success">Add
                                         Post</button></a>
+                                <a href="{% url 'add_category' %}"><button type="button" class="btn btn-success">Add
+                                        Category</button></a>
                                 <a href="{% url 'logout' %}"><button type="button"
                                         class="btn btn-warning">Logout</button></a>
                                 {% else %}

@@ -35,7 +35,7 @@
                 {% for post in catlist.posts %}
                 {% if "placeholder" in post.featured_image.url %}
                 <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
-                    style="background-image: url('static/media/placeholder.webp');">
+                    style="background-image: url('/static/media/placeholder.webp');">
                     {% else %}
                     <a href="{% url 'post_detail' post.slug %}" class="image-link">
                         <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"

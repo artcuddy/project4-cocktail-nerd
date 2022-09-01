@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %} New Category {% endblock %}
+{% block title %} Edit Category {% endblock %}
 
 {% block content %}
 
@@ -11,19 +11,19 @@
             <div class="py-5">
                 <div class="col-lg-6 mx-auto">
                     {% if submitted %}
-                    <h1 class="display-5 fw-bold">Your category was created Succesfully!!!</h1>
+                    <h1 class="display-5 fw-bold">Your cocktail was edited Succesfully!!!</h1>
 
                     {% else %}
-                    <h1 class="display-5 fw-bold">Add new Category</h1>
+                    <h1 class="display-5 fw-bold">Edit Category</h1>
+                    {% load cloudinary %}
                     <div class="form-floating">
                         <form action="" method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
                             {{ form.as_p }}
                             <br />
-                            <button type="submit" class="btn btn-success"> Add Category </button>
+                            <button type="submit" class="btn btn-success"> Update </button>
                         </form>
                     </div>
-
                     {% endif %}
                 </div>
             </div>

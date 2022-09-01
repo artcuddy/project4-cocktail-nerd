@@ -15,11 +15,14 @@ class Category(models.Model):
     """
     class Meta:
         verbose_name_plural = 'Categories'
-    title = models.CharField(max_length=20)
+    title = models.CharField(max_length=20, unique=True)
     category_image = CloudinaryField('image', default='placeholder')
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('home')
 
 
 class Post(models.Model):

@@ -29,6 +29,11 @@ footer {
     margin-top: auto;
 }
 
+.errorlist li {
+    color: rgb(255, 0, 0) !important;
+}
+
+
 /* Logo Styling */
 
 .nerd-logo {
@@ -76,6 +81,10 @@ footer {
     .nerd-logo-big {
         width: 250px;
         margin-bottom: 16px;
+    }
+
+    .nerd-login-buttons-container {
+        margin-left: 0;
     }
 }
 
@@ -236,6 +245,10 @@ a:hover {
         width: 100%;
         margin-top: 1em;
         margin-bottom: 1em;
+    }
+
+    iframe {
+        width: 330px;
     }
 }
 

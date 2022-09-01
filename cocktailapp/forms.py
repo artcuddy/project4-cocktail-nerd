@@ -10,6 +10,7 @@ class CommentForm(forms.ModelForm):
 
 
 class CocktailForm(forms.ModelForm):
+
     class Meta:
         model = Post
         fields = (
@@ -27,31 +28,7 @@ class CocktailForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'categories': forms.Select(attrs={'class': 'form-control'}),
             'featured_image': forms.FileInput(attrs={'class': 'form-control'}),
-            'content': SummernoteWidget(attrs={'class': 'form-control'}),
-            'ingredients': SummernoteWidget(attrs={'class': 'form-control'}),
-            'steps': SummernoteWidget(attrs={'class': 'form-control'}),
-        }
-
-
-class EditCocktailForm(forms.ModelForm):
-    class Meta:
-        model = Post
-        fields = (
-            'status',
-            'title',
-            'categories',
-            'featured_image',
-            'content',
-            'ingredients',
-            'steps',
-            )
-
-        widgets = {
-            'status': forms.Select(attrs={'class': 'form-control'}),
-            'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'categories': forms.Select(attrs={'class': 'form-control'}),
-            'featured_image': forms.FileInput(attrs={'class': 'form-control'}),
-            'content': SummernoteWidget(attrs={'class': 'form-control'}),
-            'ingredients': SummernoteWidget(attrs={'class': 'form-control'}),
-            'steps': SummernoteWidget(attrs={'class': 'form-control'}),
+            'content': SummernoteWidget(),
+            'ingredients': SummernoteWidget(),
+            'steps': SummernoteWidget(),
         }

@@ -10,6 +10,10 @@
         <div class="nerd-hero text-bg-secondary px-4 py-5 text-left">
             <div class="py-5">
                 <div class="col-lg-6 mx-auto">
+                    {% if submitted %}
+                    <h1 class="display-5 fw-bold">Your cocktail was edited Succesfully!!!</h1>
+
+                    {% else %}
                     <h1 class="display-5 fw-bold">Edit Cocktail</h1>
                     {% load cloudinary %}
                     <div class="form-floating">
@@ -20,6 +24,7 @@
                             <button type="submit" class="btn btn-success"> Update </button>
                         </form>
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
