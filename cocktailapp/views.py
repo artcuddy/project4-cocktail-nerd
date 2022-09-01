@@ -1,15 +1,17 @@
 from django.shortcuts import (
      render, get_object_or_404, reverse)
 from django.views import generic, View
-from django.views.generic import ListView, UpdateView
+from django.views.generic import ListView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from .forms import CommentForm, CocktailForm
+from .forms import CommentForm, CocktailForm, EditCocktailForm
 from .models import Post, Category
 from allauth.account.views import LoginView, SignupView, LogoutView
+from django.urls import reverse_lazy
 
 
+# Signup view
 class AccountSignupView(SignupView):
     # Signup View extended
     # change template's name and path
@@ -19,6 +21,7 @@ class AccountSignupView(SignupView):
 account_signup_view = AccountSignupView.as_view()
 
 
+# Login view
 class AccountLoginView(LoginView):
     # Login View extended
     template_name = "account/login.html"
@@ -27,6 +30,7 @@ class AccountLoginView(LoginView):
 account_login_view = AccountLoginView.as_view()
 
 
+# Logout view
 class AccountLogoutView(LogoutView):
     # Logout View extended
     template_name = "account/logout.html"
@@ -35,6 +39,7 @@ class AccountLogoutView(LogoutView):
 account_logout_view = AccountLogoutView.as_view()
 
 
+# Post list view
 class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(
@@ -43,6 +48,7 @@ class PostList(generic.ListView):
     paginate_by = 6
 
 
+# Single post detail view
 class PostDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
@@ -97,13 +103,21 @@ class PostDetail(View):
         )
 
 
+# Create new post
 class UpdatePostView(UpdateView):
     model = Post
-    form_class = CocktailForm
+    form_class = EditCocktailForm
     template_name = 'edit_post.html'
-    # fields = '__all__'
 
 
+# Delete post
+class DeletePostView(DeleteView):
+    model = Post
+    template_name = 'delete_post.html'
+    success_url = reverse_lazy("home")
+
+
+# Featured posts list view
 class FeaturedList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(
@@ -112,6 +126,7 @@ class FeaturedList(generic.ListView):
     paginate_by = 6
 
 
+# Related list view
 def related_list(request):
     related_list = Post.objects.filter(
         status=1).order_by("-created_on").filter(featured=1)
@@ -121,6 +136,7 @@ def related_list(request):
     return context
 
 
+# Homepage view
 def home(request):
     """
     Renders the home page
@@ -128,6 +144,7 @@ def home(request):
     return render(request, 'home.html')
 
 
+# Post like view
 class PostLike(View):
 
     def post(self, request, slug, *args, **kwargs):
@@ -140,6 +157,7 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
+# Category list view
 class CatListView(ListView):
     template_name = 'category.html'
     context_object_name = 'catlist'
@@ -153,6 +171,7 @@ class CatListView(ListView):
         return content
 
 
+# Category list
 def category_list(request):
     category_list = Category.objects.exclude(
         title='default').exclude(title='bar review')
@@ -162,6 +181,7 @@ def category_list(request):
     return context
 
 
+# Search results view
 class SearchResultsView(ListView):
     model = Post
     template_name = 'search_posts.html'

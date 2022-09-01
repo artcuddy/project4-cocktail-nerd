@@ -184,6 +184,11 @@ a:hover {
     color: #ffc107 !important;
 }
 
+.nerd-edit-buttons {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
 
 /* Side Widgets om single post */
 .nerd-side-widget-header {

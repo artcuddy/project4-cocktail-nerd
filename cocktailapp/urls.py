@@ -2,7 +2,7 @@ from django.urls import path
 
 from . import views
 from .views import account_login_view, account_signup_view
-from .views import account_logout_view, SearchResultsView, UpdatePostView
+from .views import account_logout_view, SearchResultsView, UpdatePostView, DeletePostView
 
 
 urlpatterns = [
@@ -16,6 +16,7 @@ urlpatterns = [
     path('', views.FeaturedList.as_view(), name='home'),
     path('add_post/', views.add_cocktail, name='add_post'),
     path('article/edit/<slug:slug>/', UpdatePostView.as_view(), name='edit_post'),
+    path('article/<slug:slug>/delete', DeletePostView.as_view(), name='delete_post'),
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
     path('like/<slug:slug>', views.PostLike.as_view(), name='post_like'),
 ]
