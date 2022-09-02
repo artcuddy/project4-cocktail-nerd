@@ -121,9 +121,9 @@ class DeletePostView(DeleteView):
 class ManageAllPostsList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(
-        status=1).order_by("-created_on").filter(featured=1)
+        status=1).order_by("-created_on")
     template_name = "manage_posts.html"
-    paginate_by = 6
+    paginate_by = 8
 
 
 # Featured posts list view

@@ -31,7 +31,7 @@
                                 alt="twbs" width="100" height="100" class="rounded-circle flex-shrink-0"></a>
                     </div>
                     {% endif %}
-                    <h3 class="nerd-mgt-cat-title">{{ category.title }}</h3>
+                    <h4 class="nerd-mgt-cat-title">{{ category.title }}</h4>
                     <a href="{% url 'edit_category' category.id %}"><button type="button"
                             class="btn btn-success">Edit</button></a>
                     <a href="{% url 'delete_category' category.id %}"><button type="button"
