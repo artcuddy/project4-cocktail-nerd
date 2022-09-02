@@ -21,7 +21,6 @@ class CocktailForm(forms.ModelForm):
             'content',
             'ingredients',
             'steps',
-            'featured'
             )
 
         widgets = {
@@ -32,5 +31,4 @@ class CocktailForm(forms.ModelForm):
             'content': SummernoteWidget(),
             'ingredients': SummernoteWidget(),
             'steps': SummernoteWidget(),
-            'featured': forms.Select(attrs={'class': 'form-control'}),
         }

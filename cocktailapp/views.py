@@ -114,7 +114,7 @@ class UpdatePostView(UpdateView):
 class DeletePostView(DeleteView):
     model = Post
     template_name = 'delete_post.html'
-    success_url = reverse_lazy("all_cocktails")
+    success_url = reverse_lazy("manage_posts")
 
 
 # Manage all posts list view
@@ -218,7 +218,7 @@ class EditCategoryView(UpdateView):
 class DeleteCategoryView(DeleteView):
     model = Category
     template_name = 'delete_category.html'
-    success_url = reverse_lazy("all_categories")
+    success_url = reverse_lazy("manage_categories")
 
 
 # Manage categories view

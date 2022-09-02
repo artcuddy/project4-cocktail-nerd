@@ -18,6 +18,9 @@
                             <br />
                             <p class="fs-4 mb-4 text-light">Are you sure?</p>
                             <button type="submit" class="btn btn-danger"> Delete Category</button>
+                            <button type="submit" class="btn btn-warning">
+                                <a href="{{request.META.HTTP_REFERER|escape}}">
+                                    Cancel </a></button>
                         </form>
                     </div>
                 </div>
