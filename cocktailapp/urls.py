@@ -5,6 +5,8 @@ from .views import account_login_view, account_signup_view
 from .views import account_logout_view, SearchResultsView
 from .views import UpdatePostView, DeletePostView
 from .views import AddCategoryView, AllCategoriesList
+from .views import ManageCategoriesView, ManageAllPostsList
+from .views import EditCategoryView, DeleteCategoryView
 
 
 urlpatterns = [
@@ -17,6 +19,11 @@ urlpatterns = [
     path('all_cocktails/', views.PostList.as_view(), name='all_cocktails'),
     path('', views.FeaturedList.as_view(), name='home'),
     path('add_post/', views.add_cocktail, name='add_post'),
+    path(
+        'manage_posts/',
+        ManageAllPostsList.as_view(),
+        name='manage_posts'
+        ),
     path(
         'all_categories/',
         AllCategoriesList.as_view(),
@@ -32,6 +39,21 @@ urlpatterns = [
         'article/<slug:slug>/delete',
         DeletePostView.as_view(),
         name='delete_post'
+        ),
+    path(
+        'manage_categories/',
+        ManageCategoriesView.as_view(),
+        name='manage_categories'
+        ),
+    path(
+        'category/edit/<int:pk>',
+        EditCategoryView.as_view(),
+        name='edit_category'
+        ),
+    path(
+        'category/<int:pk>/delete',
+        DeleteCategoryView.as_view(),
+        name='delete_category'
         ),
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
     path('like/<slug:slug>', views.PostLike.as_view(), name='post_like'),

@@ -1,0 +1,95 @@
+    <header class="p-3 text-bg-dark">
+        <div class="container-fluid">
+            <div class="d-flex flex-wrap align-items-center justify-content-around">
+                <nav class="nerd-navbar navbar navbar-expand-xl navbar-dark bg-dark" aria-label="Cocktail Nerd Navbar">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="{% url 'home' %}"><img
+                                src="/static/media/cocktail-nerd-logo-white.webp" alt="Cocktail Nerd Logo"
+                                class="nerd-logo"></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#nerd-navbar" aria-controls="nerd-navbar" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="nerd-navbar">
+                            <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" href="{% url 'all_cocktails' %}">Cocktails</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" href="{% url 'all_categories' %}">Spirits</a>
+                                </li>
+                                <!-- Category Menu -->
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle navbarDropdown text-light"
+                                        href="{% url 'all_categories' %}" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        by Spirit
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-label="navbarDropdown">
+                                        {% for category in category_list %}
+                                        <li>
+                                            <a class="dropdown-item"
+                                                href="{% url 'category' category.title %}">{{ category.title|title }}
+                                            </a>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                                <!-- Admin Menu -->
+                                {% if user.is_staff %}
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle navbarDropdown text-light"
+                                        href="{% url 'all_categories' %}" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Admin
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-label="navbarDropdown">
+                                        <li>
+                                            <a class="dropdown-item" href="{% url 'add_post' %}">Add
+                                                Post
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{% url 'manage_posts' %}">Post
+                                                Mgt
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{% url 'add_category' %}">Add
+                                                Category
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{% url 'manage_categories' %}">Category
+                                                Mgt
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                {% endif %}
+
+                            </ul>
+                            <form role="search" method="get" action="{% url 'search_posts' %}">
+                                <input type="search" class="nerd-search form-control form-control-dark
+                                    text-bg-dark" placeholder="Search Cocktails..." aria-label="Search"
+                                    name="searched">
+                            </form>
+                            <div class="nerd-login-buttons-container">
+                                {% if not user.id %}
+                                <a href=" {% url 'login' %}"><button type="button"
+                                        class=" btn btn-outline-light me-2">Login</button></a>
+                                <a href="{% url 'signup' %}"><button type="button"
+                                        class="btn btn-warning">Sign-up</button></a>
+                                {% else %}
+                                <a href="{% url 'logout' %}"><button type="button"
+                                        class="btn btn-warning">Logout</button></a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>

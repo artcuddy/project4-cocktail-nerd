@@ -262,3 +262,29 @@ a:hover {
 .nerd-category-alert {
     text-transform: uppercase;
 }
+
+/* Manage Categories page */
+.nerd-cat-mgt-image {
+    width: 150px;
+    height: 150px;
+}
+
+.nerd-mgt-cat-title {
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.nerd-cat-mgt-container {
+    max-width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.nerd-cat-mgt-card {
+    text-align: center;
+}
+
+.list-group {
+    max-width: 460px;
+    margin: 4rem auto;
+}

@@ -114,7 +114,16 @@ class UpdatePostView(UpdateView):
 class DeletePostView(DeleteView):
     model = Post
     template_name = 'delete_post.html'
-    success_url = reverse_lazy("home")
+    success_url = reverse_lazy("all_cocktails")
+
+
+# Manage all posts list view
+class ManageAllPostsList(generic.ListView):
+    model = Post
+    queryset = Post.objects.filter(
+        status=1).order_by("-created_on").filter(featured=1)
+    template_name = "manage_posts.html"
+    paginate_by = 6
 
 
 # Featured posts list view
@@ -196,6 +205,31 @@ class AddCategoryView(CreateView):
     model = Category
     fields = '__all__'
     template_name = 'add_category.html'
+
+
+# Edit category view
+class EditCategoryView(UpdateView):
+    model = Category
+    fields = '__all__'
+    template_name = 'edit_category.html'
+
+
+# Delete Category
+class DeleteCategoryView(DeleteView):
+    model = Category
+    template_name = 'delete_category.html'
+    success_url = reverse_lazy("all_categories")
+
+
+# Manage categories view
+class ManageCategoriesView(ListView):
+    model = Category
+    fields = '__all__'
+    template_name = 'manage_categories.html'
+
+    def get_queryset(self):
+        category_list = Category.objects.exclude(title='default')
+        return category_list
 
 
 # Search results view
