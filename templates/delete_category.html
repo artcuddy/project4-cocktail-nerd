@@ -10,7 +10,7 @@
         <div class="nerd-hero text-bg-secondary px-4 py-5 text-left">
             <div class="py-5">
                 <div class="col-lg-6 mx-auto">
-                    <h1 class="display-5 fw-bold">Delete: {{ category.title }}</h1>
+                    <h1 class="display-5 fw-bold">Delete: {{ category.title| title  }} Category</h1>
                     {% load cloudinary %}
                     <div class="form-floating">
                         <form action="" method="POST" enctype="multipart/form-data">

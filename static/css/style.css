@@ -33,6 +33,13 @@ footer {
     color: rgb(255, 0, 0) !important;
 }
 
+.form-control {
+    margin-bottom: 1em;
+}
+
+.form-control:focus {
+    border-color: #ff0000;
+}
 
 /* Logo Styling */
 
@@ -53,6 +60,7 @@ footer {
 
 .nerd-login-buttons-container {
     margin-left: 4em;
+    margin-top: -1em;
 }
 
 @media (max-width: 1200px) {
