@@ -6,6 +6,14 @@ body {
     flex-direction: column;
 }
 
+a {
+    color: #000;
+}
+
+a:hover {
+    color: #000;
+}
+
 p {
     font-size: 18px;
     line-height: 1.8em;
@@ -39,6 +47,16 @@ footer {
 
 .form-control:focus {
     border-color: #ff0000;
+}
+
+.form-floating a {
+    color: #fff;
+}
+
+.nerd-sidebar .card {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
 
 /* Logo Styling */
@@ -212,6 +230,32 @@ a:hover {
     padding-bottom: 1em;
 }
 
+.checked {
+    color: red !important;
+}
+
+.fa-star {
+    color: #fff;
+    padding-left: 8px;
+}
+
+.nerd-rating-title {
+    margin-right: 1em;
+}
+
+.nerd-star-btn {
+    background-color: inherit !important;
+    border: 0 !important;
+}
+
+.nerd-like-btn {
+    background-color: inherit !important;
+    border: 0 !important;
+}
+
+.fa-heart::before {
+    color: red;
+}
 
 /* Side Widgets om single post */
 .nerd-side-widget-header {

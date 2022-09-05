@@ -49,7 +49,7 @@ class Post(models.Model):
         User, related_name="blogpost_like", blank=True)
     featured = models.BooleanField(default=0)
     stars = models.PositiveIntegerField(
-        default=2,
+        default=0,
         validators=[
             MinValueValidator(1),
             MaxValueValidator(5)])

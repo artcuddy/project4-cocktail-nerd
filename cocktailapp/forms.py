@@ -16,18 +16,21 @@ class CocktailForm(forms.ModelForm):
         fields = (
             'status',
             'title',
+            'author',
             'categories',
             'featured_image',
             'content',
             'ingredients',
             'steps',
+            'featured',
+            'stars',
             )
 
         widgets = {
             'status': forms.Select(attrs={'class': 'form-control'}),
             'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'author': forms.Select(attrs={'class': 'form-control'}),
             'categories': forms.Select(attrs={'class': 'form-control'}),
-            'featured_image': forms.FileInput(attrs={'class': 'form-control'}),
             'content': SummernoteWidget(),
             'ingredients': SummernoteWidget(),
             'steps': SummernoteWidget(),

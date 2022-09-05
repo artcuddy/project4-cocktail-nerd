@@ -2,13 +2,15 @@ from django.shortcuts import (
      render, get_object_or_404, reverse)
 from django.views import generic, View
 from django.views.generic import ListView, UpdateView, DeleteView, CreateView
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.db.models import Q
 from .forms import CommentForm, CocktailForm
-from .models import Post, Category
+from .models import Post, Category, Comment
 from allauth.account.views import LoginView, SignupView, LogoutView
 from django.urls import reverse_lazy
+import json
 
 
 # Signup view
@@ -268,3 +270,21 @@ def add_cocktail(request):
 
 def page_not_found_view(request, exception):
     return render(request, '404.html', status=404)
+
+
+@login_required
+def delete_comment(request, pk=None):
+    model = Comment
+    resp = {'status': 'failed', 'msg': ''}
+    if pk is None:
+        resp['msg'] = 'Comment ID is Invalid'
+        return HttpResponse(json.dumps(resp), content_type="application/json")
+    try:
+        comments = model.Comment.objects.get(id=pk)
+        comments.delete()
+        messages.success(request, "Comment has been deleted successfully.")
+        resp['status'] = 'success'
+    except pk.DoesNotExist:
+        resp['msg'] = 'Comment ID is Invalid'
+
+    return HttpResponse(json.dumps(resp), content_type="application/json")

@@ -22,6 +22,9 @@
                             {{ form.as_p }}
                             <br />
                             <button type="submit" class="btn btn-success"> Update </button>
+                            <button type="submit" class="btn btn-warning">
+                                <a href="{{request.META.HTTP_REFERER|escape}}">
+                                    Cancel </a></button>
                         </form>
                     </div>
                     {% endif %}
