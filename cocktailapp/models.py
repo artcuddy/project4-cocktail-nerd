@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
-from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.text import slugify
 from django.urls import reverse
 
@@ -48,11 +47,6 @@ class Post(models.Model):
     likes = models.ManyToManyField(
         User, related_name="blogpost_like", blank=True)
     featured = models.BooleanField(default=0)
-    stars = models.PositiveIntegerField(
-        default=0,
-        validators=[
-            MinValueValidator(1),
-            MaxValueValidator(5)])
 
     class Meta:
         ordering = ["-created_on"]

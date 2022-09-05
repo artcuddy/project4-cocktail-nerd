@@ -23,7 +23,6 @@ class CocktailForm(forms.ModelForm):
             'ingredients',
             'steps',
             'featured',
-            'stars',
             )
 
         widgets = {
