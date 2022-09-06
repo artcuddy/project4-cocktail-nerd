@@ -61,7 +61,7 @@ urlpatterns = [
     path('ratings/', include('star_ratings.urls', namespace='ratings')),
     path(
         'delete-comment/<int:pk>',
-        views.DeleteCommentView.as_view(),
+        DeleteCommentView.as_view(),
         name="delete_comment"),
 ]
 

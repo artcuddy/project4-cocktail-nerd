@@ -29,13 +29,18 @@
 
                     {% endif %}
                 </div>
+                {% else %}
+                <div class="vh-100 nerd-hero text-bg-secondary px-4 py-5 text-center">
+                    <div class="py-5">
+                        <div class="col-lg-6 mx-auto">
+                            <h3 class="nerd-access-denied">Sorry access denied please log in first.</h3>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-{% else %}
-You are not allowed here. Please log in.
-
-{% endif %}
 
 {% endblock %}
