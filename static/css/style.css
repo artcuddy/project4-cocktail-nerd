@@ -257,6 +257,15 @@ a:hover {
     color: red;
 }
 
+.nerd-bold-text {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.nerd-bold-text:hover {
+    color: #ffc107 !important
+}
+
 /* Side Widgets om single post */
 .nerd-side-widget-header {
     font-weight: 300;
@@ -270,7 +279,7 @@ a:hover {
 }
 
 .nerd-sidebar-card {
-    width: 100%;
+    width: 90%;
     margin-top: 1em;
     margin-bottom: 1em;
     margin-left: auto;
@@ -345,6 +354,7 @@ a:hover {
 .nerd-social-link {
     color: #fff;
     padding: 1em;
+    font-size: 1.5em;
 }
 
 .nerd-social-link:hover {
@@ -358,4 +368,11 @@ a:hover {
 
 .nerd-footer-copyright {
     margin-bottom: 1em !important;
+}
+
+@media (max-width: 532px) {
+    .nerd-social-link {
+        padding: .3em;
+        font-size: 1em;
+    }
 }
