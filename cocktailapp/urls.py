@@ -6,7 +6,7 @@ from .views import account_logout_view, SearchResultsView
 from .views import UpdatePostView, DeletePostView
 from .views import AddCategoryView, AllCategoriesList
 from .views import ManageCategoriesView, ManageAllPostsList
-from .views import EditCategoryView, DeleteCategoryView
+from .views import EditCategoryView, DeleteCategoryView, DeleteCommentView
 from django.conf.urls import include
 
 
@@ -60,9 +60,9 @@ urlpatterns = [
     path('like/<slug:slug>', views.PostLike.as_view(), name='post_like'),
     path('ratings/', include('star_ratings.urls', namespace='ratings')),
     path(
-        'delete_comment/<int:pk>',
-        views.delete_comment,
-        name="delete-comment"),
+        'delete-comment/<int:pk>',
+        views.DeleteCommentView.as_view(),
+        name="delete_comment"),
 ]
 
 handler404 = "cocktailapp.views.page_not_found_view"

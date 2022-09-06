@@ -79,7 +79,8 @@
                         class="nerd-side-widget-header card-header text-bg-dark d-flex flex-wrap align-items-center justify-content-around">
                         <strong>
                             {% if user.is_authenticated %}
-                            <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+                            <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST"
+                                id="post-like">
                                 {% csrf_token %}
                                 {% if liked %}
                                 Liked <button type="submit" name="blogpost_id" value="{{post.slug}}" id="like-button"
@@ -176,7 +177,7 @@
                         </span> {{ comment.name }} wrote:
                     </p>
                     {% if user.is_superuser %}
-                    <a href="javascript:void(0)" data-url="{% url 'delete-comment' comment.pk %}"
+                    <a href="{% url 'delete_comment' comment.pk %}" data-url="{% url 'delete_comment' comment.pk %}"
                         class="text-danger text-sm delete-comment">Delete Comment</a> {% endif %}
                     <!-- The body of the comment goes before the | -->
                     {{ comment.body | linebreaks }}
@@ -213,30 +214,5 @@
     </div>
 </div>
 {% endblock %} {% block scripts %}
-<script>
-    $(document).ready(function (event) {
-        $('.delete-comment').click(function () {
-            var url = $(this).attr('data-url')
-            if (confirm("Are you sure to delete this comment?") === true) {
-                start_loader()
-                $.ajax({
-                    url: url,
-                    error: err => {
-                        console.error(err)
-                        alert("An error occurred.")
-                        end_loader()
-                    },
-                    success: function (resp) {
-                        if (resp.status == 'success') {
-                            location.reload()
-                        } else if (!!resp.msg) {
-                            alert(resp.msg)
-                        }
-                        end_loader()
-                    }
-                })
-            }
-        })
-    });
-</script>
+
 {% endblock scripts %}
