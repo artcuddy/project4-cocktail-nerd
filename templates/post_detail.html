@@ -82,15 +82,15 @@
                             <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
                                 {% csrf_token %}
                                 {% if liked %}
-                                Liked <button type="submit" name="blogpost_id" value="{{post.slug}}"
+                                Liked <button type="submit" name="blogpost_id" value="{{post.slug}}" id="like-button"
                                     class="btn-like nerd-like-btn"><i class="fas fa-heart"></i></button>
                                 {% else %}
-                                Liked <button type="submit" name="blogpost_id" value="{{post.slug}}"
+                                Liked <button type="submit" name="blogpost_id" value="{{post.slug}}" id="like-button"
                                     class="btn-like nerd-like-btn"><i class="far fa-heart"></i></button>
                                 {% endif %}
                             </form>
                             {% else %}
-                            Liked <span class="text-light"><i class="far fa-heart"></i></span>
+                            Liked <span id="like-button" class="text-light"><i class="far fa-heart"></i></span>
                             {% endif %}
                             <!-- The number of likes goes before the closing strong tag -->
                             <span class="text-light">{{ post.number_of_likes }} </span>

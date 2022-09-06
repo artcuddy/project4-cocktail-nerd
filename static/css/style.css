@@ -340,3 +340,22 @@ a:hover {
     max-width: 460px;
     margin: 4rem auto;
 }
+
+/* Footer */
+.nerd-social-link {
+    color: #fff;
+    padding: 1em;
+}
+
+.nerd-social-link:hover {
+    color: #ffc107;
+}
+
+
+.nerd-social-icon {
+    margin-right: 8px;
+}
+
+.nerd-footer-copyright {
+    margin-bottom: 1em !important;
+}
