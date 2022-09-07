@@ -36,8 +36,8 @@
                                 <h2 class="nerd-card-title pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ post.title }}</h2>
                                 <ul class="d-flex list-unstyled mt-auto">
                                     <li class="d-flex align-items-center">
-                                        <p class="nerd-card-date card-text h6">{{ post.created_on|date:"F Y" }} <i
-                                                class="far fa-heart"></i>
+                                        <p class="nerd-card-date card-text h6"><i class="fas fa-clock"></i>
+                                            {{ post.created_on | timesince  }} | <i class="far fa-heart"></i>
                                             {{ post.number_of_likes }}</p>
                                     </li>
                                 </ul>
