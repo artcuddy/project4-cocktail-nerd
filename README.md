@@ -1,108 +1,265 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<a href="https://enigma-code-breaker.herokuapp.com/" target="_blank"><img src="documentation/readme_images/logo/cocktail-nerd-logo-white.webp"></a><br />
+<h2>Your expert cocktail guide, featuring hand-selected cocktail recipes.<br />
+Find great new drinks to try plus helpful tips and advice.</h2>
+<br />
 
-Welcome Art Cuddy,
+## Contents
+<ul>
+    <li>
+        <a href="#introduction"><strong>Introduction</strong></a>
+    </li>
+    <li>
+        <a href="#ux"><strong>UX</strong></a>               
+    </li>
+     <li>
+        <a href="#features"><strong>Features</strong></a>
+    </li>
+    <li>
+        <a href="#technologies"><strong>Technologies</strong></a>
+    </li>
+     <li>
+        <a href="#testing"><strong>Development & Testing</strong></a>   
+    </li>
+    <li>
+        <a href="#deployment"><strong>Deployment</strong></a>
+    </li>
+    <li>
+       <a href="#credits"><strong>Credits</strong></a> 
+    </li>
+</ul>
+<hr>
+<h2 id="introduction">Introduction</h2>
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Cocktail Nerd - is full stack Django project that runs on Heroku.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+The site allows staff users to edit posts, categories and comments from the frone=tend once logged in & registered users can login to comment and like posts.
 
-## Gitpod Reminders
+## Demo
+A live version of the site can be found <a href="https://enigma-code-breaker.herokuapp.com/" target="_blank">**HERE**</a><br><br>
+<img src="documentation/readme_images/screenshots/cocktail-nerd-responsive-screenshot.webp"><br><br>
+<a href="#top">Back to the top.</a>
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
 
-`python3 -m http.server`
+<h2 id="future-features">Possible Future Features</h2>
 
-A blue button should appear to click: _Make Public_,
+* Features go here  
 
-Another blue button should appear to click: _Open Browser_.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+<h2 id="technologies">Technologies</h2>
 
-A blue button should appear to click: _Make Public_,
+<a href="#top">Back to the top.</a>
 
-Another blue button should appear to click: _Open Browser_.
+Throughout the planning, design, testing and deployment of the Cocktail Nerd Website , I have used a number of technologies:
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Languages
+<ol>
+    <li><a href="https://en.wikipedia.org/wiki/HTML5" target="_blank">HTML</a>
+        <ul><li>The main structure of the game container</li></ul>
+    </li>
+    <li><a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a>
+        <ul><li>Within the base template by code institute</li></ul>
+    </li>
+    <li><a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank">Python</a>
+        <ul><li>For the gameplay logic</li></ul>
+    </li>
+    <li><a href="https://www.markdownguide.org/" target="_blank">Markdown</a>
+        <ul><li>For the content and structure of the README.md</li></ul>
+    </li>
+</ol>   
 
-To log into the Heroku toolbelt CLI:
+### Version Control
+<ol>
+    <li><a href="https://github.com/" target="_blank">Git & Github</a>
+        <ul><li>For the hosting and version control of the ENIGMA game</li></ul>
+    </li>
+    <li><a href="https://www.gitpod.io/" target="_blank">Gitpod</a>
+        <ul><li>The development environment used for writing the code for the ENIGMA game</li></ul>
+    </li>
+</ol>
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### Applications    
+<ol>
+   <li><a href="https://lucid.app/" target="_blank">Lucid Chart</a>
+        <ul><li>For the creation of the flowchart</li></ul>
+    </li>
+    <li><a href="https://visualstudio.microsoft.com/" target="_blank">Visual Studio (Desktop)</a>
+        <ul><li>For testing out different code strategies without interfering with code for the ENIGMA Game</li></ul>
+    </li>
+    <li><a href="https://slack.com/intl/en-gb/" target="_blank">Slack (Desktop)</a>
+        <ul><li>For communicating with fellow students and troubleshooting problems with the different environments used during the course and solving coding issues.</li></ul>
+    </li>
+</ol>
+    
+## Frameworks, Libraries and Programs
 
-------
 
-## Release History
+<ol> 
+    <li><a href="https://docs.python.org/3/library/time.html" target="_blank">Python time library</a>
+        <ul>Used to delay the next line of text in the python terminal</ul>
+    </li>
+    <li><a href="https://pypi.org/project/termcolor/" target="_blank">Python termcolor library</a>
+        <ul>Used to add colour to the text in the python terminal</ul>
+    </li>
+    <li><a href="http://pep8online.com/checkresult" target="_blank">PEP8 ONLINE</a>
+        <ul><li>To test and search for errors in the Python code</li></ul>
+    </li>
+    <li><a href="https://developers.google.com/web/tools/lighthouse" target="_blank">Lighthouse</a> Performance Tool
+        <ul><li>To ensure high performance and quick loading times of the ENIGMA game</li></ul>
+    </li>
+</ol><br> 
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+<h2 id="testing">Development & Testing</h2>
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+<a href="#top">Back to the top.</a>
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+### Flow Chart
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+## Validator Testing
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+* <a href="https://developers.google.com/web/tools/lighthouse" target="_blank">Lighthouse</a> Performance Tool
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+<img src="documentation/readme_images/testing/lighthouse-testing.webp"><br><br>
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+<h2 id="deployment">Deployment</h2>
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+<a href="#top">Back to the top.</a>
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### This project was created on GitHub and Edited in GitPod by carrying out the following:
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+<ol>
+    <li>A new repository was created using 'Code-Instutute-Org/python-essentials-template'</li>
+    <li>A meaningful name was given to my new repository and I selected 'Create Repository'</li>
+    <li>I then opened the repository on GitHub and clicked the 'Gitpod' button to build the GitPod workspace which would allow me to build and edit the code used to make the <em>Star Trek Time Loop</em> website/game</li>
+    <li>Version control was used throughout the project using the following commands in the terminal using Bash
+        <ul>
+            <li>git add . <strong>OR</strong> git add "file name" - to stage the changes and get them ready for being committed to the local repo.</li> 
+            <li>git commit -m "Description of the update" - to save the change and commit the change to the local repo</li>
+            <li>git push - to push all committed changes to the GitHub</li>
+            <li>commit --amend - for changing the wording or spelling of the most recent commit</li>
+            <li>git reset "commit hash" </li>
+            <li>git push -f - This was used to force changes through to the GitHub repo if either "commit --amend" or "git reset" were used</li>
+        </ul>
+    </li>
 
-------
 
-## FAQ about the uptime script
+### Heroku
 
-**Why have you added this script?**
+The project was deployed via <a href="https://id.heroku.com/login" target="_blank">Heroku</a>, and the live link can be found here: <a href="https://enigma-code-breaker.herokuapp.com/" target="_blank">ENIGMA – Code Breaker</a>
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+This project was developed utilising the <a href="https://github.com/Code-Institute-Org/python-essentials-template" target="_blank">Code Institute Template</a>. Some of the deployment steps below are specifically required for the new CI template and may not be applicable to older versions, or different projects.
 
-**How will this affect me?**
+Before deploying to Heroku pip3 freeze > requirements.txt was used to add pyfiglet and termcolor imports for deployment.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+This project was deployed to Heroku using the Heroku CLI details below
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+* Login
+To use the CLI you must log in to your Heroku account. To do this you will need to
+enter the command heroku login -i in the terminal. It requires the email and
+password you used to sign up. If you have enabled multi-factor authentication (a
+recommended security practice) then instead of your password you need an API key.
+To get the API key go to your account settings and scroll down to the section ‘API
+Key’. Click reveal and copy that, then paste it into the password prompt.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+<img src="assets/screenshots/heroku-login-cli.jpg"><br><br>
 
-**So….?**
+* Creating A Heroku App
+Now that you are logged in, the first thing is to create a new app. Heroku creates a
+URL based on your app name, so it must be unique not only on your account, but
+across the whole site. You may need to try a few different names. To create an app
+use the following command, where myapp is the name of your app.
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+<img src="assets/screenshots/creating-heroku-app.jpg"><br><br>
 
-**Can I opt out?**
+* Here the app heroku-cli-example has been created with an output of the website
+URL. It also displays and sets the git remote repository which will be used to deploy.
+By default the region will be set to the US. If you would prefer a server based in the
+EU then you can specify the region with the flag EU
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+* Packages
+* When you push code to Heroku it will look at the repository contents to decide how
+to build the project. One of the factors taken into consideration is the package file.
+With a Python project the standard file is a requirements.txt file, which will have the
+list of packages needed to run the project. If this file is present it will build the project
+using the Python buildpack.
+<br><br>
+* It is also possible to specify the buildpack manually. More information about
+buildpacks can be found in the documentation. To check the buildpack for the
+project you can enter heroku buildpacks in the terminal.
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+* Click **Enable Automatic Deploys** for automatic deployment when you push updates to Github.
 
-**Anything more?**
+* Select the correct branch for deployment from the drop-down menu and click **Deploy Branch** for manual deployment.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
 
----
+### Github Local Deployment
+There are many ways to deploy the project locally on your own device. Forking, Cloning, GitHub Desktop and Zip Exctraction, the steps in these processes are outlined below:
 
-Happy coding!
+#### Forking the GitHub repo
+If you want to make changes to the repo without affecting it, you can make a copy of it by 'Forking' it. This will make sure that the original repo remains unchanged.
+
+<ol>
+    <li>Log in to your GitHub account</li>
+    <li>Navigate to the repository <a href="https://github.com/artcuddy/project3-enigma" target="_blank"><strong>HERE</strong></a></li>
+    <li>Select the 'Fork' button in the top right corner of the page (under your account image)</li>
+    <li>The repo has now been copied into your own repos and you can work on it in your chosen IDE</li>
+    <li>If you have any suggestions to make regards to the code to make the site better, you can put in a pull request</li>
+</ol>
+
+#### Cloning the repo with GitPod
+<ol>
+    <li>Log in to your GitHub account</li>
+    <li>Navigate to the Repository <a href="https://github.com/artcuddy/project3-enigma" target="_blank"><strong>HERE</strong></a></li>
+    <li>Select the 'Code' button above the file list on the right had side</li>
+    <li>Ensure HTTPS is selected and click the clipboard on the right of the URL to copy it</li>
+    <li>Open a new workspace in GitPod</li>
+    <li>In the bash terminal type 'git clone [copy url here from step 4]'</li>
+    <li>Press enter - the IDE will clone and download the repo</li>
+</ol>
+
+#### Github Desktop
+<ol>
+    <li>Log in to your GitHub account</li>
+    <li>Navigate to the Repository <a href="https://github.com/artcuddy/project3-enigma" target="_blank"><strong>HERE</strong></a></li>
+    <li>Select the 'Code' button above the file list on the right had side</li>
+    <li>Select 'Open with GitHub Desktop'</li>
+    <li>If you haven't already installed GitHub desktop application - you will need to follow the relevant steps to do this</li>
+    <li>The repo will then be copied locally onto your machine</li>
+</ol>
+
+#### Download and extract the zip directly from GitHub
+<ol>
+    <li>Log in to your GitHub account</li>
+    <li>Navigate to the Repository <a href="https://github.com/artcuddy/project3-enigma" target="_blank"><strong>HERE</strong></a></li>
+    <li>Select the 'Code' button above the file list on the right had side</li>
+    <li>Select 'Download Zip'</li>
+    <li>Once you have the Zip downloaded, open it with your prefered file decompression software</li>
+    <li>You can then drag and drop the files from the folder into your chosen IDE or view/edit them on your local machine</li>
+    <li>If you want to create a web-app from the repo please follow the instructions in "Project Deployment"</li>
+</ol>
+
+
+<h2 id="credits">Credits</h2>
+
+<a href="#top">Back to the top.</a>
+
+I have listed some of the resources I used for inspiration and in researching how to create the Cocktail Nerd Website
+
+* Mastermind Game with Python: Tutorial: <a href="https://www.youtube.com/watch?v=NLfxNo7Q0Pk" target="_blank">Youtube</a>
+
+
+These resources helped me solve some of the issues encountered when developing the site
+
+* How to use Pyfiglet to display the game Heading & Subheading <a href="https://www.geeksforgeeks.org/python-ascii-art-using-pyfiglet-module/" target="_blank">Pyfiglet</a>
+
+
+<a href="#top">Back to the top.</a>
+
+<h2 id="acknowledgements">Acknowledgements</h2>
+
+This project was made possible due to the help & advice from my Mentor Rohit, Code Institute Slack community, Stack Overflow community and a lot of extensive Googling.

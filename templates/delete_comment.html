@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base/base.html' %}
 {% block title %} Delete Comment {% endblock %}
 
 {% block content %}
@@ -18,7 +18,7 @@
                             <p class="fs-4 mb-4 text-light">Are you sure?</p>
                             <button type="submit" class="btn btn-danger me-2"> Delete Comment</button>
                             <button type="submit" class="btn btn-warning">
-                                <a href="{{request.META.HTTP_REFERER|escape}}">
+                                <a href="{{ request.META.HTTP_REFERER|escape }}">
                                     Cancel </a></button>
                         </form>
                     </div>

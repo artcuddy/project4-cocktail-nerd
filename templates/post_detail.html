@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base/base.html' %}
 {% block title %}Cocktail Nerd | {{ post.title }}{% endblock %}
 {% block content %}
 {% load crispy_forms_tags %}
@@ -93,13 +93,13 @@
                             {% else %}
                             Liked <span id="like-button" class="text-light"><i class="far fa-heart"></i></span>
                             {% endif %}
-                            <!-- The number of likes goes before the closing strong tag -->
+                            <!-- The number of likes  -->
                             <span class="text-light">{{ post.number_of_likes }} </span>
                         </strong>
                         {% with comments.count as total_comments %}
                         <div><a class="nerd-link" href="#nerd-comments-widget">Comments</a>
                             <strong class="text-light"><i class="far fa-comments"></i>
-                                <!-- Our total_comments variable goes before the closing strong tag -->
+                                <!-- Total Comments -->
                                 {{ total_comments }}</strong>
                             {% endwith %}
                         </div>
@@ -166,11 +166,11 @@
                 <div class="nerd-comments-headline-wrapper">
                     <h3 class="nerd-comments-headline">Comments:</h3>
                 </div>
-                <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
+                <!-- We want a for loop to iterate through each comment in comments -->
                 {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">
                     <p class="nerd-comment-username">
-                        <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
+                        <!-- The commenter's name goes here -->
                         <span class="nerd-comment-date text-muted">
                             <!-- The comment's created date goes here -->
                             {{ comment.created_on }}
@@ -179,7 +179,7 @@
                     {% if user.is_superuser %}
                     <a href="{% url 'delete_comment' comment.pk %}" data-url="{% url 'delete_comment' comment.pk %}"
                         class="nerd-bold-text text-danger text-sm delete-comment">Delete Comment</a> {% endif %}
-                    <!-- The body of the comment goes before the | -->
+                    <!-- The body of the comment goes here-->
                     {{ comment.body | linebreaks }}
                 </div>
                 <!-- Our for loop ends here -->

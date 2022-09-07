@@ -2,7 +2,7 @@ from django.shortcuts import (
      render, get_object_or_404, reverse)
 from django.views import generic, View
 from django.views.generic import ListView, UpdateView, DeleteView, CreateView
-from django.http import HttpResponseRedirect, JsonResponse
+from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .forms import CommentForm, CocktailForm
