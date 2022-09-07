@@ -14,6 +14,14 @@
                 <header class="mb-4">
                     <!-- Post title-->
                     <h1 class="nerd-post-title">{{ post.title }}</h1>
+                    {% if user.is_authenticated %}
+                    <!-- Commment area -->
+                    {% if commented %}
+                    <div class="alert alert-success" role="alert">
+                        Your comment is awaiting approval
+                    </div>
+                    {% endif %}
+                    {% endif %}
                     {% if user.is_staff %}
                     <div class="nerd-edit-buttons">
                         <a href="{% url 'edit_post' post.slug %}"><button type="button"
@@ -22,12 +30,52 @@
                                 class="btn btn-danger">Delete</button></a>
                     </div>
                     {% endif %}
+                    <hr>
                     <!-- Post meta content-->
                     <div class="text-muted mb-2"><a
                             class="nerd-post-cat-tag badge bg-dark text-decoration-none link-light"
                             href="{% url 'category' post.categories %}">{{ post.categories|title }} </a><i
                             class="nerd-post-clock fas fa-clock"></i>
                         {{ post.created_on | timesince  }} by {{ post.author }}</div>
+                    <div class="nerd-post-meta-widget d-flex flex-row  bd-highlight mb-3 align-items-center
+                        justify-content-between">
+                        <div>
+                            <strong>
+                                {% if user.is_authenticated %}
+                                <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST"
+                                    id="post-like">
+                                    {% csrf_token %}
+                                    {% if liked %}
+                                    Liked <button type="submit" name="blogpost_id" value="{{post.slug}}"
+                                        id="like-button" class="btn-like nerd-like-btn"><i
+                                            class="fas fa-heart"></i></button>
+                                    {% else %}
+                                    Liked <button type="submit" name="blogpost_id" value="{{post.slug}}"
+                                        id="like-button" class="btn-like nerd-like-btn"><i
+                                            class="far fa-heart"></i></button>
+                                    {% endif %}
+                                </form>
+                                {% else %}
+                                Liked <span id="like-button" class="text-muted"><i class="far fa-heart"></i></span>
+                                {% endif %}
+                                <!-- The number of likes  -->
+                                <span class="text-muted">{{ post.number_of_likes }} </span>
+                            </strong>
+                        </div>
+                        {% with comments.count as total_comments %}
+                        <div><strong><a class="nerd-comment-link" href="#nerd-comments-widget">Comments</a></strong>
+                            <strong class="text-muted"><i class="far fa-comments"></i>
+                                <!-- Total Comments -->
+                                {{ total_comments }}</strong>
+                            {% endwith %}
+                        </div>
+                        <div class="text-muted mb-2">
+
+                            {% load ratings %}
+
+                            {% ratings post %}
+                        </div>
+                    </div>
                     <hr>
                 </header>
                 <!-- Preview image figure-->
@@ -43,7 +91,7 @@
                 </section>
                 <!-- Ingredients widget-->
                 <div class="card mb-4">
-                    <div class="nerd-side-widget-header card-header text-bg-dark">Ingredients</div>
+                    <div class="nerd-side-widget-header card-header text-bg-light">Ingredients</div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-10">
@@ -54,54 +102,12 @@
                 </div>
                 <!-- Steps widget-->
                 <div class="card mb-4">
-                    <div class="nerd-side-widget-header card-header text-bg-dark">Steps</div>
+                    <div class="nerd-side-widget-header card-header text-bg-light">Steps</div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-10">
                                 {{ post.steps | safe }}
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Ratings widget -->
-                <div class="card mb-4">
-                    <div
-                        class="nerd-side-widget-header card-header text-bg-dark d-flex flex-wrap align-items-center justify-content-center">
-
-                        {% load ratings %}
-
-                        {% ratings post %}
-                    </div>
-                </div>
-                <!-- like and comment count widget -->
-                <div class="card mb-4">
-                    <div
-                        class="nerd-side-widget-header card-header text-bg-dark d-flex flex-wrap align-items-center justify-content-around">
-                        <strong>
-                            {% if user.is_authenticated %}
-                            <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST"
-                                id="post-like">
-                                {% csrf_token %}
-                                {% if liked %}
-                                Liked <button type="submit" name="blogpost_id" value="{{post.slug}}" id="like-button"
-                                    class="btn-like nerd-like-btn"><i class="fas fa-heart"></i></button>
-                                {% else %}
-                                Liked <button type="submit" name="blogpost_id" value="{{post.slug}}" id="like-button"
-                                    class="btn-like nerd-like-btn"><i class="far fa-heart"></i></button>
-                                {% endif %}
-                            </form>
-                            {% else %}
-                            Liked <span id="like-button" class="text-light"><i class="far fa-heart"></i></span>
-                            {% endif %}
-                            <!-- The number of likes  -->
-                            <span class="text-light">{{ post.number_of_likes }} </span>
-                        </strong>
-                        {% with comments.count as total_comments %}
-                        <div><a class="nerd-link" href="#nerd-comments-widget">Comments</a>
-                            <strong class="text-light"><i class="far fa-comments"></i>
-                                <!-- Total Comments -->
-                                {{ total_comments }}</strong>
-                            {% endwith %}
                         </div>
                     </div>
                 </div>
@@ -113,7 +119,7 @@
         <div class="nerd-sidebar col-lg-4">
             <!-- Categories widget-->
             <div class="nerd-card card mb-4">
-                <div class="nerd-side-widget-header card-header text-bg-dark">Cocktails by Spirit</div>
+                <div class="nerd-side-widget-header card-header text-bg-light">Cocktails by Spirit</div>
                 <div class="card-body">
                     <div class="row">
                         <ul class="list-unstyled mb-0">
@@ -127,10 +133,10 @@
             </div>
             <!-- Side widget-->
             <div class="nerd-card card mb-4">
-                <div class="nerd-side-widget-header card-header text-bg-dark">Featured Cocktails</div>
+                <div class="nerd-side-widget-header card-header text-bg-light">Featured Cocktails</div>
                 {% for post in related_list %}
                 {% if "placeholder" in post.featured_image.url %}
-                <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
+                <div class=" card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
                     style="background-image: url('static/media/placeholder.webp');">
                     {% else %}
                     <a href="{% url 'post_detail' post.slug %}" class="image-link">
@@ -162,7 +168,7 @@
 </div>
 <div class="container mt-1">
     <div id="nerd-comments-widget" class="row nerd-comment-row">
-        <div class="nerd-comment-display col-md-8 card mb-4 mt-3">
+        <div class="nerd-comment-display col-md-8 card mb-4 mt-3 bg-light">
             <div class="card-body">
                 <div class="nerd-comments-headline-wrapper">
                     <h3 class="nerd-comments-headline">Comments:</h3>
@@ -175,7 +181,7 @@
                         <span class="nerd-comment-date text-muted">
                             <!-- The comment's created date goes here -->
                             {{ comment.created_on }}
-                        </span> {{ comment.name }} wrote:
+                        </span> {{ comment.name }}:
                     </p>
                     {% if user.is_superuser %}
                     <a href="{% url 'delete_comment' comment.pk %}" data-url="{% url 'delete_comment' comment.pk %}"
@@ -187,7 +193,7 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="text-bg-dark col-md-4 card mb-4  mt-3 ">
+        <div class="text-bg-light col-md-4 card mb-4  mt-3 ">
             <div class="comment_area card-body">
                 <!-- Commment area -->
                 {% if commented %}
@@ -207,13 +213,11 @@
                 {% else %}
                 <h3 class="nerd-comments-headline">Login to comment:</h3>
                 <a href="{% url 'login' %}"><button type="button"
-                        class=" btn btn-outline-warning me-2">Login</button></a>
+                        class="nerd-comment-submit btn btn-outline-warning me-2">Login</button></a>
                 {% endif %}
                 {% endif %}
             </div>
         </div>
     </div>
 </div>
-{% endblock %} {% block scripts %}
-
-{% endblock scripts %}
+{% endblock %}

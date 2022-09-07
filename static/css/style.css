@@ -189,11 +189,10 @@ a:hover {
     font-weight: 300;
     text-transform: uppercase;
     font-size: 1.5rem;
-    color: #ffc107 !important;
+    color: #000 !important;
 }
 
 .nerd-comments-headline-wrapper {
-    background: #000 !important;
     padding-left: 1em;
     padding-top: 0.3em;
     padding-bottom: 0.1em;
@@ -209,9 +208,9 @@ a:hover {
     font-size: 14px;
 }
 
-.nerd-comment-display {
+/* .nerd-comment-display {
     border: solid #000 3px;
-}
+} */
 
 .nerd-comment-row {
     padding: 1em;
@@ -219,6 +218,36 @@ a:hover {
 
 .nerd-comment-submit {
     margin-top: 1em;
+    color: #000;
+    border-color: #000;
+}
+
+.nerd-comment-link {
+    color: #000 !important;
+}
+
+.nerd-comment-link:hover {
+    color: #ffc107 !important;
+}
+
+.star-ratings-rating-average,
+.star-ratings-rating-count {
+    display: none;
+}
+
+.star-ratings {
+    margin-top: -2em;
+}
+
+/* Mobile styling */
+@media (max-width: 532px) {
+    .star-ratings {
+        margin-top: 1em;
+    }
+
+    .nerd-post-meta-widget {
+        display: inline-grid !important;
+    }
 }
 
 .nerd-link {
@@ -275,11 +304,12 @@ a:hover {
     font-weight: 300;
     text-transform: uppercase;
     font-size: 1.2rem;
-    color: #ffc107 !important;
+    color: #000 !important;
 }
 
+
 .nerd-sidebar {
-    margin-top: 8em;
+    margin-top: 9em;
 }
 
 .nerd-sidebar-card {

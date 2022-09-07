@@ -21,7 +21,7 @@
             <div class="row row-cols-1 row-cols-lg-3 align-items-center g-4 py-4"></div>
             {% for post in catlist.posts %}
             {% empty %}
-            <div class="nerd-category-alert alert alert-warning" role="alert">
+            <div class="nerd-category-alert alert alert-danger" role="alert">
                 Sorry there are no {{ catlist.cat }} COCKTAILS at the moment!
             </div>
             {% endfor %}
