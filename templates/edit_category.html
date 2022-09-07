@@ -21,8 +21,8 @@
                             {% csrf_token %}
                             {{ form.as_p }}
                             <br />
-                            <button type="submit" class="btn btn-success"> Update </button>
-                            <button type="submit" class="btn btn-warning">
+                            <button type="submit" class="btn btn-success me-2"> Update </button>
+                            <button type="submit" class="nerd-cancel-button btn btn-warning">
                                 <a href="{{request.META.HTTP_REFERER|escape}}">
                                     Cancel </a></button>
                         </form>

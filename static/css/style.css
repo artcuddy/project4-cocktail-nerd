@@ -266,6 +266,10 @@ a:hover {
     color: #ffc107 !important
 }
 
+.nerd-post-clock {
+    margin-left: 8px;
+}
+
 /* Side Widgets om single post */
 .nerd-side-widget-header {
     font-weight: 300;
@@ -343,6 +347,10 @@ a:hover {
 
 .nerd-cat-mgt-card {
     text-align: center;
+}
+
+.nerd-cancel-button a {
+    color: #000;
 }
 
 .list-group {
