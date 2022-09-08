@@ -25,9 +25,9 @@
                     {% if user.is_staff %}
                     <div class="nerd-edit-buttons">
                         <a href="{% url 'edit_post' post.slug %}"><button type="button"
-                                class="btn btn-success">Edit</button></a>
+                                class="btn btn-outline-success btn-sm">Edit</button></a>
                         <a href="{% url 'delete_post' post.slug %}"><button type="button"
-                                class="btn btn-danger">Delete</button></a>
+                                class="btn btn-outline-danger btn-sm">Delete</button></a>
                     </div>
                     {% endif %}
                     <hr>
@@ -173,6 +173,10 @@
                 <div class="nerd-comments-headline-wrapper">
                     <h3 class="nerd-comments-headline">Comments:</h3>
                 </div>
+                {% if comments %}
+                {% else %}
+                <p>Be the first to comment:</p>
+                {% endif %}
                 <!-- We want a for loop to iterate through each comment in comments -->
                 {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">
@@ -180,14 +184,41 @@
                         <!-- The commenter's name goes here -->
                         <span class="nerd-comment-date text-muted">
                             <!-- The comment's created date goes here -->
-                            {{ comment.created_on }}
+                            <i class="fas fa-clock"></i> {{ comment.created_on  | timesince }} ago
                         </span> {{ comment.name }}:
                     </p>
-                    {% if user.is_superuser %}
-                    <a href="{% url 'delete_comment' comment.pk %}" data-url="{% url 'delete_comment' comment.pk %}"
-                        class="nerd-bold-text text-danger text-sm delete-comment">Delete Comment</a> {% endif %}
-                    <!-- The body of the comment goes here-->
-                    {{ comment.body | linebreaks }}
+                    {% if user.is_authenticated and user.username == comment.name or user.is_staff %}
+                    <div class="nerd-edit-buttons">
+                        <a href="{% url 'edit_comment' comment.id %}"
+                            aria-label="Navigate to the Edit Comments Page"><button type="button"
+                                class="btn btn-outline-success btn-sm me-2">Edit</button></a>
+                        <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#delete-comment">Delete</button></a>
+                    </div>
+                    <!-- Delete comment using modal-->
+                    <div class="modal fade" id="delete-comment" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Delete Comment</h5>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure you want to delete your comment?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cancel</button>
+                                    <a href="{% url 'delete_comment' comment.id %}" class="btn btn-danger"
+                                        aria-label="Delete Comment">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="nerd-user-comments">
+                        <!-- The body of the comment goes here-->
+                        <span><i class="far fa-comment"></i>{{ comment.body | linebreaks }}</span>
+                    </div>
                 </div>
                 <!-- Our for loop ends here -->
                 {% endfor %}

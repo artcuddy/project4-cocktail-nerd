@@ -1,22 +1,22 @@
 {% extends 'base/base.html' %}
-{% block title %} Delete Comment {% endblock %}
+{% block title %} Edit Comment {% endblock %}
 
 {% block content %}
 
-{% if user.is_staff %}
+{% if user.is_authenticated and user.username == comment.name or user.is_staff %}
 <div class="container-fluid">
     <div class="row">
         <!-- Add New Post  -->
         <div class="vh-100 nerd-hero text-bg-secondary px-4 py-5 text-left">
             <div class="py-5">
                 <div class="col-lg-6 mx-auto">
-                    <h1 class="display-5 fw-bold">Delete Comment: {{ comment.body }}</h1>
+                    <h1 class="nerd-page-title">Edit comment as: {{ user.username }}</h1>
                     <div class="form-floating">
-                        <form method="post" data-url="{% url 'delete_comment' comment.pk %}" class="delete-form">
+                        <form method="post" enctype="multipart/form-data">
                             {% csrf_token %}
+                            {{ form.as_p }}
                             <br />
-                            <p class="fs-4 mb-4 text-light">Are you sure?</p>
-                            <button type="submit" class="btn btn-danger me-2"> Delete Comment</button>
+                            <button type="submit" class="btn btn-success me-2"> Update</button>
                             <button type="submit" class="nerd-cancel-button btn btn-warning">
                                 <a href="{{ request.META.HTTP_REFERER|escape }}">
                                     Cancel </a></button>

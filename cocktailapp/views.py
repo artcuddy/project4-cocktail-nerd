@@ -9,6 +9,9 @@ from .forms import CommentForm, CocktailForm
 from .models import Post, Category, Comment
 from allauth.account.views import LoginView, SignupView, LogoutView
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 # Signup view
@@ -270,8 +273,29 @@ def page_not_found_view(request, exception):
     return render(request, '404.html', status=404)
 
 
-# Delete comment
-class DeleteCommentView(DeleteView):
+# # Delete comment
+# class DeleteCommentView(DeleteView):
+#     model = Comment
+#     template_name = 'delete_comment.html'
+#     success_url = reverse_lazy("all_cocktails")
+
+@login_required
+def delete_comment(request, comment_id):
+    """
+    Delete comment
+    """
+    comment = get_object_or_404(Comment, id=comment_id)
+    comment.delete()
+    messages.success(request, 'The comment was deleted successfully')
+    return HttpResponseRedirect(reverse(
+        'post_detail', args=[comment.post.slug]))
+
+
+class EditComment(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+    """
+    Edit comment
+    """
     model = Comment
-    template_name = 'delete_comment.html'
-    success_url = reverse_lazy("all_cocktails")
+    template_name = 'edit_comment.html'
+    form_class = CommentForm
+    success_message = 'The comment was successfully updated'

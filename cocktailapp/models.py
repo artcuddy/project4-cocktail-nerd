@@ -82,3 +82,7 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
+
+    def get_absolute_url(self):
+        """Sets absolute URL"""
+        return reverse('post_detail', args=[self.post.slug])

@@ -53,12 +53,6 @@ footer {
     color: #fff;
 }
 
-.nerd-sidebar .card {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-}
-
 /* Logo Styling */
 
 .nerd-logo {
@@ -208,10 +202,6 @@ a:hover {
     font-size: 14px;
 }
 
-/* .nerd-comment-display {
-    border: solid #000 3px;
-} */
-
 .nerd-comment-row {
     padding: 1em;
 }
@@ -307,24 +297,12 @@ a:hover {
     color: #000 !important;
 }
 
-
-.nerd-sidebar {
-    margin-top: 9em;
-}
-
 .nerd-sidebar-card {
     width: 90%;
     margin-top: 1em;
     margin-bottom: 1em;
     margin-left: auto;
     margin-right: auto;
-}
-
-/* Mobile styling */
-@media (max-width: 880px) {
-    .nerd-sidebar {
-        margin-top: 0;
-    }
 }
 
 /* Page navigation styling */
