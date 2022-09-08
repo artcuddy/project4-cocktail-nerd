@@ -35,7 +35,7 @@ class Post(models.Model):
         User, on_delete=models.CASCADE, related_name="blog_posts"
     )
     categories = models.ForeignKey(
-        Category, on_delete=models.PROTECT, default=7)
+        Category, on_delete=models.SET_DEFAULT, default=7)
     featured_image = CloudinaryField("image", default="placeholder")
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)

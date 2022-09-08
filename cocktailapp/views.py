@@ -46,7 +46,7 @@ account_logout_view = AccountLogoutView.as_view()
 class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(
-        status=1).order_by("-created_on").exclude(categories=6)
+        status=1).order_by("-created_on").exclude(categories=7)
     template_name = "all_cocktails.html"
     paginate_by = 6
 
@@ -208,6 +208,7 @@ class AddCategoryView(CreateView):
     model = Category
     fields = '__all__'
     template_name = 'add_category.html'
+    success_url = reverse_lazy("manage_categories")
 
 
 # Edit category view
@@ -215,6 +216,7 @@ class EditCategoryView(UpdateView):
     model = Category
     fields = '__all__'
     template_name = 'edit_category.html'
+    success_url = reverse_lazy("manage_categories")
 
 
 # Delete Category
