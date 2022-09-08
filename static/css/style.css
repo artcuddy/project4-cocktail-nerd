@@ -175,6 +175,21 @@ a:hover {
 .nerd-post-title {
     font-weight: 300;
     text-transform: uppercase;
+    padding: 0.5em;
+    border: solid 0.5px;
+    border-radius: 5px;
+}
+
+.nerd-main-post-content {
+    padding: 1em;
+    border: solid 0.5px;
+    border-radius: 5px;
+}
+
+.nerd-post-meta-widget {
+    padding: 1em;
+    border: solid 0.5px;
+    border-radius: 5px;
 }
 
 .nerd-post-cat-tag {
@@ -238,7 +253,7 @@ a:hover {
         margin-top: 1em;
     }
 
-    .nerd-post-meta-widget {
+    .nerd-post-ratings-widget {
         display: inline-grid !important;
     }
 }

@@ -13,7 +13,7 @@
                 <!-- Post header-->
                 <header class="mb-4">
                     <!-- Post title-->
-                    <h1 class="nerd-post-title">{{ post.title }}</h1>
+                    <h1 class="nerd-post-title bg-light">{{ post.title }}</h1>
                     {% if user.is_authenticated %}
                     <!-- Commment area -->
                     {% if commented %}
@@ -30,63 +30,65 @@
                                 class="btn btn-outline-danger btn-sm">Delete</button></a>
                     </div>
                     {% endif %}
-                    <hr>
                     <!-- Post meta content-->
-                    <div class="text-muted mb-2"><a
-                            class="nerd-post-cat-tag badge bg-dark text-decoration-none link-light"
-                            href="{% url 'category' post.categories %}">{{ post.categories|title }} </a><i
-                            class="nerd-post-clock fas fa-clock"></i>
-                        {{ post.created_on | timesince  }} by {{ post.author }}</div>
-                    <div class="nerd-post-meta-widget d-flex flex-row  bd-highlight mb-3 align-items-center
+                    <div class="nerd-post-meta-widget bg-light">
+                        <div class="text-muted mb-2"><a
+                                class="nerd-post-cat-tag badge bg-dark text-decoration-none link-light"
+                                href="{% url 'category' post.categories %}">{{ post.categories|title }} </a><i
+                                class="nerd-post-clock fas fa-clock"></i>
+                            {{ post.created_on | timesince  }} by {{ post.author }}
+                        </div>
+                        <div class="nerd-post-ratings-widget d-flex flex-row  bd-highlight mb-3 align-items-center
                         justify-content-between">
-                        <div>
-                            <strong>
-                                {% if user.is_authenticated %}
-                                <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST"
-                                    id="post-like">
-                                    {% csrf_token %}
-                                    {% if liked %}
-                                    Liked <button type="submit" name="blogpost_id" value="{{post.slug}}"
-                                        id="like-button" class="btn-like nerd-like-btn"><i
-                                            class="fas fa-heart"></i></button>
+                            <div>
+                                <strong>
+                                    {% if user.is_authenticated %}
+                                    <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST"
+                                        id="post-like">
+                                        {% csrf_token %}
+                                        {% if liked %}
+                                        Liked <button type="submit" name="blogpost_id" value="{{post.slug}}"
+                                            id="like-button" class="btn-like nerd-like-btn"><i
+                                                class="fas fa-heart"></i></button>
+                                        {% else %}
+                                        Liked <button type="submit" name="blogpost_id" value="{{post.slug}}"
+                                            id="like-button" class="btn-like nerd-like-btn"><i
+                                                class="far fa-heart"></i></button>
+                                        {% endif %}
+                                    </form>
                                     {% else %}
-                                    Liked <button type="submit" name="blogpost_id" value="{{post.slug}}"
-                                        id="like-button" class="btn-like nerd-like-btn"><i
-                                            class="far fa-heart"></i></button>
+                                    Liked <span id="like-button" class="text-muted"><i class="far fa-heart"></i></span>
                                     {% endif %}
-                                </form>
-                                {% else %}
-                                Liked <span id="like-button" class="text-muted"><i class="far fa-heart"></i></span>
-                                {% endif %}
-                                <!-- The number of likes  -->
-                                <span class="text-muted">{{ post.number_of_likes }} </span>
-                            </strong>
-                        </div>
-                        {% with comments.count as total_comments %}
-                        <div><strong><a class="nerd-comment-link" href="#nerd-comments-widget">Comments</a></strong>
-                            <strong class="text-muted"><i class="far fa-comments"></i>
-                                <!-- Total Comments -->
-                                {{ total_comments }}</strong>
-                            {% endwith %}
-                        </div>
-                        <div class="text-muted mb-2">
+                                    <!-- The number of likes  -->
+                                    <span class="text-muted">{{ post.number_of_likes }} </span>
+                                </strong>
+                            </div>
+                            {% with comments.count as total_comments %}
+                            <div><strong><a class="nerd-comment-link" href="#nerd-comments-widget">Comments</a></strong>
+                                <strong class="text-muted"><i class="far fa-comments"></i>
+                                    <!-- Total Comments -->
+                                    {{ total_comments }}</strong>
+                                {% endwith %}
+                            </div>
+                            <div class="text-muted mb-2">
 
-                            {% load ratings %}
+                                {% load ratings %}
 
-                            {% ratings post %}
+                                {% ratings post %}
+                            </div>
                         </div>
                     </div>
-                    <hr>
                 </header>
-                <!-- Preview image figure-->
+                <!-- Preview image -->
                 {% if "placeholder" in post.featured_image.url %}
                 <img src="/static/media/placeholder.webp" width="100%">
                 {% else %}
+                <!-- Featured image -->
                 <figure class="mb-4"><img class="img-fluid rounded mx-auto d-block" src="{{ post.featured_image.url }}"
                         alt="{{ post.title }}" /></figure>
                 {% endif %}
                 <!-- Post content-->
-                <section class="mb-5">
+                <section class="nerd-main-post-content mb-5">
                     <p class="fs-5 mb-4">{{ post.content | safe }}</p>
                 </section>
                 <!-- Ingredients widget-->
