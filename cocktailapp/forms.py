@@ -14,8 +14,8 @@ class CocktailForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = (
-            'status',
             'title',
+            'status',
             'author',
             'categories',
             'featured_image',
@@ -26,8 +26,8 @@ class CocktailForm(forms.ModelForm):
             )
 
         widgets = {
-            'status': forms.Select(attrs={'class': 'form-control'}),
             'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'status': forms.Select(attrs={'class': 'form-control'}),
             'author': forms.Select(attrs={'class': 'form-control'}),
             'categories': forms.Select(attrs={'class': 'form-control'}),
             'content': SummernoteWidget(),
