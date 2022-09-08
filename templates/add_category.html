@@ -7,21 +7,21 @@
 <div class="container-fluid">
     <div class="row">
         <!-- Add New Post  -->
-        <div class="vh-100 nerd-hero text-bg-secondary px-4 py-5 text-left">
+        <div class="text-bg-white px-4 py-5 text-left">
             <div class="py-5">
                 <div class="col-lg-6 mx-auto">
                     {% if submitted %}
                     <h1 class="display-5 fw-bold">Your category was created Succesfully!!!</h1>
 
                     {% else %}
-                    <h1 class="display-5 fw-bold">Add new Category</h1>
+                    <h1 class="display-5 fw-bold">Add New Category</h1>
                     <div class="form-floating">
                         <form action="" method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
                             {{ form.as_p }}
                             <br />
-                            <button type="submit" class="btn btn-success me-2"> Add Category </button>
-                            <button type="submit" class="nerd-cancel-button btn btn-warning">
+                            <button type="submit" class="btn btn-outline-success me-2"> Add Category </button>
+                            <button type="submit" class="nerd-cancel-button btn btn-outline-secondary">
                                 <a href="{{request.META.HTTP_REFERER|escape}}">
                                     Cancel </a></button>
                         </form>

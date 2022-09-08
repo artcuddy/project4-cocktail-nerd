@@ -269,16 +269,6 @@ def add_cocktail(request):
         request, 'add_post.html', {'form': form, 'submitted': submitted})
 
 
-def page_not_found_view(request, exception):
-    return render(request, '404.html', status=404)
-
-
-# # Delete comment
-# class DeleteCommentView(DeleteView):
-#     model = Comment
-#     template_name = 'delete_comment.html'
-#     success_url = reverse_lazy("all_cocktails")
-
 @login_required
 def delete_comment(request, comment_id):
     """
@@ -299,3 +289,7 @@ class EditComment(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     template_name = 'edit_comment.html'
     form_class = CommentForm
     success_message = 'The comment was successfully updated'
+
+
+def page_not_found_view(request, exception):
+    return render(request, '404.html', status=404)

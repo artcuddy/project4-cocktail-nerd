@@ -22,25 +22,27 @@
 
                 {% for category in category_list %}
                 {% if "placeholder" in category.category_image.url %}
-                <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
-                    style="background-image: url('/static/media/placeholder.webp');">
-                    {% else %}
-                    <a href="{% url 'category' category.title %}" class="image-link">
-                        <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
-                            style="background-image: url('{{ category.category_image.url }}');">
+                <a href="{% url 'category' category.title %}" class="image-link">
+                    <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
+                        style="background-image: url('/static/media/placeholder.webp');">
+                        {% else %}
+                        <a href="{% url 'category' category.title %}" class="image-link">
+                            <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
+                                style="background-image: url('{{ category.category_image.url }}');">
 
-                            {% endif %}
-                            <div class="d-flex flex-column p-5 pb-3 text-white text-shadow-1">
-                                <h2 class="nerd-card-title pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ category.title }}
-                                </h2>
+                                {% endif %}
+                                <div class="d-flex flex-column p-5 pb-3 text-white text-shadow-1">
+                                    <h2 class="nerd-card-title pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
+                                        {{ category.title }}
+                                    </h2>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                    {% if forloop.counter|divisibleby:3 %}
+                        </a>
+                        {% if forloop.counter|divisibleby:3 %}
 
-                    {% endif %}
-                    {% endfor %}
-                </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
 
             </div>
         </div>

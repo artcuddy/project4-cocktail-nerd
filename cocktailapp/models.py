@@ -20,6 +20,7 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
+    """Sets absolute URL"""
     def get_absolute_url(self):
         return reverse('home')
 
@@ -28,7 +29,7 @@ class Post(models.Model):
     """
     Model for posts
     """
-    title = models.CharField(max_length=200, unique=True)
+    title = models.CharField(max_length=12, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts"
@@ -55,7 +56,7 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('home')
+        return reverse('all_cocktails')
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
