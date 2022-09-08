@@ -111,6 +111,7 @@ class UpdatePostView(UpdateView):
     model = Post
     form_class = CocktailForm
     template_name = 'edit_post.html'
+    success_url = reverse_lazy("manage_posts")
 
 
 # Delete post
@@ -135,13 +136,13 @@ class FeaturedList(generic.ListView):
     queryset = Post.objects.filter(
         status=1).order_by("-created_on").filter(featured=1)
     template_name = "home.html"
-    paginate_by = 6
+    paginate_by = 3
 
 
 # Related list view
 def related_list(request):
     related_list = Post.objects.filter(
-        status=1).order_by("-created_on").filter(featured=1)
+        status=1).order_by("-created_on").filter(featured=1)[:3]
     context = {
         'related_list': related_list,
     }
