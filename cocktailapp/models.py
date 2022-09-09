@@ -87,3 +87,17 @@ class Comment(models.Model):
     def get_absolute_url(self):
         """Sets absolute URL"""
         return reverse('post_detail', args=[self.post.slug])
+
+
+class Profile(models.Model):
+    """
+    Model for user profile
+    """
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    avatar = CloudinaryField('image', default='placeholder')
+    bio = models.TextField()
+
+    def __str__(self):
+        return self.user.username
+

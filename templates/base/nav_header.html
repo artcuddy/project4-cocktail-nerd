@@ -69,6 +69,12 @@
                                     </ul>
                                 </li>
                                 {% endif %}
+                                <!-- Profile Menu -->
+                                {% if user.is_authenticated  %}
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" href="{% url 'profile' %}">my Profile</a>
+                                </li>
+                                {% endif %}
 
                             </ul>
                             <form role="search" method="get" action="{% url 'search_posts' %}">

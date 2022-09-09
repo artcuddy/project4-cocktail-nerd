@@ -1,11 +1,11 @@
 from django.shortcuts import (
-     render, get_object_or_404, reverse)
+     render, get_object_or_404, reverse, redirect)
 from django.views import generic, View
 from django.views.generic import ListView, UpdateView, DeleteView, CreateView
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from .forms import CommentForm, CocktailForm
+from .forms import CommentForm, CocktailForm, UpdateUserForm, UpdateProfileForm
 from .models import Post, Category, Comment
 from allauth.account.views import LoginView, SignupView, LogoutView
 from django.urls import reverse_lazy
@@ -292,6 +292,24 @@ class EditComment(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     template_name = 'edit_comment.html'
     form_class = CommentForm
     success_message = 'The comment was successfully updated'
+
+
+@login_required
+def profile(request):
+    if request.method == 'POST':
+        user_form = UpdateUserForm(request.POST, instance=request.user)
+        profile_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
+
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Your profile is updated successfully')
+            return redirect(to='users-profile')
+    else:
+        user_form = UpdateUserForm(instance=request.user)
+        profile_form = UpdateProfileForm(instance=request.user.profile)
+
+    return render(request, 'profile.html', {'user_form': user_form, 'profile_form': profile_form})
 
 
 def page_not_found_view(request, exception):

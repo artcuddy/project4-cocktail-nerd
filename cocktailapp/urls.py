@@ -19,6 +19,7 @@ urlpatterns = [
     path('category/<category>/', views.CatListView.as_view(), name='category'),
     path('all_cocktails/', views.PostList.as_view(), name='all_cocktails'),
     path('', views.FeaturedList.as_view(), name='home'),
+    path('profile/', views.profile, name='profile'),
     path('add_post/', views.add_cocktail, name='add_post'),
     path(
         'manage_posts/',
