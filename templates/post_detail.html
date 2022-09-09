@@ -40,7 +40,7 @@
                         </div>
                         <div class="nerd-post-ratings-widget d-flex flex-row  bd-highlight mb-3 align-items-center
                         justify-content-between">
-                            <div>
+                            <div class="nerd-likes-amount">
                                 <strong>
                                     {% if user.is_authenticated %}
                                     <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST"
@@ -64,10 +64,12 @@
                                 </strong>
                             </div>
                             {% with comments.count as total_comments %}
-                            <div><strong><a class="nerd-comment-link" href="#nerd-comments-widget">Comments</a></strong>
+                            <div class="nerd-comments-amount">
+                                <strong><a class="nerd-comment-link" href="#nerd-comments-widget">Comments</a></strong>
                                 <strong class="text-muted"><i class="far fa-comments"></i>
                                     <!-- Total Comments -->
-                                    {{ total_comments }}</strong>
+                                    {{ total_comments }}
+                                </strong>
                                 {% endwith %}
                             </div>
                             <div class="text-muted mb-2">

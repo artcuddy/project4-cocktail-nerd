@@ -173,8 +173,7 @@ a:hover {
 
 /* Single post styling */
 .nerd-post-title {
-    font-weight: 300;
-    text-transform: uppercase;
+    font-weight: 500;
     padding: 0.5em;
     border: solid 0.5px;
     border-radius: 5px;
@@ -255,6 +254,11 @@ a:hover {
 
     .nerd-post-ratings-widget {
         display: inline-grid !important;
+        margin-bottom: -1em !important;
+    }
+
+    .nerd-likes-amount {
+        margin-bottom: 8px;
     }
 }
 
