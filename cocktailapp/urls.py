@@ -2,11 +2,12 @@ from django.urls import path
 
 from . import views
 from .views import account_login_view, account_signup_view
-from .views import account_logout_view, SearchResultsView
+from .views import account_logout_view
 from .views import UpdatePostView, DeletePostView
 from .views import AddCategoryView, AllCategoriesList
 from .views import ManageCategoriesView, ManageAllPostsList
 from .views import EditCategoryView, DeleteCategoryView
+from .views import SearchResultsView
 from django.conf.urls import include
 
 

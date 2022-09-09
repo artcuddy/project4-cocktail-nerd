@@ -298,18 +298,24 @@ class EditComment(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 def profile(request):
     if request.method == 'POST':
         user_form = UpdateUserForm(request.POST, instance=request.user)
-        profile_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        profile_form = UpdateProfileForm(
+            request.POST, request.FILES,
+            instance=request.user.profile
+            )
 
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
             messages.success(request, 'Your profile is updated successfully')
-            return redirect(to='users-profile')
+            return redirect(to='profile')
     else:
         user_form = UpdateUserForm(instance=request.user)
         profile_form = UpdateProfileForm(instance=request.user.profile)
 
-    return render(request, 'profile.html', {'user_form': user_form, 'profile_form': profile_form})
+    return render(request, 'profile.html', {
+        'user_form': user_form,
+        'profile_form': profile_form
+        })
 
 
 def page_not_found_view(request, exception):
