@@ -390,6 +390,10 @@ a:hover {
     margin: 4rem auto;
 }
 
+.nerd-user-total-likes {
+    font-weight: 500;
+}
+
 /* Footer */
 .nerd-social-link {
     color: #fff;

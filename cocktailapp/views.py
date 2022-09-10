@@ -173,8 +173,10 @@ class PostLike(View):
 # Liked posts view
 def liked_list(request):
     liked_list = Post.objects.filter(likes=request.user)
+    total_liked_list = liked_list.count()
     context = {
         'liked_list': liked_list,
+        'total_liked_list': total_liked_list,
     }
     return render(request, "liked_posts.html", context)
 
