@@ -48,7 +48,7 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(
         status=1).order_by("-created_on").exclude(categories=7)
     template_name = "all_cocktails.html"
-    paginate_by = 6
+    paginate_by = 9
 
 
 # Single post detail view
@@ -127,7 +127,7 @@ class ManageAllPostsList(generic.ListView):
     queryset = Post.objects.filter(
         status=1).order_by("-created_on")
     template_name = "manage_posts.html"
-    paginate_by = 8
+    paginate_by = 9
 
 
 # Featured posts list view
@@ -197,7 +197,7 @@ def category_list(request):
 class AllCategoriesList(generic.ListView):
     model = Category
     template_name = "all_categories.html"
-    paginate_by = 12
+    paginate_by = 9
 
     def get_queryset(self):
         category_list = Category.objects.exclude(title='default')
