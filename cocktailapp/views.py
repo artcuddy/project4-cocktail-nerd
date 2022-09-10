@@ -142,7 +142,7 @@ class FeaturedList(generic.ListView):
 # Related list view
 def related_list(request):
     related_list = Post.objects.filter(
-        status=1).order_by("-created_on").filter(featured=1)[:3]
+        status=1).order_by('-created_on').filter(featured=1)[:3]
     context = {
         'related_list': related_list,
     }
@@ -154,7 +154,7 @@ def home(request):
     """
     Renders the home page
     """
-    return render(request, 'home.html')
+    return render(request, "home.html")
 
 
 # Post like view
@@ -168,6 +168,15 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+# Liked posts view
+def liked_list(request):
+    liked_list = Post.objects.filter(likes=request.user)
+    context = {
+        'liked_list': liked_list,
+    }
+    return render(request, "liked_posts.html", context)
 
 
 # Category list view

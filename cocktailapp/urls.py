@@ -21,6 +21,7 @@ urlpatterns = [
     path('all_cocktails/', views.PostList.as_view(), name='all_cocktails'),
     path('', views.FeaturedList.as_view(), name='home'),
     path('profile/', views.profile, name='profile'),
+    path('liked_posts/', views.liked_list, name='liked_list'),
     path('add_post/', views.add_cocktail, name='add_post'),
     path(
         'manage_posts/',

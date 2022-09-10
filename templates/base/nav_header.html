@@ -71,11 +71,23 @@
                                 {% endif %}
                                 <!-- Profile Menu -->
                                 {% if user.is_authenticated  %}
-                                <li class="nav-item">
-                                    <a class="nav-link text-light" href="{% url 'profile' %}">my Profile</a>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle navbarDropdown text-light"
+                                        href="{% url 'all_categories' %}" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Account
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-label="navbarDropdown">
+                                        <li class="nav-item">
+                                            <a class="nav-link text-light" href="{% url 'profile' %}">Profile</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-light" href="{% url 'liked_list' %}">Liked
+                                                Posts</a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 {% endif %}
-
                             </ul>
                             <form role="search" method="get" action="{% url 'search_posts' %}">
                                 <input type="search" class="nerd-search form-control form-control-dark

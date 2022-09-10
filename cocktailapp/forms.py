@@ -38,29 +38,32 @@ class CocktailForm(forms.ModelForm):
 
 
 class UpdateUserForm(forms.ModelForm):
-    username = forms.CharField(max_length=100,
-                               required=True,
-                               widget=forms.TextInput(attrs={
-                                'class':
-                                'form-control'
-                                }))
-    email = forms.EmailField(required=False,
-                             widget=forms.TextInput(attrs={
-                                'class':
-                                'form-control'
-                                }))
 
     class Meta:
         model = User
-        fields = ['username', 'email']
+        fields = (
+            'username',
+            'email',
+            'first_name',
+            'last_name',
+            )
+
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.TextInput(attrs={'class': 'form-control'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+        }
 
 
 class UpdateProfileForm(forms.ModelForm):
-    bio = forms.CharField(widget=forms.Textarea(attrs={
-        'class': 'form-control',
-        'rows': 5
-        }))
 
     class Meta:
         model = Profile
-        fields = ['bio']
+        fields = (
+            'bio',
+            )
+
+        widgets = {
+            'bio': SummernoteWidget(),
+        }
