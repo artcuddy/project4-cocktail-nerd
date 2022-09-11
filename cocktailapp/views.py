@@ -171,6 +171,7 @@ class PostLike(View):
 
 
 # Liked posts view
+@login_required
 def liked_list(request):
     liked_list = Post.objects.filter(likes=request.user)
     total_liked_list = liked_list.count()
@@ -254,7 +255,7 @@ class SearchResultsView(ListView):
     model = Post
     template_name = 'search_posts.html'
 
-    def get_queryset(self):  # new
+    def get_queryset(self):
         query = self.request.GET.get("searched", default="")
         object_list = Post.objects.filter(
             Q(title__icontains=query) | Q(ingredients__icontains=query)
