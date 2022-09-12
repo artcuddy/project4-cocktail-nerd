@@ -171,6 +171,12 @@ a:hover {
     box-shadow: inset 0 0 0 2000px #000000ad !important;
 }
 
+/* Header styling */
+.nerd-hero-category {
+    background-image: url('/static/media/headers/cocktails-category-header.webp');
+}
+
+
 /* Single post styling */
 .nerd-post-title {
     font-weight: 200;
