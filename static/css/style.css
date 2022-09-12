@@ -158,6 +158,10 @@ a:hover {
     box-shadow: inset 0 0 0 2000px #0000006e !important;
 }
 
+.nerd-card-bg {
+    background-image: url("https://res.cloudinary.com/artcuddy/image/upload/v1660828422/static/media/placeholder.321e4f091f6e.webp");
+}
+
 .card-cover:hover {
     opacity: 0.8;
 }
@@ -179,7 +183,6 @@ a:hover {
 .nerd-hero-all-cocktails {
     background-image: url("https://res.cloudinary.com/artcuddy/image/upload/v1660643806/static/media/headers/cocktails-header.847baa893470.webp");
 }
-
 
 /* Single post styling */
 .nerd-post-title {

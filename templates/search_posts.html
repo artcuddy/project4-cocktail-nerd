@@ -6,11 +6,10 @@
 <div class="container-fluid">
     <div class="row">
         <!-- Hero Column -->
-        <div class="nerd-hero bg-dark text-secondary px-4 py-2 text-center"
-            style="background-image: url('/static/media/headers/cocktails-category-header.webp');">
+        <div class="nerd-hero-all-cocktails nerd-hero bg-dark text-secondary px-4 py-2 text-center">
             <div class="py-5">
 
-                <h1 class="display-5 fw-thin text-white"><img src="/static/media/cocktail-nerd-logo-white.webp"
+                <h1 class="display-5 fw-thin text-white"><img src="{% static 'media/cocktail-nerd-logo-white.webp' %}"
                         alt="Cocktail Nerd Logo" class="nerd-logo-big">
                 </h1>
                 <div class="col-lg-6 mx-auto">
@@ -31,8 +30,7 @@
             <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-3">
                 {% for post in object_list %}
                 {% if "placeholder" in post.featured_image.url %}
-                <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
-                    style="background-image: url('static/media/placeholder.webp');">
+                <div class="nerd-card-bg card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg">
                     {% else %}
                     <a href="{% url 'post_detail' post.slug %}" class="image-link">
                         <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
