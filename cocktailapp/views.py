@@ -182,6 +182,7 @@ def liked_list(request):
     return render(request, "liked_posts.html", context)
 
 
+# Total user liked posts view
 def total_liked_list(request):
     if request.user.is_anonymous:
         total_liked_list = False
