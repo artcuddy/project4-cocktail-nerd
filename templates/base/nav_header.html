@@ -4,7 +4,7 @@
                 <nav class="nerd-navbar navbar navbar-expand-xl navbar-dark bg-dark" aria-label="Cocktail Nerd Navbar">
                     <div class="container-fluid">
                         <a class="navbar-brand" href="{% url 'home' %}"><img
-                                src="{% static 'media/cocktail-nerd-logo-white.webp' %}" alt="Cocktail Nerd Logo"
+                                src="/static/media/cocktail-nerd-logo-white.webp" alt="Cocktail Nerd Logo"
                                 class="nerd-logo"></a>
                         <!-- User total likes -->
                         {% if not user.id %}
