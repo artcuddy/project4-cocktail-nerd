@@ -173,7 +173,11 @@ a:hover {
 
 /* Header styling */
 .nerd-hero-category {
-    background-image: url('/static/media/headers/cocktails-category-header.webp');
+    background-image: url("https://res.cloudinary.com/artcuddy/image/upload/v1660835537/static/media/headers/cocktails-category-header.340eb137a622.webp");
+}
+
+.nerd-hero-all-cocktails {
+    background-image: url("https://res.cloudinary.com/artcuddy/image/upload/v1660643806/static/media/headers/cocktails-header.847baa893470.webp");
 }
 
 
