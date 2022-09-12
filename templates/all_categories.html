@@ -22,8 +22,7 @@
                 {% for category in category_list %}
                 {% if "placeholder" in category.category_image.url %}
                 <a href="{% url 'category' category.title %}" class="image-link">
-                    <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
-                        style="background-image: url('/static/media/placeholder.webp');">
+                    <div class="nerd-card-bg card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg">
                         {% else %}
                         <a href="{% url 'category' category.title %}" class="image-link">
                             <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
