@@ -86,6 +86,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'cocktailapp.views.category_list',
                 'cocktailapp.views.related_list',
+                'cocktailapp.views.total_liked_list'
             ],
         },
     },

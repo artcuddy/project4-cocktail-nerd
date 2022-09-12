@@ -85,6 +85,7 @@
                             </form>
                             <div class="nerd-login-buttons-container">
                                 {% if not user.id %}
+                                {% csrf_token %}
                                 <a href=" {% url 'login' %}"><button type="button"
                                         class=" btn btn-outline-light me-2">Login</button></a>
                                 <a href="{% url 'signup' %}"><button type="button"

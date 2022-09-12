@@ -182,6 +182,22 @@ def liked_list(request):
     return render(request, "liked_posts.html", context)
 
 
+def total_liked_list(request):
+    if request.user.is_anonymous:
+        total_liked_list = False
+        context = {
+            'total_liked_list': total_liked_list,
+        }
+        return context
+    else:
+        liked_list = Post.objects.filter(likes=request.user)
+        total_liked_list = liked_list.count()
+        context = {
+            'total_liked_list': total_liked_list,
+        }
+        return context
+
+
 # Category list view
 class CatListView(ListView):
     template_name = 'category.html'
