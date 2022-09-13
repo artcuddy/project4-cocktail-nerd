@@ -53,6 +53,39 @@ footer {
     color: #000;
 }
 
+/* Messaging */
+
+.message {
+    border-radius: 15px;
+    box-shadow: 3px 3px 4px 0px rgba(50, 50, 50, 0.75);
+    color: #fff;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    text-align: center;
+    width: 80%;
+}
+
+/*
+ * Give the various message types the correct colors
+ */
+
+.alert-success {
+    background-color: #068b06db !important;
+    --bs-alert-border-color: #068b06db !important;
+}
+
+.message.success {
+    background-color: #068b06db !important;
+}
+
+.message.error {
+    background-color: red;
+}
+
 /* Logo Styling */
 
 .nerd-logo {

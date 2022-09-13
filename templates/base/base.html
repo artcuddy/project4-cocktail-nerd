@@ -22,6 +22,13 @@
 <body>
     <!-- Navheader -->
     {% block nav %}{% include 'base/nav_header.html' %}{% endblock nav %}
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <p class="message {{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
 
     {% block content %}
 
@@ -40,6 +47,11 @@
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" async></script>
     <!-- Custom JS -->
     <script src="{% static 'js/scripts.js' %}"></script>
+
+    <!-- messages to disappear after 2000 -->
+    <script>
+        $('.message').hide().fadeIn(500).delay(2000).fadeOut(500);
+    </script>
 
 </body>
 

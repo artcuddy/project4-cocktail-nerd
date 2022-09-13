@@ -11,16 +11,16 @@
             <article>
                 <!-- Post header-->
                 <header class="mb-4">
-                    <!-- Post title-->
-                    <h1 class="nerd-post-title bg-light">{{ post.title }}</h1>
                     {% if user.is_authenticated %}
                     <!-- Commment area -->
                     {% if commented %}
-                    <div class="alert alert-success" role="alert">
+                    <div class="alert alert-success message" role="alert">
                         Your comment is awaiting approval
                     </div>
                     {% endif %}
                     {% endif %}
+                    <!-- Post title-->
+                    <h1 class="nerd-post-title bg-light">{{ post.title }}</h1>
                     {% if user.is_staff %}
                     <div class="nerd-edit-buttons">
                         <a href="{% url 'edit_post' post.slug %}"><button type="button"
@@ -234,7 +234,7 @@
             <div class="comment_area card-body">
                 <!-- Commment area -->
                 {% if commented %}
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success message" role="alert">
                     Your comment is awaiting approval
                 </div>
                 {% else %}

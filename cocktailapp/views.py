@@ -111,6 +111,7 @@ class UpdatePostView(UpdateView):
     model = Post
     form_class = CocktailForm
     template_name = 'edit_post.html'
+    success_message = 'The cocktail was edited successfully!'
     success_url = reverse_lazy("manage_posts")
 
 
@@ -118,6 +119,7 @@ class UpdatePostView(UpdateView):
 class DeletePostView(DeleteView):
     model = Post
     template_name = 'delete_post.html'
+    success_message = 'The cocktail was successfully deleted!'
     success_url = reverse_lazy("manage_posts")
 
 
@@ -238,6 +240,7 @@ class AddCategoryView(CreateView):
     model = Category
     fields = '__all__'
     template_name = 'add_category.html'
+    success_message = 'The category was added successfully!'
     success_url = reverse_lazy("manage_categories")
 
 
@@ -246,6 +249,7 @@ class EditCategoryView(UpdateView):
     model = Category
     fields = '__all__'
     template_name = 'edit_category.html'
+    success_message = 'The category was edited successfully!'
     success_url = reverse_lazy("manage_categories")
 
 
@@ -254,13 +258,14 @@ class DeleteCategoryView(DeleteView):
     model = Category
     template_name = 'delete_category.html'
     success_url = reverse_lazy("manage_categories")
+    success_message = 'The category was successfully deleted!'
 
 
 # Manage categories view
 class ManageCategoriesView(ListView):
     model = Category
     fields = '__all__'
-    paginate_by = 6
+    paginate_by = 8
     template_name = 'manage_categories.html'
 
     def get_queryset(self):
@@ -292,6 +297,10 @@ def add_cocktail(request):
             form = form.save(commit=False)
             form.author = request.user
             form.save()
+            messages.success(
+                request,
+                'Your cocktail was submitted successfully!'
+                )
             return HttpResponseRedirect('/add_post?submitted=True')
     else:
         form = CocktailForm
@@ -302,6 +311,7 @@ def add_cocktail(request):
         request, 'add_post.html', {'form': form, 'submitted': submitted})
 
 
+# Delete comment
 @login_required
 def delete_comment(request, comment_id):
     """
@@ -309,11 +319,12 @@ def delete_comment(request, comment_id):
     """
     comment = get_object_or_404(Comment, id=comment_id)
     comment.delete()
-    messages.success(request, 'The comment was deleted successfully')
+    messages.success(request, 'The comment was deleted successfully!')
     return HttpResponseRedirect(reverse(
         'post_detail', args=[comment.post.slug]))
 
 
+# Edit comment
 class EditComment(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     """
     Edit comment
@@ -321,9 +332,10 @@ class EditComment(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Comment
     template_name = 'edit_comment.html'
     form_class = CommentForm
-    success_message = 'The comment was successfully updated'
+    success_message = 'The comment was successfully updated!'
 
 
+# Edit profile
 @login_required
 def profile(request):
     if request.method == 'POST':
@@ -336,7 +348,7 @@ def profile(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            messages.success(request, 'Your profile is updated successfully')
+            messages.success(request, 'Your profile has updated successfully!')
             return redirect(to='profile')
     else:
         user_form = UpdateUserForm(instance=request.user)
@@ -348,5 +360,6 @@ def profile(request):
         })
 
 
+# 404 Error
 def page_not_found_view(request, exception):
     return render(request, '404.html', status=404)
