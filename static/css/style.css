@@ -50,7 +50,7 @@ footer {
 }
 
 .form-floating a {
-    color: #fff;
+    color: #000;
 }
 
 /* Logo Styling */
@@ -126,6 +126,11 @@ footer {
 .nerd-page-subheading {
     font-weight: 200;
     text-transform: uppercase;
+    text-align: center;
+}
+
+.nerd-page-subtwo {
+    font-weight: 200;
     text-align: center;
 }
 

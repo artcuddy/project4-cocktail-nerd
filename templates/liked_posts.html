@@ -7,13 +7,31 @@
     <div class="row">
         <!--Liked Cocktails Column -->
         <div class="container px-4 py-5 nerd-featured-container" id="custom-cards">
+            {% if total_liked_list == 1 %}
+            <h2 class="pb-2 nerd-page-subheading">{{ user.username | title }} Liked <span
+                    class="nerd-user-total-likes"><i class="far fa-heart"></i> {{ total_liked_list }}</span>
+                Cocktail
+            </h2>
+            {% elif total_liked_list > 1 %}
             <h2 class="pb-2 nerd-page-subheading">{{ user.username | title }} Liked <span
                     class="nerd-user-total-likes"><i class="far fa-heart"></i> {{ total_liked_list }}</span>
                 Cocktails
             </h2>
+            {% else %}
+            <h2 class="pb-2 nerd-page-subheading">{{ user.username | title }} Liked <span
+                    class="nerd-user-total-likes"><i class="far fa-heart"></i> {{ total_liked_list }}</span>
+                Cocktails
+            </h2>
+            {% endif %}
+
+            {% for post in liked_list %}
+            {% empty %}
+            <br />
+            <h3 class="pb-2 nerd-page-subtwo">Like a cocktail to add to this page</h3>
+
+            {% endfor%}
 
             <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-3">
-
                 {% for post in liked_list %}
                 {% if "placeholder" in post.featured_image.url %}
                 <a href="{% url 'post_detail' post.slug %}" class="image-link">
