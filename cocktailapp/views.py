@@ -107,7 +107,7 @@ class PostDetail(View):
 
 
 # Update post
-class UpdatePostView(UpdateView):
+class UpdatePostView(SuccessMessageMixin, UpdateView):
     model = Post
     form_class = CocktailForm
     template_name = 'edit_post.html'
@@ -121,6 +121,10 @@ class DeletePostView(DeleteView):
     template_name = 'delete_post.html'
     success_message = 'The cocktail was successfully deleted!'
     success_url = reverse_lazy("manage_posts")
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message)
+        return super(DeletePostView, self).delete(request, *args, **kwargs)
 
 
 # Manage all posts list view
@@ -236,7 +240,7 @@ class AllCategoriesList(generic.ListView):
 
 
 # Add category view
-class AddCategoryView(CreateView):
+class AddCategoryView(SuccessMessageMixin, CreateView):
     model = Category
     fields = '__all__'
     template_name = 'add_category.html'
@@ -245,7 +249,7 @@ class AddCategoryView(CreateView):
 
 
 # Edit category view
-class EditCategoryView(UpdateView):
+class EditCategoryView(SuccessMessageMixin, UpdateView):
     model = Category
     fields = '__all__'
     template_name = 'edit_category.html'
@@ -259,6 +263,10 @@ class DeleteCategoryView(DeleteView):
     template_name = 'delete_category.html'
     success_url = reverse_lazy("manage_categories")
     success_message = 'The category was successfully deleted!'
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message)
+        return super(DeleteCategoryView, self).delete(request, *args, **kwargs)
 
 
 # Manage categories view

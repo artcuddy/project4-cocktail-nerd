@@ -92,12 +92,14 @@
                                 <a href="{% url 'signup' %}"><button type="button"
                                         class="btn btn-warning">Sign-up</button></a>
                                 {% else %}
-                                <a href="{% url 'logout' %}"><button type="button"
-                                        class="btn btn-warning">Logout</button></a>
-                                {% endif %}
+                                <a href="{% url 'profile' %}"><button type="button"
+                                        class="btn btn-warning me-2">Profile</button></a>
                                 {% if user.is_staff %}
                                 <a href="{% url 'admin:index' %}"><button type="button"
-                                        class="btn btn-warning">Dashboard</button></a>
+                                        class="btn btn-warning me-2">Dashboard</button></a>
+                                {% endif %}
+                                <a href="{% url 'logout' %}"><button type="button"
+                                        class="btn btn-warning me-2">Logout</button></a>
                                 {% endif %}
                             </div>
                         </div>
