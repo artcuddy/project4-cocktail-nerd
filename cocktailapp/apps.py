@@ -10,4 +10,4 @@ class BlogConfig(AppConfig):
         """
         Gets the user signup details
         """
-        import cocktailapp.signals
+        import cocktailapp.signals # noqa
