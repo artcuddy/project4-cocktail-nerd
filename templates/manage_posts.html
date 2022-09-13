@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
-{% load static %}
 {% block title %}Cocktail Nerd | Manage Posts {% endblock %}
 {% block content %}
+{% load static %}
 <div class="container-fluid">
     <div class="row">
         <!-- Hero Column -->
@@ -25,7 +25,7 @@
                     {% if "placeholder" in post.post_image.url %}
                     <div class="fd-inline-flex align-items-center justify-content-center text-bg-primary fs-2 mb-3">
                         <a href="{% url 'post_detail' post.slug %}"><img src="{% static 'media/placeholder.webp' %}"
-                                alt="Cocktail Nerd Placeholder" width="100" height="100"
+                                alt="{{ post.title }}" width="100" height="100"
                                 class="rounded-circle flex-shrink-0"></a>
                     </div>
                     {% else %}

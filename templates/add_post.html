@@ -12,9 +12,13 @@
                 <div class="col-lg-6 mx-auto">
                     {% if submitted %}
                     <h1 class="fw-bold">Your cocktail was published Succesfully!!!</h1>
-                    <button type="submit" class="nerd-cancel-button btn btn-warning">
+                    <br />
+                    <button type="submit" class="nerd-cancel-button btn btn-warning me-2">
                         <a href="{{request.META.HTTP_REFERER|escape}}">
                             Add another Cocktail </a></button>
+                    <button type="submit" class="nerd-cancel-button btn btn-outline-secondary">
+                        <a href="{% url 'manage_posts' %}">
+                            Cancel </a></button>
 
                     {% else %}
                     <h1 class="display-5 fw-bold">Add New Post</h1>

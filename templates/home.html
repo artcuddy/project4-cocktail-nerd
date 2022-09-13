@@ -30,33 +30,34 @@
 
                 {% for post in post_list %}
                 {% if "placeholder" in post.featured_image.url %}
-                <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
-                    style="background-image: url('static/media/placeholder.webp');">
-                    {% else %}
-                    <a href="{% url 'post_detail' post.slug %}" class="image-link">
-                        <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
-                            style="background-image: url('{{ post.featured_image.url }}');">
+                <a href="{% url 'post_detail' post.slug %}" class="image-link">
+                    <div class="nerd-card-bg card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg">
+                        {% else %}
+                        <a href="{% url 'post_detail' post.slug %}" class="image-link">
+                            <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow-lg"
+                                style="background-image: url('{{ post.featured_image.url }}');">
 
-                            {% endif %}
-                            <div class="d-flex flex-column p-5 pb-3 text-white text-shadow-1">
-                                <h2 class="nerd-card-title pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ post.title }}</h2>
-                                <ul class="d-flex list-unstyled mt-auto">
+                                {% endif %}
+                                <div class="d-flex flex-column p-5 pb-3 text-white text-shadow-1">
+                                    <h2 class="nerd-card-title pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ post.title }}
+                                    </h2>
+                                    <ul class="d-flex list-unstyled mt-auto">
 
-                                    <li class="d-flex align-items-center">
-                                        <p class="card-text h6"><i class="fas fa-clock"></i>
-                                            {{ post.created_on | timesince  }} <i class="far fa-heart"></i>
-                                            {{ post.number_of_likes }}</p>
-                                    </li>
-                                </ul>
+                                        <li class="d-flex align-items-center">
+                                            <p class="card-text h6"><i class="fas fa-clock"></i>
+                                                {{ post.created_on | timesince  }} <i class="far fa-heart"></i>
+                                                {{ post.number_of_likes }}</p>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                    {% if forloop.counter|divisibleby:3 %}
+                        </a>
+                        {% if forloop.counter|divisibleby:3 %}
 
-                    {% endif %}
-                    {% endfor %}
-                </div>
-
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </a>
             </div>
         </div>
     </div>
