@@ -288,6 +288,16 @@ a:hover {
     color: #ffc107 !important;
 }
 
+.nerd-user-avatar {
+    width: 32px;
+    height: 32px;
+}
+
+.nerd-admin-user-avatar {
+    width: 60px;
+    height: 60px;
+}
+
 .star-ratings-rating-average,
 .star-ratings-rating-count {
     display: none;

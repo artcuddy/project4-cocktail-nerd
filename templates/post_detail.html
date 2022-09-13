@@ -15,7 +15,7 @@
                     <!-- Commment area -->
                     {% if commented %}
                     <div class="alert alert-success message" role="alert">
-                        Your comment is awaiting approval
+                        Nice one {{ user.username|title }} your comment is awaiting approval...
                     </div>
                     {% endif %}
                     {% endif %}
@@ -189,10 +189,29 @@
                     <p class="nerd-comment-username">
                         <!-- The commenter's name goes here -->
                         <span class="nerd-comment-date text-muted">
-                            <!-- The comment's created date goes here -->
-                            <i class="fas fa-clock"></i> {{ comment.created_on  | timesince }} ago
-                        </span> {{ comment.name }}:
+
+                            <!-- The comment's created date goes here and avatar image -->
+                            {% if "placeholder" in user.profile.avatar.url %}
+                            <div class="fd-inline-flex align-items-center justify-content-center mb-3">
+                                <img src="{% static 'media/avatar-placeholder.webp' %}" alt="{{ user.username }}"
+                                    class="nerd-user-avatar rounded-circle flex-shrink-0">
+                                <strong>{{ comment.name|title }}:</strong>
+                            </div>
+                            <i class="fas fa-clock"></i> {{ comment.created_on  | timesince }}
+                            ago
+                        </span>
+                        {% else %}
+                        {{ profile.user.username }}
+                        <div class="fd-inline-flex align-items-center justify-content-center mb-3">
+                            <img src="{{ user.profile.avatar.url }}" alt="{{ user.username }}"
+                                class="nerd-user-avatar rounded-circle flex-shrink-0">
+                            <strong>{{ comment.name|title }}:</strong>
+                        </div>
+                        <i class="fas fa-clock"></i> {{ comment.created_on  | timesince }} ago
+                        </span>
                     </p>
+                    {% endif %}
+
                     {% if user.is_authenticated and user.username == comment.name or user.is_staff %}
                     <div class="nerd-edit-buttons">
                         <a href="{% url 'edit_comment' comment.id %}"
@@ -209,7 +228,7 @@
                                     <h5 class="modal-title" id="staticBackdropLabel">Delete Comment</h5>
                                 </div>
                                 <div class="modal-body">
-                                    Are you sure you want to delete your comment?
+                                    Are you sure you want to delete this comment?
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
@@ -223,7 +242,7 @@
                     {% endif %}
                     <div class="nerd-user-comments">
                         <!-- The body of the comment goes here-->
-                        <span><i class="far fa-comment"></i>{{ comment.body | linebreaks }}</span>
+                        <span>{{ comment.body | linebreaks }}</span>
                     </div>
                 </div>
                 <!-- Our for loop ends here -->
@@ -234,14 +253,14 @@
             <div class="comment_area card-body">
                 <!-- Commment area -->
                 {% if commented %}
-                <div class="alert alert-success message" role="alert">
-                    Your comment is awaiting approval
+                <div class="nerd-comment-area-alert alert alert-success" role="alert">
+                    {{ user.username|title }} your comment is awaiting approval..
                 </div>
                 {% else %}
                 {% if user.is_authenticated %}
 
                 <h3 class="nerd-comments-headline">Leave a comment:</h3>
-                <p>Posting as: {{ user.username }}</p>
+                <p>Posting as: {{ user.username|title }}</p>
                 <form method="post" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}

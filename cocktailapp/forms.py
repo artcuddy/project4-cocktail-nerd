@@ -60,10 +60,4 @@ class UpdateProfileForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = (
-            'bio',
-            )
-
-        widgets = {
-            'bio': SummernoteWidget(),
-        }
+        fields = ['avatar', ]

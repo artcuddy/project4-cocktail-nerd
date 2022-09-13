@@ -7,4 +7,7 @@ class BlogConfig(AppConfig):
 
     # add this
     def ready(self):
-        import cocktailapp.signals  # noqa
+        """
+        Gets the user signup details
+        """
+        import cocktailapp.signals

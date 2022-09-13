@@ -2,6 +2,7 @@
 {% load crispy_forms_tags %}
 {% block title %}Profile Page{% endblock title %}
 {% block content %}
+{% load static %}
 <div class="container-fluid">
     <div class="row">
         <!-- Edit Profile -->
@@ -24,7 +25,15 @@
                         <form method="post" enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="form-row">
-                                <h3>Profile for: {{ user.username | title }}</h3>
+                                {% if "placeholder" in user.profile.avatar.url %}
+                                <h3><img src="{% static 'media/avatar-placeholder.webp' %}" alt="{{ user.username }}"
+                                        class="nerd-admin-user-avatar rounded-circle flex-shrink-0">
+                                    {{ user.username | title }} </h3>
+                                {% else %}
+                                <h3><img src="{{ user.profile.avatar.url }}" alt="{{ user.username }}"
+                                        class="nerd-admin-user-avatar rounded-circle flex-shrink-0">
+                                    {{ user.username | title }} </h3>
+                                {% endif%}
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label class="small mb-1">Username:</label>
@@ -35,8 +44,9 @@
                                         {{ user_form.first_name }}
                                         <label class="small mb-1">Last Name:</label>
                                         {{ user_form.last_name }}
+                                        <label class="small mb-1">Avatar:</label>
+                                        {{ profile_form.avatar }}
                                     </div>
-                                    <label class="small mb-1">Bio:</label> {{ profile_form.bio }}
                                 </div>
                             </div>
                             <br><br>
