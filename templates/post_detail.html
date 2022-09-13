@@ -193,7 +193,7 @@
                             <!-- The comment's created date goes here and avatar image -->
                             {% if "placeholder" in user.profile.avatar.url %}
                             <div class="fd-inline-flex align-items-center justify-content-center mb-3">
-                                <img src="{% static 'media/avatar-placeholder.webp' %}" alt="{{ user.username }}"
+                                <img src="{% static 'media/avatar-placeholder.webp' %}" alt="{{ comment.name }}"
                                     class="nerd-user-avatar rounded-circle flex-shrink-0">
                                 <strong>{{ comment.name|title }}:</strong>
                             </div>
@@ -201,9 +201,8 @@
                             ago
                         </span>
                         {% else %}
-                        {{ profile.user.username }}
                         <div class="fd-inline-flex align-items-center justify-content-center mb-3">
-                            <img src="{{ user.profile.avatar.url }}" alt="{{ user.username }}"
+                            <img src=" {{ user.profile.avatar.url }}" alt="{{ comment.name }}"
                                 class="nerd-user-avatar rounded-circle flex-shrink-0">
                             <strong>{{ comment.name|title }}:</strong>
                         </div>

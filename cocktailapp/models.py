@@ -93,7 +93,11 @@ class Profile(models.Model):
     """
     Model for user profile
     """
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(
+        User,
+        related_name="profile",
+        on_delete=models.CASCADE
+        )
     avatar = CloudinaryField("image", default="placeholder")
 
     def __str__(self):
