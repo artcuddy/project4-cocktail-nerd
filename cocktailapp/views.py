@@ -127,7 +127,7 @@ class ManageAllPostsList(generic.ListView):
     queryset = Post.objects.filter(
         status=1).order_by("-created_on")
     template_name = "manage_posts.html"
-    paginate_by = 9
+    paginate_by = 12
 
 
 # Featured posts list view
@@ -260,6 +260,7 @@ class DeleteCategoryView(DeleteView):
 class ManageCategoriesView(ListView):
     model = Category
     fields = '__all__'
+    paginate_by = 6
     template_name = 'manage_categories.html'
 
     def get_queryset(self):
