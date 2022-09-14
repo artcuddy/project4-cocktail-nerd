@@ -184,6 +184,7 @@
                 <p>Be the first to comment:</p>
                 {% endif %}
                 <!-- We want a for loop to iterate through each comment in comments -->
+
                 {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">
                     <p class="nerd-comment-username">
@@ -191,25 +192,28 @@
                         <span class="nerd-comment-date text-muted">
 
                             <!-- The comment's created date goes here and avatar image -->
-                            {% if "placeholder" in user.profile.avatar.url %}
+
+                            {% if user.profile.avatar %}
                             <div class="fd-inline-flex align-items-center justify-content-center mb-3">
-                                <img src="{% static 'media/avatar-placeholder.webp' %}" alt="{{ comment.name }}"
+                                <img src=" {{ user.profile.avatar.url  }}" alt="{{ comment.name }}"
                                     class="nerd-user-avatar rounded-circle flex-shrink-0">
                                 <strong>{{ comment.name|title }}:</strong>
                             </div>
-                            <i class="fas fa-clock"></i> {{ comment.created_on  | timesince }}
-                            ago
+                            <i class="fas fa-clock"></i> {{ comment.created_on  | timesince }} ago
                         </span>
+
                         {% else %}
                         <div class="fd-inline-flex align-items-center justify-content-center mb-3">
-                            <img src=" {{ user.profile.avatar.url }}" alt="{{ comment.name }}"
+                            <img src="{% static 'media/avatar-placeholder.webp' %}" alt="{{ comment.name }}"
                                 class="nerd-user-avatar rounded-circle flex-shrink-0">
                             <strong>{{ comment.name|title }}:</strong>
                         </div>
-                        <i class="fas fa-clock"></i> {{ comment.created_on  | timesince }} ago
+                        <i class="fas fa-clock"></i> {{ comment.created_on  | timesince }}
+                        ago
                         </span>
                     </p>
                     {% endif %}
+
 
                     {% if user.is_authenticated and user.username == comment.name or user.is_staff %}
                     <div class="nerd-edit-buttons">

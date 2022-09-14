@@ -101,4 +101,4 @@ class Profile(models.Model):
     avatar = CloudinaryField("image", default="placeholder")
 
     def __str__(self):
-        return self.user.username
+        return f'{self.user.username} Profile'

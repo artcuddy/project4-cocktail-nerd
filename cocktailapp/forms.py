@@ -31,9 +31,18 @@ class CocktailForm(forms.ModelForm):
             'status': forms.Select(attrs={'class': 'form-control'}),
             'author': forms.Select(attrs={'class': 'form-control'}),
             'categories': forms.Select(attrs={'class': 'form-control'}),
-            'content': SummernoteWidget(),
-            'ingredients': SummernoteWidget(),
-            'steps': SummernoteWidget(),
+            'content': SummernoteWidget(
+                attrs={
+                    'summernote':
+                    {'width': '100%', 'height': '600px'}}),
+            'ingredients': SummernoteWidget(
+                attrs={
+                    'summernote':
+                    {'width': '100%', 'height': '600px'}}),
+            'steps': SummernoteWidget(
+                attrs={
+                    'summernote':
+                    {'width': '100%', 'height': '600px'}}),
         }
 
 

@@ -91,8 +91,9 @@
                                 <a href="{% url 'signup' %}"><button type="button"
                                         class="btn btn-warning">Sign-up</button></a>
                                 {% else %}
-                                <a href="{% url 'profile' %}"><button type="button"
-                                        class="btn btn-warning me-2">Profile</button></a>
+                                <a href="{% url 'profile' %}"><button type="button" class="btn btn-warning me-2">
+                                        Profile
+                                    </button></a>
                                 {% if user.is_superuser %}
                                 <a href="{% url 'admin:index' %}"><button type="button"
                                         class="btn btn-warning me-2">Dashboard</button></a>
