@@ -30,7 +30,7 @@
                             <br />
                             <button type="submit" class="btn btn-outline-success me-2"> Add Post </button>
                             <button type="submit" class="nerd-cancel-button btn btn-outline-secondary">
-                                <a href="{{request.META.HTTP_REFERER|escape}}">
+                                <a href="{% url 'manage_posts' %}">
                                     Cancel </a></button>
                         </form>
                     </div>
