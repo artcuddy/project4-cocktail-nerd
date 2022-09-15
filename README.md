@@ -32,11 +32,11 @@ Find great new drinks to try plus helpful tips and advice.</h2>
 
 Cocktail Nerd - is full stack Django project that runs on Heroku.
 
-The site allows staff users to edit posts, categories and comments from the frone=tend once logged in & registered users can login to comment and like posts.
+The site allows staff users to edit posts, categories and comments from the frontend once logged in & registered users can login to comment and like posts.
 
 ## Demo
-A live version of the site can be found <a href="https://enigma-code-breaker.herokuapp.com/" target="_blank">**HERE**</a><br><br>
-<img src="documentation/readme_images/screenshots/cocktail-nerd-responsive-screenshot.webp"><br><br>
+A live version of the site can be found <a href="https://project4-cocktail-nerd.herokuapp.com/" target="_blank">**HERE**</a><br><br>
+<img src="documentation/readme_images/screenshots/cocktail-nerd-responsive.webp"><br><br>
 <a href="#top">Back to the top.</a>
 
 
