@@ -99,6 +99,20 @@ footer {
 }
 
 /* Navbar Styling */
+
+.nerd-likes-navbar {
+    font-size: var(--bs-navbar-brand-font-size);
+    color: #fff;
+}
+
+.nerd-likes-navbar:hover {
+    color: #fff9;
+}
+
+.nav-link:hover {
+    color: #fff9 !important;
+}
+
 .nerd-search {
     margin-left: 32px;
 }
