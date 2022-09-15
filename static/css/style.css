@@ -53,6 +53,10 @@ footer {
     color: #000;
 }
 
+.form-floating textarea {
+    width: 100%;
+}
+
 /* Messaging */
 
 .message {
