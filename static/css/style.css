@@ -70,7 +70,15 @@ footer {
     padding-bottom: 5px;
     padding-top: 5px;
     text-align: center;
-    width: 80%;
+    width: 50%;
+}
+
+
+/* Mobile styling */
+@media (max-width: 532px) {
+    .message {
+        width: 80%;
+    }
 }
 
 /*
