@@ -12,7 +12,7 @@
                         <a class="nerd-likes-navbar" href="{% url 'liked_list' %}"><i class="far fa-heart"></i>
                             0</a>
                         {% else %}
-                        <a class="nerd-likes-navbar" href="{% url 'liked_list' %}"><i class="far fa-heart"></i>
+                        <a class="nerd-likes-navbar" href="{% url 'liked_list' %}"><i class="fas fa-heart"></i>
                             {{ total_liked_list }}</a>
                         {% endif %}
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -85,19 +85,19 @@
                             <div class="nerd-login-buttons-container">
                                 {% if not user.id %}
                                 <a href=" {% url 'login' %}"><button type="button"
-                                        class=" btn btn-outline-light me-2">Login</button></a>
+                                        class=" btn btn-sm btn-outline-light me-2">Login</button></a>
                                 <a href="{% url 'signup' %}"><button type="button"
-                                        class="btn btn-warning">Sign-up</button></a>
+                                        class="btn btn-sm btn-warning">Sign-up</button></a>
                                 {% else %}
-                                <a href="{% url 'profile' %}"><button type="button" class="btn btn-warning me-2">
+                                <a href="{% url 'profile' %}"><button type="button" class="btn btn-sm btn-warning me-2">
                                         Profile
                                     </button></a>
                                 {% if user.is_superuser %}
                                 <a href="{% url 'admin:index' %}"><button type="button"
-                                        class="btn btn-warning me-2">Dashboard</button></a>
+                                        class="btn btn-sm btn-warning me-2">Dashboard</button></a>
                                 {% endif %}
                                 <a href="{% url 'logout' %}"><button type="button"
-                                        class="btn btn-danger me-2">Logout</button></a>
+                                        class="btn btn-sm btn-danger me-2">Logout</button></a>
                                 {% endif %}
                             </div>
                         </div>

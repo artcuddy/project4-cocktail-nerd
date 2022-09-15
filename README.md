@@ -54,13 +54,13 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
 ### Languages
 <ol>
     <li><a href="https://en.wikipedia.org/wiki/HTML5" target="_blank">HTML</a>
-        <ul><li>The main structure of the game container</li></ul>
+        <ul><li>The main structure of the site</li></ul>
     </li>
     <li><a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a>
         <ul><li>Within the base template by code institute</li></ul>
     </li>
     <li><a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank">Python</a>
-        <ul><li>For the gameplay logic</li></ul>
+        <ul><li>For the site logic</li></ul>
     </li>
     <li><a href="https://www.markdownguide.org/" target="_blank">Markdown</a>
         <ul><li>For the content and structure of the README.md</li></ul>
@@ -95,12 +95,6 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
 
 
 <ol> 
-    <li><a href="https://docs.python.org/3/library/time.html" target="_blank">Python time library</a>
-        <ul>Used to delay the next line of text in the python terminal</ul>
-    </li>
-    <li><a href="https://pypi.org/project/termcolor/" target="_blank">Python termcolor library</a>
-        <ul>Used to add colour to the text in the python terminal</ul>
-    </li>
     <li><a href="http://pep8online.com/checkresult" target="_blank">PEP8 ONLINE</a>
         <ul><li>To test and search for errors in the Python code</li></ul>
     </li>
@@ -116,14 +110,14 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
 
 ### Flow Chart
 
-
+ <li>Flow chart to go here</li>
 
 ## Validator Testing
 
 
 * <a href="https://developers.google.com/web/tools/lighthouse" target="_blank">Lighthouse</a> Performance Tool
 
-<img src="documentation/readme_images/testing/lighthouse-testing.webp"><br><br>
+<img src="documentation/readme_images/testing/lighthouse-score.webp"><br><br>
 
 
 <h2 id="deployment">Deployment</h2>

@@ -37,9 +37,9 @@
                     {% endif %}
                     <h4 class="nerd-mgt-cat-title">{{ post.title }}</h4>
                     <a href="{% url 'edit_post' post.slug %}"><button type="button"
-                            class="btn btn-success">Edit</button></a>
+                            class="btn btn-sm btn-success me-2">Edit</button></a>
                     <a href="{% url 'delete_post' post.slug %}"><button type="button"
-                            class="btn btn-danger">Delete</button></a>
+                            class="btn btn-sm btn-danger">Delete</button></a>
                 </div>
                 {% endfor %}
             </div>
