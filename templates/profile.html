@@ -5,7 +5,7 @@
 {% load static %}
 <div class="container-fluid">
     <div class="row">
-        <!-- Edit Profile -->
+        <!-- Profile form  -->
         <div class="text-bg-white px-4 py-5 text-left">
             <div class="py-5">
                 <div class="col-lg-6 mx-auto">
@@ -34,19 +34,17 @@
                                         class="nerd-admin-user-avatar rounded-circle flex-shrink-0">
                                     {{ user.username | title }} </h3>
                                 {% endif%}
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <label class="small mb-1">Username:</label>
-                                        {{ user_form.username }}
-                                        <label class="small mb-1">Email:</label>
-                                        {{ user_form.email }}
-                                        <label class="small mb-1">First Name:</label>
-                                        {{ user_form.first_name }}
-                                        <label class="small mb-1">Last Name:</label>
-                                        {{ user_form.last_name }}
-                                        <label class="small mb-1">Avatar:</label>
-                                        {{ profile_form.avatar }}
-                                    </div>
+                                <div class="form-group">
+                                    <label class="small mb-1">Username:</label>
+                                    {{ user_form.username }}
+                                    <label class="small mb-1">Email:</label>
+                                    {{ user_form.email }}
+                                    <label class="small mb-1">First Name:</label>
+                                    {{ user_form.first_name }}
+                                    <label class="small mb-1">Last Name:</label>
+                                    {{ user_form.last_name }}
+                                    <label class="small mb-1">Avatar:</label>
+                                    {{ profile_form.avatar }}
                                 </div>
                             </div>
                             <br><br>
@@ -62,6 +60,5 @@
         </div>
     </div>
 </div>
-
 
 {% endblock content %}

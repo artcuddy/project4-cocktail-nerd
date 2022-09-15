@@ -110,11 +110,15 @@ footer {
 }
 
 .nerd-likes-navbar:hover {
-    color: #fff9;
+    color: #ffc107;
 }
 
 .nav-link:hover {
-    color: #fff9 !important;
+    color: #ffc107 !important;
+}
+
+.dropdown-item:hover {
+    color: #ffc107 !important;
 }
 
 .nerd-search {
