@@ -2,6 +2,7 @@
 {% load static %}
 {% block title %}Cocktail Nerd | Manage Categories {% endblock %}
 {% block content %}
+{% if user.is_staff %}
 <div class="container-fluid">
     <div class="row">
         <!-- Hero Column -->
@@ -19,7 +20,6 @@
 
         <div class="nerd-cat-mgt-container container" id="featured-3">
             <div class="row g-4 py-5 row-cols-2 row-cols-lg-4 row-cols-sm-3">
-                {% if user.is_staff %}
                 {% for category in category_list %}
                 <div class="nerd-cat-mgt-card feature col">
                     {% if "placeholder" in category.category_image.url %}
@@ -44,33 +44,30 @@
                 {% endfor %}
             </div>
         </div>
-        <!-- All Categories Column -->
+        {% if is_paginated %}
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+                {% endif %}
+                {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
 
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
     </div>
-
 </div>
-
 {% else %}
-You are not allowed here. Please log in.
-{% endif %}
-</div>
-
-
-</div>
-
-</div>
-
-{% if is_paginated %}
-<nav aria-label="Page navigation">
-    <ul class="pagination justify-content-center">
-        {% if page_obj.has_previous %}
-        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+<div class="vh-100 nerd-hero text-bg-secondary px-4 py-5 text-center">
+    <div class="py-5">
+        <div class="col-lg-6 mx-auto">
+            <h3 class="nerd-access-denied">Sorry permission denied you don't have access to do this!
+            </h3>
+        </div>
         {% endif %}
-        {% if page_obj.has_next %}
-        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+    </div>
+</div>
 
-        {% endif %}
-    </ul>
-</nav>
-{% endif %}
 {% endblock %}

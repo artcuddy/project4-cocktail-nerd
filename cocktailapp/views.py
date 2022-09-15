@@ -20,7 +20,6 @@ register = template.Library()
 # Signup view
 class AccountSignupView(SignupView):
     # Signup View extended
-    # change template's name and path
     template_name = "account/signup.html"
 
 
@@ -131,7 +130,7 @@ class DeletePostView(DeleteView):
 
 
 # Manage all posts list view
-class ManageAllPostsList(generic.ListView):
+class ManageAllPostsList(LoginRequiredMixin, generic.ListView):
     model = Post
     queryset = Post.objects.filter(
         status=1).order_by("-created_on")
@@ -243,7 +242,7 @@ class AllCategoriesList(generic.ListView):
 
 
 # Add category view
-class AddCategoryView(SuccessMessageMixin, CreateView):
+class AddCategoryView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Category
     fields = '__all__'
     template_name = 'add_category.html'
@@ -273,7 +272,7 @@ class DeleteCategoryView(DeleteView):
 
 
 # Manage categories view
-class ManageCategoriesView(ListView):
+class ManageCategoriesView(LoginRequiredMixin, ListView):
     model = Category
     fields = '__all__'
     paginate_by = 8
