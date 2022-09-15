@@ -107,6 +107,7 @@ footer {
 .nerd-likes-navbar {
     font-size: var(--bs-navbar-brand-font-size);
     color: #fff;
+    margin-right: 8px;
 }
 
 .nerd-likes-navbar:hover {
@@ -167,6 +168,12 @@ footer {
     .nerd-logo-big {
         width: 250px;
         margin-bottom: 16px;
+    }
+}
+
+@media (max-width: 400px) {
+    .nerd-likes-navbar {
+        margin-right: 3px;
     }
 }
 

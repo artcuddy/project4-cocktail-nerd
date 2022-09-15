@@ -144,7 +144,7 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
 
 ### Heroku
 
-The project was deployed via <a href="https://id.heroku.com/login" target="_blank">Heroku</a>, and the live link can be found here: <a href="https://enigma-code-breaker.herokuapp.com/" target="_blank">ENIGMA – Code Breaker</a>
+The project was deployed via <a href="https://id.heroku.com/login" target="_blank">Heroku</a>, and the live link can be found here: <a href="https://project4-cocktail-nerd.herokuapp.com/" target="_blank">Cocktail Nerd</a>
 
 This project was developed utilising the <a href="https://github.com/Code-Institute-Org/python-essentials-template" target="_blank">Code Institute Template</a>. Some of the deployment steps below are specifically required for the new CI template and may not be applicable to older versions, or different projects.
 
@@ -159,16 +159,16 @@ password you used to sign up. If you have enabled multi-factor authentication (a
 recommended security practice) then instead of your password you need an API key.
 To get the API key go to your account settings and scroll down to the section ‘API
 Key’. Click reveal and copy that, then paste it into the password prompt.
-
-<img src="assets/screenshots/heroku-login-cli.jpg"><br><br>
+<br> 
+<img src="documentation/readme_images/screenshots/heroku-login-cli.jpg"><br><br>
 
 * Creating A Heroku App
 Now that you are logged in, the first thing is to create a new app. Heroku creates a
 URL based on your app name, so it must be unique not only on your account, but
 across the whole site. You may need to try a few different names. To create an app
 use the following command, where myapp is the name of your app.
-
-<img src="assets/screenshots/creating-heroku-app.jpg"><br><br>
+<br> 
+<img src="documentation/readme_images/screenshots/creating-heroku-app.jpg"><br><br>
 
 * Here the app heroku-cli-example has been created with an output of the website
 URL. It also displays and sets the git remote repository which will be used to deploy.
@@ -199,7 +199,7 @@ If you want to make changes to the repo without affecting it, you can make a cop
 
 <ol>
     <li>Log in to your GitHub account</li>
-    <li>Navigate to the repository <a href="https://github.com/artcuddy/project3-enigma" target="_blank"><strong>HERE</strong></a></li>
+    <li>Navigate to the repository <a href="https://github.com/artcuddy/project4-cocktail-nerd" target="_blank"><strong>HERE</strong></a></li>
     <li>Select the 'Fork' button in the top right corner of the page (under your account image)</li>
     <li>The repo has now been copied into your own repos and you can work on it in your chosen IDE</li>
     <li>If you have any suggestions to make regards to the code to make the site better, you can put in a pull request</li>
@@ -208,7 +208,7 @@ If you want to make changes to the repo without affecting it, you can make a cop
 #### Cloning the repo with GitPod
 <ol>
     <li>Log in to your GitHub account</li>
-    <li>Navigate to the Repository <a href="https://github.com/artcuddy/project3-enigma" target="_blank"><strong>HERE</strong></a></li>
+    <li>Navigate to the Repository <a href="https://github.com/artcuddy/project4-cocktail-nerd" target="_blank"><strong>HERE</strong></a></li>
     <li>Select the 'Code' button above the file list on the right had side</li>
     <li>Ensure HTTPS is selected and click the clipboard on the right of the URL to copy it</li>
     <li>Open a new workspace in GitPod</li>
@@ -219,7 +219,7 @@ If you want to make changes to the repo without affecting it, you can make a cop
 #### Github Desktop
 <ol>
     <li>Log in to your GitHub account</li>
-    <li>Navigate to the Repository <a href="https://github.com/artcuddy/project3-enigma" target="_blank"><strong>HERE</strong></a></li>
+    <li>Navigate to the Repository <a href="https://github.com/artcuddy/project4-cocktail-nerd" target="_blank"><strong>HERE</strong></a></li>
     <li>Select the 'Code' button above the file list on the right had side</li>
     <li>Select 'Open with GitHub Desktop'</li>
     <li>If you haven't already installed GitHub desktop application - you will need to follow the relevant steps to do this</li>
@@ -229,7 +229,7 @@ If you want to make changes to the repo without affecting it, you can make a cop
 #### Download and extract the zip directly from GitHub
 <ol>
     <li>Log in to your GitHub account</li>
-    <li>Navigate to the Repository <a href="https://github.com/artcuddy/project3-enigma" target="_blank"><strong>HERE</strong></a></li>
+    <li>Navigate to the Repository <a href="https://github.com/artcuddy/project4-cocktail-nerd" target="_blank"><strong>HERE</strong></a></li>
     <li>Select the 'Code' button above the file list on the right had side</li>
     <li>Select 'Download Zip'</li>
     <li>Once you have the Zip downloaded, open it with your prefered file decompression software</li>
@@ -244,12 +244,12 @@ If you want to make changes to the repo without affecting it, you can make a cop
 
 I have listed some of the resources I used for inspiration and in researching how to create the Cocktail Nerd Website
 
-* Mastermind Game with Python: Tutorial: <a href="https://www.youtube.com/watch?v=NLfxNo7Q0Pk" target="_blank">Youtube</a>
+* Lists to go here
 
 
 These resources helped me solve some of the issues encountered when developing the site
 
-* How to use Pyfiglet to display the game Heading & Subheading <a href="https://www.geeksforgeeks.org/python-ascii-art-using-pyfiglet-module/" target="_blank">Pyfiglet</a>
+* Resourses to go here
 
 
 <a href="#top">Back to the top.</a>
