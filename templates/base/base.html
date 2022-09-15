@@ -23,6 +23,8 @@
 <body>
     <!-- Navheader -->
     {% block nav %}{% include 'base/nav_header.html' %}{% endblock nav %}
+
+    <!-- Messages display here -->
     {% if messages %}
     <div class="messages">
         {% for message in messages %}
