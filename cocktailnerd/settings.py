@@ -87,6 +87,7 @@ TEMPLATES = [
                 'cocktailapp.views.category_list',
                 'cocktailapp.views.related_list',
                 'cocktailapp.views.total_liked_list',
+                'cocktailapp.views.show_all_users'
             ],
         },
     },

@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .forms import CommentForm, CocktailForm, UpdateUserForm, UpdateProfileForm
-from .models import Post, Category, Comment
+from .models import Post, Category, Comment, Profile
 from allauth.account.views import LoginView, SignupView, LogoutView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -369,6 +369,16 @@ def profile(request):
         'user_form': user_form,
         'profile_form': profile_form
         })
+
+
+# Get all user profile data and make it available site wide
+def show_all_users(request):
+    data = Profile.objects.all()
+
+    context = {
+        'data': data
+    }
+    return context
 
 
 # 404 Error
