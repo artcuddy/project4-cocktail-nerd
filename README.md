@@ -1,32 +1,27 @@
-<a href="https://enigma-code-breaker.herokuapp.com/" target="_blank"><img src="documentation/readme_images/logo/cocktail-nerd-logo-white.webp"></a><br />
+<a id="top" href="https://enigma-code-breaker.herokuapp.com/" target="_blank"><img src="documentation/readme_images/logo/cocktail-nerd-logo-white.webp"></a><br />
 <h2>Your expert cocktail guide, featuring hand-selected cocktail recipes.<br />
 Find great new drinks to try plus helpful tips and advice.</h2>
 <br />
 
 ## Contents
-<ul>
-    <li>
-        <a href="#introduction"><strong>Introduction</strong></a>
-    </li>
-    <li>
-        <a href="#ux"><strong>UX</strong></a>               
-    </li>
-     <li>
-        <a href="#features"><strong>Features</strong></a>
-    </li>
-    <li>
-        <a href="#technologies"><strong>Technologies</strong></a>
-    </li>
-     <li>
-        <a href="#testing"><strong>Development & Testing</strong></a>   
-    </li>
-    <li>
-        <a href="#deployment"><strong>Deployment</strong></a>
-    </li>
-    <li>
-       <a href="#credits"><strong>Credits</strong></a> 
-    </li>
-</ul>
+- [Introduction](#Introduction)
+ - [User Experience - UX](#user-experience---ux)
+    - [User Stories](#user-stories)
+    - [Agile Methodology](#agile-methodology)
+    - [The Scope](#the-scope)
+      - [Main Site Goals](#main-site-goals)
+- [Design](#design)
+    - [Database](#database)
+    - [Wireframes](#wiresframes)
+- [Features](#features)
+    - [Future Features](#future-features)
+- [Technologies](#technologies)
+    - [Languages](#languages)
+    - [Frameworks, Libraries and Programs](#frameworks)
+- [Development & Testing](#testing)
+- [Deployment](#deployment)
+- [Credits](#credits)
+
 <hr>
 <h2 id="introduction">Introduction</h2>
 
@@ -40,9 +35,49 @@ A live version of the site can be found <a href="https://project4-cocktail-nerd.
 <a href="#top">Back to the top.</a>
 
 
+
+<h2 id="ux">User Experience - UX</h2>
+
+<a href="#top">Back to the top.</a>
+
+## User Stories
+* As a website user, I can:
+
+1. Navigate around the site and easily view the desired content.
+2. View a list of cocktail recipes and choose accordingly.
+3. Search cocktail recipes to find specific recipes.
+4. Click on post to read the cocktail recipe details.
+5. Register for an account to like, rate or comment on a cocktail recipe.
+6. View the number of likes on a cocktail recipe.
+7. View comments on cocktail recipes so that I can read other users opinions.
+
+* As logged in website user, I can:
+
+1. Like/unlike recipes marking the recipes I enjoyed.
+2. Comment on recipes and give my opinion about the posts.
+3. Delete my previous comments.
+4. Manage my profile by updating my details and user image.
+
+* As a website staff user, I can:
+
+1. Create and publish a new cocktail recipe.
+2. Create draft recipe posts that can be reviewed and finalised later.
+3. Create a new user, cocktail recipes and cocktail categories.
+4. Delete a user, cocktail recipes, cocktail categories and comments.
+5. Approve user's comments.
+6. Change the website permissions for a user.
+
+Throughout the planning, design, testing and deployment of the Cocktail Nerd Website , I have used a number of technologies:
+
+<h2 id="features">Features</h2>
+
 <h2 id="future-features">Possible Future Features</h2>
 
-* Features go here  
+* Social login to allow the user to signup using Facebook or Google 
+
+* Password reset on the users profile page
+
+* Allowing users to post their own cocktail recipes 
 
 
 <h2 id="technologies">Technologies</h2>
@@ -62,6 +97,9 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
     <li><a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank">Python</a>
         <ul><li>For the site logic</li></ul>
     </li>
+     <li><a href="https://www.djangoproject.com/" target="_blank">Django</a>
+        <ul><li>For the site templating and structure</li></ul>
+    </li>
     <li><a href="https://www.markdownguide.org/" target="_blank">Markdown</a>
         <ul><li>For the content and structure of the README.md</li></ul>
     </li>
@@ -70,21 +108,24 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
 ### Version Control
 <ol>
     <li><a href="https://github.com/" target="_blank">Git & Github</a>
-        <ul><li>For the hosting and version control of the ENIGMA game</li></ul>
+        <ul><li>For the hosting and version control of the Cocktail Nerd site.</li></ul>
     </li>
     <li><a href="https://www.gitpod.io/" target="_blank">Gitpod</a>
-        <ul><li>The development environment used for writing the code for the ENIGMA game</li></ul>
+        <ul><li>The development environment used for writing the code for the Cocktail Nerd site.</li></ul>
     </li>
 </ol>
 
 
 ### Applications    
 <ol>
+<li><a href="https://www.heroku.com/" target="_blank">Heroku</a>
+        <ul><li>For the application hosting</li></ul>
+    </li>
    <li><a href="https://lucid.app/" target="_blank">Lucid Chart</a>
         <ul><li>For the creation of the flowchart</li></ul>
     </li>
     <li><a href="https://visualstudio.microsoft.com/" target="_blank">Visual Studio (Desktop)</a>
-        <ul><li>For testing out different code strategies without interfering with code for the ENIGMA Game</li></ul>
+        <ul><li>For testing out different code strategies without interfering with the code of the Cocktail Nerd site.</li></ul>
     </li>
     <li><a href="https://slack.com/intl/en-gb/" target="_blank">Slack (Desktop)</a>
         <ul><li>For communicating with fellow students and troubleshooting problems with the different environments used during the course and solving coding issues.</li></ul>
@@ -95,11 +136,14 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
 
 
 <ol> 
+    <li><a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/" target="_blank">Bootstrap 5</a>
+        <ul><li>As the base HTML5 and CSS </li></ul>
+    </li>
     <li><a href="http://pep8online.com/checkresult" target="_blank">PEP8 ONLINE</a>
         <ul><li>To test and search for errors in the Python code</li></ul>
     </li>
     <li><a href="https://developers.google.com/web/tools/lighthouse" target="_blank">Lighthouse</a> Performance Tool
-        <ul><li>To ensure high performance and quick loading times of the ENIGMA game</li></ul>
+        <ul><li>To ensure high performance and quick loading times of the Cocktail Nerd site</li></ul>
     </li>
 </ol><br> 
 
