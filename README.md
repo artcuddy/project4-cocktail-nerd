@@ -3,9 +3,10 @@
 Find great new drinks to try plus helpful tips and advice.</h2>
 <br />
 
-## Contents
+<h1 id="contents">Contents</h1>
+
 - [Introduction](#Introduction)
- - [User Experience - UX](#user-experience---ux)
+ - [User Experience - UX](#user-experience)
     - [User Stories](#user-stories)
     - [Agile Methodology](#agile-methodology)
     - [The Scope](#the-scope)
@@ -17,30 +18,29 @@ Find great new drinks to try plus helpful tips and advice.</h2>
     - [Future Features](#future-features)
 - [Technologies](#technologies)
     - [Languages](#languages)
-    - [Frameworks, Libraries and Programs](#frameworks)
+    - [Version Control](#version-control)
+    - [Applications](#applications)
+    - [Frameworks & Libraries](#frameworks)
 - [Development & Testing](#testing)
 - [Deployment](#deployment)
 - [Credits](#credits)
 
-<hr>
-<h2 id="introduction">Introduction</h2>
+<h1 id="introduction">Introduction</h1>
 
 Cocktail Nerd - is full stack Django project that runs on Heroku.
 
-The site allows staff users to edit posts, categories and comments from the frontend once logged in & registered users can login to comment and like posts.
+The site allows staff users to edit posts, categories and comments from the frontend once logged in & registered users can login to comment,like & rate cocktail recipes.
 
-## Demo
+<h1 id="demo">Demo</h1>
 A live version of the site can be found <a href="https://project4-cocktail-nerd.herokuapp.com/" target="_blank">**HERE**</a><br><br>
 <img src="documentation/readme_images/screenshots/cocktail-nerd-responsive.webp"><br><br>
-<a href="#top">Back to the top.</a>
 
-
-
-<h2 id="ux">User Experience - UX</h2>
+<h1 id="user-experience">User Experience - UX</h1>
 
 <a href="#top">Back to the top.</a>
 
-## User Stories
+<h2 id="user-stories">User Stories</h2>
+
 * As a website user, I can:
 
 1. Navigate around the site and easily view the desired content.
@@ -53,12 +53,12 @@ A live version of the site can be found <a href="https://project4-cocktail-nerd.
 
 * As logged in website user, I can:
 
-1. Like/unlike recipes marking the recipes I enjoyed.
-2. Comment on recipes and give my opinion about the posts.
-3. Delete my previous comments.
+1. Like/unlike cocktail recipes and view them on a single liked cocktails page.
+2. Comment on cocktail recipes and give my opinion about the posts.
+3. Delete or edit my previous comments.
 4. Manage my profile by updating my details and user image.
 
-* As a website staff user, I can:
+* As a website staffuser, I can:
 
 1. Create and publish a new cocktail recipe.
 2. Create draft recipe posts that can be reviewed and finalised later.
@@ -67,9 +67,84 @@ A live version of the site can be found <a href="https://project4-cocktail-nerd.
 5. Approve user's comments.
 6. Change the website permissions for a user.
 
-Throughout the planning, design, testing and deployment of the Cocktail Nerd Website , I have used a number of technologies:
+<h2 id="agile-methodology">Agile Methodology</h2>
 
-<h2 id="features">Features</h2>
+The Agile Methodology was used to plan this project. This was implemented through Github and the Project Board which can be seen here -  <a href="https://github.com/users/artcuddy/projects/2" target="_blank"> Cocktail Nerd </a>
+
+Through the use of the Kanban board in the projects view in Github, the project was divived into a few different sections:
+* Addons
+* Todo
+* In Progress
+* Done
+
+![Kanban board github](documentation/readme_images/screenshots/git-hub-kanban-board.webp)
+
+Github issues were used to create User Stories and any other fixes or updates for the project. This was where the project user was assigned, labels were added to provide clarity, and the story was added to the appropriate sprint and the project. Each User Story, Fix or Update had a clear title. 
+
+Milestones were used to create sprints. There were 3 sprints each dated appropriately. User Stories were completed based on the current sprint in progress. Each sprint was completed on time.
+
+The Github issues were not just used to record User Stories but also used to record any bug fixes or updates to the codebase as well.
+
+<br>
+<h1 id="features">Features</h1>
+
+<a href="#top">Back to the top.</a>
+
+## Homepage
+
+* The Home Page is the landing page of the website and that's visible first when the site loads. It is designed to allow the user to quickly find their way around the site.
+
+<img src="documentation/readme_images/screenshots/homepage.webp">
+
+## Navigation Desktop
+
+* The site navigation is done through the navigation bar at the top of each page & this is consistant throughout the website.
+
+* The navigation bar at the top of each page is sticky to allow access to the navigation at any time.
+
+* Options on the navigation bar change depending on whether the user is logged in or not, or is an admin/staffuser or not.
+
+* Navigation menu when nobody is logged in only options are login or sign-up.
+<img src="documentation/readme_images/screenshots/navbar/nav-menu-not-signed-in.webp">
+
+* Navigation menu when regular authenticated user is logged in no access to Admin or Dashboard menu.
+<img src="documentation/readme_images/screenshots/navbar/reguser-logged-in.webp">
+
+* Navigation menu when staffuser user is logged in has access to the Admin menu but not the Dashboard menu.
+<img src="documentation/readme_images/screenshots/navbar/staffuser-logged-in.webp">
+
+* Navigation menu when admin user is logged in has access to the Admin menu & the Dashboard menu.
+<img src="documentation/readme_images/screenshots/navbar/admin-logged-in.webp">
+
+## Navigation Mobile
+
+* Navigation menu when nobody is logged in only options are login or sign-up.
+<br>
+<img src="documentation/readme_images/screenshots/mobile/mobile-nobody-logged-in.webp">
+
+* Navigation menu when regular authenticated user is logged in no access to Admin or Dashboard menu.
+<br>
+<img src="documentation/readme_images/screenshots/mobile/mobile-reguser-logged-in.webp">
+
+* Navigation menu when staffuser user is logged in has access to the Admin menu but not the Dashboard menu.
+<br>
+<img src="documentation/readme_images/screenshots/mobile/mobile-staffuser-logged-in.webp">
+
+* Navigation menu when admin user is logged in has access to the Admin menu & the Dashboard menu.
+<br>
+<img src="documentation/readme_images/screenshots/mobile/mobile-admin-logged-in.webp">
+
+## Liked Cocktails
+
+* When an authenticated user likes a cocktail this will be added to their liked posts page which can be accessed by clicking on the heart icon on the navbar.
+<br>
+<img src="documentation/readme_images/screenshots/liked-cocktails.webp">
+
+## All Cocktails
+
+* To see all cocktails on a paginated page click the cocktails menu or button on the homepage
+<br>
+<img src="documentation/readme_images/screenshots/all-cocktails.webp">
 
 <h2 id="future-features">Possible Future Features</h2>
 
@@ -79,14 +154,14 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
 
 * Allowing users to post their own cocktail recipes 
 
-
-<h2 id="technologies">Technologies</h2>
+<br>
+<h1 id="technologies">Technologies</h1>
 
 <a href="#top">Back to the top.</a>
 
 Throughout the planning, design, testing and deployment of the Cocktail Nerd Website , I have used a number of technologies:
 
-### Languages
+<h2 id="languages">Languages</h2>
 <ol>
     <li><a href="https://en.wikipedia.org/wiki/HTML5" target="_blank">HTML</a>
         <ul><li>The main structure of the site</li></ul>
@@ -105,7 +180,7 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
     </li>
 </ol>   
 
-### Version Control
+<h2 id="version-control">Version Control</h2>
 <ol>
     <li><a href="https://github.com/" target="_blank">Git & Github</a>
         <ul><li>For the hosting and version control of the Cocktail Nerd site.</li></ul>
@@ -116,7 +191,7 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
 </ol>
 
 
-### Applications    
+<h2 id="applications">Applications</h2>   
 <ol>
 <li><a href="https://www.heroku.com/" target="_blank">Heroku</a>
         <ul><li>For the application hosting</li></ul>
@@ -132,8 +207,7 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
     </li>
 </ol>
     
-## Frameworks, Libraries and Programs
-
+<h2 id="frameworks">Frameworks, Libraries and Programs</h2> 
 
 <ol> 
     <li><a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/" target="_blank">Bootstrap 5</a>
@@ -147,24 +221,25 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
     </li>
 </ol><br> 
 
-<h2 id="testing">Development & Testing</h2>
+<h1 id="testing">Development & Testing</h1>
 
 <a href="#top">Back to the top.</a>
 
 
-### Flow Chart
+## Flow Chart
 
  <li>Flow chart to go here</li>
 
-## Validator Testing
+<br> 
 
+## Validator Testing
 
 * <a href="https://developers.google.com/web/tools/lighthouse" target="_blank">Lighthouse</a> Performance Tool
 
 <img src="documentation/readme_images/testing/lighthouse-score.webp"><br><br>
 
-
-<h2 id="deployment">Deployment</h2>
+<br>
+<h1 id="deployment">Deployment</h1>
 
 <a href="#top">Back to the top.</a>
 
@@ -173,7 +248,7 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
 <ol>
     <li>A new repository was created using 'Code-Instutute-Org/python-essentials-template'</li>
     <li>A meaningful name was given to my new repository and I selected 'Create Repository'</li>
-    <li>I then opened the repository on GitHub and clicked the 'Gitpod' button to build the GitPod workspace which would allow me to build and edit the code used to make the <em>Star Trek Time Loop</em> website/game</li>
+    <li>I then opened the repository on GitHub and clicked the 'Gitpod' button to build the GitPod workspace which would allow me to build and edit the code used to make the <em>Cocktail Nerd</em> website.</li>
     <li>Version control was used throughout the project using the following commands in the terminal using Bash
         <ul>
             <li>git add . <strong>OR</strong> git add "file name" - to stage the changes and get them ready for being committed to the local repo.</li> 
@@ -192,7 +267,7 @@ The project was deployed via <a href="https://id.heroku.com/login" target="_blan
 
 This project was developed utilising the <a href="https://github.com/Code-Institute-Org/python-essentials-template" target="_blank">Code Institute Template</a>. Some of the deployment steps below are specifically required for the new CI template and may not be applicable to older versions, or different projects.
 
-Before deploying to Heroku pip3 freeze > requirements.txt was used to add pyfiglet and termcolor imports for deployment.
+Before deploying to Heroku pip3 freeze > requirements.txt was used to add all dependencies for deployment.
 
 This project was deployed to Heroku using the Heroku CLI details below
 
@@ -281,8 +356,8 @@ If you want to make changes to the repo without affecting it, you can make a cop
     <li>If you want to create a web-app from the repo please follow the instructions in "Project Deployment"</li>
 </ol>
 
-
-<h2 id="credits">Credits</h2>
+<br>
+<h1 id="credits">Credits</h1>
 
 <a href="#top">Back to the top.</a>
 
@@ -294,9 +369,6 @@ I have listed some of the resources I used for inspiration and in researching ho
 These resources helped me solve some of the issues encountered when developing the site
 
 * Resourses to go here
-
-
-<a href="#top">Back to the top.</a>
 
 <h2 id="acknowledgements">Acknowledgements</h2>
 
