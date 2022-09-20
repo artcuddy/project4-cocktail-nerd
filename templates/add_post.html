@@ -13,12 +13,10 @@
                     {% if submitted %}
                     <h1 class="fw-bold">Your cocktail was published succesfully!!!</h1>
                     <br />
-                    <button type="submit" class="nerd-cancel-button btn btn-warning me-2">
-                        <a href="{{request.META.HTTP_REFERER|escape}}">
-                            Add another Cocktail </a></button>
-                    <button type="submit" class="nerd-cancel-button btn btn-outline-secondary">
-                        <a href="{% url 'manage_posts' %}">
-                            Cancel </a></button>
+                    <a href="{{request.META.HTTP_REFERER|escape}}" class="nerd-cancel-button btn btn-warning me-2">
+                        Add another Cocktail </a>
+                    <a href="{% url 'manage_posts' %}" class="nerd-cancel-button btn btn-outline-secondary">
+                        Cancel </a>
 
                     {% else %}
                     <h1 class="display-5 fw-bold">Add New Post</h1>
@@ -29,9 +27,8 @@
                             {{ form.as_p }}
                             <br />
                             <button type="submit" class="btn btn-outline-success me-2"> Add Post </button>
-                            <button type="submit" class="nerd-cancel-button btn btn-outline-secondary">
-                                <a href="{% url 'manage_posts' %}">
-                                    Cancel </a></button>
+                            <a href="{% url 'manage_posts' %}" class="nerd-cancel-button btn btn-outline-secondary">
+                                Cancel </a>
                         </form>
                     </div>
 
@@ -49,7 +46,5 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-{% endblock %}
+        {% endblock %}

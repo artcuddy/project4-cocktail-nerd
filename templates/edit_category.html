@@ -17,14 +17,14 @@
                     <h1 class="display-5 fw-bold">Edit Category</h1>
                     {% load cloudinary %}
                     <div class="form-floating">
-                        <form action="" method="POST" enctype="multipart/form-data">
+                        <form action="#" method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
                             {{ form.as_p }}
                             <br />
                             <button type="submit" class="btn btn-outline-success me-2"> Update </button>
-                            <button type="submit" class="nerd-cancel-button btn btn-outline-secondary">
-                                <a href="{{request.META.HTTP_REFERER|escape}}">
-                                    Cancel </a></button>
+                            <a href="{{request.META.HTTP_REFERER|escape}}" class="nerd-cancel-button btn
+                                btn-outline-secondary">
+                                Cancel </a>
                         </form>
                     </div>
                     {% endif %}
@@ -40,7 +40,6 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-{% endblock %}
+
+        {% endblock %}

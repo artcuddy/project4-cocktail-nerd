@@ -284,6 +284,14 @@ a:hover {
     text-transform: uppercase;
 }
 
+.nerd-post-category-list {
+    display: contents;
+}
+
+.nerd-post-category-list li {
+    padding-right: 8px;
+}
+
 .nerd-comments-headline {
     font-weight: 300;
     text-transform: uppercase;

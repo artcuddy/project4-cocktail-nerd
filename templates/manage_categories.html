@@ -12,8 +12,8 @@
                 <h1 class="nerd-h1 display-5 fw-thin text-white">Manage Categories</h1>
                 <div class="col-lg-6 mx-auto">
                     <p class="fs-4 mb-4 text-light">Here you can add, edit and delete the categories</p>
-                    <a href="{% url 'add_category' %}"><button type="button"
-                            class="btn btn-outline-warning btn-lg px-4 me-sm-3 ">Add New Category</button></a>
+                    <a href="{% url 'add_category' %}" class="btn btn-outline-warning btn-lg px-4 me-sm-3 ">Add New
+                        Category</a>
                 </div>
             </div>
         </div>
@@ -36,10 +36,8 @@
                     </div>
                     {% endif %}
                     <h4 class="nerd-mgt-cat-title">{{ category.title }}</h4>
-                    <a href="{% url 'edit_category' category.id %}"><button type="button"
-                            class="btn btn-sm btn-success me-2">Edit</button></a>
-                    <a href="{% url 'delete_category' category.id %}"><button type="button"
-                            class="btn btn-sm btn-danger">Delete</button></a>
+                    <a href="{% url 'edit_category' category.id %}" class="btn btn-sm btn-success me-2">Edit</a>
+                    <a href="{% url 'delete_category' category.id %}" class="btn btn-sm btn-danger">Delete</a>
                 </div>
                 {% endfor %}
             </div>
@@ -57,17 +55,16 @@
             </ul>
         </nav>
         {% endif %}
-    </div>
-</div>
-{% else %}
-<div class="vh-100 nerd-hero text-bg-secondary px-4 py-5 text-center">
-    <div class="py-5">
-        <div class="col-lg-6 mx-auto">
-            <h3 class="nerd-access-denied">Sorry permission denied you don't have access to do this!
-            </h3>
-        </div>
-        {% endif %}
-    </div>
-</div>
 
-{% endblock %}
+        {% else %}
+        <div class="vh-100 nerd-hero text-bg-secondary px-4 py-5 text-center">
+            <div class="py-5">
+                <div class="col-lg-6 mx-auto">
+                    <h3 class="nerd-access-denied">Sorry permission denied you don't have access to do this!
+                    </h3>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        {% endblock %}

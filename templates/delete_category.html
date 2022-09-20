@@ -13,14 +13,14 @@
                     <h1 class="display-5 fw-bold">Delete: {{ category.title| title  }} Category</h1>
                     {% load cloudinary %}
                     <div class="form-floating">
-                        <form action="" method="POST" enctype="multipart/form-data">
+                        <form action="#" method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
                             <br />
                             <p class="fs-4 mb-4 text-dark">Are you sure?</p>
                             <button type="submit" class="btn btn-outline-danger me-2"> Delete Category</button>
-                            <button type="submit" class="nerd-cancel-button btn btn-outline-secondary">
-                                <a href="{{request.META.HTTP_REFERER|escape}}">
-                                    Cancel </a></button>
+                            <a href="{{request.META.HTTP_REFERER|escape}}" class="nerd-cancel-button btn
+                                btn-outline-secondary">
+                                Cancel </a>
                         </form>
                     </div>
                 </div>
@@ -35,7 +35,6 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-{% endblock %}
+
+        {% endblock %}
