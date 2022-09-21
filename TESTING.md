@@ -1,37 +1,33 @@
 # Cocktail Nerd Testing
 Back to the [README](README.md)
 
-* Testing has taken place continuously throughout the development of the project. Each view was tested regularly. 
-  When the outcome was not as expected, debugging took place at that point.  
+* Testing has taken place continuously throughout the development of the project. Each view was tested regularly adn dployed early to Heroku to confirm local and remote functioned the same.  
 
 ### Python Validation - PEP8
 * Python testing was done using the PEP8 Online to ensure there were no syntax errors in the project. All python files
-were entered into the online checker and no errors were found in any of the custom codes.
+were entered into the online checker and no errors were found in any of the Cocktail Nerd custom code.
 
 #### Cocktail Nerd - cocktailapp
-* [admin.py](./assets/readme/test/pep8/posts_pep8_admin.jpg)
-* [apps.py](./assets/readme/test/pep8/posts_pep8_apps.jpg)
-* [models.py](./assets/readme/test/pep8/posts_pep8_models.jpg)
-* [apps.py](./assets/readme/test/pep8/posts_pep8_apps.jpg)
-* [forms.py](./assets/readme/test/pep8/posts_pep8_forms.jpg)
-* [signals.py](./assets/readme/test/pep8/posts_pep8_signals.jpg)
-* [urls.py](./assets/readme/test/pep8/posts_pep8_urls.jpg)
-* [views.py](./assets/readme/test/pep8/posts_pep8_views.jpg)
-* [context_processors.py](./assets/readme/test/pep8/posts_pep8_context_processor.jpg)
-
-
-#### Cocktail Nerd- cocktailnerd
-* [asgi.py](./assets/readme/test/pep8/tastyblog_pep8_asgi.jpg)
-* [urls.py](./assets/readme/test/pep8/tastyblog_pep8_urls.jpg)
-* [wsgi.py](./assets/readme/test/pep8/tastyblog_pep8_wsgi.jpg)
-* [settings.py](./assets/readme/test/pep8/tastyblog_pep8_settings.jpg)
-* A few errors were raised in the tastyblog/settings.py file, however these were related to default django authorisation
-code and could not be changed to remove the errors.
-* [manage.py](./assets/readme/test/pep8/pep8_manage.jpg)
+* admin.py
+![admin.py](documentation/readme_images/testing/pep8/pep8-check-admin.webp)
+* apps.py
+![apps.py](documentation/readme_images/testing/pep8/pep8-check-apps.webp)
+* models.py
+![models.py](documentation/readme_images/testing/pep8/pep8-check-models.webp)
+* forms.py
+![forms.py](documentation/readme_images/testing/pep8/pep8-check-forms.webp)
+* signals.py
+![signals.py](documentation/readme_images/testing/pep8/pep8-check-signals.webp)
+* urls.py
+![urls.py](documentation/readme_images/testing/pep8/pep8-check-urls.webp)
+* views.py
+![views.py](documentation/readme_images/testing/pep8/pep8-check-views.webp)
+* processors.py
+![processors.py](documentation/readme_images/testing/pep8/pep8-check-processors.webp)
 
 
 ## Lighthouse
-Lighthouse was used to test Performance, Best Practices, Accessibility and SEO on Desktop.
+Lighthouse was used to test Performance, Best Practices, Accessibility and SEO on Desktop and Mobile.
 
 ### Desktop Results:
 ![Lighthouse Mobile Result](documentation/readme_images/testing/lighthouse-desktop.webp)
@@ -62,60 +58,93 @@ Lighthouse was used to test Performance, Best Practices, Accessibility and SEO o
 
 ## Manual Testing
 ### Frontend
-* The Signup, Login and Logout system has no issues and is working accordingly. It shows the right 
-  interactive message to the users.
+* The Signup, Login and Logout system is working as it should. It shows the right interactive message to the users on Signup, Login and Logout.
+<br>
+
+![Login Success](documentation/readme_images/testing/auth/success-login.webp)
+
+![Logout Success](documentation/readme_images/testing/auth/success-logout.webp)
+
 * The Profile Page is working properly. It updates the user information and uploads/updates the 
   user profile image. It shows the interactive message to the user once the update is complete.
-* The user profile image in the navbar and Post Details page has no issues and shows the user image 
-  when it is uploaded by the user on the Profile Page.
+
+![Profile Updated Success](documentation/readme_images/testing/auth/success-profile-updated.webp)
+
+* The user profile image in the comments section of the Post Details page has no issues and shows the user image 
+  when it is uploaded by the user on the Profile Page. Otherwise the default avatar will be shown.
+
+![Comments Usr Avatar](documentation/readme_images/testing/auth/comments-user-avatar.webp)
+
 * All the internal links are working and bring the user to the right page on the website.
 * All the external links are working and bring the user to the right social media page by 
   opening a new browser tab.
-* The Categories Page shows the recipes filtered by category without issues.
-* The drop-down menu in the navbar shows a list of categories on every page of the website.
-* The contact form on the Contact Page is working without any errors.  It sends an email, 
-  to the info@tastyblog, once the user fills in the form and clicks on the send button. 
-  Both interactive messages for email success or failure are also displayed on the screen.
-* The pagination system is working. It adds another page after 6 posts on the page.
+
+![Social Links](documentation/readme_images/testing/auth/social-links-footer.webp)
+
+* The All Cocktails Page shows all the cocktail recipes. The pagination system is workin, it adds another page when more than 6 cocktails on the page.
+
+![All Cocktails](documentation/readme_images/screenshots/all-cocktails.webp)
+
+* The drop-down menu in the navbar shows a list of spirit categories on every page of the website.
+
+![All Spirits Dropdown](documentation/readme_images/screenshots/navbar/dropdown-nav-menu.webp)
+
 * On the Post Details Page, the Like/unlike functionality is working without issues and shows 
   the right interactive message to the user when the heart icon is clicked.
-* The comment form has no issues and it submits a new comment once the form is completed by a
-  registered user. 
-  The comment is displayed once the submit button is pressed. The two interactive messages for 
-  this action are working without errors. 
-* The functionality to delete a message, previously sent by the user or by the superuser, is 
-  working without issues. The Bootstrap model is open to asking the user if they want to delete 
-  the message. Once the action is complete, the interactive message is displayed at the top of the page.
-* The functionality to update a message, previously sent by the user or by the superuser, is 
-  working without issues. A new page is open, to update the comment when the button edit is 
-  pressed. Once the action is complete, the interactive message is displayed at the top of the page. 
-* On the Books Page, the CRUD functionality is working without issues. Logged in users can create a new 
-  post such as update or delete their own posts, also any post can be updated or deleted on this page by the Superuser.  
 
-### Backend/Admin Panel
+![Liked Cocktail](documentation/readme_images/testing/auth/success-cocktail-liked.webp)
+
+![Unliked Cocktail](documentation/readme_images/testing/auth/success-cocktail-unliked.webp)
+
+* The comment form has no issues and it submits a new comment once the form is completed by a registered user. The comment is submitted for approval and the interactive message for this action is working. 
+
+![Comment Submitted](documentation/readme_images/testing/auth/success-comment-sent-for-approval.webp)
+
+* The functionality to delete a comment, previously sent by the user is 
+  working without issues. The Bootstrap model will open asking the user if they want to delete 
+  the comment. Once the action is complete, the interactive message is displayed at the top of the page.
+
+![Delete Comment Confirmation](documentation/readme_images/testing/auth/delete-comment-confirmation.webp)
+
+![Comment Deleted Success](documentation/readme_images/testing/auth/success-comment-deleted.webp)
+
+
+* The functionality to update a comments, previously sent by the user is 
+  working without issues. A new page is opened, to update the comment then when the update button is clicked. Once the action is complete, the interactive message is displayed at the top of the page.
+
+![Comment Edited Success](documentation/readme_images/testing/auth/success-comment-edited.webp)
+
+
+* On the Posts MGT Page, the CRUD functionality is working without issues. Logged in staffusers or superuser can create, edit or delete posts. The interactive message is displayed at the top of the page.
+
+![Post Managment](documentation/readme_images/screenshots/manage-posts.webp)
+
+* On the Category MGT Page, the CRUD functionality is working without issues. Logged in staffusers or superuser can create, edit or delete categories. The interactive message is displayed at the top of the page.
+
+![Category Managment](documentation/readme_images/screenshots/manage-categories.webp)
+
+* Staffusers or Superuser can add a new post on the frontend from the drop down Admin menu or by clicking the button the Post Mgt page.
+
+![Category Managment](documentation/readme_images/screenshots/add-new-post.webp)
+
+* Staffusers or Superuser can add a new category on the frontend from the drop down Admin menu or by clicking the button the Category Mgt page.
+
+![Category Managment](documentation/readme_images/screenshots/add-new-category.webp)
+
+<br>
+
+## Backend/Admin Panel
 * I have tested the Admin Panel repeatedly since the start of the project development. All the models are working without issues.  
   I have created, deleted, and updated data in all models without errors. The models have the behavior expected for what they were built for.
 * Whenever a user comments on a cocktail the Superuser has to approve it before it will be displayed on the website. This functionality is 
   working without issues.
-* When the staffuser/superuser is posting a new cocktail recipe all the required fields have to be filled otherwise the author can't submit the post to the database.
+* When the staffuser/superuser is publishing a new cocktail recipe all the required fields have to be filled otherwise the author can't submit the post to the database.
 
-### Manual Test Case
-The Test case for this project can be found [here](TESTCASE.md)
+## Manual Test Case
+The Manual Test case for this project can be found [here](TESTCASE.md)
+
+## Automated Test Case
+The Automated Test case for this project can be found [here](TESTCASE.md)
 
 ## Bugs
-### Terminal Bug
-#### Comment Model 
-![Comment Model](./assets/readme/extras/comments_model_issue.jpg)
-#### Terminal Error
-![Comment Model - Terminal](./assets/readme/extras/terminal_comment_model_issue.jpg)
-
-* While I was developing the project I tried to add a comment profile Image to the comments model by adding a 
-  foreign key related to the profile model. When I was doing the migrations, the terminal required a default 
-  number for the new foreign key.  I added the number zero however this was not the correct default option. 
-  When I ran the migrations I got an error message on the terminal, saying that "(post_id)=(7) is not present in the table".
-
-### Fixed Bug
-
-* I spent a considerable amount of time trying to rectify this error. I sought advice from my slack community colleagues and researched 
-  an online solution. I then called the Code Institute Tutor Assistance. I was advised, by the tutor, to reset my database on Heroku and 
-  then run migrate on the terminal. I followed the advice and I fixed the issue by resetting my project database.
+* All bugs found during the development process have been fixed and as such I have not encountered any new ones since deployment.... fingers crossed!

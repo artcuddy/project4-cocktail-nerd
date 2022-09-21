@@ -11,8 +11,11 @@ Find great new drinks to try plus helpful tips and advice.</h2>
     - [Agile Methodology](#agile-methodology)
     - [The Scope](#the-scope)
 - [Design](#design)
+    - [Colours](#colours)
+    - [Typography](#typography)
+    - [Media](#media)
     - [Database](#database)
-    - [Wireframes](#wiresframes)
+    - [Wireframes](#wireframes)
 - [Features](#features)
     - [Future Features](#future-features)
 - [Technologies](#technologies)
@@ -53,7 +56,7 @@ A live version of the site can be found <a href="https://project4-cocktail-nerd.
 6. View the number of likes on a cocktail recipe.
 7. View comments on cocktail recipes so that I can read other users opinions.
 
-* As logged in website user, I can:
+* As an authenticated website user, I can:
 
 1. Like/unlike cocktail recipes and view them on a single liked cocktails page.
 2. Comment on cocktail recipes and give my opinion about the posts.
@@ -64,10 +67,19 @@ A live version of the site can be found <a href="https://project4-cocktail-nerd.
 
 1. Create and publish a new cocktail recipe.
 2. Create draft recipe posts that can be reviewed and finalised later.
+3. Create new cocktail recipes and cocktail categories.
+4. Edit cocktail recipes, cocktail categories and comments.
+5. Delete cocktail recipes, cocktail categories and comments.
+
+* As a website superuser, I can:
+
+1. Create and publish a new cocktail recipe.
+2. Create draft recipe posts that can be reviewed and finalised later.
 3. Create a new user, cocktail recipes and cocktail categories.
-4. Delete a user, cocktail recipes, cocktail categories and comments.
-5. Approve user's comments.
-6. Change the website permissions for a user.
+4. Edit cocktail recipes, cocktail categories and comments.
+5. Delete a user, cocktail recipes, cocktail categories and comments.
+6. Approve user's comments.
+7. Change the website permissions for a user.
 
 <h2 id="agile-methodology">Agile Methodology</h2>
 
@@ -97,6 +109,54 @@ The Github issues were not just used to record User Stories but also used to rec
 * To provide search functionality to find cocktails on the Cocktail Nerd site.
 
 <br>
+
+<h1 id="design">Design</h1>
+
+<h2 id="colours">Colours</h2>
+
+* I decided to stick with the high contrast Bootstrap 5 colour palette to maintain a nice visual contrast when viewing the site
+
+![Bootstrap 5 Colours](documentation/readme_images/screenshots/colours/bootstrap-colours.webp)
+
+<br> 
+
+<h2 id="typography">Typography</h2>
+
+* Utilised the Bootstrap 5 native font stack that selects the best font-family for each OS and device.
+
+<br> 
+
+<h2 id="media">Media</h2>
+
+* All cocktail recipes are from<a href="https://www.liquor.com/" target="_blank"> Liqour.com </a> 
+
+* All page header images are from<a href="https://unsplash.com/" target="_blank"> Unsplash </a> 
+
+* The logo and favicon are designed by me in<a href="https://www.sketch.com" target="_blank"> Sketch </a> 
+
+<br>
+
+<h2 id="database">Database Diagram</h2>
+
+![Database Diagram](documentation/database_model/database-diagram.webp)
+
+<br> 
+
+<h2 id="wireframes">Wireframes</h2>
+
+<details> <summary> Initial Wireframes</summary>
+
+![Home Page](documentation/wireframes/homepage.webp)
+
+![All Cocktails](documentation/wireframes/all-cocktails.webp)
+
+![All Cocktails Admin](documentation/wireframes/all-cocktails-admin.webp)
+
+![Post Detail](documentation/wireframes/post-detail.webp)
+
+</details>
+
+<br> 
 
 <h1 id="features">Features</h1>
 
@@ -158,6 +218,27 @@ The Github issues were not just used to record User Stories but also used to rec
 <br>
 <img src="documentation/readme_images/screenshots/all-cocktails.webp">
 
+## All Spirit Categories
+
+* To see all the spirit categories on a paginated page click the Spirits menu in the navbar
+<br>
+<img src="documentation/readme_images/screenshots/all-categories.webp">
+
+## Select Cocktails by Spirit Category
+
+* To see all cocktails by spirit on a paginated page click the by Spirit menu in the navbar
+<br>
+<img src="documentation/readme_images/screenshots/navbar/dropdown-nav-menu.webp">
+
+* All cocktails by spirit category
+<br>
+<img src="documentation/readme_images/screenshots/category.webp">
+
+## Search results for Gin
+<br>
+<img src="documentation/readme_images/screenshots/search-results.webp">
+
+<br>
 <h2 id="future-features">Possible Future Features</h2>
 
 * Social login to allow the user to signup using Facebook or Google 
@@ -173,75 +254,76 @@ The Github issues were not just used to record User Stories but also used to rec
 
 Throughout the planning, design, testing and deployment of the Cocktail Nerd Website , I have used a number of technologies:
 
-<h2 id="languages">Languages</h2>
-<ol>
-    <li><a href="https://en.wikipedia.org/wiki/HTML5" target="_blank">HTML</a>
-        <ul><li>The main structure of the site</li></ul>
-    </li>
-    <li><a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a>
-        <ul><li>Within the base template by code institute</li></ul>
-    </li>
-    <li><a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank">Python</a>
-        <ul><li>For the site logic</li></ul>
-    </li>
-     <li><a href="https://www.djangoproject.com/" target="_blank">Django</a>
-        <ul><li>For the site templating and structure</li></ul>
-    </li>
-    <li><a href="https://www.markdownguide.org/" target="_blank">Markdown</a>
-        <ul><li>For the content and structure of the README.md</li></ul>
-    </li>
-</ol>   
+<h2 id="languages">Languages Used</h2>
 
-<h2 id="version-control">Version Control</h2>
-<ol>
-    <li><a href="https://github.com/" target="_blank">Git & Github</a>
-        <ul><li>For the hosting and version control of the Cocktail Nerd site.</li></ul>
-    </li>
-    <li><a href="https://www.gitpod.io/" target="_blank">Gitpod</a>
-        <ul><li>The development environment used for writing the code for the Cocktail Nerd site.</li></ul>
-    </li>
-</ol>
+* [HTML 5](https://en.wikipedia.org/wiki/HTML/)
+* [CSS 3](https://en.wikipedia.org/wiki/CSS)
+* [JavaScript](https://www.javascript.com/)
+* [Django](https://www.python.org/)
+* [Python](https://www.djangoproject.com/)
 
+<h2 id="django-packages">Django Packages Used</h2>
 
-<h2 id="applications">Applications</h2>   
-<ol>
-<li><a href="https://www.heroku.com/" target="_blank">Heroku</a>
-        <ul><li>For the application hosting</li></ul>
-    </li>
-   <li><a href="https://lucid.app/" target="_blank">Lucid Chart</a>
-        <ul><li>For the creation of the flowchart</li></ul>
-    </li>
-    <li><a href="https://visualstudio.microsoft.com/" target="_blank">Visual Studio (Desktop)</a>
-        <ul><li>For testing out different code strategies without interfering with the code of the Cocktail Nerd site.</li></ul>
-    </li>
-    <li><a href="https://slack.com/intl/en-gb/" target="_blank">Slack (Desktop)</a>
-        <ul><li>For communicating with fellow students and troubleshooting problems with the different environments used during the course and solving coding issues.</li></ul>
-    </li>
-</ol>
-    
-<h2 id="frameworks">Frameworks, Libraries and Programs</h2> 
+* [Gunicorn](https://gunicorn.org/)<br>
+   As the server for Heroku
+* [Cloudinary](https://cloudinary.com/)<br>
+   Was used to host the static files and media
+* [Dj_database_url](https://pypi.org/project/dj-database-url/)<br>
+   To parse the database URL from the environment variables in Heroku
+* [Psycopg2](https://pypi.org/project/psycopg2/)<br>
+   As an adaptor for Python and PostgreSQL databases
+* [Summernote](https://summernote.org/)<br>
+   As a text editor
+* [Allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)<br>
+   For authentication, registration, account
+   management
+* [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/)<br>
+   To style the forms
+* [Whitenoise](http://whitenoise.evans.io/en/stable/)<br>
+   For static CSS on Heroku
+* [Django Star Ratings](https://pypi.org/project/django-star-ratings/)<br>
+   For rating system on Cocktail Nerd
 
-<ol> 
-    <li><a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/" target="_blank">Bootstrap 5</a>
-        <ul><li>As the base HTML5 and CSS </li></ul>
-    </li>
-    <li><a href="http://pep8online.com/" target="_blank">PEP8 ONLINE</a>
-        <ul><li>To test and search for errors in the Python code</li></ul>
-    </li>
-    <li><a href="https://developers.google.com/web/tools/lighthouse" target="_blank">Lighthouse</a> Performance Tool
-        <ul><li>To ensure high performance and quick loading times of the Cocktail Nerd site</li></ul>
-    </li>
-</ol><br> 
+<h2 id="frameworks">Frameworks - Libraries - Programs Used</h2>
+
+* [Bootstrap](https://getbootstrap.com/)<br>
+   Was used to style the website, add responsiveness and interactivity
+* [Jquery](https://jquery.com/)<br>
+   All the scripts were written using jquery library
+* [Git](https://git-scm.com/)<br>
+   Git was used for version control by utilizing the Gitpod terminal to commit to Git and push to GitHub
+* [GitHub](https://github.com/)<br>
+   GitHub is used to store the project's code after being pushed from Git
+* [Heroku](https://id.heroku.com)<br>
+   Heroku was used to deploy the live project
+* [PostgreSQL](https://www.postgresql.org/)<br>
+   Database used through heroku.
+* [VSCode](https://code.visualstudio.com/)<br>
+   VSCode was used to create and edit the website
+* [Lucidchart](https://lucid.app/)<br>
+   Lucidchart was used to create the database diagram
+* [PEP8](http://pep8online.com/)<br>
+   PEP8 was used to validate all the Python code
+* [W3C - HTML](https://validator.w3.org/)<br>
+   W3C- HTML was used to validate all the HTML code
+* [W3C - CSS](https://jigsaw.w3.org/css-validator/)<br>
+   W3C - CSS was used to validate the CSS code
+* [Fontawesome](https://fontawesome.com/)<br>
+   To add icons to the website
+* [Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/)<br>
+   To check App responsiveness and debugging
+* [Balsamiq](https://balsamiq.com/)<br>
+   To build the wireframes for the project
+* [Adobe Photoshop](https://www.adobe.com/ie/products/photoshop.html)<br>
+   To convert the images to webp format
+* [Sketch](https://www.sketch.com/)<br>
+   To build the logo and icon for the project
+
 
 <h1 id="testing">Development & Testing</h1>
 
 <a href="#top">Back to the top.</a>
 
-<h2 id="database">Database</h2>
-
-* Flow chart to go here
-
-<br> 
 
 <h2 id="testing-results">Testing Results</h2>
 
