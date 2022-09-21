@@ -10,7 +10,6 @@ Find great new drinks to try plus helpful tips and advice.</h2>
     - [User Stories](#user-stories)
     - [Agile Methodology](#agile-methodology)
     - [The Scope](#the-scope)
-      - [Main Site Goals](#main-site-goals)
 - [Design](#design)
     - [Database](#database)
     - [Wireframes](#wiresframes)
@@ -22,6 +21,9 @@ Find great new drinks to try plus helpful tips and advice.</h2>
     - [Applications](#applications)
     - [Frameworks & Libraries](#frameworks)
 - [Development & Testing](#testing)
+    - [Database](#database)
+    - [Testing Results](TESTING.md)
+    - [Test Case](TESTCASE.md)
 - [Deployment](#deployment)
 - [Credits](#credits)
 
@@ -86,6 +88,16 @@ Milestones were used to create sprints. There were 3 sprints each dated appropri
 The Github issues were not just used to record User Stories but also used to record any bug fixes or updates to the codebase as well.
 
 <br>
+<h2 id="the-scope">The Scope</h2>
+
+* To provide users with a good clean experience when using the Cocktail Nerd website.
+* To provide users with a visually pleasing website that is intuitive to use and easy to navigate.
+* To provide a website with a clear purpose.
+* To provide role-based permissions that allows user to interact with the website example: like, comment or rate a cocktail.
+* To provide search functionality to find cocktails on the Cocktail Nerd site.
+
+<br>
+
 <h1 id="features">Features</h1>
 
 <a href="#top">Back to the top.</a>
@@ -213,7 +225,7 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
     <li><a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/" target="_blank">Bootstrap 5</a>
         <ul><li>As the base HTML5 and CSS </li></ul>
     </li>
-    <li><a href="http://pep8online.com/checkresult" target="_blank">PEP8 ONLINE</a>
+    <li><a href="http://pep8online.com/" target="_blank">PEP8 ONLINE</a>
         <ul><li>To test and search for errors in the Python code</li></ul>
     </li>
     <li><a href="https://developers.google.com/web/tools/lighthouse" target="_blank">Lighthouse</a> Performance Tool
@@ -225,18 +237,20 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
 
 <a href="#top">Back to the top.</a>
 
+<h2 id="database">Database</h2>
 
-## Flow Chart
-
- <li>Flow chart to go here</li>
+* Flow chart to go here
 
 <br> 
 
-## Validator Testing
+<h2 id="testing-results">Testing Results</h2>
 
-* <a href="https://developers.google.com/web/tools/lighthouse" target="_blank">Lighthouse</a> Performance Tool
+* Testing results [here](TESTING.md)
 
-<img src="documentation/readme_images/testing/lighthouse-score.webp"><br><br>
+<h2 id="testing-results">Manual Test Case</h2>
+
+* Test case results [here](TESTCASE.md)
+
 
 <br>
 <h1 id="deployment">Deployment</h1>

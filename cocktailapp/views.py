@@ -166,15 +166,22 @@ def home(request):
 
 
 # Post like view
-class PostLike(View):
+class PostLike(LoginRequiredMixin, View):
 
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
+            messages.success(
+                request,
+                'What a shame you unliked this cocktail!'
+                )
         else:
             post.likes.add(request.user)
-
+            messages.success(
+                request,
+                'Thanks you liked this cocktail!'
+                )
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
