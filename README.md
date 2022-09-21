@@ -20,13 +20,11 @@ Find great new drinks to try plus helpful tips and advice.</h2>
     - [Future Features](#future-features)
 - [Technologies](#technologies)
     - [Languages](#languages)
-    - [Version Control](#version-control)
-    - [Applications](#applications)
+    - [Django Packages](#django-packages)
     - [Frameworks & Libraries](#frameworks)
 - [Development & Testing](#testing)
     - [Database](#database)
     - [Testing Results](TESTING.md)
-    - [Test Case](TESTCASE.md)
 - [Deployment](#deployment)
 - [Credits](#credits)
 
@@ -205,6 +203,20 @@ The Github issues were not just used to record User Stories but also used to rec
 * Navigation menu when admin user is logged in has access to the Admin menu & the Dashboard menu.
 <br>
 <img src="documentation/readme_images/screenshots/mobile/mobile-admin-logged-in.webp">
+
+## Cocktail Recipe Details
+
+* When an authenticated user is logged in they can like, comment and rate a cocktail on the post detail page. If rated the user will see a notification of the rate given.
+<br>
+<img src="documentation/readme_images/screenshots/post-details-likes.webp">
+
+## Cocktail Recipe Sidebar
+
+* When in a cocktail details page the sidebar will display all Spirit category links and will display the latest 3 featured cocktails which can be added to by clicking the featured check box on the post edit screen
+<br>
+<img src="documentation/readme_images/screenshots/post-detail-sidebar.webp">
+<br>
+<img src="documentation/readme_images/screenshots/featured-post-checkbox.webp">
 
 ## Liked Cocktails
 

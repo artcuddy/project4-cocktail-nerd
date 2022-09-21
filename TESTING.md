@@ -119,32 +119,31 @@ Lighthouse was used to test Performance, Best Practices, Accessibility and SEO o
 
 ![Post Managment](documentation/readme_images/screenshots/manage-posts.webp)
 
+![Delete Post](documentation/readme_images/testing/auth/delete-post-confirmation.webp)
+
 * On the Category MGT Page, the CRUD functionality is working without issues. Logged in staffusers or superuser can create, edit or delete categories. The interactive message is displayed at the top of the page.
 
 ![Category Managment](documentation/readme_images/screenshots/manage-categories.webp)
 
-* Staffusers or Superuser can add a new post on the frontend from the drop down Admin menu or by clicking the button the Post Mgt page.
+![Delete Category](documentation/readme_images/testing/auth/delete-category-confirmation.webp)
 
-![Category Managment](documentation/readme_images/screenshots/add-new-post.webp)
+* Staffusers or Superuser can add a new post on the frontend from the drop down Admin menu or by clicking the Add New Post button the Post Mgt page.
 
-* Staffusers or Superuser can add a new category on the frontend from the drop down Admin menu or by clicking the button the Category Mgt page.
+![Add New Post](documentation/readme_images/screenshots/add-new-post.webp)
 
-![Category Managment](documentation/readme_images/screenshots/add-new-category.webp)
+* Staffusers or Superuser can add a new category on the frontend from the drop down Admin menu or by clicking the Add New Category button the Category Mgt page.
+
+![Add New Category](documentation/readme_images/screenshots/add-new-category.webp)
 
 <br>
 
 ## Backend/Admin Panel
-* I have tested the Admin Panel repeatedly since the start of the project development. All the models are working without issues.  
+* I have tested the Admin Panel repeatedly since the start of the project. All the models are working without issues.  
   I have created, deleted, and updated data in all models without errors. The models have the behavior expected for what they were built for.
 * Whenever a user comments on a cocktail the Superuser has to approve it before it will be displayed on the website. This functionality is 
   working without issues.
 * When the staffuser/superuser is publishing a new cocktail recipe all the required fields have to be filled otherwise the author can't submit the post to the database.
 
-## Manual Test Case
-The Manual Test case for this project can be found [here](TESTCASE.md)
-
-## Automated Test Case
-The Automated Test case for this project can be found [here](TESTCASE.md)
 
 ## Bugs
 * All bugs found during the development process have been fixed and as such I have not encountered any new ones since deployment.... fingers crossed!
