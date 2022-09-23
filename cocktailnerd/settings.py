@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import sys
 import dj_database_url
 
 
@@ -106,9 +107,28 @@ WSGI_APPLICATION = 'cocktailnerd.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-}
+
+# Updates Database Configuration
+if 'test' in sys.argv:
+    # Configuration for test database
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'd33ua61gp7g17n',
+            'USER': 'hzykbxegbcufrn',
+            'PASSWORD':
+            'aa34b4cbe2819d9b94010a994e93ea71103a53952767d4fb2d4485fa3e47d6bf',
+            'HOST': 'ec2-54-194-211-183.eu-west-1.compute.amazonaws.com',
+            'PORT': 5432,
+            'TEST': {
+                'NAME': 'd33ua61gp7g17n',  # This is an important entry
+            }
+        }
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
 
 
 # Password validation
