@@ -144,13 +144,13 @@ class FeaturedList(generic.ListView):
     queryset = Post.objects.filter(
         status=1).order_by("-created_on").filter(featured=1)
     template_name = "home.html"
-    paginate_by = 3
+    paginate_by = 6
 
 
 # Related list view
 def related_list(request):
     related_list = Post.objects.filter(
-        status=1).order_by('-created_on').filter(featured=1)[:3]
+        status=1).order_by('-created_on').filter(featured=1)[:6]
     context = {
         'related_list': related_list,
     }
