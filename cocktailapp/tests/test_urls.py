@@ -2,7 +2,7 @@ from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 from cocktailapp.views import PostList, PostDetail, AllCategoriesList
 from cocktailapp.views import SearchResultsView, FeaturedList, add_cocktail
-from cocktailapp.views import profile, DeletePostView
+from cocktailapp.views import profile, DeletePostView, UpdatePostView
 
 
 class TestUrls(SimpleTestCase):
@@ -30,3 +30,7 @@ class TestUrls(SimpleTestCase):
     def test_delete_post_url_resolves(self):
         url = reverse('delete_post', args=['test-slug'])
         self.assertEquals(resolve(url).func.view_class, DeletePostView)
+
+    def test_edit_post_url_resolves(self):
+        url = reverse('edit_post', args=['test-slug'])
+        self.assertEquals(resolve(url).func.view_class, UpdatePostView)

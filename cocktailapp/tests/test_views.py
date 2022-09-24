@@ -1,36 +1,142 @@
 from django.test import TestCase, Client
 from django.urls import reverse
-import json
-from cocktailapp.models import Post, Category, Comment, Profile
+from django.contrib.auth import get_user_model
+from cocktailapp.models import Post, Category
+User = get_user_model()
 
 
 # Test views
-# class TestViews(TestCase):
+class TestViews(TestCase):
 
-#     def test_get_homepage(self):
-#         response = self.client.get('/')
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'home.html')
+    def setUp(self):
+        self.user = User.objects.create_user(
+            username='testuser',
+            password='12345'
+            )
+        self.client.login(username='testuser', password='12345')
+        self.client = Client()
+        self.home_url = reverse('home')
+        self.profile_url = reverse('profile')
+        self.liked_list_url = reverse('liked_list')
+        self.post_list_url = reverse('all_cocktails')
+        self.manage_all_posts_url = reverse('manage_posts')
+        self.manage_all_categories_url = reverse('manage_categories')
+        self.post_detail_url = reverse('post_detail', args=['post1'])
+        self.category_url = reverse('category', args=['default'])
+        self.all_categories_url = reverse('all_categories')
+        self.category1 = Category.objects.create(
+            title='default'
+        )
+        self.post1 = Post.objects.create(
+            author=self.user,
+            title='post1',
+            slug='post1',
+            status=1,
+            categories=self.category1
+        )
 
-#     def test_get_all_cocktails(self):
-#         response = self.client.get('/all_cocktails/')
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'all_cocktails.html')
+    def test_home_GET(self):
 
-#     def test_get_all_categories(self):
-#         response = self.client.get('/all_categories/')
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'all_categories.html')
+        response = self.client.get(self.home_url)
 
-#     def test_get_category(self):
-#         response = self.client.get('/category/<category>/')
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'category.html')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'home.html')
 
-    # def test_get_post_detail_GET(self):
-    #     client = Client()
-    #     response = client.get(reverse('list'))
+    def test_profile_GET(self):
 
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertTemplateUsed(response, 'category.html')
+        self.client.login(username='testuser', password='12345')
 
+        response = self.client.get(self.profile_url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'profile.html')
+
+    def test_liked_list_GET(self):
+
+        self.client.login(username='testuser', password='12345')
+
+        response = self.client.get(self.liked_list_url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'liked_posts.html')
+
+    def test_manage_all_posts_GET(self):
+
+        self.client.login(username='testuser', password='12345')
+
+        response = self.client.get(self.manage_all_posts_url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'manage_posts.html')
+
+    def test_manage_all_categories_GET(self):
+
+        self.client.login(username='testuser', password='12345')
+
+        response = self.client.get(self.manage_all_categories_url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'manage_categories.html')
+
+    def test_post_list_GET(self):
+
+        response = self.client.get(self.post_list_url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'all_cocktails.html')
+
+    def test_category_GET(self):
+
+        response = self.client.get(self.category_url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'category.html')
+
+    def test_all_categories_GET(self):
+
+        response = self.client.get(self.all_categories_url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'all_categories.html')
+
+    def test_post_detail_GET(self):
+
+        response = self.client.get(self.post_detail_url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'post_detail.html')
+
+    def test_post_detail_POST_adds_new_post(self):
+
+        response = self.client.post(self.post_detail_url, {
+            'author': self.user,
+            'title': 'post1',
+            'slug': 'post1',
+            'status': 1,
+            'categories': self.category1
+        })
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEquals(self.post1.title, 'post1')
+
+    def test_post_comment_POST_adds_new_comment(self):
+
+        self.client.login(username='testuser', password='12345')
+
+        response = self.client.post(self.post_detail_url, {
+            'name': self.user,
+            'body': 'test comment',
+            'approved': True
+            })
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEquals(self.post1.comments.first().body, 'test comment')
+
+    def test_post_comment_POST_no_data(self):
+
+        self.client.login(username='testuser', password='12345')
+
+        response = self.client.post(self.post_detail_url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEquals(self.post1.comments.count(), 0)

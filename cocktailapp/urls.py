@@ -33,7 +33,10 @@ urlpatterns = [
         AllCategoriesList.as_view(),
         name='all_categories'
         ),
-    path('add_category/', AddCategoryView.as_view(), name='add_category'),
+    path(
+        'add_category/',
+        AddCategoryView.as_view(),
+        name='add_category'),
     path(
         'article/edit/<slug:slug>/',
         UpdatePostView.as_view(),
