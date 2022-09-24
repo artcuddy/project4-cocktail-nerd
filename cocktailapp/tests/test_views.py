@@ -5,7 +5,7 @@ from cocktailapp.models import Post, Category
 User = get_user_model()
 
 
-# Test views
+# Test Views
 class TestViews(TestCase):
 
     def setUp(self):

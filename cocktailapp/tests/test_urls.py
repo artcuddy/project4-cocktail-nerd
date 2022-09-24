@@ -1,8 +1,8 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 from cocktailapp.views import PostList, PostDetail, AllCategoriesList
-from cocktailapp.views import SearchResultsView, FeaturedList, add_cocktail
-from cocktailapp.views import profile, DeletePostView, UpdatePostView
+from cocktailapp.views import FeaturedList, add_cocktail
+from cocktailapp.views import DeletePostView, UpdatePostView
 
 
 class TestUrls(SimpleTestCase):
