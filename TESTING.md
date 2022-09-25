@@ -16,64 +16,10 @@ To get this to work I created an additional Postgres database as an add-on and u
 <br>
 Also added an if 'test' in sys.argv: to the database settings in my project to connect to the test database when testing and an else statement to conncet to the production databse when not.
 
-* Automated testing coverage was at 79%
+### Automated testing coverage was at 79%
 <br>
 
 ![admin.py](documentation/readme_images/testing/before-automated-tests.webp)
-
-
-### Python Validation - PEP8
-* Python testing was done using the PEP8 Online to ensure there were no syntax errors in the project. All python files
-were entered into the online checker and no errors were found in any of the Cocktail Nerd custom code.
-
-#### Cocktail Nerd - cocktailapp
-* admin.py
-![admin.py](documentation/readme_images/testing/pep8/pep8-check-admin.webp)
-* apps.py
-![apps.py](documentation/readme_images/testing/pep8/pep8-check-apps.webp)
-* models.py
-![models.py](documentation/readme_images/testing/pep8/pep8-check-models.webp)
-* forms.py
-![forms.py](documentation/readme_images/testing/pep8/pep8-check-forms.webp)
-* signals.py
-![signals.py](documentation/readme_images/testing/pep8/pep8-check-signals.webp)
-* urls.py
-![urls.py](documentation/readme_images/testing/pep8/pep8-check-urls.webp)
-* views.py
-![views.py](documentation/readme_images/testing/pep8/pep8-check-views.webp)
-* processors.py
-![processors.py](documentation/readme_images/testing/pep8/pep8-check-processors.webp)
-
-
-## Lighthouse
-Lighthouse was used to test Performance, Best Practices, Accessibility and SEO on Desktop and Mobile.
-
-### Desktop Results:
-![Lighthouse Mobile Result](documentation/readme_images/testing/lighthouse-desktop.webp)
-
-### Mobile Results:
-![Lighthouse Desktop Result](documentation/readme_images/testing/lighthouse-score.webp)
-
-### HTML Validation
-![HTML Validation Result](documentation/readme_images/testing/html-validator-results.webp)
-
-### CSS Validation
-
-![W3C CSS Validation Result](documentation/readme_images/testing/css-validator-results.webp)
-
-* Custom CSS was validated using W3C Jigsaw validation service. One warning was displayed, however, 
-  this is related to Bootstrap 5 which will not affect the CSS performance.
-
-
-### Console Results:
-
-### Desktop
-![Desktop Dev Console Result](documentation/readme_images/testing/desktop-dev-console.webp)
-* The browser console is clean, no errors are  showing.
-
-### Mobile
-![Mobile Dev Console Result](documentation/readme_images/testing/mobile-dev-console.webp)
-* The browser console is clean, no errors are  showing.
 
 ## Manual Testing
 ### Frontend
@@ -154,6 +100,61 @@ Lighthouse was used to test Performance, Best Practices, Accessibility and SEO o
 
 ![Add New Category](documentation/readme_images/screenshots/add-new-category.webp)
 
+
+
+### Python Validation - PEP8
+* Python testing was done using the PEP8 Online to ensure there were no syntax errors in the project. All python files
+were entered into the online checker and no errors were found in any of the Cocktail Nerd custom code.
+
+#### Cocktail Nerd - cocktailapp
+* admin.py
+![admin.py](documentation/readme_images/testing/pep8/pep8-check-admin.webp)
+* apps.py
+![apps.py](documentation/readme_images/testing/pep8/pep8-check-apps.webp)
+* models.py
+![models.py](documentation/readme_images/testing/pep8/pep8-check-models.webp)
+* forms.py
+![forms.py](documentation/readme_images/testing/pep8/pep8-check-forms.webp)
+* signals.py
+![signals.py](documentation/readme_images/testing/pep8/pep8-check-signals.webp)
+* urls.py
+![urls.py](documentation/readme_images/testing/pep8/pep8-check-urls.webp)
+* views.py
+![views.py](documentation/readme_images/testing/pep8/pep8-check-views.webp)
+* processors.py
+![processors.py](documentation/readme_images/testing/pep8/pep8-check-processors.webp)
+
+
+## Lighthouse
+Lighthouse was used to test Performance, Best Practices, Accessibility and SEO on Desktop and Mobile.
+
+### Desktop Results:
+![Lighthouse Mobile Result](documentation/readme_images/testing/lighthouse-desktop.webp)
+
+### Mobile Results:
+![Lighthouse Desktop Result](documentation/readme_images/testing/lighthouse-score.webp)
+
+### HTML Validation
+![HTML Validation Result](documentation/readme_images/testing/html-validator-results.webp)
+
+### CSS Validation
+
+![W3C CSS Validation Result](documentation/readme_images/testing/css-validator-results.webp)
+
+* Custom CSS was validated using W3C Jigsaw validation service. One warning was displayed, however, 
+  this is related to Bootstrap 5 which will not affect the CSS performance.
+
+
+### Console Results:
+
+### Desktop
+![Desktop Dev Console Result](documentation/readme_images/testing/desktop-dev-console.webp)
+* The browser console is clean, no errors are  showing.
+
+### Mobile
+![Mobile Dev Console Result](documentation/readme_images/testing/mobile-dev-console.webp)
+* The browser console is clean, no errors are  showing.
+
 <br>
 
 ## Backend/Admin Panel
@@ -165,4 +166,4 @@ Lighthouse was used to test Performance, Best Practices, Accessibility and SEO o
 
 
 ## Bugs
-* All bugs found during the development process have been fixed and as such I have not encountered any new ones since deployment.... fingers crossed!
+* All bugs found during the development process have been fixed and as such I have not encountered any new ones since submission.... fingers crossed!
