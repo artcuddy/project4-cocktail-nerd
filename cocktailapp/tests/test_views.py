@@ -5,7 +5,7 @@ from cocktailapp.models import Post, Category
 User = get_user_model()
 
 
-# Test Views
+# # Test Views
 class TestViews(TestCase):
 
     def setUp(self):
@@ -18,7 +18,6 @@ class TestViews(TestCase):
         self.home_url = reverse('home')
         self.profile_url = reverse('profile')
         self.liked_list_url = reverse('liked_list')
-        self.post_list_url = reverse('all_cocktails')
         self.manage_all_posts_url = reverse('manage_posts')
         self.manage_all_categories_url = reverse('manage_categories')
         self.post_detail_url = reverse('post_detail', args=['post1'])
@@ -60,15 +59,6 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'liked_posts.html')
 
-    def test_manage_all_posts_GET(self):
-
-        self.client.login(username='testuser', password='12345')
-
-        response = self.client.get(self.manage_all_posts_url)
-
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'manage_posts.html')
-
     def test_manage_all_categories_GET(self):
 
         self.client.login(username='testuser', password='12345')
@@ -77,13 +67,6 @@ class TestViews(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'manage_categories.html')
-
-    def test_post_list_GET(self):
-
-        response = self.client.get(self.post_list_url)
-
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'all_cocktails.html')
 
     def test_category_GET(self):
 

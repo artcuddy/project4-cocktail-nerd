@@ -1,7 +1,26 @@
 # Cocktail Nerd Testing
 Back to the [README](README.md)
 
-* Testing has taken place continuously throughout the development of the project. Each view was tested regularly adn dployed early to Heroku to confirm local and remote functioned the same.  
+Testing has taken place continuously throughout the development of the project. The app was tested regularly and deployed early to Heroku to confirm local and remote functioned the same. 
+
+
+## Automated Testing
+
+Due to the nature of the Postgres database being offered by Heroku and the way tests are run in Django, I encounterd an error while trying to run tests on my Django application with Heroku Postgres Add-on connected to the application.
+<br>
+Attempting to run the testing command results in this error
+<br>
+* Got an error creating the test database: permission denied to create database
+<br>
+To get this to work I created an additional Postgres database as an add-on and used this as my testing database.
+<br>
+Also added an if 'test' in sys.argv: to the database settings in my project to connect to the test database when testing and an else statement to conncet to the production databse when not.
+
+* Automated testing coverage was at 79%
+<br>
+
+![admin.py](documentation/readme_images/testing/before-automated-tests.webp)
+
 
 ### Python Validation - PEP8
 * Python testing was done using the PEP8 Online to ensure there were no syntax errors in the project. All python files
