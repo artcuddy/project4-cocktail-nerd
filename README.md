@@ -110,6 +110,8 @@ The Github issues were not just used to record User Stories but also used to rec
 
 <h1 id="design">Design</h1>
 
+<a href="#top">Back to the top.</a>
+
 <h2 id="colours">Colours</h2>
 
 * I decided to stick with the high contrast Bootstrap 5 colour palette to maintain a nice visual contrast when viewing the site
@@ -209,6 +211,8 @@ The Github issues were not just used to record User Stories but also used to rec
 * When an authenticated user is logged in they can like, comment and rate a cocktail on the post detail page. If rated the user will see a notification of the rate given.
 <br>
 <img src="documentation/readme_images/screenshots/post-details-likes.webp">
+
+<img src="documentation/readme_images/screenshots/comments.webp">
 
 ## Cocktail Recipe Sidebar
 
