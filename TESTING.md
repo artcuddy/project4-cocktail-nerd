@@ -14,7 +14,7 @@ Attempting to run the testing command results in this error
 <br>
 To get this to work I created an additional Postgres database as an add-on and used this as my testing database.
 <br>
-Also added an if 'test' in sys.argv: to the database settings in my project to connect to the test database when testing and an else statement to conncet to the production databse when not.
+Also added an if 'test' in sys.argv: to the database settings in my project to connect to the test database when testing and an else statement to connect to the production databse when not testing.
 
 ### Before Automated testing coverage was at 79%
 <br>

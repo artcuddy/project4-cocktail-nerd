@@ -29,7 +29,7 @@ class Post(models.Model):
     """
     Model for posts
     """
-    title = models.CharField(max_length=14, unique=True)
+    title = models.CharField(max_length=15, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="posts", default=5
