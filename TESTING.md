@@ -87,6 +87,10 @@ This could be improved on of course to get o 100% coverage and is something I co
 
 ![All Spirits Dropdown](documentation/readme_images/screenshots/navbar/dropdown-nav-menu.webp)
 
+* If a category is created and has no cocktails in it if you click on this category link an error will be shown that no posts from that category could be found.
+
+![No cocktails found](documentation/readme_images/testing/no-cocktails-found-error.webp)
+
 * On the Post Details Page, the Like/unlike functionality is working without issues and shows 
   the right interactive message to the user when the heart icon is clicked.
 
