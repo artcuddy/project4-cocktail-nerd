@@ -469,15 +469,32 @@ If you want to make changes to the repo without affecting it, you can make a cop
 
 <a href="#top">Back to the top.</a>
 
-I have listed some of the resources I used for inspiration and in researching how to create the Cocktail Nerd Website
+### I have listed some of the resources I used for inspiration and in researching how to create the Cocktail Nerd Website
 
-* Lists to go here
+* Building a blog application with Django <a href="https://djangocentral.com/building-a-blog-application-with-django/" target="_blank"><strong>HERE</strong></a>
+
+* Code Institute "I think therefore I blog" helped me setup the initial code for Cocktail Nerd.
+
+* All the cocktail receipes are from <a href="https://www.liquor.com/" target="_blank"><strong>Liquor.com</strong></a>
+
+* All the header images are from <a href="https://unsplash.com/" target="_blank"><strong>Unsplash</strong></a>
 
 
-These resources helped me solve some of the issues encountered when developing the site
 
-* Resourses to go here
 
+<br>
+
+### These resources helped me solve some of the issues encountered when developing the site
+
+* [W3Schools - Python](https://www.w3schools.com/python/)
+* [Stack Overflow](https://stackoverflow.com/)
+* [Django Documentation](https://docs.djangoproject.com/en/4.1/)
+* [Django Testing](https://www.youtube.com/watch?v=0MrgsYswT1c&list=PLbpAWbHbi5rMF2j5n6imm0enrSD9eQUaM&index=3)
+* [Django Testing Cheatsheet](https://www.valentinog.com/blog/testing-django/)
+* [Django User Profile](https://dev.to/earthcomfy/django-user-profile-3hik)
+
+
+<br>
 <h2 id="acknowledgements">Acknowledgements</h2>
 
 This project was made possible due to the help & advice from my Mentor Rohit, Code Institute Slack community, Stack Overflow community and a lot of extensive Googling.

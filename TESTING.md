@@ -25,22 +25,39 @@ Also added an if 'test' in sys.argv: to the database settings in my project to c
 
 Once the testing had been setup I was able to get the total automated test coverage up to 93%
 
-![admin.py](documentation/readme_images/testing/after-automated-tests.webp)
-
 <br>
 <h2 id="manual-testing-results">Manual Testing Results</h2>
 
-The manual test case can be found [here](https://docs.google.com/spreadsheets/d/1pHhJgjFstH7W10ThXaSShCkr6ejq12iErlGVMZsmJKk/edit#gid=0)
+<details> <summary> Manual Test Case can be found here.</summary>
+
+![Manual Test Case](documentation/readme_images/testing/cocktail-nerd-manual-testing.webp)
+
+</details>
 
 <br>
 
-### Frontend
+# Frontend
+<br>
 * The Signup, Login and Logout system is working as it should. It shows the right interactive message to the users on Signup, Login and Logout.
 <br>
 
+## Sign-up
+
+![Sign-up form](documentation/readme_images/testing/auth/sign-up.webp)
+
+
+## Login
+
+![Login form](documentation/readme_images/testing/auth/login.webp)
+
 ![Login Success](documentation/readme_images/testing/auth/success-login.webp)
 
+## Logout
+
+![Logout Confirmation](documentation/readme_images/testing/auth/logout-confirmation.webp)
+
 ![Logout Success](documentation/readme_images/testing/auth/success-logout.webp)
+
 
 * The Profile Page is working properly. It updates the user information and uploads/updates the 
   user profile image. It shows the interactive message to the user once the update is complete.
@@ -112,13 +129,25 @@ The manual test case can be found [here](https://docs.google.com/spreadsheets/d/
 
 ![Add New Category](documentation/readme_images/screenshots/add-new-category.webp)
 
+<br>
 
+# Backend/Admin Panel
+* I have tested the Admin Panel repeatedly since the start of the project. All the models are working without issues.  
+* Posts can be filtered by status, date, category or if featured or not
+* Whenever a user comments on a cocktail the Superuser has to approve it before it will be displayed on the website. This functionality is 
+  working without issues.
+* When the staffuser/superuser is publishing a new cocktail recipe all the required fields have to be filled otherwise the author can't submit the post to the database.
+<br>
 
-### Python Validation - PEP8
+![Django Admin Dashboard](documentation/readme_images/testing/django-admin-dashboard.webp)
+
+<br>
+
+# Python Validation - PEP8
 * Python testing was done using the PEP8 Online to ensure there were no syntax errors in the project. All python files
 were entered into the online checker and no errors were found in any of the Cocktail Nerd custom code.
 
-#### Cocktail Nerd - cocktailapp
+# Cocktail Nerd - cocktailapp
 * admin.py
 ![admin.py](documentation/readme_images/testing/pep8/pep8-check-admin.webp)
 * apps.py
@@ -136,7 +165,7 @@ were entered into the online checker and no errors were found in any of the Cock
 * processors.py
 ![processors.py](documentation/readme_images/testing/pep8/pep8-check-processors.webp)
 
-#### Cocktail Nerd - cocktailnerd
+# Cocktail Nerd - cocktailnerd
 * admin.py
 * There are 5 lines to long in the settings.py file but these are AUTH_PASSWORD_VALIDATORS and cannot be shortend
 * The error about the env imported but not used is because it's in the development mode but will not be present on the production version
@@ -144,7 +173,7 @@ were entered into the online checker and no errors were found in any of the Cock
 
 <br>
 
-## Lighthouse
+# Lighthouse
 Lighthouse was used to test Performance, Best Practices, Accessibility and SEO on Desktop and Mobile.
 
 ### Desktop Results:
@@ -164,7 +193,7 @@ Lighthouse was used to test Performance, Best Practices, Accessibility and SEO o
   this is related to Bootstrap 5 which will not affect the CSS performance.
 
 
-### Console Results:
+# Console Results:
 
 ### Desktop
 ![Desktop Dev Console Result](documentation/readme_images/testing/desktop-dev-console.webp)
@@ -176,13 +205,6 @@ Lighthouse was used to test Performance, Best Practices, Accessibility and SEO o
 
 <br>
 
-## Backend/Admin Panel
-* I have tested the Admin Panel repeatedly since the start of the project. All the models are working without issues.  
-  I have created, deleted, and updated data in all models without errors. The models have the behavior expected for what they were built for.
-* Whenever a user comments on a cocktail the Superuser has to approve it before it will be displayed on the website. This functionality is 
-  working without issues.
-* When the staffuser/superuser is publishing a new cocktail recipe all the required fields have to be filled otherwise the author can't submit the post to the database.
 
-
-## Bugs
+# Bugs
 * All bugs found during the development process have been fixed and as such I have not encountered any new ones since submission.... fingers crossed!
