@@ -162,7 +162,7 @@ The Github issues were not just used to record User Stories but also used to rec
 
 ## Homepage
 
-* The Home Page is the landing page of the website and that's visible first when the site loads. It is designed to allow the user to quickly find their way around the site.
+* The Home Page is the landing page of the website and that's visible first when the site loads. It is designed to allow the user to quickly find their way around the site. The homepage displays the latest 6 featured cocktails.
 
 <img src="documentation/readme_images/screenshots/homepage.webp">
 
@@ -212,7 +212,7 @@ The Github issues were not just used to record User Stories but also used to rec
 
 ## Cocktail Recipe Sidebar
 
-* When in a cocktail details page the sidebar will display all Spirit category links and will display the latest 3 featured cocktails which can be added to by clicking the featured check box on the post edit screen
+* When in a cocktail details page the sidebar will display all Spirit category links and will display the latest 6 featured cocktails which can be added to by clicking the featured check box on the post edit screen
 <br>
 <img src="documentation/readme_images/screenshots/post-detail-sidebar.webp">
 <br>
@@ -337,13 +337,13 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
 <a href="#top">Back to the top.</a>
 
 
-<h2 id="testing-results">Testing Results</h2>
+<h2 id="testing-results">Automated Testing Results</h2>
 
-* Testing results [here](TESTING.md)
+* Automated Testing results [here](TESTING.md)
 
-<h2 id="testing-results">Manual Test Case</h2>
+<h2 id="testing-results">Manual Testing Results</h2>
 
-* Test case results [here](TESTCASE.md)
+* Manual Testing results [here](TESTING.md)
 
 
 <br>

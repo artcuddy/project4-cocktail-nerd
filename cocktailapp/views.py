@@ -19,7 +19,9 @@ register = template.Library()
 
 # Signup view
 class AccountSignupView(SignupView):
-    # Signup View extended
+    """
+    Sign-up view extended
+    """
     template_name = "account/signup.html"
 
 
@@ -28,7 +30,9 @@ account_signup_view = AccountSignupView.as_view()
 
 # Login view
 class AccountLoginView(LoginView):
-    # Login View extended
+    """
+    Login view extended
+    """
     template_name = "account/login.html"
 
 
@@ -37,7 +41,9 @@ account_login_view = AccountLoginView.as_view()
 
 # Logout view
 class AccountLogoutView(LogoutView):
-    # Logout View extended
+    """
+    Logout view extended
+    """
     template_name = "account/logout.html"
 
 
@@ -46,6 +52,9 @@ account_logout_view = AccountLogoutView.as_view()
 
 # Post list view
 class PostList(generic.ListView):
+    """
+    Post List view show all cocktails
+    """
     model = Post
     queryset = Post.objects.filter(
         status=1).order_by("-created_on").exclude(categories=7)
@@ -55,7 +64,9 @@ class PostList(generic.ListView):
 
 # Single post detail view
 class PostDetail(View):
-
+    """
+    Single post detail view gets posts details
+    """
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -77,7 +88,9 @@ class PostDetail(View):
         )
 
     def post(self, request, slug, *args, **kwargs):
-
+        """
+        Single post detail view POSTS posts details
+        """
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by("-created_on")
@@ -110,6 +123,9 @@ class PostDetail(View):
 
 # Update post
 class UpdatePostView(SuccessMessageMixin, UpdateView):
+    """
+    Update post detail view edit and update the post
+    """
     model = Post
     form_class = CocktailForm
     template_name = 'edit_post.html'
@@ -119,6 +135,9 @@ class UpdatePostView(SuccessMessageMixin, UpdateView):
 
 # Delete post
 class DeletePostView(DeleteView):
+    """
+    Delete post detail view delete the post
+    """
     model = Post
     template_name = 'delete_post.html'
     success_message = 'The cocktail was successfully deleted!'
@@ -131,6 +150,10 @@ class DeletePostView(DeleteView):
 
 # Manage all posts list view
 class ManageAllPostsList(LoginRequiredMixin, generic.ListView):
+    """
+    Manage all posts shows post managment page
+    to edit or delete the posts
+    """
     model = Post
     queryset = Post.objects.filter(
         status=1).order_by("-created_on")
@@ -140,6 +163,10 @@ class ManageAllPostsList(LoginRequiredMixin, generic.ListView):
 
 # Featured posts list view
 class FeaturedList(generic.ListView):
+    """
+    Featured post list view shows the featured
+    cocktails on the homepage
+    """
     model = Post
     queryset = Post.objects.filter(
         status=1).order_by("-created_on").filter(featured=1)
@@ -147,8 +174,11 @@ class FeaturedList(generic.ListView):
     paginate_by = 6
 
 
-# Related list view
+# Related list view shows the sidebar featured posts
 def related_list(request):
+    """
+    Related list view shows the sidebar featured posts
+    """
     related_list = Post.objects.filter(
         status=1).order_by('-created_on').filter(featured=1)[:6]
     context = {
@@ -157,7 +187,7 @@ def related_list(request):
     return context
 
 
-# Homepage view
+# Homepage view renders the homepage
 def home(request):
     """
     Renders the home page
@@ -167,7 +197,10 @@ def home(request):
 
 # Post like view
 class PostLike(LoginRequiredMixin, View):
-
+    """
+    Post like view enables the post to be liked
+    by the user
+    """
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
@@ -185,9 +218,13 @@ class PostLike(LoginRequiredMixin, View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-# Liked posts view
+# Liked posts list view shows the users liked cocktails page
 @login_required
 def liked_list(request):
+    """
+    Liked posts list view shows
+    the users liked cocktails page
+    """
     liked_list = Post.objects.filter(likes=request.user)
     total_liked_list = liked_list.count()
     context = {
@@ -197,8 +234,12 @@ def liked_list(request):
     return render(request, "liked_posts.html", context)
 
 
-# Total user liked posts view
+# Total user liked posts view shows the users total liked cocktails count
 def total_liked_list(request):
+    """
+    Total user liked posts view shows the
+    users total liked cocktails count
+    """
     if request.user.is_anonymous:
         total_liked_list = False
         context = {
@@ -216,6 +257,9 @@ def total_liked_list(request):
 
 # Category list view
 class CatListView(ListView):
+    """
+    Cat List view shows the list of categories
+    """
     template_name = 'category.html'
     context_object_name = 'catlist'
 
@@ -230,6 +274,10 @@ class CatListView(ListView):
 
 # Category list
 def category_list(request):
+    """
+    Categories list displays the all categories
+    page
+    """
     category_list = Category.objects.exclude(title='default')
     context = {
         'category_list': category_list,
@@ -239,9 +287,13 @@ def category_list(request):
 
 # All categories list view
 class AllCategoriesList(generic.ListView):
+    """
+    All categories list displays the all categories
+    page
+    """
     model = Category
     template_name = "all_categories.html"
-    paginate_by = 9
+    paginate_by = 6
 
     def get_queryset(self):
         category_list = Category.objects.exclude(title='default')
@@ -250,6 +302,10 @@ class AllCategoriesList(generic.ListView):
 
 # Add category view
 class AddCategoryView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
+    """
+    Add category view displays the add category
+    page
+    """
     model = Category
     fields = '__all__'
     template_name = 'add_category.html'
@@ -259,6 +315,10 @@ class AddCategoryView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 
 # Edit category view
 class EditCategoryView(SuccessMessageMixin, UpdateView):
+    """
+    Edit category view displays the edit category
+    page
+    """
     model = Category
     fields = '__all__'
     template_name = 'edit_category.html'
@@ -268,6 +328,10 @@ class EditCategoryView(SuccessMessageMixin, UpdateView):
 
 # Delete Category
 class DeleteCategoryView(DeleteView):
+    """
+    Delete category view displays the delete category
+    page
+    """
     model = Category
     template_name = 'delete_category.html'
     success_url = reverse_lazy("manage_categories")
@@ -280,6 +344,10 @@ class DeleteCategoryView(DeleteView):
 
 # Manage categories view
 class ManageCategoriesView(LoginRequiredMixin, ListView):
+    """
+    Manage categories view displays the manage categories
+    page to enabel the user to edit or delete categories
+    """
     model = Category
     fields = '__all__'
     paginate_by = 8
@@ -292,6 +360,10 @@ class ManageCategoriesView(LoginRequiredMixin, ListView):
 
 # Search results view
 class SearchResultsView(ListView):
+    """
+    Search results view displays the search results
+    page
+    """
     model = Post
     template_name = 'search_posts.html'
 
@@ -303,9 +375,12 @@ class SearchResultsView(ListView):
         return object_list
 
 
-# Create new post
+# Create new cocktail post
 @login_required
 def add_cocktail(request):
+    """
+    Create new cocktail post
+    """
     submitted = False
     if request.method == 'POST':
         # handle the POST request here
@@ -328,11 +403,11 @@ def add_cocktail(request):
         request, 'add_post.html', {'form': form, 'submitted': submitted})
 
 
-# Delete comment
+# Delete users comment
 @login_required
 def delete_comment(request, comment_id):
     """
-    Delete comment
+    Delete users comment
     """
     comment = get_object_or_404(Comment, id=comment_id)
     comment.delete()
@@ -341,10 +416,10 @@ def delete_comment(request, comment_id):
         'post_detail', args=[comment.post.slug]))
 
 
-# Edit comment
+# Edit users comment
 class EditComment(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     """
-    Edit comment
+    Edit users comment
     """
     model = Comment
     template_name = 'edit_comment.html'
@@ -352,9 +427,12 @@ class EditComment(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     success_message = 'The comment was successfully updated!'
 
 
-# Edit profile
+# Edit user profile
 @login_required
 def profile(request):
+    """
+    Edit user profile
+    """
     if request.method == 'POST':
         user_form = UpdateUserForm(request.POST, instance=request.user)
         profile_form = UpdateProfileForm(
@@ -379,6 +457,9 @@ def profile(request):
 
 # Get all user profile data and make it available site wide
 def show_all_users(request):
+    """
+    Get all user profile data and make it available site wide
+    """
     data = Profile.objects.all()
 
     context = {
@@ -387,6 +468,9 @@ def show_all_users(request):
     return context
 
 
-# 404 Error
+# 404 Error page
 def page_not_found_view(request, exception):
+    """
+    Display 404 Error page if requested page not found
+    """
     return render(request, '404.html', status=404)

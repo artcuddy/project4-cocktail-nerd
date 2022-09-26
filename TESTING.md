@@ -4,7 +4,7 @@ Back to the [README](README.md)
 Testing has taken place continuously throughout the development of the project. The app was tested regularly and deployed early to Heroku to confirm local and remote functioned the same. 
 
 
-## Automated Testing
+<h2 id="automated-testing-results">Automated Testing Results</h2>
 
 Due to the nature of the Postgres database being offered by Heroku and the way tests are run in Django, I encounterd an error while trying to run tests on my Django application with Heroku Postgres Add-on connected to the application.
 <br>
@@ -16,12 +16,24 @@ To get this to work I created an additional Postgres database as an add-on and u
 <br>
 Also added an if 'test' in sys.argv: to the database settings in my project to connect to the test database when testing and an else statement to conncet to the production databse when not.
 
-### Automated testing coverage was at 79%
+### Before Automated testing coverage was at 79%
 <br>
 
 ![admin.py](documentation/readme_images/testing/before-automated-tests.webp)
 
-## Manual Testing
+### After Automated testing coverage is at 93%
+
+Once the testing had been setup I was able to get the total automated test coverage up to 93%
+
+![admin.py](documentation/readme_images/testing/after-automated-tests.webp)
+
+<br>
+<h2 id="manual-testing-results">Manual Testing Results</h2>
+
+The manual test case can be found [here](https://docs.google.com/spreadsheets/d/1pHhJgjFstH7W10ThXaSShCkr6ejq12iErlGVMZsmJKk/edit#gid=0)
+
+<br>
+
 ### Frontend
 * The Signup, Login and Logout system is working as it should. It shows the right interactive message to the users on Signup, Login and Logout.
 <br>
@@ -46,7 +58,7 @@ Also added an if 'test' in sys.argv: to the database settings in my project to c
 
 ![Social Links](documentation/readme_images/testing/auth/social-links-footer.webp)
 
-* The All Cocktails Page shows all the cocktail recipes. The pagination system is workin, it adds another page when more than 6 cocktails on the page.
+* The All Cocktails Page shows all the cocktail recipes. The pagination system is working, it adds another page when more than 6 cocktails on the page.
 
 ![All Cocktails](documentation/readme_images/screenshots/all-cocktails.webp)
 
@@ -74,7 +86,7 @@ Also added an if 'test' in sys.argv: to the database settings in my project to c
 ![Comment Deleted Success](documentation/readme_images/testing/auth/success-comment-deleted.webp)
 
 
-* The functionality to update a comments, previously sent by the user is 
+* The functionality to update comments, previously sent by the user is 
   working without issues. A new page is opened, to update the comment then when the update button is clicked. Once the action is complete, the interactive message is displayed at the top of the page.
 
 ![Comment Edited Success](documentation/readme_images/testing/auth/success-comment-edited.webp)
@@ -124,6 +136,13 @@ were entered into the online checker and no errors were found in any of the Cock
 * processors.py
 ![processors.py](documentation/readme_images/testing/pep8/pep8-check-processors.webp)
 
+#### Cocktail Nerd - cocktailnerd
+* admin.py
+* There are 5 lines to long in the settings.py file but these are AUTH_PASSWORD_VALIDATORS and cannot be shortend
+* The error about the env imported but not used is because it's in the development mode but will not be present on the production version
+![Settings lines to long](documentation/readme_images/testing/settings-line-too-long.webp)
+
+<br>
 
 ## Lighthouse
 Lighthouse was used to test Performance, Best Practices, Accessibility and SEO on Desktop and Mobile.

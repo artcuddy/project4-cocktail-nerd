@@ -5,7 +5,9 @@ from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Post)
 class postAdmin(SummernoteModelAdmin):
-
+    """
+    Add fields for Posts in admin panel
+    """
     prepopulated_fields = {'slug': ('title',)}
     list_filter = ('status', 'created_on', 'categories', 'featured')
     list_display = (
@@ -25,7 +27,9 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-
+    """
+    Add fields for Comments in admin panel
+    """
     list_filter = ('approved', 'created_on')
     list_display = ('name', 'body', 'post', 'created_on', 'approved')
     search_fields = ['name', 'email', 'body']

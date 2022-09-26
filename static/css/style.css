@@ -73,17 +73,7 @@ footer {
     width: 50%;
 }
 
-
-/* Mobile styling */
-@media (max-width: 532px) {
-    .message {
-        width: 80%;
-    }
-}
-
-/*
- * Give the various message types the correct colors
- */
+/* Give the various message types the correct colors */
 
 .alert-success {
     background-color: #068b06db !important;
@@ -139,52 +129,6 @@ footer {
     margin-top: -1em;
 }
 
-@media (max-width: 1200px) {
-    .nerd-search {
-        margin-left: 0;
-    }
-
-    .nerd-navbar {
-        width: 100%;
-    }
-
-    .nerd-login-buttons-container {
-        margin-top: 1em;
-    }
-}
-
-@media (min-width: 704px) and (max-width: 1200px) {
-
-    .nerd-navbar {
-        width: 500px;
-    }
-}
-
-/* Mobile styling */
-@media (max-width: 532px) {
-    .nerd-logo-big {
-        width: 250px;
-        margin-bottom: 16px;
-    }
-
-    .nerd-login-buttons-container {
-        margin-left: 0;
-    }
-}
-
-@media (min-width:300px) and (max-width: 703px) {
-    .nerd-logo-big {
-        width: 250px;
-        margin-bottom: 16px;
-    }
-}
-
-@media (max-width: 400px) {
-    .nerd-likes-navbar {
-        margin-right: 3px;
-    }
-}
-
 /* Main header styling */
 
 .nerd-h1 {
@@ -207,7 +151,6 @@ footer {
 .nerd-featured-container {
     max-width: 1200px;
 }
-
 
 /* Card Styling Bootstrap */
 
@@ -352,22 +295,6 @@ a:hover {
     margin-top: -2em;
 }
 
-/* Mobile styling */
-@media (max-width: 532px) {
-    .star-ratings {
-        margin-top: 1em;
-    }
-
-    .nerd-post-ratings-widget {
-        display: inline-grid !important;
-        margin-bottom: -1em !important;
-    }
-
-    .nerd-likes-amount {
-        margin-bottom: 8px;
-    }
-}
-
 .nerd-link {
     color: #ffc107 !important;
 }
@@ -448,15 +375,6 @@ a:hover {
     border: 1px solid #212529;
 }
 
-/* Mobile styling */
-@media (max-width: 532px) {
-    .nerd-sidebar-card {
-        width: 100%;
-        margin-top: 1em;
-        margin-bottom: 1em;
-    }
-}
-
 /* Alert Warning */
 .nerd-category-alert {
     text-transform: uppercase;
@@ -516,9 +434,77 @@ a:hover {
     margin-bottom: 1em !important;
 }
 
+/* Responsive styling */
+@media (max-width: 532px) {
+    .nerd-logo-big {
+        width: 250px;
+        margin-bottom: 16px;
+    }
+
+    .nerd-login-buttons-container {
+        margin-left: 0;
+    }
+}
+
+@media (min-width:300px) and (max-width: 703px) {
+    .nerd-logo-big {
+        width: 250px;
+        margin-bottom: 16px;
+    }
+}
+
+@media (max-width: 400px) {
+    .nerd-likes-navbar {
+        margin-right: 3px;
+    }
+}
+
 @media (max-width: 532px) {
     .nerd-social-link {
         padding: .3em;
         font-size: 1em;
+    }
+
+    .nerd-sidebar-card {
+        width: 100%;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    .star-ratings {
+        margin-top: 1em;
+    }
+
+    .nerd-post-ratings-widget {
+        display: inline-grid !important;
+        margin-bottom: -1em !important;
+    }
+
+    .nerd-likes-amount {
+        margin-bottom: 8px;
+    }
+
+    .message {
+        width: 80%;
+    }
+}
+
+@media (min-width: 704px) and (max-width: 1200px) {
+    .nerd-navbar {
+        width: 500px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .nerd-search {
+        margin-left: 0;
+    }
+
+    .nerd-navbar {
+        width: 100%;
+    }
+
+    .nerd-login-buttons-container {
+        margin-top: 1em;
     }
 }

@@ -97,17 +97,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'cocktailnerd.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
 # Updates Database Configuration
 if 'test' in sys.argv:
     # Configuration for test database
