@@ -23,7 +23,11 @@ Also added an if 'test' in sys.argv: to the database settings in my project to c
 
 ### After Automated testing coverage is at 93%
 
-Once the testing had been setup I was able to get the total automated test coverage up to 93%
+Once the testing had been setup I was able to get the total automated test coverage up to 93%.
+<br>
+This could be improved on of course to get o 100% coverage and is something I could look at completing over time.
+
+![admin.py](documentation/readme_images/testing/after-automated-tests.webp)
 
 <br>
 <h2 id="manual-testing-results">Manual Testing Results</h2>

@@ -5,7 +5,7 @@ Find great new drinks to try plus helpful tips and advice.</h2>
 
 <h1 id="contents">Contents</h1>
 
-- [Introduction](#Introduction)
+- [Introduction](#introduction)
  - [User Experience - UX](#user-experience)
     - [User Stories](#user-stories)
     - [Agile Methodology](#agile-methodology)
@@ -479,6 +479,7 @@ If you want to make changes to the repo without affecting it, you can make a cop
 
 * All the header images are from <a href="https://unsplash.com/" target="_blank"><strong>Unsplash</strong></a>
 
+* Adding star rating to cocktails is from <a href="https://django-star-ratings.readthedocs.io/en/latest/?badge=latest/#" target="_blank"><strong>Django Star Ratings</strong></a>
 
 
 
@@ -492,6 +493,13 @@ If you want to make changes to the repo without affecting it, you can make a cop
 * [Django Testing](https://www.youtube.com/watch?v=0MrgsYswT1c&list=PLbpAWbHbi5rMF2j5n6imm0enrSD9eQUaM&index=3)
 * [Django Testing Cheatsheet](https://www.valentinog.com/blog/testing-django/)
 * [Django User Profile](https://dev.to/earthcomfy/django-user-profile-3hik)
+* [Django Allauth](https://django-allauth.readthedocs.io/en/latest/)
+* [Django Real Python Manage Users](https://realpython.com/manage-users-in-django-admin/)
+* [Summernote](https://summernote.org/deep-dive/)
+* [Awesome Django](https://awesomedjango.org/)
+* [Codemycom](https://www.youtube.com/c/Codemycom)
+
+
 
 
 <br>
