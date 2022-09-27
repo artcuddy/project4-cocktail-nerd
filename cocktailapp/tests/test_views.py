@@ -5,7 +5,7 @@ from cocktailapp.models import Post, Category
 User = get_user_model()
 
 
-# # Test Views
+# Test Views
 class TestViews(TestCase):
 
     def setUp(self):
@@ -17,10 +17,12 @@ class TestViews(TestCase):
         self.client = Client()
         self.home_url = reverse('home')
         self.profile_url = reverse('profile')
+        self.post_search_url = reverse('search_posts')
         self.liked_list_url = reverse('liked_list')
         self.manage_all_posts_url = reverse('manage_posts')
         self.manage_all_categories_url = reverse('manage_categories')
         self.post_detail_url = reverse('post_detail', args=['post1'])
+        self.post_detail_url_2 = reverse('post_detail', args=['post2'])
         self.category_url = reverse('category', args=['default'])
         self.all_categories_url = reverse('all_categories')
         self.category1 = Category.objects.create(
@@ -30,6 +32,15 @@ class TestViews(TestCase):
             author=self.user,
             title='post1',
             slug='post1',
+            content='Post1 content',
+            status=1,
+            categories=self.category1
+        )
+        self.post2 = Post.objects.create(
+            author=self.user,
+            title='post2',
+            slug='post2',
+            content='Post2 content',
             status=1,
             categories=self.category1
         )
@@ -89,19 +100,6 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'post_detail.html')
 
-    def test_post_detail_POST_adds_new_post(self):
-
-        response = self.client.post(self.post_detail_url, {
-            'author': self.user,
-            'title': 'post1',
-            'slug': 'post1',
-            'status': 1,
-            'categories': self.category1
-        })
-
-        self.assertEqual(response.status_code, 200)
-        self.assertEquals(self.post1.title, 'post1')
-
     def test_post_comment_POST_adds_new_comment(self):
 
         self.client.login(username='testuser', password='12345')
@@ -123,3 +121,25 @@ class TestViews(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertEquals(self.post1.comments.count(), 0)
+
+    def test_comment_DELETE(self):
+
+        self.client.login(username='testuser', password='12345')
+
+        response = self.client.post(self.post_detail_url, {
+            'name': self.user,
+            'body': 'test comment 1',
+            'approved': True
+            })
+
+        self.post1.comments.first().delete()
+        self.post1.save()
+        self.post1.refresh_from_db()
+        self.assertEqual(response.status_code, 200)
+        self.assertEquals(self.post1.comments.count(), 0)
+
+    def test_post_search_GET(self):
+        response = self.client.get('/search_posts/', {'searched': 'post1'})
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'search_posts.html')
