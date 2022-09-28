@@ -164,7 +164,7 @@ class ManageAllPostsList(LoginRequiredMixin, generic.ListView):
 # Featured posts list view
 class FeaturedList(generic.ListView):
     """
-    Featured post list view shows the featured
+    Featured post list view shows the 6 featured
     cocktails on the homepage
     """
     model = Post
