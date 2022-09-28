@@ -250,7 +250,9 @@ The Github issues were not just used to record User Stories but also used to rec
 <br>
 <img src="documentation/readme_images/screenshots/category.webp">
 
-## Search results for Gin
+## Search results
+
+* Enter a search word in the search box and click enter the search results will be displayed on the search results page
 <br>
 <img src="documentation/readme_images/screenshots/search-results.webp">
 
@@ -268,7 +270,7 @@ The Github issues were not just used to record User Stories but also used to rec
 
 <a href="#top">Back to the top.</a>
 
-Throughout the planning, design, testing and deployment of the Cocktail Nerd Website , I have used a number of technologies:
+Throughout the planning, design, testing and deployment of the Cocktail Nerd Website , I have used a number of technologies listed below:
 
 <h2 id="languages">Languages Used</h2>
 

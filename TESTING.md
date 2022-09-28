@@ -7,15 +7,6 @@ Testing has taken place continuously throughout the development of the project. 
 
 <h2 id="automated-testing-results">Automated Testing Results</h2>
 
-Due to the nature of the Postgres database being offered by Heroku and the way tests are run in Django, I encounterd an error while trying to run tests on my Django application with Heroku Postgres Add-on connected to the application.
-<br>
-Attempting to run the testing command results in this error
-<br>
-* Got an error creating the test database: permission denied to create database
-<br>
-To get this to work I created an additional Postgres database as an add-on and used this as my testing database.
-<br>
-Also added an if 'test' in sys.argv: to the database settings in my project to connect to the test database when testing and an else statement to connect to the production databse when not testing.
 
 ### Before Automated testing coverage was at 79%
 <br>
@@ -23,21 +14,34 @@ Also added an if 'test' in sys.argv: to the database settings in my project to c
 ![admin.py](documentation/readme_images/testing/before-automated-tests.webp)
 
 ### After Automated testing coverage is at 93%
-
-Once the testing had been setup I was able to get the total automated test coverage up to 93%.
 <br>
-This could be improved on of course to get o 100% coverage and is something I could look at completing over time.
+
+* Increased the models coverage testing from 83% to 100%
+
+* Increased the signals coverage testing from 73% to 100%
+
+* Increased the views coverage testing from 55% to 80%
+<br>
+
+After automated testing had been setup I was able to get the total automated test coverage up to 93%.
+
+<br>
+This could be improved on of course to get to 100% coverage and is something I could look at completing over time.
 
 ![admin.py](documentation/readme_images/testing/after-automated-tests.webp)
+
+
+<br>
+<h2 id="manual-testing-results">Automated Functional Testing Results</h2>
+<br>
+The automated functional tests are performed with selenium tests
 
 <br>
 <h2 id="manual-testing-results">Manual Testing Results</h2>
 
-<details> <summary> Manual Test Case can be found here.</summary>
-
 ![Manual Test Case](documentation/readme_images/testing/cocktail-nerd-manual-testing.webp)
 
-</details>
+The online version of the Manual Test Case can be found here <a href="https://docs.google.com/spreadsheets/d/1pHhJgjFstH7W10ThXaSShCkr6ejq12iErlGVMZsmJKk/edit?usp=sharing" target="_blank">**HERE**</a><br>
 
 <br>
 
@@ -223,4 +227,41 @@ Lighthouse was used to test Performance, Best Practices, Accessibility and SEO o
 
 
 # Bugs
-* All bugs found during the development process have been fixed and as such I have not encountered any new ones since submission.... fingers crossed!
+
+Due to the nature of the Postgres database being offered by Heroku and the way tests are run in Django, I encounterd an error while trying to run tests on my Django application with Heroku Postgres Add-on connected to the application.
+<br>
+Attempting to run the testing command results in this error
+<br>
+
+* Got an error creating the test database: permission denied to create database
+<br>
+
+* To get this to work I created an additional Postgres database as an add-on and used this as my testing database.
+<br>
+
+* Also added an if 'test' in sys.argv: to the database settings in my project to connect to the test database when testing and an else statement to connect to the production databse when not testing. The below code is not the real production enviroment and has been changed for security reasons and is only to show what I did to solve the issue.
+
+```
+# Updates Database Configuration
+if 'test' in sys.argv:
+    # Configuration for test database
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'd7osdssadag0ugv5',
+            'USER': 'lhwwasadqlgjra',
+            'PASSWORD': '1524f48a2ce41177c4ssdadasd3a11680b735302d14979d312ff36',
+            'HOST': 'ec2-54-75-2326-118.eu-west-1.compute.amazonaws.com',
+            'PORT': 5432,
+            'TEST': {
+                'NAME': 'd7osdssadag0ugv5', #This is an important entry
+            }
+        }
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+```
+
+All bugs found during the development process have been fixed and as such I have not encountered any new ones since submission.... fingers crossed!
