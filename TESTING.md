@@ -5,28 +5,27 @@ Back to the [README](README.md)
 Testing has taken place continuously throughout the development of the project. The app was tested regularly and deployed early to Heroku to confirm local and remote functioned the same. 
 
 
-<h2 id="automated-testing-results">Automated Testing Results</h2>
+<h2 id="automated-testing-results">Automated Unit Testing Results</h2>
 
 
-### Before Automated testing coverage was at 79%
+### Before Automated Unit testing coverage was at 79%
 <br>
 
 ![admin.py](documentation/readme_images/testing/before-automated-tests.webp)
 
-### After Automated testing coverage is at 93%
-<br>
+### After Automated Unit testing coverage is at 93%
 
 * Increased the models coverage testing from 83% to 100%
 
 * Increased the signals coverage testing from 73% to 100%
 
 * Increased the views coverage testing from 55% to 80%
-<br>
 
 After automated testing had been setup I was able to get the total automated test coverage up to 93%.
 
 <br>
 This could be improved on of course to get to 100% coverage and is something I could look at completing over time.
+<br>
 
 ![admin.py](documentation/readme_images/testing/after-automated-tests.webp)
 
@@ -34,14 +33,14 @@ This could be improved on of course to get to 100% coverage and is something I c
 <br>
 <h2 id="manual-testing-results">Automated Functional Testing Results</h2>
 <br>
-The automated functional tests are performed with selenium tests
+The automated functional tests are performed with Selenium IDE & Pytest
 
 <br>
 <h2 id="manual-testing-results">Manual Testing Results</h2>
 
 ![Manual Test Case](documentation/readme_images/testing/cocktail-nerd-manual-testing.webp)
 
-The online version of the Manual Test Case can be found here <a href="https://docs.google.com/spreadsheets/d/1pHhJgjFstH7W10ThXaSShCkr6ejq12iErlGVMZsmJKk/edit?usp=sharing" target="_blank">**HERE**</a><br>
+The online version of the Manual Functionality Test Case can be found here <a href="https://docs.google.com/spreadsheets/d/1pHhJgjFstH7W10ThXaSShCkr6ejq12iErlGVMZsmJKk/edit?usp=sharing" target="_blank">**HERE**</a><br>
 
 <br>
 
@@ -200,7 +199,7 @@ Lighthouse was used to test Performance, Best Practices, Accessibility and SEO o
 ### Mobile Results:
 ![Lighthouse Desktop Result](documentation/readme_images/testing/lighthouse-score.webp)
 
-### HTML Validation
+# HTML Validation
 ![HTML Validation Result](documentation/readme_images/testing/html-validator-results.webp)
 
 ### CSS Validation

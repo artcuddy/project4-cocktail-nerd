@@ -301,6 +301,9 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
    For static CSS on Heroku
 * [Django Star Ratings](https://pypi.org/project/django-star-ratings/)<br>
    For rating system on Cocktail Nerd
+* [Selenium](https://www.selenium.dev/)<br>
+   For automated functional testing
+
 
 <h2 id="frameworks">Frameworks - Libraries - Programs Used</h2>
 
