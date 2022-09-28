@@ -47,7 +47,7 @@ class TestViews(TestCase):
 
     def test_home_GET(self):
 
-        response = self.client.get(self.home_url)
+        response = self.client.get('/')
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'home.html')
@@ -119,22 +119,6 @@ class TestViews(TestCase):
 
         response = self.client.post(self.post_detail_url)
 
-        self.assertEqual(response.status_code, 200)
-        self.assertEquals(self.post1.comments.count(), 0)
-
-    def test_comment_DELETE(self):
-
-        self.client.login(username='testuser', password='12345')
-
-        response = self.client.post(self.post_detail_url, {
-            'name': self.user,
-            'body': 'test comment 1',
-            'approved': True
-            })
-
-        self.post1.comments.first().delete()
-        self.post1.save()
-        self.post1.refresh_from_db()
         self.assertEqual(response.status_code, 200)
         self.assertEquals(self.post1.comments.count(), 0)
 

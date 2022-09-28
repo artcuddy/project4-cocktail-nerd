@@ -8,3 +8,8 @@ node_modules/
 .github/
 cloudinary_python.txt
 *.sqlite3
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
