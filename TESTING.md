@@ -2,8 +2,20 @@
 
 Back to the [README](README.md)
 
-Testing has taken place continuously throughout the development of the project. The app was tested regularly and deployed early to Heroku to confirm local and remote functioned the same. 
+<h1 id="contents">Contents</h1>
 
+- [Automated Unit Testing Results](#automated-testing-results)
+- [Automated Functional Testing Results](#automated-testing-results)
+- [Manual Testing Results](#manual-testing-results)
+- [Frontend](#frontend)
+- [Backend/Admin Panel](#backend)
+- [Python Validation - PEP8](#python-validation)
+- [Lighthouse](#lighthouse)
+- [Console Results](#console-results)
+- [Bugs](#bugs)
+
+Testing has taken place continuously throughout the development of the project. The app was tested regularly and deployed early to Heroku to confirm local and remote functioned the same. 
+<br>
 
 <h2 id="automated-testing-results">Automated Unit Testing Results</h2>
 
@@ -32,12 +44,16 @@ This could be improved on of course to get to 100% coverage and is something I c
 
 
 <br>
-<h2 id="manual-testing-results">Automated Functional Testing Results</h2>
+<h2 id="automated-testing-results">Automated Functional Testing Results</h2>
+
+<a href="#top">Back to the top</a>
 <br>
 The automated functional tests are performed with Selenium IDE & Pytest
 
 <br>
 <h2 id="manual-testing-results">Manual Testing Results</h2>
+
+<a href="#top">Back to the top</a>
 
 ![Manual Test Case](documentation/readme_images/testing/cocktail-nerd-manual-testing.webp)
 
@@ -45,9 +61,9 @@ The online version of the Manual Functionality Test Case can be found here <a hr
 
 <br>
 
-# Frontend
+<h2 id="frontend">Frontend</h2>
 
-<a href="#top">Back to the top.</a>
+<a href="#top">Back to the top</a>
 <br>
 * The Signup, Login and Logout system is working as it should. It shows the right interactive message to the users on Signup, Login and Logout.
 <br>
@@ -146,9 +162,10 @@ The online version of the Manual Functionality Test Case can be found here <a hr
 
 <br>
 
-# Backend/Admin Panel
+<h2 id="backend">Backend/Admin Panel</h2>
 
-<a href="#top">Back to the top.</a>
+
+<a href="#top">Back to the top</a>
 
 * I have tested the Admin Panel repeatedly since the start of the project. All the models are working without issues.  
 * Posts can be filtered by status, date, category or if featured or not
@@ -160,8 +177,10 @@ The online version of the Manual Functionality Test Case can be found here <a hr
 ![Django Admin Dashboard](documentation/readme_images/testing/django-admin-dashboard.webp)
 
 <br>
+<h2 id="python-validation">Python Validation - PEP8</h2>
 
-# Python Validation - PEP8
+<a href="#top">Back to the top</a>
+
 * Python testing was done using the PEP8 Online to ensure there were no syntax errors in the project. All python files
 were entered into the online checker and no errors were found in any of the Cocktail Nerd custom code.
 
@@ -191,7 +210,10 @@ were entered into the online checker and no errors were found in any of the Cock
 
 <br>
 
-# Lighthouse
+<h2 id="lighthouse">Lighthouse</h2>
+
+<a href="#top">Back to the top</a>
+
 Lighthouse was used to test Performance, Best Practices, Accessibility and SEO on Desktop and Mobile.
 
 ### Desktop Results:
@@ -210,10 +232,9 @@ Lighthouse was used to test Performance, Best Practices, Accessibility and SEO o
 * Custom CSS was validated using W3C Jigsaw validation service. One warning was displayed, however, 
   this is related to Bootstrap 5 which will not affect the CSS performance.
 
+<h2 id="console-results">Console Results</h2>
 
-# Console Results:
-
-<a href="#top">Back to the top.</a>
+<a href="#top">Back to the top</a>
 
 ### Desktop
 ![Desktop Dev Console Result](documentation/readme_images/testing/desktop-dev-console.webp)
@@ -225,8 +246,9 @@ Lighthouse was used to test Performance, Best Practices, Accessibility and SEO o
 
 <br>
 
+<h2 id="bugs">Bugs</h2>
 
-# Bugs
+<a href="#top">Back to the top</a>
 
 Due to the nature of the Postgres database being offered by Heroku and the way tests are run in Django, I encounterd an error while trying to run tests on my Django application with Heroku Postgres Add-on connected to the application.
 <br>
