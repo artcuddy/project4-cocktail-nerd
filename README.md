@@ -209,6 +209,8 @@ The Github issues were not just used to record User Stories but also used to rec
 ## Cocktail Recipe Details
 
 * When an authenticated user is logged in they can like, comment and rate a cocktail on the post detail page. If rated the user will see a notification of the rate given.
+
+* If a comment is submitted this will have to be approved by an Admin user before it is displayed on the site
 <br>
 <img src="documentation/readme_images/screenshots/post-details-likes.webp">
 

@@ -25,6 +25,7 @@ After automated testing had been setup I was able to get the total automated tes
 
 <br>
 This could be improved on of course to get to 100% coverage and is something I could look at completing over time.
+
 <br>
 
 ![admin.py](documentation/readme_images/testing/after-automated-tests.webp)
