@@ -34,7 +34,7 @@ Cocktail Nerd - is full stack Django project that runs on Heroku.
 
 The site allows staff users to edit posts, categories and comments from the frontend once logged in & registered users can login to comment,like & rate cocktail recipes.
 
-<h1 id="demo">Demo</h1>
+<h1 id="demo">Live Site</h1>
 A live version of the site can be found <a href="https://project4-cocktail-nerd.herokuapp.com/" target="_blank">**HERE**</a><br><br>
 <img src="documentation/readme_images/screenshots/cocktail-nerd-responsive.webp"><br><br>
 
@@ -242,17 +242,19 @@ The Github issues were not just used to record User Stories but also used to rec
 
 ## Select Cocktails by Spirit Category
 
-* To see all cocktails by spirit on a paginated page click the by Spirit menu in the navbar
+* To see all cocktails by spirit on a paginated page click the by Spirit menu in the navbar and select the spirit category
 <br>
 <img src="documentation/readme_images/screenshots/navbar/dropdown-nav-menu.webp">
 
-* All cocktails by spirit category
+* All cocktails by spirit category this one displays all the Whiskey Cocktails 
 <br>
 <img src="documentation/readme_images/screenshots/category.webp">
 
 ## Search results
 
 * Enter a search word in the search box and click enter the search results will be displayed on the search results page
+
+* The search is performed on the Title & the Ingredients fields
 <br>
 <img src="documentation/readme_images/screenshots/search-results.webp">
 
