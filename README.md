@@ -30,7 +30,7 @@ Find great new drinks to try plus helpful tips and advice.</h2>
 
 <h1 id="introduction">Introduction</h1>
 
-Cocktail Nerd - is full stack Django project that runs on Heroku.
+Project Milestone 4 for Code Institute Full-stack development program. Cocktail Nerd - is a full stack Django project that runs on Heroku.
 
 The site allows staff users to edit posts, categories and comments from the frontend once logged in & registered users can login to comment,like & rate cocktail recipes.
 
@@ -103,6 +103,8 @@ Github issues were used to create User Stories and any other fixes or updates fo
 
 Milestones were used to create sprints. There were 3 sprints each dated appropriately. User Stories were completed based on the current sprint in progress. Each sprint was completed on time.
 
+3 enhancement features were not completed and left as [Future Features](#future-features) for further development.
+
 The Github issues were not just used to record User Stories but also used to record any bug fixes or updates to the codebase as well.
 
 
@@ -151,7 +153,9 @@ The Github issues were not just used to record User Stories but also used to rec
 
 <h2 id="wireframes">Wireframes</h2>
 
-<details> <summary> Initial Wireframes</summary>
+
+Initial Wireframes
+
 
 ![Home Page](documentation/wireframes/homepage.webp)
 
@@ -160,8 +164,6 @@ The Github issues were not just used to record User Stories but also used to rec
 ![All Cocktails Admin](documentation/wireframes/all-cocktails-admin.webp)
 
 ![Post Detail](documentation/wireframes/post-detail.webp)
-
-</details>
 
 
 <h1 id="features">Features</h1>
