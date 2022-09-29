@@ -1,7 +1,7 @@
 <a id="top" href="https://enigma-code-breaker.herokuapp.com/" target="_blank"><img src="documentation/readme_images/logo/cocktail-nerd-logo-white.webp"></a><br />
 <h2>Your expert cocktail guide, featuring hand-selected cocktail recipes.<br />
 Find great new drinks to try plus helpful tips and advice.</h2>
-<br />
+
 
 <h1 id="contents">Contents</h1>
 
@@ -34,15 +34,19 @@ Cocktail Nerd - is full stack Django project that runs on Heroku.
 
 The site allows staff users to edit posts, categories and comments from the frontend once logged in & registered users can login to comment,like & rate cocktail recipes.
 
+
 <h1 id="demo">Live Site</h1>
 A live version of the site can be found <a href="https://project4-cocktail-nerd.herokuapp.com/" target="_blank">**HERE**</a><br><br>
 <img src="documentation/readme_images/screenshots/cocktail-nerd-responsive.webp"><br><br>
+
 
 <h1 id="user-experience">User Experience - UX</h1>
 
 <a href="#top">Back to the top.</a>
 
+
 <h2 id="user-stories">User Stories</h2>
+
 
 * As a website user, I can:
 
@@ -79,9 +83,12 @@ A live version of the site can be found <a href="https://project4-cocktail-nerd.
 6. Approve user's comments.
 7. Change the website permissions for a user.
 
+
 <h2 id="agile-methodology">Agile Methodology</h2>
 
+
 The Agile Methodology was used to plan this project. This was implemented through Github and the Project Board which can be seen here -  <a href="https://github.com/users/artcuddy/projects/2" target="_blank"> Cocktail Nerd </a>
+
 
 Through the use of the Kanban board in the projects view in Github, the project was divived into a few different sections:
 * Addons
@@ -91,14 +98,16 @@ Through the use of the Kanban board in the projects view in Github, the project 
 
 ![Kanban board github](documentation/readme_images/screenshots/git-hub-kanban-board.webp)
 
+
 Github issues were used to create User Stories and any other fixes or updates for the project. This was where the project user was assigned, labels were added to provide clarity, and the story was added to the appropriate sprint and the project. Each User Story, Fix or Update had a clear title. 
 
 Milestones were used to create sprints. There were 3 sprints each dated appropriately. User Stories were completed based on the current sprint in progress. Each sprint was completed on time.
 
 The Github issues were not just used to record User Stories but also used to record any bug fixes or updates to the codebase as well.
 
-<br>
+
 <h2 id="the-scope">The Scope</h2>
+
 
 * To provide users with a good clean experience when using the Cocktail Nerd website.
 * To provide users with a visually pleasing website that is intuitive to use and easy to navigate.
@@ -106,27 +115,27 @@ The Github issues were not just used to record User Stories but also used to rec
 * To provide role-based permissions that allows user to interact with the website example: like, comment or rate a cocktail.
 * To provide search functionality to find cocktails on the Cocktail Nerd site.
 
-<br>
 
 <h1 id="design">Design</h1>
 
 <a href="#top">Back to the top.</a>
 
+
 <h2 id="colours">Colours</h2>
 
 * I decided to stick with the high contrast Bootstrap 5 colour palette to maintain a nice visual contrast when viewing the site
 
+
 ![Bootstrap 5 Colours](documentation/readme_images/screenshots/colours/bootstrap-colours.webp)
 
-<br> 
 
 <h2 id="typography">Typography</h2>
 
 * Utilised the Bootstrap 5 native font stack that selects the best font-family for each OS and device.
 
-<br> 
 
 <h2 id="media">Media</h2>
+
 
 * All cocktail recipes are from<a href="https://www.liquor.com/" target="_blank"> Liqour.com </a> 
 
@@ -134,13 +143,11 @@ The Github issues were not just used to record User Stories but also used to rec
 
 * The logo and favicon are designed by me in<a href="https://www.sketch.com" target="_blank"> Sketch </a> 
 
-<br>
 
 <h2 id="database">Database Diagram</h2>
 
 ![Database Diagram](documentation/database_model/database-diagram.webp)
 
-<br> 
 
 <h2 id="wireframes">Wireframes</h2>
 
@@ -156,17 +163,18 @@ The Github issues were not just used to record User Stories but also used to rec
 
 </details>
 
-<br> 
 
 <h1 id="features">Features</h1>
 
 <a href="#top">Back to the top.</a>
+
 
 ## Homepage
 
 * The Home Page is the landing page of the website and that's visible first when the site loads. It is designed to allow the user to quickly find their way around the site. The homepage displays the latest 6 featured cocktails.
 
 <img src="documentation/readme_images/screenshots/homepage.webp">
+
 
 ## Navigation Desktop
 
@@ -188,22 +196,23 @@ The Github issues were not just used to record User Stories but also used to rec
 * Navigation menu when admin user is logged in has access to the Admin menu & the Dashboard menu.
 <img src="documentation/readme_images/screenshots/navbar/admin-logged-in.webp">
 
+
 ## Navigation Mobile
 
 * Navigation menu when nobody is logged in only options are login or sign-up.
-<br>
+
 <img src="documentation/readme_images/screenshots/mobile/mobile-nobody-logged-in.webp">
 
 * Navigation menu when regular authenticated user is logged in no access to Admin or Dashboard menu.
-<br>
+
 <img src="documentation/readme_images/screenshots/mobile/mobile-reguser-logged-in.webp">
 
 * Navigation menu when staffuser user is logged in has access to the Admin menu but not the Dashboard menu.
-<br>
+
 <img src="documentation/readme_images/screenshots/mobile/mobile-staffuser-logged-in.webp">
 
 * Navigation menu when admin user is logged in has access to the Admin menu & the Dashboard menu.
-<br>
+
 <img src="documentation/readme_images/screenshots/mobile/mobile-admin-logged-in.webp">
 
 ## Cocktail Recipe Details
@@ -211,7 +220,7 @@ The Github issues were not just used to record User Stories but also used to rec
 * When an authenticated user is logged in they can like, comment and rate a cocktail on the post detail page. If rated the user will see a notification of the rate given.
 
 * If a comment is submitted this will have to be approved by an Admin user before it is displayed on the site
-<br>
+
 <img src="documentation/readme_images/screenshots/post-details-likes.webp">
 
 <img src="documentation/readme_images/screenshots/comments.webp">
@@ -219,37 +228,37 @@ The Github issues were not just used to record User Stories but also used to rec
 ## Cocktail Recipe Sidebar
 
 * When in a cocktail details page the sidebar will display all Spirit category links and will display the latest 6 featured cocktails which can be added to by clicking the featured check box on the post edit screen
-<br>
+
 <img src="documentation/readme_images/screenshots/post-detail-sidebar.webp">
-<br>
+
 <img src="documentation/readme_images/screenshots/featured-post-checkbox.webp">
 
 ## Liked Cocktails
 
 * When an authenticated user likes a cocktail this will be added to their liked posts page which can be accessed by clicking on the heart icon on the navbar.
-<br>
+
 <img src="documentation/readme_images/screenshots/liked-cocktails.webp">
 
 ## All Cocktails
 
 * To see all cocktails on a paginated page click the cocktails menu or button on the homepage
-<br>
+
 <img src="documentation/readme_images/screenshots/all-cocktails.webp">
 
 ## All Spirit Categories
 
 * To see all the spirit categories on a paginated page click the Spirits menu in the navbar
-<br>
+
 <img src="documentation/readme_images/screenshots/all-categories.webp">
 
 ## Select Cocktails by Spirit Category
 
 * To see all cocktails by spirit on a paginated page click the by Spirit menu in the navbar and select the spirit category
-<br>
+
 <img src="documentation/readme_images/screenshots/navbar/dropdown-nav-menu.webp">
 
 * All cocktails by spirit category this one displays all the Whiskey Cocktails 
-<br>
+
 <img src="documentation/readme_images/screenshots/category.webp">
 
 ## Search results
@@ -257,10 +266,10 @@ The Github issues were not just used to record User Stories but also used to rec
 * Enter a search word in the search box and click enter the search results will be displayed on the search results page
 
 * The search is performed on the Title & the Ingredients fields
-<br>
+
 <img src="documentation/readme_images/screenshots/search-results.webp">
 
-<br>
+
 <h2 id="future-features">Possible Future Features</h2>
 
 * Social login to allow the user to signup using Facebook or Google 
@@ -269,7 +278,7 @@ The Github issues were not just used to record User Stories but also used to rec
 
 * Allowing users to post their own cocktail recipes 
 
-<br>
+
 <h1 id="technologies">Technologies</h1>
 
 <a href="#top">Back to the top.</a>
@@ -359,7 +368,6 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
 * Manual Testing results [here](TESTING.md)
 
 
-<br>
 <h1 id="deployment">Deployment</h1>
 
 <a href="#top">Back to the top.</a>
@@ -399,7 +407,7 @@ password you used to sign up. If you have enabled multi-factor authentication (a
 recommended security practice) then instead of your password you need an API key.
 To get the API key go to your account settings and scroll down to the section ‘API
 Key’. Click reveal and copy that, then paste it into the password prompt.
-<br> 
+
 <img src="documentation/readme_images/screenshots/heroku-login-cli.jpg"><br><br>
 
 * Creating A Heroku App
@@ -407,7 +415,7 @@ Now that you are logged in, the first thing is to create a new app. Heroku creat
 URL based on your app name, so it must be unique not only on your account, but
 across the whole site. You may need to try a few different names. To create an app
 use the following command, where myapp is the name of your app.
-<br> 
+ 
 <img src="documentation/readme_images/screenshots/creating-heroku-app.jpg"><br><br>
 
 * Here the app heroku-cli-example has been created with an output of the website
@@ -421,7 +429,7 @@ to build the project. One of the factors taken into consideration is the package
 With a Python project the standard file is a requirements.txt file, which will have the
 list of packages needed to run the project. If this file is present it will build the project
 using the Python buildpack.
-<br><br>
+
 * It is also possible to specify the buildpack manually. More information about
 buildpacks can be found in the documentation. To check the buildpack for the
 project you can enter heroku buildpacks in the terminal.
@@ -477,10 +485,11 @@ If you want to make changes to the repo without affecting it, you can make a cop
     <li>If you want to create a web-app from the repo please follow the instructions in "Project Deployment"</li>
 </ol>
 
-<br>
+
 <h1 id="credits">Credits</h1>
 
 <a href="#top">Back to the top.</a>
+
 
 ### I have listed some of the resources I used for inspiration and in researching how to create the Cocktail Nerd Website
 
@@ -494,9 +503,6 @@ If you want to make changes to the repo without affecting it, you can make a cop
 
 * Adding star rating to cocktails is from <a href="https://django-star-ratings.readthedocs.io/en/latest/?badge=latest/#" target="_blank"><strong>Django Star Ratings</strong></a>
 
-
-
-<br>
 
 ### These resources helped me solve some of the issues encountered when developing the site
 
@@ -513,9 +519,6 @@ If you want to make changes to the repo without affecting it, you can make a cop
 * [Codemycom](https://www.youtube.com/c/Codemycom)
 
 
-
-
-<br>
 <h2 id="acknowledgements">Acknowledgements</h2>
 
 This project was made possible due to the help & advice from my Mentor Rohit, Code Institute Slack community, Stack Overflow community and a lot of extensive Googling.
