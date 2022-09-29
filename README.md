@@ -87,7 +87,7 @@ A live version of the site can be found <a href="https://project4-cocktail-nerd.
 <h2 id="agile-methodology">Agile Methodology</h2>
 
 
-The Agile Methodology was used to plan this project. This was implemented through Github and the Project Board which can be seen here -  <a href="https://github.com/users/artcuddy/projects/2" target="_blank"> Cocktail Nerd </a>
+The Agile Methodology was used to plan this project. This was implemented through Github and the Project Board which can be seen here -  <a href="https://github.com/users/artcuddy/projects/2" target="_blank"> Cocktail Nerd User Stories</a>
 
 
 Through the use of the Kanban board in the projects view in Github, the project was divived into a few different sections:
