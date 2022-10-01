@@ -436,6 +436,8 @@ using the Python buildpack.
 buildpacks can be found in the documentation. To check the buildpack for the
 project you can enter heroku buildpacks in the terminal.
 
+* Created .slugignore with /documentation, README.md & TESTING.md as I don't want the documentation to upload to Heroku.
+
 * Click **Enable Automatic Deploys** for automatic deployment when you push updates to Github.
 
 * Select the correct branch for deployment from the drop-down menu and click **Deploy Branch** for manual deployment.

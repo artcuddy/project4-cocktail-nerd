@@ -39,6 +39,10 @@ This could be improved on of course to get to 100% coverage and is something I c
 
 ![admin.py](documentation/readme_images/testing/after-automated-tests.webp)
 
+21 tests completed successfully - PASS
+
+![Unit Test Results](documentation/readme_images/testing/unit-test-results.webp)
+
 
 <h2 id="automated-testing-results">Automated Behaviour Driven Development Testing Results</h2>
 
