@@ -12,7 +12,7 @@ Back to the [README](README.md)
 - [Python Validation - PEP8](#python-validation)
 - [Lighthouse](#lighthouse)
 - [Console Results](#console-results)
-- [Bugs](#bugs)
+- [Bugs / Issues](#bugs)
 
 Testing has taken place continuously throughout the development of the project. The app was tested regularly and deployed early to Heroku to confirm local and remote functioned the same. 
 
@@ -40,14 +40,14 @@ This could be improved on of course to get to 100% coverage and is something I c
 ![admin.py](documentation/readme_images/testing/after-automated-tests.webp)
 
 
-<h2 id="automated-testing-results">Automated Functional Testing Results</h2>
+<h2 id="automated-testing-results">Automated Behaviour Driven Development Testing Results</h2>
 
 <a href="#top">Back to the top</a>
 
 
-The automated functional tests were performed with Selenium & Pytest but as this had to be run on a local development enviroment as the Chromedriver would not run on Gitpod, I have included the test file below.
+The automated Behaviour Driven Development tests were performed with Selenium & Pytest but as this had to be run on a local development enviroment as the Chromedriver would not run on Gitpod, I have included the test file below.
 
-The Username & Passwords were loaded from the seperate env.py file so as not to expose the username & password in the test file on Github.
+The Username & Passwords were loaded from the seperate env.py file so as not to expose the username & password in the test file on Gitpod.
 
 I ran 4 automated functional tests:
 
@@ -59,13 +59,13 @@ I ran 4 automated functional tests:
 
 * Test a logged in admin user can create a post
 
-BDD Test '.env' File
+Behaviour Driven Development Testing Variables '.env' File
 
 ```
 USER_NAME = <your_username_here>
 USER_PASSWORD = <your_password_here>
 ```
-BDD PyTest Code
+Behaviour Driven Development PyTest Code
 
 ```
 from django.test import LiveServerTestCase
@@ -165,7 +165,7 @@ class Hosttest(LiveServerTestCase):
 
 ```
 
-BDD Test Results - PASS
+Behaviour Driven Development Testing Results - PASS
 
 ```
 Test results to go here
@@ -173,7 +173,7 @@ Test results to go here
 ```
 
 
-<h2 id="manual-testing-results">Manual Testing Results</h2>
+<h2 id="manual-testing-results">Manual Behaviour Driven Development Testing Results</h2>
 
 <a href="#top">Back to the top</a>
 
@@ -181,7 +181,7 @@ Test results to go here
 ![Manual Test Case](documentation/readme_images/testing/cocktail-nerd-manual-testing.webp)
 
 
-The online version of the Manual Functionality Test Case can be found here <a href="https://docs.google.com/spreadsheets/d/1pHhJgjFstH7W10ThXaSShCkr6ejq12iErlGVMZsmJKk/edit?usp=sharing" target="_blank">**HERE**</a><br>
+The online version of the Manual Behaviour Driven Development Test Case can be found here <a href="https://docs.google.com/spreadsheets/d/1pHhJgjFstH7W10ThXaSShCkr6ejq12iErlGVMZsmJKk/edit?usp=sharing" target="_blank">**HERE**</a><br>
 
 
 <h2 id="frontend">Frontend</h2>
@@ -398,7 +398,7 @@ Lighthouse was used to test Performance, Best Practices, Accessibility and SEO o
 * The browser console is clean, no errors are  showing.
 
 
-<h2 id="bugs">Bugs</h2>
+<h2 id="bugs">Bugs / Issues</h2>
 
 <a href="#top">Back to the top</a>
 
