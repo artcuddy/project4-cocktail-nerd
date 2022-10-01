@@ -33,10 +33,8 @@ Testing has taken place continuously throughout the development of the project. 
 
 * Increased the views coverage testing from 55% to 80%
 
-After automated testing had been setup I was able to get the total automated test coverage up to 93%.
 
-
-This could be improved on of course to get to 100% coverage and is something I could look at completing over time.
+This could be improved on of course to get to 100% coverage and is something I could look at completing over time. All test files are located in the Cocktailapp/tests folder in the project.
 
 
 ![admin.py](documentation/readme_images/testing/after-automated-tests.webp)
@@ -47,12 +45,138 @@ This could be improved on of course to get to 100% coverage and is something I c
 <a href="#top">Back to the top</a>
 
 
-The automated functional tests are performed with Selenium IDE & Pytest
+The automated functional tests were performed with Selenium & Pytest but as this had to be run on a local development enviroment as the Chromedriver would not run on Gitpod, I have included the test file below.
+
+The Username & Passwords were loaded from the seperate env.py file so as not to expose the username & password in the test file on Github.
+
+I ran 4 automated functional tests:
+
+* Test homepage renders for logged out user
+
+* Test a logged in user can like a post
+
+* Test a logged in admin user can delete a post
+
+* Test a logged in admin user can create a post
+
+BDD Test '.env' File
+
+```
+USER_NAME = <your_username_here>
+USER_PASSWORD = <your_password_here>
+```
+BDD PyTest Code
+
+```
+from django.test import LiveServerTestCase
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.select import Select
+import time
+import os
+
+USER_NAME = os.environ['USER_NAME']
+USER_PASSWORD = os.environ['USER_PASSWORD']
+
+class Hosttest(LiveServerTestCase):
+
+    def setUp(self):
+        self.driver = webdriver.Chrome()
+
+    def tearDown(self):
+        self.driver.close()
+
+    def site_admin_login(self):
+        self.driver.get('http://127.0.0.1:8000/account/login/')
+        self.driver.find_element(By.ID, 'id_login').send_keys(USER_NAME)
+        self.driver.find_element(By.ID, 'id_password').send_keys(USER_PASSWORD)
+
+        self.driver.find_element(By.ID, 'nerd-login').click()
+
+    # Test home page renders for a logged out user
+    def test_loggedout_homepage(self):
+        self.driver.get('http://127.0.0.1:8000/')
+        time.sleep(2)
+        expected = "Cocktail Nerd"
+        assert self.driver.title == expected
+
+    # Test logged in user can like a  post
+    def test_userlikedpost(self):
+        self.site_admin_login()
+        self.driver.get('http://127.0.0.1:8000/test-post-2/')
+        self.driver.set_window_size(1578, 1297)
+
+        time.sleep(2)
+
+        assert "Cocktail Nerd | Test Post 2" in self.driver.title
+
+        self.driver.find_element(By.ID, 'like-button').click()
+
+    # Test a logged in admin user can delete a post
+    def test_user_deletes_post(self):
+        self.site_admin_login()
+        self.driver.get('http://127.0.0.1:8000/test-post-3/')
+        self.driver.set_window_size(1578, 1297)
+
+        time.sleep(2)
+
+        m = self.driver.find_element(By.ID, 'nerd-delete-post')
+
+        time.sleep(2)
+
+        m.click()
+        
+        d= self.driver.find_element(By.CLASS_NAME, "btn-outline-danger")
+        d.click()
+        
+        expected = "Cocktail Nerd | Manage Posts"
+        assert self.driver.title == expected
+
+    # Test a logged in admin user can create a post
+    def test_user_create_post(self):
+        self.site_admin_login()
+        self.driver.get('http://127.0.0.1:8000/add_post/')
+        self.driver.set_window_size(1578, 1297)
+
+        time.sleep(2)
+
+        self.driver.find_element(By.ID, 'id_title').send_keys('Test Post 5')
+        self.driver.find_element(By.XPATH, "//select[@name='status']/option[text()='Published']").click()
+
+        
+        time.sleep(2)
+
+        summernote_frame = self.driver.find_element(By.ID, 'id_content_iframe')
+        self.driver.switch_to.frame(summernote_frame)
+        self.driver.find_element(By.CLASS_NAME, 'note-editable').send_keys('Test Post 5 Content')
+
+        self.driver.switch_to.default_content()
+        
+        p = self.driver.find_element(By.ID, 'nerd-add-post-button')
+
+        time.sleep(2)
+
+        self.driver.execute_script("arguments[0].click();", p)
+
+        expected = "New Post"
+        assert self.driver.title == expected
+
+```
+
+BDD Test Results - PASS
+
+```
+Test results to go here
+
+```
 
 
 <h2 id="manual-testing-results">Manual Testing Results</h2>
 
 <a href="#top">Back to the top</a>
+
 
 ![Manual Test Case](documentation/readme_images/testing/cocktail-nerd-manual-testing.webp)
 
