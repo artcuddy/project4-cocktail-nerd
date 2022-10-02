@@ -7,24 +7,35 @@ Find great new drinks to try plus helpful tips and advice.</h2>
 
 - [Introduction](#introduction)
  - [User Experience - UX](#user-experience)
-    - [User Stories](#user-stories)
-    - [Agile Methodology](#agile-methodology)
-    - [The Scope](#the-scope)
+   - [User Stories](#user-stories)
+   - [Agile Methodology](#agile-methodology)
+   - [The Scope](#the-scope)
 - [Design](#design)
-    - [Colours](#colours)
-    - [Typography](#typography)
-    - [Media](#media)
-    - [Database](#database)
-    - [Wireframes](#wireframes)
+   - [Colours](#colours)
+   - [Typography](#typography)
+   - [Media](#media)
+   - [Database](#database)
+   - [Wireframes](#wireframes)
 - [Features](#features)
-    - [Future Features](#future-features)
+   - [Homepage](#homepage)
+   - [Navigation Desktop](#navigation-desktop)
+   - [Navigation Mobile](#navigation-mobile)
+   - [Cocktail Recipe Details](#cocktail-recipe-details)
+   - [Cocktail Recipe Sidebar](#cocktail-recipe-sidebar)
+   - [Liked Cocktails](#liked-cocktails)
+   - [All Cocktails](#all-cocktails)
+   - [All Spirit Categories](#all-spirit-categories)
+   - [Filter Categories](#filter-cocktails)
+   - [Search Results](#search-results)
+   - [Admin Frontend](#admin-frontend)
+   - [Future Features](#future-features)
 - [Technologies](#technologies)
-    - [Languages](#languages)
-    - [Django Packages](#django-packages)
-    - [Frameworks & Libraries](#frameworks)
+   - [Languages](#languages)
+   - [Django Packages](#django-packages)
+   - [Frameworks & Libraries](#frameworks)
 - [Development & Testing](#testing)
-    - [Database](#database)
-    - [Testing Results](TESTING.md)
+   - [Database](#database)
+   - [Testing Results](TESTING.md)
 - [Deployment](#deployment)
 - [Credits](#credits)
 
@@ -171,14 +182,16 @@ Initial Wireframes
 <a href="#top">Back to the top.</a>
 
 
-## Homepage
+<h2 id="homepage">Homepage</h2>
 
 * The Home Page is the landing page of the website and that's visible first when the site loads. It is designed to allow the user to quickly find their way around the site. The homepage displays the latest 6 featured cocktails.
 
 <img src="documentation/readme_images/screenshots/homepage.webp">
 
 
-## Navigation Desktop
+<h2 id="navigation-desktop">Navigation Desktop</h2>
+
+<a href="#top">Back to the top.</a>
 
 * The site navigation is done through the navigation bar at the top of each page & this is consistant throughout the website.
 
@@ -199,7 +212,10 @@ Initial Wireframes
 <img src="documentation/readme_images/screenshots/navbar/admin-logged-in.webp">
 
 
-## Navigation Mobile
+<h2 id="navigation-mobile">Navigation Mobile</h2>
+
+<a href="#top">Back to the top.</a>
+
 
 * Navigation menu when nobody is logged in only options are login or sign-up.
 
@@ -217,7 +233,11 @@ Initial Wireframes
 
 <img src="documentation/readme_images/screenshots/mobile/mobile-admin-logged-in.webp">
 
-## Cocktail Recipe Details
+
+<h2 id="cocktail-recipe-details">Cocktail Recipe Details</h2>
+
+<a href="#top">Back to the top.</a>
+
 
 * When an authenticated user is logged in they can like, comment and rate a cocktail on the post detail page. If rated the user will see a notification of the rate given.
 
@@ -227,7 +247,11 @@ Initial Wireframes
 
 <img src="documentation/readme_images/screenshots/comments.webp">
 
-## Cocktail Recipe Sidebar
+
+<h2 id="cocktail-recipe-sidebar">Cocktail Recipe Sidebar</h2>
+
+<a href="#top">Back to the top.</a>
+
 
 * When in a cocktail details page the sidebar will display all Spirit category links and will display the latest 6 featured cocktails which can be added to by clicking the featured check box on the post edit screen
 
@@ -235,27 +259,35 @@ Initial Wireframes
 
 <img src="documentation/readme_images/screenshots/featured-post-checkbox.webp">
 
-## Liked Cocktails
+<h2 id="liked-cocktails">Liked Cocktails</h2>
+
+<a href="#top">Back to the top.</a>
 
 * When an authenticated user likes a cocktail this will be added to their liked posts page which can be accessed by clicking on the heart icon on the navbar.
 
 <img src="documentation/readme_images/screenshots/liked-cocktails.webp">
 
-## All Cocktails
+<h2 id="all-cocktails">All Cocktails</h2>
+
+<a href="#top">Back to the top.</a>
 
 * To see all cocktails on a paginated page click the cocktails menu or button on the homepage
 
 <img src="documentation/readme_images/screenshots/all-cocktails.webp">
 
-## All Spirit Categories
+<h2 id="all-spirit-categories">All Spirit Categories</h2>
+
+<a href="#top">Back to the top.</a>
 
 * To see all the spirit categories on a paginated page click the Spirits menu in the navbar
 
 <img src="documentation/readme_images/screenshots/all-categories.webp">
 
-## Select Cocktails by Spirit Category
+<h2 id="filter-cocktails">Filter Cocktails by Spirit Category</h2>
 
-* To see all cocktails by spirit on a paginated page click the by Spirit menu in the navbar and select the spirit category
+<a href="#top">Back to the top.</a>
+
+* To filter all cocktails by spirit on a paginated page click the by Spirit menu in the navbar and select the spirit category
 
 <img src="documentation/readme_images/screenshots/navbar/dropdown-nav-menu.webp">
 
@@ -263,7 +295,9 @@ Initial Wireframes
 
 <img src="documentation/readme_images/screenshots/category.webp">
 
-## Search results
+<h2 id="search-results">Search Results</h2>
+
+<a href="#top">Back to the top.</a>
 
 * Enter a search word in the search box and click enter the search results will be displayed on the search results page
 
@@ -271,8 +305,9 @@ Initial Wireframes
 
 <img src="documentation/readme_images/screenshots/search-results.webp">
 
+<h2 id="admin-frontend">Admin on the Frontend</h2>
 
-## Admin on the frontend
+<a href="#top">Back to the top.</a>
 
 * Superusers or staffusers are able to magae the posts and actegories on the frontend by selecting the Post Mgt or Category Mgt link from the Admin dropdown menu.
 
@@ -284,6 +319,8 @@ Initial Wireframes
 
 
 <h2 id="future-features">Possible Future Features</h2>
+
+<a href="#top">Back to the top.</a>
 
 * Social login to allow the user to signup using Facebook or Google 
 

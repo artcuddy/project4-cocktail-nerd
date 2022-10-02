@@ -49,9 +49,10 @@ This could be improved on of course to get to 100% coverage and is something I c
 <a href="#top">Back to the top</a>
 
 
-The automated Behaviour Driven Development tests were performed with Selenium & Pytest but as this had to be run on a local development enviroment as the Chromedriver would not run on Gitpod, I have included the test file below.
+The automated Behaviour Driven Development tests were performed with Selenium & Pytest but this had to be run on a local development enviroment as the Chromedriver would not run on Gitpod, I have included the test file below.
 
 The Username & Passwords were loaded from the seperate env.py file so as not to expose the username & password in the test file on Gitpod.
+This will need to be added should you want to test this in a local development enviroment.
 
 I ran 4 automated functional tests:
 
@@ -66,8 +67,9 @@ I ran 4 automated functional tests:
 Behaviour Driven Development Testing Variables '.env' File
 
 ```
-USER_NAME = <your_username_here>
-USER_PASSWORD = <your_password_here>
+os.environ["USER_NAME"] =  "<your_username_here>"
+os.environ["USER_PASSWORD"] =  "<your_password_here>"
+
 ```
 Behaviour Driven Development PyTest Code
 
