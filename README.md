@@ -446,7 +446,9 @@ The project was deployed via <a href="https://id.heroku.com/login" target="_blan
 
 This project was developed utilising the <a href="https://github.com/Code-Institute-Org/python-essentials-template" target="_blank">Code Institute Template</a>. Some of the deployment steps below are specifically required for the new CI template and may not be applicable to older versions, or different projects.
 
-Before deploying to Heroku pip3 freeze > requirements.txt was used to add all dependencies for deployment.
+Before deploying to Heroku pip3 freeze > requirements.txt was used to add all dependencies for deployment and created the Procfile with web: gunicorn cocktailnerd.wsgi.
+
+Created .slugignore with /documentation, README.md & TESTING.md as paths to ignore in Heroku as I don't want the documentation to upload to Heroku.
 
 This project was deployed to Heroku using the Heroku CLI details below
 
