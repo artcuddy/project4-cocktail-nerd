@@ -53,7 +53,8 @@ account_logout_view = AccountLogoutView.as_view()
 # Post list view
 class PostList(generic.ListView):
     """
-    Post List view show all cocktails
+    Post List view show all cocktails on
+    the all cocktails page
     """
     model = Post
     queryset = Post.objects.filter(
@@ -124,7 +125,8 @@ class PostDetail(View):
 # Update post
 class UpdatePostView(SuccessMessageMixin, UpdateView):
     """
-    Update post detail view edit and update the post
+    Update post detail view edit, update the post
+    and displays a confirmation message
     """
     model = Post
     form_class = CocktailForm
@@ -137,6 +139,7 @@ class UpdatePostView(SuccessMessageMixin, UpdateView):
 class DeletePostView(DeleteView):
     """
     Delete post detail view delete the post
+    and displays a confirmation message
     """
     model = Post
     template_name = 'delete_post.html'
@@ -152,7 +155,7 @@ class DeletePostView(DeleteView):
 class ManageAllPostsList(LoginRequiredMixin, generic.ListView):
     """
     Manage all posts shows post managment page
-    to edit or delete the posts
+    to edit or delete the posts on the frontend
     """
     model = Post
     queryset = Post.objects.order_by("-created_on")
@@ -164,7 +167,7 @@ class ManageAllPostsList(LoginRequiredMixin, generic.ListView):
 class FeaturedList(generic.ListView):
     """
     Featured post list view shows the 6 featured
-    cocktails on the homepage
+    cocktails on the homepage below the header
     """
     model = Post
     queryset = Post.objects.filter(
@@ -177,6 +180,7 @@ class FeaturedList(generic.ListView):
 def related_list(request):
     """
     Related list view shows the sidebar featured posts
+    on the post detail page
     """
     related_list = Post.objects.filter(
         status=1).order_by('-created_on').filter(featured=1)[:6]
@@ -189,7 +193,7 @@ def related_list(request):
 # Homepage view renders the homepage
 def home(request):
     """
-    Renders the home page
+    Renders the home page on first load of the site
     """
     return render(request, "home.html")
 
@@ -198,7 +202,8 @@ def home(request):
 class PostLike(LoginRequiredMixin, View):
     """
     Post like view enables the post to be liked
-    by the user
+    by the user and displays a confirmation message
+    on like or unlike
     """
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
@@ -257,7 +262,7 @@ def total_liked_list(request):
 # Category list view
 class CatListView(ListView):
     """
-    Cat List view shows the list of categories
+    Cat List view shows the list of categories 
     """
     template_name = 'category.html'
     context_object_name = 'catlist'
@@ -274,8 +279,8 @@ class CatListView(ListView):
 # Category list
 def category_list(request):
     """
-    Categories list displays the all categories
-    page
+    Categories list displays all the categories
+    on the post detail page and navbar
     """
     category_list = Category.objects.exclude(title='default')
     context = {
@@ -303,7 +308,7 @@ class AllCategoriesList(generic.ListView):
 class AddCategoryView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     """
     Add category view displays the add category
-    page
+    page and displays a confirmation message
     """
     model = Category
     fields = '__all__'
@@ -316,7 +321,7 @@ class AddCategoryView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 class EditCategoryView(SuccessMessageMixin, UpdateView):
     """
     Edit category view displays the edit category
-    page
+    page and displays a confirmation message
     """
     model = Category
     fields = '__all__'
@@ -329,7 +334,7 @@ class EditCategoryView(SuccessMessageMixin, UpdateView):
 class DeleteCategoryView(DeleteView):
     """
     Delete category view displays the delete category
-    page
+    page and displays a confirmation message
     """
     model = Category
     template_name = 'delete_category.html'
@@ -345,7 +350,7 @@ class DeleteCategoryView(DeleteView):
 class ManageCategoriesView(LoginRequiredMixin, ListView):
     """
     Manage categories view displays the manage categories
-    page to enabel the user to edit or delete categories
+    page to enable the user to edit or delete categories
     """
     model = Category
     fields = '__all__'
@@ -378,7 +383,8 @@ class SearchResultsView(ListView):
 @login_required
 def add_cocktail(request):
     """
-    Create new cocktail post
+    Create new cocktail post and 
+    displays a confirmation message and redirects 
     """
     submitted = False
     if request.method == 'POST':
@@ -406,7 +412,7 @@ def add_cocktail(request):
 @login_required
 def delete_comment(request, comment_id):
     """
-    Delete users comment
+    Delete users comment and displays a confirmation message
     """
     comment = get_object_or_404(Comment, id=comment_id)
     comment.delete()
@@ -418,7 +424,7 @@ def delete_comment(request, comment_id):
 # Edit users comment
 class EditComment(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     """
-    Edit users comment
+    Edit users comment and displays a confirmation message
     """
     model = Comment
     template_name = 'edit_comment.html'
@@ -430,7 +436,7 @@ class EditComment(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 @login_required
 def profile(request):
     """
-    Edit user profile
+    Edit user profile and displays a confirmation message
     """
     if request.method == 'POST':
         user_form = UpdateUserForm(request.POST, instance=request.user)

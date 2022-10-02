@@ -418,11 +418,11 @@ Lighthouse was used to test Performance, Best Practices, Accessibility and SEO o
 
 Due to the nature of the Postgres database being offered by Heroku and the way tests are run in Django, I encounterd an error while trying to run tests on my Django application with Heroku Postgres Add-on connected to the application.
 
+<a href="https://github.com/artcuddy/project4-cocktail-nerd/issues/29">Github Issue 29</a>
 
-Attempting to run the testing command results in this error
 
 
-* Got an error creating the test database: permission denied to create database
+Attempting to run the testing command "python3 manage.py test" results in error -> Got an error creating the test database: permission denied to create database
 
 
 * To get this to work I created an additional Postgres database as an add-on and used this as my testing database.
@@ -452,9 +452,47 @@ else:
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 ```
+
+## Confirmation Message
+
+A confirmation message should be displayed when an authenticated user likes or unlikes a post this was not happening but revisted the code for the post like view and
+refactored it to include a succes message when the user likes or unlikes the post.
+
+<a href="https://github.com/artcuddy/project4-cocktail-nerd/issues/22">Github Issue 22</a>
+
+
+```
+
+# Post like view
+class PostLike(LoginRequiredMixin, View):
+    """
+    Post like view enables the post to be liked
+    by the user and dispalys a confirmation message
+    on like or unlike
+    """
+    def post(self, request, slug, *args, **kwargs):
+        post = get_object_or_404(Post, slug=slug)
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+            messages.success(
+                request,
+                'What a shame you unliked this cocktail!'
+                )
+        else:
+            post.likes.add(request.user)
+            messages.success(
+                request,
+                'Thanks you liked this cocktail!'
+                )
+        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+```
+
 ## Draft Posts
 
 During testing found a bug that draft posts could not be edited by an admin or staffuser on the frontend, fixed this by adding the below statement to the manage_posts.html file.
+
+<a href="https://github.com/artcuddy/project4-cocktail-nerd/issues/28">Github Issue 28</a>
 
 ```
 {% if post.status == 0 %}
