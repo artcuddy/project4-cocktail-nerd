@@ -295,6 +295,12 @@ The online version of the Manual Behaviour Driven Development Test Case can be f
 ![Delete Post](documentation/readme_images/testing/auth/delete-post-confirmation.webp)
 
 
+* On the Posts MGT Page logged in staffusers or superuser can view draft posts and edit these before final publication. The post title will have "DRAFT" as the prefix to inducated this is a draft post and has not been published.
+
+
+![Draft Post](documentation/readme_images/testing/draft-post-tag.webp)
+
+
 * On the Category MGT Page, the CRUD functionality is working without issues. Logged in staffusers or superuser can create, edit or delete categories. The interactive message is displayed at the top of the page.
 
 
@@ -406,6 +412,8 @@ Lighthouse was used to test Performance, Best Practices, Accessibility and SEO o
 
 <a href="#top">Back to the top</a>
 
+## Postgres database and testing
+
 Due to the nature of the Postgres database being offered by Heroku and the way tests are run in Django, I encounterd an error while trying to run tests on my Django application with Heroku Postgres Add-on connected to the application.
 
 
@@ -442,5 +450,24 @@ else:
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 ```
+## Draft Posts
+
+During testing found a bug that draft posts could not be edited by an admin or staffuser on the frontend, fixed this by adding the below statement to the manage_posts.html file.
+
+```
+{% if post.status == 0 %}
+  <h4 class="nerd-mgt-cat-title">
+    <span class="nerd-draft-tag">DRAFT</span> {{ post.title }}
+  </h4>
+{% else %}
+  <h4 class="nerd-mgt-cat-title">{{ post.title }}</h4>
+  {% endif %}
+
+```
+This now adds a prefix of DRAFT if the post has a status of 0
+
+![Draft post tag](documentation/readme_images/testing/draft-post-tag-small.webp)
+
+
 
 All bugs found during the development process have been fixed and as such I have not encountered any new ones since submission.... fingers crossed!

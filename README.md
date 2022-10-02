@@ -272,6 +272,17 @@ Initial Wireframes
 <img src="documentation/readme_images/screenshots/search-results.webp">
 
 
+## Admin on the frontend
+
+* Superusers or staffusers are able to magae the posts and actegories on the frontend by selecting the Post Mgt or Category Mgt link from the Admin dropdown menu.
+
+* This brings you to the Post Mgt & Categoy Mgt pages where posts can be edited or deleted.
+
+<img src="documentation/readme_images/screenshots/manage-posts.webp">
+
+<img src="documentation/readme_images/screenshots/manage-categories.webp">
+
+
 <h2 id="future-features">Possible Future Features</h2>
 
 * Social login to allow the user to signup using Facebook or Google 

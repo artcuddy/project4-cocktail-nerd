@@ -35,11 +35,9 @@
                     </div>
                     {% endif %}
                     {% if post.status == 0 %}
-                    <span>
-                        <h4 class="nerd-mgt-cat-title">
-                            <span class="nerd-draft-tag">DRAFT</span> {{ post.title }}
-                        </h4>
-                    </span>
+                    <h4 class="nerd-mgt-cat-title">
+                        <span class="nerd-draft-tag">DRAFT</span> {{ post.title }}
+                    </h4>
                     {% else %}
                     <h4 class="nerd-mgt-cat-title">{{ post.title }}</h4>
                     {% endif %}
