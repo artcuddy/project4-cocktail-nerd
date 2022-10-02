@@ -111,7 +111,7 @@ class TestViews(TestCase):
             })
 
         self.assertEqual(response.status_code, 200)
-        self.assertEquals(self.post1.comments.first().body, 'test comment')
+        self.assertEqual(self.post1.comments.first().body, 'test comment')
 
     def test_post_comment_POST_no_data(self):
 
@@ -120,7 +120,7 @@ class TestViews(TestCase):
         response = self.client.post(self.post_detail_url)
 
         self.assertEqual(response.status_code, 200)
-        self.assertEquals(self.post1.comments.count(), 0)
+        self.assertEqual(self.post1.comments.count(), 0)
 
     def test_post_search_GET(self):
         response = self.client.get('/search_posts/', {'searched': 'post1'})

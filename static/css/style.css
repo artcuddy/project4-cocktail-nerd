@@ -414,6 +414,12 @@ a:hover {
     font-weight: 500;
 }
 
+/* Manage Posts page */
+
+.nerd-draft-tag {
+    color: #ff071c;
+}
+
 /* Footer */
 .nerd-social-link {
     color: #fff;

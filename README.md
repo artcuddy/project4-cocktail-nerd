@@ -60,10 +60,10 @@ A live version of the site can be found <a href="https://project4-cocktail-nerd.
 
 * As an authenticated website user, I can:
 
-1. Like/unlike cocktail recipes and view them on a single liked cocktails page.
+1. Like/unlike cocktail recipes and view my liked cocktail recipes on a single liked cocktails page.
 2. Comment on cocktail recipes and give my opinion about the posts.
 3. Delete or edit my previous comments.
-4. Manage my profile by updating my details and user image.
+4. Manage my profile by updating my details and avatar.
 
 * As a website staffuser, I can:
 
@@ -524,5 +524,7 @@ If you want to make changes to the repo without affecting it, you can make a cop
 
 
 <h2 id="acknowledgements">Acknowledgements</h2>
+
+<a href="#top">Back to the top.</a>
 
 This project was made possible due to the help & advice from my Mentor Rohit, Code Institute Slack community, Stack Overflow community and a lot of extensive Googling.
