@@ -5,7 +5,7 @@ Back to the [README](README.md)
 <h1 id="contents">Contents</h1>
 
 - [Automated Unit Testing Results](#automated-testing-results)
-- [Automated Functional Testing Results](#automated-testing-results)
+- [Automated Functional Testing Results](#automated-functional-testing-results)
 - [Manual Testing Results](#manual-testing-results)
 - [Frontend](#frontend)
 - [Backend/Admin Panel](#backend)
@@ -44,7 +44,7 @@ This could be improved on of course to get to 100% coverage and is something I c
 ![Unit Test Results](documentation/readme_images/testing/unit-test-results.webp)
 
 
-<h2 id="automated-testing-results">Automated Functional Testing Results</h2>
+<h2 id="automated-functional-testing-results">Automated Functional Testing Results</h2>
 
 <a href="#top">Back to the top</a>
 
@@ -71,7 +71,8 @@ I ran 7 automated functional tests:
 |                                | Test Case 002-2: Test a logged in admin user can create a new category                                    | PASS      |
 |                                | Test Case 002-3: Test a logged in admin user can delete a post                                            | PASS      |
 
-Automated Functional Testing Variables '.env' File
+
+<details><summary>Click here to expand: Automated Functional Testing Variables '.env' File</summary>
 
 ```python
 os.environ["USER_NAME"] =  "<your_username_here>"
@@ -81,7 +82,10 @@ os.environ["REG_USER_NAME"] = "<your_username_here>"
 os.environ["REG_USER_PASSWORD"] = "<your_password_here>"
 
 ```
-Automated Functional Testing PyTest Code
+</details>
+
+<details><summary>Click here to expand: Automated Functional Testing PyTest Code File</summary>
+
 
 ```python
 
@@ -276,6 +280,7 @@ class Hosttest(LiveServerTestCase):
 
 
 ```
+</details>
 
 Automated Functional Testing Results - PASS
 
@@ -289,9 +294,11 @@ After Automated Functional Testing coverage is at 95%
 
 <a href="#top">Back to the top</a>
 
+<details><summary>Click here to expand: Manual Test Case</summary>
 
 ![Manual Test Case](documentation/readme_images/testing/cocktail-nerd-manual-testing.webp)
 
+</details>
 
 The online version of the Manual Functional Test Case can be found here <a href="https://docs.google.com/spreadsheets/d/1pHhJgjFstH7W10ThXaSShCkr6ejq12iErlGVMZsmJKk/edit?usp=sharing" target="_blank">**HERE**</a><br>
 
