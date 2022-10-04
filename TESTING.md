@@ -73,7 +73,7 @@ I ran 7 automated functional tests:
 
 Automated Functional Testing Variables '.env' File
 
-```
+```python
 os.environ["USER_NAME"] =  "<your_username_here>"
 os.environ["USER_PASSWORD"] =  "<your_password_here>"
 
@@ -83,7 +83,8 @@ os.environ["REG_USER_PASSWORD"] = "<your_password_here>"
 ```
 Automated Functional Testing PyTest Code
 
-```
+```python
+
 from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -100,7 +101,7 @@ class Hosttest(LiveServerTestCase):
 
     # Setup test enviroment
     def setUp(self):
-        self.site_root_url = "http://127.0.0.1:8000"
+        self.site_root_url = "https://project4-cocktail-nerd.herokuapp.com"
         self.driver = webdriver.Chrome()
 
     def visit(self, path):
@@ -129,16 +130,16 @@ class Hosttest(LiveServerTestCase):
 
         self.driver.find_element(By.ID, 'nerd-login').click()
 
-    # Test home page renders for a logged out user
-    def test_loggedout_homepage(self):
+    # Test Case 001-1 home page renders for a logged out user
+    def test_001_1_logged_out_homepage(self):
         self.visit('/')
         time.sleep(2)
         expected = "Cocktail Nerd"
         assert self.driver.title == expected
 
     
-    # Test a logged in admin user can create a new post
-    def test_user_create_post(self):
+    # Test Case 002-1 a logged in admin user can create a new post
+    def test_002_1_user_create_post(self):
         self.site_admin_login()
 
         self.visit('/add_post/')
@@ -172,8 +173,8 @@ class Hosttest(LiveServerTestCase):
         assert self.driver.current_url == expected
 
 
-    # Test a logged in admin user can create a new category
-    def test_user_create_category(self):
+    # Test Case 002-2 a logged in admin user can create a new category
+    def test_002_2_user_create_category(self):
         self.site_admin_login()
         self.visit('/add_category/')
 
@@ -194,8 +195,8 @@ class Hosttest(LiveServerTestCase):
         expected = "Cocktail Nerd | Manage Categories"
         assert self.driver.title == expected
 
-    # Test logged in regular user can like a  post
-    def test_userlikedpost(self):
+    # Test Case 001-2 logged in regular user can like a post
+    def test_001_2_user_liked_post(self):
         self.site_reguser_login()
         self.visit('/grave-digger/')
         self.driver.set_window_size(1578, 1297)
@@ -209,8 +210,8 @@ class Hosttest(LiveServerTestCase):
         assert like_count != 0
 
 
-    # Test a logged in regular user can create a new comment
-    def test_user_can_comment(self):
+    # Test Case 001-3 a logged in regular user can create a new comment
+    def test_001_3_user_can_comment(self):
         self.site_reguser_login()
 
         self.visit('/grave-digger/')
@@ -233,8 +234,8 @@ class Hosttest(LiveServerTestCase):
         assert expected == 'Nice one Reguser your comment is awaiting approval...'
 
 
-    # Test a logged in regular user can rate a post
-    def test_user_can_rate_post(self):
+    # Test Case 001-4 a logged in regular user can rate a post
+    def test_001_4_user_can_rate_post(self):
         self.site_reguser_login()
 
         self.visit('/grave-digger/')
@@ -253,8 +254,8 @@ class Hosttest(LiveServerTestCase):
         assert score != 0
 
 
-    # Test a logged in admin user can delete a post
-    def test_user_delete_post(self):
+    # Test Case 002-3 a logged in admin user can delete a post
+    def test_002_3_user_delete_post(self):
         self.site_admin_login()
         self.visit('/test-post-1/')
         self.driver.set_window_size(1578, 1297)
@@ -272,6 +273,7 @@ class Hosttest(LiveServerTestCase):
         
         expected = "Cocktail Nerd | Manage Posts"
         assert self.driver.title == expected
+
 
 ```
 
@@ -534,7 +536,7 @@ Attempting to run the testing command "python3 manage.py test" results in error 
 
 * Also added an if 'test' in sys.argv: to the database settings in my project to connect to the test database when testing and an else statement to connect to the production databse when not testing. The below code is not the real production enviroment and has been changed for security reasons and is only to show what I did to solve the issue.
 
-```
+```python
 # Updates Database Configuration
 if 'test' in sys.argv:
     # Configuration for test database
@@ -565,7 +567,7 @@ refactored it to include a succes message when the user likes or unlikes the pos
 <a href="https://github.com/artcuddy/project4-cocktail-nerd/issues/22">Github Issue 22</a>
 
 
-```
+```python
 
 # Post like view
 class PostLike(LoginRequiredMixin, View):
@@ -598,7 +600,7 @@ During testing found a bug that draft posts could not be edited by an admin or s
 
 <a href="https://github.com/artcuddy/project4-cocktail-nerd/issues/28">Github Issue 28</a>
 
-```
+```python
 {% if post.status == 0 %}
   <h4 class="nerd-mgt-cat-title">
     <span class="nerd-draft-tag">DRAFT</span> {{ post.title }}
@@ -623,7 +625,7 @@ Added this code below to fix as I needed to scroll to the button position before
 
 <a href="https://github.com/artcuddy/project4-cocktail-nerd/issues/30">Github Issue 30</a>
 
-```
+```python
 elem = self.driver.find_element(By.ID, 'nerd-add-post-button')
         elem_pos = elem.location["y"]
         self.driver.execute_script("window.scroll(0, {})".format(elem_pos))
