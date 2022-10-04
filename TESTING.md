@@ -64,6 +64,14 @@ I ran 4 automated functional tests:
 
 * Test a logged in admin user can create a post
 
+## Test Case
+
+| UserStory                                                                                                                              | TestCase                                          | Pass/Fail |
+|----------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|-----------|
+| User Story 001 (Regular User): As a regular user, want to view the site navigate to a cocktail and like, rate and comment on the post. | TestCase 01 - View Home / Index Page              | Pass      |
+|                                                                                                                                        | TestCase 02 - Register a new account for the site | Pass      |
+|                                                                                                                                        | TestCase 03 - Login & like a post                 | Pass      |
+
 Behaviour Driven Development Testing Variables '.env' File
 
 ```
@@ -173,10 +181,8 @@ class Hosttest(LiveServerTestCase):
 
 Behaviour Driven Development Testing Results - PASS
 
-```
-Test results to go here
 
-```
+![Pytest Pass](documentation/readme_images/testing/pytest-pass.webp)
 
 
 <h2 id="manual-testing-results">Manual Behaviour Driven Development Testing Results</h2>

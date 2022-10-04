@@ -26,7 +26,8 @@
                             {% csrf_token %}
                             {{ form.as_p }}
                             <br />
-                            <button type="submit" class="btn btn-outline-success me-2"> Add Post </button>
+                            <button type="submit" id="nerd-add-post-button" class=" btn btn-outline-success me-2"> Add
+                                Post </button>
                             <a href="{% url 'manage_posts' %}" class="nerd-cancel-button btn btn-outline-secondary">
                                 Cancel </a>
                         </form>
