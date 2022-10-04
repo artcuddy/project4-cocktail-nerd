@@ -35,7 +35,7 @@ Find great new drinks to try plus helpful tips and advice.</h2>
    - [Frameworks & Libraries](#frameworks)
 - [Development & Testing](#testing)
    - [Database](#database)
-   - [Testing Results](TESTING.md)
+   - [Testing Results Automated & Manual](TESTING.md)
 - [Deployment](#deployment)
 - [Credits](#credits)
 
