@@ -440,7 +440,7 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
     </li>
 
 
-### Heroku
+## Heroku
 
 The project was deployed via <a href="https://id.heroku.com/login" target="_blank">Heroku</a>, and the live link can be found here: <a href="https://project4-cocktail-nerd.herokuapp.com/" target="_blank">Cocktail Nerd</a>
 
@@ -475,7 +475,6 @@ URL. It also displays and sets the git remote repository which will be used to d
 By default the region will be set to the US. If you would prefer a server based in the
 EU then you can specify the region with the flag EU
 
-* Packages
 * When you push code to Heroku it will look at the repository contents to decide how
 to build the project. One of the factors taken into consideration is the package file.
 With a Python project the standard file is a requirements.txt file, which will have the
@@ -486,17 +485,59 @@ using the Python buildpack.
 buildpacks can be found in the documentation. To check the buildpack for the
 project you can enter heroku buildpacks in the terminal.
 
+## Deployment Steps On Heroku.
+
+* Run this command pip3 install pip3 install 'django<4' to install django.
+* Added these libraries:pip3 install dj_database_url psycopg2,pip3 install dj3-cloudinary-storage
+* Created requirements.txt file where I can save all the libraries I've installed:pip3 freeze --local > requirements.txt
+* To create my project typed this command:django-admin startproject cocktailnerd
+* To create my app:python3 manage.py startapp cocktailapp
+* To make this app work, Into the setting.py file inside INSTALLED_APPS added cocktailapp
+* To migrate changes typed this command:python3 manage.py migrate
+* To run the test if the project is working python3 manage.py runserver
+* When deploying for the first time on Heroku, you must first register with Heroku.
+* Create your project name and location.
+* To add Database into the app, Locate in the Resources Tab, Add-ons, search and add 'Heroku Postgres'
+* Copy DATABASE_URL value, by going into the Settings Tab, click reveal Config Vars, Copy Text
+* In your workspace Create new env.py file.
+* Import os library:import os
+* Set environment variables:os.environ["DATABASE_URL"] = "Heroku DATABASE_URL"
+* Add in secret key:os.environ["SECRET_KEY"] = "mysecretkey"
+* Add Secret Key to Config Vars in Heroku settings:SECRET_KEY, "mysecretkey"
+* Add env.py file to the settings.py file:import osimport dj_database_urlif os.path.isfile("env.py"):import env
+* Remove the insecure secret key and replace - links to the SECRET_KEY variable on Heroku:SECRET_KEY = os.environ.get('SECRET_KEY')
+* Comment out the old DATABASES variable in setting.py file and add this instead:DATABASES = { 'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
+* Save all files and Make Migrations:python3 manage.py migrate
+* Make account with Cloudinary To get static and media files.
+* From Cloudinary Dashboard, Copy your CLOUDINARY_URL:
+* Add Cloudinary URL to env.py file:os.environ["CLOUDINARY_URL"] = "cloudinary://************************"
+* Add Cloudinary URL to Heroku Config Vars:"cloudinary://************************"
+* Temporalliy add DISABLE_COLLECTSTATIC inside the heroku config Vars:DISABLE_COLLECTSTATIC, 1
+* Add Cloudinary Libraries to settings.py installed apps:INSTALLED_APPS = ['cloudinary_storage', 'django.contrib.staticfiles', 'cloudinary']
+* In the settings.py file under the STATIC_URL = 'static/' add:
+```
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+```
+* Place under the BASE_DIR line in settings.py:TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+* Change the templates directory to TEMPLATES_DIR Place within the TEMPLATES array:TEMPLATES = [{'DIRS': [TEMPLATES_DIR],],},},]
+* Add Heroku Hostname to ALLOWED_HOSTS:ALLOWED_HOSTS = ["project4-cocktail-nerd.herokuapp.com", "localhost"]
+* Create 3 new folders on the root directory: media, static, templates
+* Create Procfile needed for Heroku on the root directory and inside the file add this:web: gunicorn dentist.wsgi
+* Before deploying on heroku make sure: DEBUG = False Remove DISABLE_COLLECTSTATIC from the config vars.
 * Created .slugignore with /documentation, README.md & TESTING.md as I don't want the documentation to upload to Heroku.
-
 * Click **Enable Automatic Deploys** for automatic deployment when you push updates to Github.
-
 * Select the correct branch for deployment from the drop-down menu and click **Deploy Branch** for manual deployment.
 
 
 ### Github Local Deployment
+
 There are many ways to deploy the project locally on your own device. Forking, Cloning, GitHub Desktop and Zip Exctraction, the steps in these processes are outlined below:
 
-#### Forking the GitHub repo
+### Forking the GitHub repo
+
 If you want to make changes to the repo without affecting it, you can make a copy of it by 'Forking' it. This will make sure that the original repo remains unchanged.
 
 <ol>
@@ -507,7 +548,8 @@ If you want to make changes to the repo without affecting it, you can make a cop
     <li>If you have any suggestions to make regards to the code to make the site better, you can put in a pull request</li>
 </ol>
 
-#### Cloning the repo with GitPod
+### Cloning the repo with GitPod
+
 <ol>
     <li>Log in to your GitHub account</li>
     <li>Navigate to the Repository <a href="https://github.com/artcuddy/project4-cocktail-nerd" target="_blank"><strong>HERE</strong></a></li>
@@ -518,7 +560,7 @@ If you want to make changes to the repo without affecting it, you can make a cop
     <li>Press enter - the IDE will clone and download the repo</li>
 </ol>
 
-#### Github Desktop
+### Github Desktop
 <ol>
     <li>Log in to your GitHub account</li>
     <li>Navigate to the Repository <a href="https://github.com/artcuddy/project4-cocktail-nerd" target="_blank"><strong>HERE</strong></a></li>
@@ -528,7 +570,7 @@ If you want to make changes to the repo without affecting it, you can make a cop
     <li>The repo will then be copied locally onto your machine</li>
 </ol>
 
-#### Download and extract the zip directly from GitHub
+### Download and extract the zip directly from GitHub
 <ol>
     <li>Log in to your GitHub account</li>
     <li>Navigate to the Repository <a href="https://github.com/artcuddy/project4-cocktail-nerd" target="_blank"><strong>HERE</strong></a></li>
@@ -558,7 +600,7 @@ If you want to make changes to the repo without affecting it, you can make a cop
 * Adding star rating to cocktails is from <a href="https://django-star-ratings.readthedocs.io/en/latest/?badge=latest/#" target="_blank"><strong>Django Star Ratings</strong></a>
 
 
-### These resources helped me solve some of the issues encountered when developing the site
+### These are some of the resources that helped me solve some of the issues encountered when developing the site
 
 * [W3Schools - Python](https://www.w3schools.com/python/)
 * [Stack Overflow](https://stackoverflow.com/)
@@ -577,4 +619,4 @@ If you want to make changes to the repo without affecting it, you can make a cop
 
 <a href="#top">Back to the top.</a>
 
-This project was made possible due to the help & advice from my Mentor Rohit, Code Institute Slack community, Stack Overflow community and a lot of extensive Googling.
+This project was made possible due to the help & advice from my Code Institute mentor Rohit, Code Institute Slack community, Stack Overflow community and a lot of extensive Googling and hair pulling.

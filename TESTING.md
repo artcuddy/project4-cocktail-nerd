@@ -524,7 +524,7 @@ Lighthouse was used to test Performance, Best Practices, Accessibility and SEO o
 
 Due to the nature of the Postgres database being offered by Heroku and the way tests are run in Django, I encounterd an error while trying to run tests on my Django application with Heroku Postgres Add-on connected to the application.
 
-<a href="https://github.com/artcuddy/project4-cocktail-nerd/issues/29">Github Issue 29</a>
+<a href="https://github.com/artcuddy/project4-cocktail-nerd/issues/29">Github Issue #29</a>
 
 
 
@@ -564,7 +564,7 @@ else:
 A confirmation message should be displayed when an authenticated user likes or unlikes a post this was not happening but revisted the code for the post like view and
 refactored it to include a succes message when the user likes or unlikes the post.
 
-<a href="https://github.com/artcuddy/project4-cocktail-nerd/issues/22">Github Issue 22</a>
+<a href="https://github.com/artcuddy/project4-cocktail-nerd/issues/22">Github Issue #22</a>
 
 
 ```python
@@ -598,7 +598,7 @@ class PostLike(LoginRequiredMixin, View):
 
 During testing found a bug that draft posts could not be edited by an admin or staffuser on the frontend, fixed this by adding the below statement to the manage_posts.html file.
 
-<a href="https://github.com/artcuddy/project4-cocktail-nerd/issues/28">Github Issue 28</a>
+<a href="https://github.com/artcuddy/project4-cocktail-nerd/issues/28">Github Issue #28</a>
 
 ```python
 {% if post.status == 0 %}
@@ -623,7 +623,7 @@ Found this resource on how to fix it https://www.testim.io/blog/selenium-element
 
 Added this code below to fix as I needed to scroll to the button position before .click()
 
-<a href="https://github.com/artcuddy/project4-cocktail-nerd/issues/30">Github Issue 30</a>
+<a href="https://github.com/artcuddy/project4-cocktail-nerd/issues/30">Github Issue #30</a>
 
 ```python
 elem = self.driver.find_element(By.ID, 'nerd-add-post-button')
