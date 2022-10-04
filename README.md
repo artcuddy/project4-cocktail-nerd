@@ -364,6 +364,8 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
    For static CSS on Heroku
 * [Django Star Ratings](https://pypi.org/project/django-star-ratings/)<br>
    For rating system on Cocktail Nerd
+* [PyTest](https://pytest-django.readthedocs.io/en/latest/)<br>
+   For automated functional testing with Selenium
 * [Selenium](https://www.selenium.dev/)<br>
    For automated functional testing
 
@@ -402,6 +404,8 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
    To convert the images to webp format
 * [Sketch](https://www.sketch.com/)<br>
    To build the logo and icon for the project
+* [Tables Generator](https://tablesgenerator.com/)<br>
+   To build the tables in the readme.md file
 
 
 <h1 id="testing">Development & Testing</h1>
