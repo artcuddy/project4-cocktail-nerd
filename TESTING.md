@@ -54,7 +54,7 @@ The automated Automated Functional Tests were performed with Selenium & Pytest b
 The Username & Passwords were loaded from the seperate env.py file so as not to expose the username & password in the test file on Github.
 This will need to be added should you want to test this in a local development enviroment.
 
-I ran 7 automated functional tests:
+I ran 7 automated functional tests & the screen recording of the automated tests in action can be seen here <a href="https://www.youtube.com/watch?v=jjweHa68lCU">VIDEO</a>
 
 ## Automated Test Case
 
