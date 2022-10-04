@@ -24,7 +24,8 @@
                     {% if user.is_staff %}
                     <div class="nerd-edit-buttons">
                         <a href="{% url 'edit_post' post.slug %}" class="btn btn-outline-success btn-sm">Edit</a>
-                        <a href="{% url 'delete_post' post.slug %}" class="btn btn-outline-danger btn-sm">Delete</a>
+                        <a href="{% url 'delete_post' post.slug %}" id="nerd-delete-post"
+                            class="btn btn-outline-danger btn-sm">Delete</a>
                     </div>
                     {% endif %}
                     <!-- Post meta content-->
