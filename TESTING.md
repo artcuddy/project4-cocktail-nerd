@@ -39,99 +39,224 @@ This could be improved on of course to get to 100% coverage and is something I c
 
 ![admin.py](documentation/readme_images/testing/after-automated-tests.webp)
 
-21 tests completed successfully - PASS
+28 tests completed successfully - PASS
 
 ![Unit Test Results](documentation/readme_images/testing/unit-test-results.webp)
 
 
-<h2 id="automated-testing-results">Automated Behaviour Driven Development Testing Results</h2>
+<h2 id="automated-testing-results">Automated Functional Testing Results</h2>
 
 <a href="#top">Back to the top</a>
 
 
-The automated Behaviour Driven Development tests were performed with Selenium & Pytest but this had to be run on a local development enviroment as the Chromedriver would not run on Gitpod, I have included the test file below.
+The automated Automated Functional Tests were performed with Selenium & Pytest but this had to be run on a local development enviroment as the Chromedriver would not run on Gitpod, I have included the test file below.
 
-The Username & Passwords were loaded from the seperate env.py file so as not to expose the username & password in the test file on Gitpod.
+The Username & Passwords were loaded from the seperate env.py file so as not to expose the username & password in the test file on Github.
 This will need to be added should you want to test this in a local development enviroment.
 
-I ran 4 automated functional tests:
+I ran 7 automated functional tests:
 
-* Test homepage renders for logged out user
+## Automated Test Case
 
-* Test a logged in user can like a post
+| USER STORY                     | TEST CASE                                                                                                 | PASS/FAIL |
+|--------------------------------|-----------------------------------------------------------------------------------------------------------|-----------|
+| User story 001 (Regular User): | As a regular user, I want to view the site navigate to a cocktail and like, rate and comment on the post. |           |
+|                                | Test Case 001-1: Test home page renders for a logged out user                                             | PASS      |
+|                                | Test Case 001-2: Test a logged in regular user can like a post                                            | PASS      |
+|                                | Test Case 001-3: Test a logged in regular user can create a new comment                                   | PASS      |
+|                                | Test Case 001-4: Test a logged in regular user can rate a post                                            | PASS      |
+|                                |                                                                                                           |           |
+| User story 002 (Super User):   | As a super user, I want to create a new cocktail post, delete a post & create a new category              |           |
+|                                | Test Case 002-1: Test a logged in admin user can create a new post                                        | PASS      |
+|                                | Test Case 002-2: Test a logged in admin user can create a new category                                    | PASS      |
+|                                | Test Case 002-3: Test a logged in admin user can delete a post                                            | PASS      |
 
-* Test a logged in admin user can delete a post
-
-* Test a logged in admin user can create a post
-
-## Test Case
-
-| UserStory                                                                                                                              | TestCase                                          | Pass/Fail |
-|----------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|-----------|
-| User Story 001 (Regular User): As a regular user, want to view the site navigate to a cocktail and like, rate and comment on the post. | TestCase 01 - View Home / Index Page              | Pass      |
-|                                                                                                                                        | TestCase 02 - Register a new account for the site | Pass      |
-|                                                                                                                                        | TestCase 03 - Login & like a post                 | Pass      |
-
-Behaviour Driven Development Testing Variables '.env' File
+Automated Functional Testing Variables '.env' File
 
 ```
 os.environ["USER_NAME"] =  "<your_username_here>"
 os.environ["USER_PASSWORD"] =  "<your_password_here>"
 
+os.environ["REG_USER_NAME"] = "<your_username_here>"
+os.environ["REG_USER_PASSWORD"] = "<your_password_here>"
+
 ```
-Behaviour Driven Development PyTest Code
+Automated Functional Testing PyTest Code
 
 ```
 from django.test import LiveServerTestCase
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.support.select import Select
 import time
 import os
 
 USER_NAME = os.environ['USER_NAME']
 USER_PASSWORD = os.environ['USER_PASSWORD']
+REG_USER_NAME = os.environ['REG_USER_NAME']
+REG_USER_PASSWORD = os.environ['REG_USER_PASSWORD']
+
 
 class Hosttest(LiveServerTestCase):
 
+    # Setup test enviroment
     def setUp(self):
+        self.site_root_url = "http://127.0.0.1:8000"
         self.driver = webdriver.Chrome()
+
+    def visit(self, path):
+        self.driver.get(self.site_root_url + path)
 
     def tearDown(self):
         self.driver.close()
 
     def site_admin_login(self):
-        self.driver.get('http://127.0.0.1:8000/account/login/')
+        self.visit('/account/login/')
+
+        time.sleep(2)
+
         self.driver.find_element(By.ID, 'id_login').send_keys(USER_NAME)
         self.driver.find_element(By.ID, 'id_password').send_keys(USER_PASSWORD)
 
         self.driver.find_element(By.ID, 'nerd-login').click()
 
+    def site_reguser_login(self):
+        self.visit('/account/login/')
+
+        time.sleep(2)
+
+        self.driver.find_element(By.ID, 'id_login').send_keys(REG_USER_NAME)
+        self.driver.find_element(By.ID, 'id_password').send_keys(REG_USER_PASSWORD)
+
+        self.driver.find_element(By.ID, 'nerd-login').click()
+
     # Test home page renders for a logged out user
     def test_loggedout_homepage(self):
-        self.driver.get('http://127.0.0.1:8000/')
+        self.visit('/')
         time.sleep(2)
         expected = "Cocktail Nerd"
         assert self.driver.title == expected
 
-    # Test logged in user can like a  post
-    def test_userlikedpost(self):
+    
+    # Test a logged in admin user can create a new post
+    def test_user_create_post(self):
         self.site_admin_login()
-        self.driver.get('http://127.0.0.1:8000/test-post-2/')
+
+        self.visit('/add_post/')
         self.driver.set_window_size(1578, 1297)
 
         time.sleep(2)
 
-        assert "Cocktail Nerd | Test Post 2" in self.driver.title
+        self.driver.find_element(By.ID, 'id_title').send_keys('Test Post 1')
+        self.driver.find_element(By.XPATH, "//select[@name='status']/option[text()='Published']").click()
+
+        time.sleep(2)
+
+        summernote_frame = self.driver.find_element(By.ID, 'id_content_iframe')
+        self.driver.switch_to.frame(summernote_frame)
+
+        time.sleep(2)
+
+        self.driver.find_element(By.XPATH, "//body/div[2]//div[@role='textbox']/p").send_keys("Test Post 5 Content")
+
+        time.sleep(2)
+
+        self.driver.switch_to.default_content()
+        
+        elem = self.driver.find_element(By.ID, 'nerd-add-post-button')
+        elem_pos = elem.location["y"]
+        self.driver.execute_script("window.scroll(0, {})".format(elem_pos))
+        time.sleep(1)
+        elem.click()
+
+        expected = "https://project4-cocktail-nerd.herokuapp.com/add_post/?submitted=True"
+        assert self.driver.current_url == expected
+
+
+    # Test a logged in admin user can create a new category
+    def test_user_create_category(self):
+        self.site_admin_login()
+        self.visit('/add_category/')
+
+        time.sleep(2)
+
+        self.driver.find_element(By.ID, 'id_title').send_keys('New Cat')
+
+        time.sleep(2)
+
+        c = self.driver.find_element(By.ID, 'nerd-add-category-button')
+
+        time.sleep(2)
+
+        c.click()
+
+        time.sleep(2)
+
+        expected = "Cocktail Nerd | Manage Categories"
+        assert self.driver.title == expected
+
+    # Test logged in regular user can like a  post
+    def test_userlikedpost(self):
+        self.site_reguser_login()
+        self.visit('/grave-digger/')
+        self.driver.set_window_size(1578, 1297)
+
+        time.sleep(2)
 
         self.driver.find_element(By.ID, 'like-button').click()
+        
+        like_count = self.driver.find_element(By.XPATH, "/html/body/div[@class='container mt-4 px-4']/div[@class='row']//article//span[@class='text-muted']").text
+
+        assert like_count != 0
+
+
+    # Test a logged in regular user can create a new comment
+    def test_user_can_comment(self):
+        self.site_reguser_login()
+
+        self.visit('/grave-digger/')
+        self.driver.set_window_size(1578, 1297)
+
+        time.sleep(2)
+
+        self.driver.find_element(By.CLASS_NAME, 'textarea').send_keys('User can Comment Automated Test')
+
+        elem = self.driver.find_element(By.CLASS_NAME, 'nerd-comment-submit')
+        elem_pos = elem.location["y"]
+        self.driver.execute_script("window.scroll(0, {})".format(elem_pos))
+
+        time.sleep(1)
+
+        elem.click()
+
+        expected = self.driver.find_element(By.CLASS_NAME, 'alert-success').text
+
+        assert expected == 'Nice one Reguser your comment is awaiting approval...'
+
+
+    # Test a logged in regular user can rate a post
+    def test_user_can_rate_post(self):
+        self.site_reguser_login()
+
+        self.visit('/grave-digger/')
+        self.driver.set_window_size(1578, 1297)
+
+        time.sleep(2)
+        
+        p = self.driver.find_element(By.CLASS_NAME, 'star-ratings-rating-full')
+
+        time.sleep(2)
+
+        self.driver.execute_script("arguments[0].click();", p)
+
+        score = self.driver.find_element(By.XPATH, "/html//div[@class='container mt-4 px-4']/div[@class='row']//article//div[@class='star-ratings']//ul[@class='star-ratings-rating-foreground']/li[3]/form[@action='/ratings/13/85/']/input[@name='score']")
+
+        assert score != 0
+
 
     # Test a logged in admin user can delete a post
-    def test_user_deletes_post(self):
+    def test_user_delete_post(self):
         self.site_admin_login()
-        self.driver.get('http://127.0.0.1:8000/test-post-3/')
+        self.visit('/test-post-1/')
         self.driver.set_window_size(1578, 1297)
 
         time.sleep(2)
@@ -148,44 +273,17 @@ class Hosttest(LiveServerTestCase):
         expected = "Cocktail Nerd | Manage Posts"
         assert self.driver.title == expected
 
-    # Test a logged in admin user can create a post
-    def test_user_create_post(self):
-        self.site_admin_login()
-        self.driver.get('http://127.0.0.1:8000/add_post/')
-        self.driver.set_window_size(1578, 1297)
-
-        time.sleep(2)
-
-        self.driver.find_element(By.ID, 'id_title').send_keys('Test Post 5')
-        self.driver.find_element(By.XPATH, "//select[@name='status']/option[text()='Published']").click()
-
-        
-        time.sleep(2)
-
-        summernote_frame = self.driver.find_element(By.ID, 'id_content_iframe')
-        self.driver.switch_to.frame(summernote_frame)
-        self.driver.find_element(By.CLASS_NAME, 'note-editable').send_keys('Test Post 5 Content')
-
-        self.driver.switch_to.default_content()
-        
-        p = self.driver.find_element(By.ID, 'nerd-add-post-button')
-
-        time.sleep(2)
-
-        self.driver.execute_script("arguments[0].click();", p)
-
-        expected = "New Post"
-        assert self.driver.title == expected
-
 ```
 
-Behaviour Driven Development Testing Results - PASS
+Automated Functional Testing Results - PASS
+
+After Automated Functional Testing coverage is at 95%
 
 
-![Pytest Pass](documentation/readme_images/testing/pytest-pass.webp)
+![Automated Testing Pass](documentation/readme_images/testing/automated-testing-results.webp)
 
 
-<h2 id="manual-testing-results">Manual Behaviour Driven Development Testing Results</h2>
+<h2 id="manual-testing-results">Manual Functional Testing Results</h2>
 
 <a href="#top">Back to the top</a>
 
@@ -193,7 +291,7 @@ Behaviour Driven Development Testing Results - PASS
 ![Manual Test Case](documentation/readme_images/testing/cocktail-nerd-manual-testing.webp)
 
 
-The online version of the Manual Behaviour Driven Development Test Case can be found here <a href="https://docs.google.com/spreadsheets/d/1pHhJgjFstH7W10ThXaSShCkr6ejq12iErlGVMZsmJKk/edit?usp=sharing" target="_blank">**HERE**</a><br>
+The online version of the Manual Functional Test Case can be found here <a href="https://docs.google.com/spreadsheets/d/1pHhJgjFstH7W10ThXaSShCkr6ejq12iErlGVMZsmJKk/edit?usp=sharing" target="_blank">**HERE**</a><br>
 
 
 <h2 id="frontend">Frontend</h2>
@@ -420,7 +518,7 @@ Lighthouse was used to test Performance, Best Practices, Accessibility and SEO o
 
 <a href="#top">Back to the top</a>
 
-## Postgres database and testing
+## 1. Postgres database and testing
 
 Due to the nature of the Postgres database being offered by Heroku and the way tests are run in Django, I encounterd an error while trying to run tests on my Django application with Heroku Postgres Add-on connected to the application.
 
@@ -459,7 +557,7 @@ else:
     }
 ```
 
-## Confirmation Message
+## 2. Confirmation Message
 
 A confirmation message should be displayed when an authenticated user likes or unlikes a post this was not happening but revisted the code for the post like view and
 refactored it to include a succes message when the user likes or unlikes the post.
@@ -494,7 +592,7 @@ class PostLike(LoginRequiredMixin, View):
 
 ```
 
-## Draft Posts
+## 3. Draft Posts
 
 During testing found a bug that draft posts could not be edited by an admin or staffuser on the frontend, fixed this by adding the below statement to the manage_posts.html file.
 
@@ -513,6 +611,26 @@ During testing found a bug that draft posts could not be edited by an admin or s
 This now adds a prefix of DRAFT if the post has a status of 0
 
 ![Draft post tag](documentation/readme_images/testing/draft-post-tag-small.webp)
+
+
+## 4. Selenium Testing
+
+Could not get Selenium to click the add new post button on the automated tests, kept getting error Element Is Not Clickable at Point
+
+Found this resource on how to fix it https://www.testim.io/blog/selenium-element-is-not-clickable-at-point/
+
+Added this code below to fix as I needed to scroll to the button position before .click()
+
+<a href="https://github.com/artcuddy/project4-cocktail-nerd/issues/30">Github Issue 30</a>
+
+```
+elem = self.driver.find_element(By.ID, 'nerd-add-post-button')
+        elem_pos = elem.location["y"]
+        self.driver.execute_script("window.scroll(0, {})".format(elem_pos))
+        time.sleep(1)
+        elem.click()
+```
+
 
 
 
