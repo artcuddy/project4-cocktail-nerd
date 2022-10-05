@@ -54,11 +54,11 @@ The automated Automated Functional Tests were performed with Selenium & Pytest b
 The Username & Passwords were loaded from the seperate env.py file so as not to expose the username & password in the test file on Github.
 This will need to be added should you want to test this in a local development enviroment.
 
-I ran 7 automated functional tests, click the screen recording of the automated tests below to see this in action.... or click this link to view on <a href="https://www.youtube.com/watch?v=jjweHa68lCU">YouTube</a>
+I ran 8 automated functional tests, click the screen recording below to see the automated tests in action or click this link to view on <a href="https://www.youtube.com/watch?v=B7k34CGfiTE">YouTube</a>
 
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=jjweHa68lCU
-" target="_blank"><img src="http://img.youtube.com/vi/jjweHa68lCU/0.jpg" 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=B7k34CGfiTE
+" target="_blank"><img src="http://img.youtube.com/vi/B7k34CGfiTE/0.jpg" 
 alt="automated functional tests" width="300" height="220" border="0" /></a>
 
 
@@ -67,10 +67,11 @@ alt="automated functional tests" width="300" height="220" border="0" /></a>
 | USER STORY                     | TEST CASE                                                                                                 | PASS/FAIL |
 |--------------------------------|-----------------------------------------------------------------------------------------------------------|-----------|
 | User story 001 (Regular User): | As a regular user, I want to view the site navigate to a cocktail and like, rate and comment on the post. |           |
-|                                | Test Case 001-1: Test home page renders for a logged out user                                             | PASS      |
+|                                | Test Case 001-1: Test home page renders for an un-authenticated user                                             | PASS      |
 |                                | Test Case 001-2: Test a logged in regular user can like a post                                            | PASS      |
 |                                | Test Case 001-3: Test a logged in regular user can create a new comment                                   | PASS      |
 |                                | Test Case 001-4: Test a logged in regular user can rate a post                                            | PASS      |
+|                                | Test Case 001-5  Test an un-authenticated user can register an account the site                           | PASS
 |                                |                                                                                                           |           |
 | User story 002 (Super User):   | As a super user, I want to create a new cocktail post, delete a post & create a new category              |           |
 |                                | Test Case 002-1: Test a logged in admin user can create a new post                                        | PASS      |
@@ -122,6 +123,7 @@ class Hosttest(LiveServerTestCase):
 
     def site_admin_login(self):
         self.visit('/account/login/')
+        self.driver.set_window_size(1578, 1297)
 
         time.sleep(2)
 
@@ -132,6 +134,7 @@ class Hosttest(LiveServerTestCase):
 
     def site_reguser_login(self):
         self.visit('/account/login/')
+        self.driver.set_window_size(1578, 1297)
 
         time.sleep(2)
 
@@ -143,11 +146,32 @@ class Hosttest(LiveServerTestCase):
     # Test Case 001-1 home page renders for a logged out user
     def test_001_1_logged_out_homepage(self):
         self.visit('/')
+        self.driver.set_window_size(1578, 1297)
         time.sleep(2)
         expected = "Cocktail Nerd"
         assert self.driver.title == expected
 
-    
+    # Test Case 001-5 unauthenticated user can register on the site
+    def test_001_5_site_reguser_login(self):
+        self.visit('/account/signup/')
+        self.driver.set_window_size(1578, 1297)
+
+        time.sleep(2)
+
+        self.driver.find_element(By.ID, 'id_username').send_keys('testuser1')
+        time.sleep(2)
+        self.driver.find_element(By.ID, 'id_password1').send_keys('TestPassw0rd')
+        time.sleep(2)
+        self.driver.find_element(By.ID, 'id_password2').send_keys('TestPassw0rd')
+        time.sleep(2)
+        self.driver.find_element(By.ID, 'nerd-sign-up').click()
+
+        time.sleep(2)
+
+        expected = self.driver.find_element(By.CLASS_NAME, 'success').text
+
+        assert expected == 'Successfully signed in as testuser1.'
+
     # Test Case 002-1 a logged in admin user can create a new post
     def test_002_1_user_create_post(self):
         self.site_admin_login()
@@ -182,11 +206,11 @@ class Hosttest(LiveServerTestCase):
         expected = "https://project4-cocktail-nerd.herokuapp.com/add_post/?submitted=True"
         assert self.driver.current_url == expected
 
-
     # Test Case 002-2 a logged in admin user can create a new category
     def test_002_2_user_create_category(self):
         self.site_admin_login()
         self.visit('/add_category/')
+        self.driver.set_window_size(1578, 1297)
 
         time.sleep(2)
 
@@ -219,7 +243,6 @@ class Hosttest(LiveServerTestCase):
 
         assert like_count != 0
 
-
     # Test Case 001-3 a logged in regular user can create a new comment
     def test_001_3_user_can_comment(self):
         self.site_reguser_login()
@@ -243,7 +266,6 @@ class Hosttest(LiveServerTestCase):
 
         assert expected == 'Nice one Reguser your comment is awaiting approval...'
 
-
     # Test Case 001-4 a logged in regular user can rate a post
     def test_001_4_user_can_rate_post(self):
         self.site_reguser_login()
@@ -262,7 +284,6 @@ class Hosttest(LiveServerTestCase):
         score = self.driver.find_element(By.XPATH, "/html//div[@class='container mt-4 px-4']/div[@class='row']//article//div[@class='star-ratings']//ul[@class='star-ratings-rating-foreground']/li[3]/form[@action='/ratings/13/85/']/input[@name='score']")
 
         assert score != 0
-
 
     # Test Case 002-3 a logged in admin user can delete a post
     def test_002_3_user_delete_post(self):
@@ -283,7 +304,6 @@ class Hosttest(LiveServerTestCase):
         
         expected = "Cocktail Nerd | Manage Posts"
         assert self.driver.title == expected
-
 
 ```
 </details>
