@@ -612,7 +612,7 @@ If you want to make changes to the repo without affecting it, you can make a cop
 ### These are some of the resources that helped me solve some of the issues encountered when developing the site
 
 * [W3Schools - Python](https://www.w3schools.com/python/)
-* [Stack Overflow](https://stackoverflow.com/)
+* [Stack Overflow](https://stackoverflow.com/) for various code snippets and solutions
 * [Django Documentation](https://docs.djangoproject.com/en/4.1/)
 * [Django Testing](https://www.youtube.com/watch?v=0MrgsYswT1c&list=PLbpAWbHbi5rMF2j5n6imm0enrSD9eQUaM&index=3)
 * [Django Testing Cheatsheet](https://www.valentinog.com/blog/testing-django/)
