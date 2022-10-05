@@ -143,7 +143,7 @@ class Hosttest(LiveServerTestCase):
 
         self.driver.find_element(By.ID, 'nerd-login').click()
 
-    # Test Case 001-1 home page renders for a logged out user
+    # Test Case 001-1: Test home page renders for an un-authenticated user  
     def test_001_1_logged_out_homepage(self):
         self.visit('/')
         self.driver.set_window_size(1578, 1297)
@@ -151,7 +151,7 @@ class Hosttest(LiveServerTestCase):
         expected = "Cocktail Nerd"
         assert self.driver.title == expected
 
-    # Test Case 001-5 unauthenticated user can register on the site
+    # Test Case 001-5  Test an un-authenticated user can register an account the site  
     def test_001_5_site_reguser_login(self):
         self.visit('/account/signup/')
         self.driver.set_window_size(1578, 1297)
@@ -172,7 +172,7 @@ class Hosttest(LiveServerTestCase):
 
         assert expected == 'Successfully signed in as testuser1.'
 
-    # Test Case 002-1 a logged in admin user can create a new post
+    # Test Case 002-1: Test a logged in admin user can create a new post 
     def test_002_1_user_create_post(self):
         self.site_admin_login()
 
@@ -206,7 +206,7 @@ class Hosttest(LiveServerTestCase):
         expected = "https://project4-cocktail-nerd.herokuapp.com/add_post/?submitted=True"
         assert self.driver.current_url == expected
 
-    # Test Case 002-2 a logged in admin user can create a new category
+    # Test Case 002-2: Test a logged in admin user can create a new category 
     def test_002_2_user_create_category(self):
         self.site_admin_login()
         self.visit('/add_category/')
@@ -229,7 +229,7 @@ class Hosttest(LiveServerTestCase):
         expected = "Cocktail Nerd | Manage Categories"
         assert self.driver.title == expected
 
-    # Test Case 001-2 logged in regular user can like a post
+    # Test Case 001-2: Test a logged in regular user can like a post 
     def test_001_2_user_liked_post(self):
         self.site_reguser_login()
         self.visit('/grave-digger/')
@@ -243,7 +243,7 @@ class Hosttest(LiveServerTestCase):
 
         assert like_count != 0
 
-    # Test Case 001-3 a logged in regular user can create a new comment
+    # Test Case 001-3: Test a logged in regular user can create a new comment 
     def test_001_3_user_can_comment(self):
         self.site_reguser_login()
 
@@ -266,7 +266,7 @@ class Hosttest(LiveServerTestCase):
 
         assert expected == 'Nice one Reguser your comment is awaiting approval...'
 
-    # Test Case 001-4 a logged in regular user can rate a post
+    # Test Case 001-4: Test a logged in regular user can rate a post  
     def test_001_4_user_can_rate_post(self):
         self.site_reguser_login()
 
@@ -285,7 +285,7 @@ class Hosttest(LiveServerTestCase):
 
         assert score != 0
 
-    # Test Case 002-3 a logged in admin user can delete a post
+    # Test Case 002-3: Test a logged in admin user can delete a post   
     def test_002_3_user_delete_post(self):
         self.site_admin_login()
         self.visit('/test-post-1/')
