@@ -39,7 +39,7 @@ This could be improved on of course to get to 100% coverage and is something I c
 
 ![admin.py](documentation/readme_images/testing/after-automated-tests.webp)
 
-28 tests completed successfully - PASS
+Automated Unit Testing successfully ran 21 tests - PASS
 
 ![Unit Test Results](documentation/readme_images/testing/unit-test-results.webp)
 
@@ -54,7 +54,13 @@ The automated Automated Functional Tests were performed with Selenium & Pytest b
 The Username & Passwords were loaded from the seperate env.py file so as not to expose the username & password in the test file on Github.
 This will need to be added should you want to test this in a local development enviroment.
 
-I ran 7 automated functional tests & the screen recording of the automated tests in action can be seen here <a href="https://www.youtube.com/watch?v=jjweHa68lCU">VIDEO</a>
+I ran 7 automated functional tests, click the screen recording of the automated tests below to see this in action.... or click this link to view on <a href="https://www.youtube.com/watch?v=jjweHa68lCU">YouTube</a>
+
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=jjweHa68lCU
+" target="_blank"><img src="http://img.youtube.com/vi/jjweHa68lCU/0.jpg" 
+alt="automated functional tests" width="300" height="220" border="0" /></a>
+
 
 ## Automated Test Case
 
@@ -445,7 +451,7 @@ The online version of the Manual Functional Test Case can be found here <a href=
 * Posts can be filtered by status, date, category or if featured or not
 * Whenever a user comments on a cocktail the Superuser has to approve it before it will be displayed on the website. This functionality is 
   working without issues.
-* When the staffuser/superuser is publishing a new cocktail recipe all the required fields have to be filled otherwise the author can't submit the post to the database.
+* When the staffuser/superuser publishes a new cocktail recipe all the required fields have to be filled in otherwise the author can't submit the post to the database.
 
 
 ![Django Admin Dashboard](documentation/readme_images/testing/django-admin-dashboard.webp)
@@ -479,6 +485,8 @@ were entered into the online checker and no errors were found in any of the Cock
 
 
 # Cocktail Nerd - cocktailnerd
+
+
 * admin.py
 * There are 5 lines to long in the settings.py file but these are AUTH_PASSWORD_VALIDATORS and cannot be shortend
 * The error about the env imported but not used is because it's in the development mode but will not be present on the production version

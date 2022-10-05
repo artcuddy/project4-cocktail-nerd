@@ -417,6 +417,10 @@ Throughout the planning, design, testing and deployment of the Cocktail Nerd Web
 
 * Automated Testing results [here](TESTING.md)
 
+<h2 id="testing-results">Functional Automated Testing Results</h2>
+
+* Functional Automated Testing results [here](TESTING.md)
+
 <h2 id="testing-results">Manual Testing Results</h2>
 
 * Manual Testing results [here](TESTING.md)
@@ -519,7 +523,8 @@ project you can enter heroku buildpacks in the terminal.
 * Temporalliy add DISABLE_COLLECTSTATIC inside the heroku config Vars:DISABLE_COLLECTSTATIC, 1
 * Add Cloudinary Libraries to settings.py installed apps:INSTALLED_APPS = ['cloudinary_storage', 'django.contrib.staticfiles', 'cloudinary']
 * In the settings.py file under the STATIC_URL = 'static/' add:
-```
+
+```python
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -623,4 +628,4 @@ If you want to make changes to the repo without affecting it, you can make a cop
 
 <a href="#top">Back to the top.</a>
 
-This project was made possible due to the help & advice from my Code Institute mentor Rohit, Code Institute Slack community, Stack Overflow community and a lot of extensive Googling and hair pulling.
+This project was made possible due to the help & advice from my Code Institute mentor Rohit, Code Institute Slack community, Stack Overflow community and a lot of extensive Googling and hair pulling if I had any.
